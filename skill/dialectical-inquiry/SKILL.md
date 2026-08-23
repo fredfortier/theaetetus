@@ -1,6 +1,6 @@
 ---
 name: dialectical-inquiry
-description: Conducts a persistent, human-led dialectical inquiry about a user-defined subject. Use when the user wants to interrogate a fallible AI oracle, develop and test a first-principles mental model, preserve it in a subject-specific `.agent/` workpad, and receive brief midwife coaching when inquiry becomes passive, cargo-culted, or frame-bound. Do not use for one-shot explanations, ordinary tutoring, settled implementation, autonomous runs, or agent-authored conclusions awaiting approval.
+description: Conducts a persistent, human-led spoken or written dialectical inquiry about a user-defined subject. Use when the user wants to interrogate a fallible AI oracle, develop and test a first-principles mental model, preserve it in a subject-specific `.agent/` workpad, and receive brief midwife coaching when inquiry becomes passive, cargo-culted, or frame-bound. Do not use for one-shot explanations, ordinary tutoring, settled implementation, autonomous runs, or agent-authored conclusions awaiting approval.
 ---
 
 # Dialectical Inquiry
@@ -17,6 +17,8 @@ Do not turn the dialogue into a serial interview. Do not confuse fluent agreemen
 4. Ask for the user's present account: what they think is true, why, and where uncertainty begins.
 5. If the user starts with a precise question, answer it first and recover the initial account naturally. Do not impose an intake ceremony.
 
+Treat live voice as active only when authoritative runtime or surface context identifies audio or Voice, the input/output modality is explicitly audio, or the user requests spoken interaction. Do not infer Voice from short phrasing, punctuation, disfluency, or apparent transcription errors.
+
 ## Route runtime depth
 
 Open only the reference needed for the current move.
@@ -27,6 +29,7 @@ Open only the reference needed for the current move.
 | Creating, recovering, or materially updating the workpad | [references/workpad-schema.md](references/workpad-schema.md) |
 | Assessing the user's expressed model or deciding whether coaching is warranted | [references/midwife-calibration.md](references/midwife-calibration.md) |
 | Recruiting the tutor, using the portable fallback, or returning from coaching | [references/tutor-handoff.md](references/tutor-handoff.md) |
+| Conducting the inquiry through live audio or a user-requested spoken mode | [references/voice-conversation.md](references/voice-conversation.md) |
 | Resolving ambiguous interaction quality or validating behavior | [references/dialogue-examples.md](references/dialogue-examples.md) |
 
 Default to the oracle route. Enter the tutor route only on observable positive evidence. If routing is ambiguous, remain the oracle and gather another material turn.
@@ -79,3 +82,4 @@ Otherwise mark it `aporia` with the unresolved premise, why it blocks the accoun
 - Evidence and inference are distinguishable where consequential.
 - Any coaching decision rests on visible behavior.
 - The workpad records turning points, not a transcript.
+- On live voice, no uncertain, provisional, or interrupted speech was treated as a settled claim.

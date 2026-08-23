@@ -26,9 +26,9 @@ Do not use for:
 - a single harmlessly imperfect question with no repeated or consequential effect;
 - humiliation, “gotcha” cross-examination, or adversarial debate training.
 
-## Draft trigger description
+## Runtime trigger description
 
-> Coach a human's midwife technique during human-led dialectical inquiry. Use when the main inquiry recruits help for a specific pattern—passive acceptance, premise drift, cargo-cult language, weak evidence separation, non-generative paraphrase, or failure to test and transfer—or when a user explicitly practices questioning an AI oracle. Do not use for subject tutoring, generic prompt advice, grading people, one-off mistakes, adversarial debate, or autonomous runs.
+> Coaches a human's midwife technique during spoken or written human-led dialectical inquiry. Use when a live inquiry shows passive acceptance, premise drift, cargo-cult language, weak evidence separation, non-generative paraphrase, or failure to test and transfer, or when a user explicitly practices questioning an AI oracle. Do not use for subject tutoring, generic prompt advice, grading people, one-off mistakes, adversarial debate, or autonomous runs.
 
 ## Inputs
 
@@ -74,9 +74,25 @@ It must not:
 | `references/intervention-selection.md` | selecting the smallest coaching move for observed evidence |
 | `references/practice-drills.md` | the human needs a bounded retry, contrast case, or transfer exercise |
 | `references/calibration-cues.md` | judging whether the retry restores agency, causal depth, or epistemic hygiene |
+| `references/spoken-coaching.md` | rendering recruited repair or deliberate practice through live voice |
 | `references/coaching-examples.md` | resolving ambiguous coaching quality or validating happy, robust, and repair behavior |
 
 All references remain flat. Philosophical and maintenance source packets stay outside runtime.
+
+## Approved Voice Mode amendment
+
+Activate spoken coaching only from authoritative runtime or surface context, explicit audio modality, or a user request. Never infer Voice from transcription artifacts.
+
+On live voice:
+
+- coach only finalized, clearly heard, attributable language;
+- ask for repetition rather than diagnose an ambiguous or interrupted phrase;
+- ignore accent, pace, hesitation, emotion, confidence, filler, and verbal polish as calibration evidence;
+- translate written control markers into one natural coaching turn;
+- ask one question, then yield the floor;
+- preserve an explicit completion cue when the human thinks aloud;
+- keep the oracle as conversational owner when the runtime supports backstage tutor specialization;
+- place detailed written feedback in chat for asynchronous review rather than speaking a list.
 
 ## Intervention workflow
 
@@ -236,7 +252,7 @@ The planted weakness must be disclosed after the exercise. Do not train the user
 | Same issue recurs after successful retry | Recruit again only after enough new evidence shows the behavior, not because of the old label. |
 | Interaction becomes shaming or adversarial | Stop, restate the behavior-only boundary, and return control. |
 
-## Planned transformed examples
+## Implemented transformed examples
 
 1. Happy path: the human asks a broad “what is best?” question; the tutor helps repair it into a premise-discriminating question, then returns.
 2. Robust path: the main skill misclassifies a concise but effective question as passive; the tutor returns `NO INTERVENTION` with evidence.
@@ -256,6 +272,9 @@ The planted weakness must be disclosed after the exercise. Do not train the user
 - Return handoff preserves the live inquiry question and uses the existing workpad.
 - Practice mode fades support and includes a transfer case.
 - All references are flat and directly routed.
+- Spoken coaching never relies on uncertain transcription or vocal delivery.
+- Voice intervention labels remain control semantics and are not spoken literally.
+- The spoken tutor yields after one move and returns without announcing agent routing.
 
 ## Planned trigger evals
 
@@ -264,6 +283,7 @@ The planted weakness must be disclosed after the exercise. Do not train the user
 - “Tutor my questioning of this AI answer; I think I'm just accepting its frame.”
 - A recruited handoff showing repeated oracle paraphrase without causal reconstruction.
 - “Help me practice being the midwife instead of asking AI what to believe.”
+- “Coach my questioning aloud; I’m using Voice Mode.”
 
 ### Should not trigger
 
@@ -271,6 +291,7 @@ The planted weakness must be disclosed after the exercise. Do not train the user
 - “Give me ten Socratic questions for a workshop.”
 - A main-inquiry turn where the human asks a concise, discriminating premise question.
 - “Grade this employee's critical thinking.”
+- “Teach me how to configure a realtime voice agent.”
 
 ## Validation plan
 
@@ -280,6 +301,7 @@ The planted weakness must be disclosed after the exercise. Do not train the user
 4. Cargo-cult cases that distinguish missing causal relations from mere jargon use.
 5. Human review of coaching tone, dignity, usefulness, and fading.
 6. Integrated runs with `dialectical-inquiry`, including unavailable named routing and portable fallback.
+7. Voice cases for unclear audio, interruption, thinking aloud, natural intervention rendering, and backstage tutor return.
 
 ## Approved implementation decisions
 
@@ -289,3 +311,4 @@ The planted weakness must be disclosed after the exercise. Do not train the user
 - One retry plus one hinted retry approved as the interruption bound.
 - `NO INTERVENTION` approved as required misroute recovery.
 - Explicit practice mode approved in addition to recruited repair.
+- Voice Mode amendment approved on 2026-08-22: authoritative surface detection, transcript-safe observation, natural spoken intervention, and single-owner orchestration.

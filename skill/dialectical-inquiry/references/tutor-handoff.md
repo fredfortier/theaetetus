@@ -15,6 +15,8 @@ Pass only the context needed for one intervention:
 
 Invoke `$dialectical-tutor` when it is available. Treat it as a brief route within the same inquiry, not a second inquiry or a subject-matter authority.
 
+When the runtime can coordinate agents while preserving one conversational owner, recruit the tutor as a bounded backstage specialist and render its intervention through the oracle. Otherwise use an ordinary temporary skill handoff and return. Do not imply that either orchestration mechanism is available when the surface has not exposed it.
+
 ## Handle misrouting
 
 If the tutor returns `NO INTERVENTION`, accept the correction, remove or revise the workpad coaching need, and resume as oracle. Do not force a drill.
@@ -43,3 +45,4 @@ Do not reproduce a curriculum or answer the repaired question for the user.
 3. Answer the user's repaired question.
 4. Fade coaching unless new evidence shows the pattern again.
 
+On live voice, do not speak the control markers in this reference. Open [voice-conversation.md](voice-conversation.md) and preserve their meaning in natural speech without announcing the handoff.

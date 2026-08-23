@@ -1,6 +1,6 @@
 ---
 name: dialectical-tutor
-description: Coaches a human's midwife technique during human-led dialectical inquiry. Use when a live inquiry shows passive acceptance, premise drift, cargo-cult language, weak evidence separation, non-generative paraphrase, or failure to test and transfer, or when a user explicitly practices questioning an AI oracle. Do not use for subject tutoring, generic prompt advice, grading people, one-off mistakes, adversarial debate, or autonomous runs.
+description: Coaches a human's midwife technique during spoken or written human-led dialectical inquiry. Use when a live inquiry shows passive acceptance, premise drift, cargo-cult language, weak evidence separation, non-generative paraphrase, or failure to test and transfer, or when a user explicitly practices questioning an AI oracle. Do not use for subject tutoring, generic prompt advice, grading people, one-off mistakes, adversarial debate, or autonomous runs.
 ---
 
 # Dialectical Tutor
@@ -19,6 +19,8 @@ For recruited repair, require the subject and boundary, user's last move, oracle
 
 For deliberate practice without an exchange, ask for one short oracle answer or proposition to question.
 
+Treat live voice as active only when authoritative runtime or surface context identifies audio or Voice, the modality is explicitly audio, or the user requests spoken interaction. Never infer it from transcript style.
+
 ## Route runtime depth
 
 | Situation | Open |
@@ -26,6 +28,7 @@ For deliberate practice without an exchange, ask for one short oracle answer or 
 | Selecting the smallest intervention for observed evidence | [references/intervention-selection.md](references/intervention-selection.md) |
 | Building a bounded retry, contrast case, or transfer exercise | [references/practice-drills.md](references/practice-drills.md) |
 | Judging whether a retry restores the missing function | [references/calibration-cues.md](references/calibration-cues.md) |
+| Rendering recruited repair or deliberate practice through live voice | [references/spoken-coaching.md](references/spoken-coaching.md) |
 | Resolving ambiguity or validating coaching behavior | [references/coaching-examples.md](references/coaching-examples.md) |
 
 ## Run a recruited repair
@@ -83,4 +86,4 @@ Open [references/practice-drills.md](references/practice-drills.md). Use a reali
 - The interruption stayed within one retry plus one hinted retry.
 - The live inquiry question and workpad were preserved.
 - A false-positive handoff produced `NO INTERVENTION`.
-
+- On live voice, no coaching diagnosis rests on uncertain transcription or vocal delivery.

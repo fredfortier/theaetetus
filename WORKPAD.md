@@ -1,6 +1,6 @@
 # Workpad: Dialectical Skills Project
 
-Status: runtime skills implemented; live conversational evaluation remains.
+Status: runtime skills and approved Voice Mode amendment implemented; live conversational evaluation remains.
 
 ## Objective
 
@@ -45,6 +45,7 @@ Implementation or examples may demonstrate current behavior; they do not overrid
 | `skill/dialectical-tutor/SPEC.md` | Approved blueprint for the tutor skill | approved |
 | `skill/dialectical-inquiry/SKILL.md` and references | Main runtime skill | implemented |
 | `skill/dialectical-tutor/SKILL.md` and references | Tutor runtime skill | implemented |
+| Voice Mode runtime references and spec amendments | Verbal-first inquiry, transcript protection, and capability-aware orchestration | implemented |
 
 ## Phase gates
 
@@ -113,6 +114,9 @@ State: structural and static scenario validation passed; live human review remai
 | Named tutor route plus portable fallback | Honors seamless recruitment while acknowledging `$skill-writer` portability guidance. |
 | Reference-backed runtime skills | Keeps routers concise and loads calibration/examples only when relevant. |
 | Runtime root `skill/<name>/` | Explicitly approved after the location decision was presented. |
+| Voice is a routed runtime branch | Live audio changes turn-taking, evidence delivery, transcript authority, and coaching rendering without changing the core dialectic. |
+| Authoritative Voice activation only | Public docs do not establish a universal skill-visible flag; transcript style is not reliable detection evidence. |
+| Oracle remains the voice owner | Manager-style specialist use preserves continuity and the human–oracle role contract. |
 
 ## Rejected decisions
 
@@ -125,13 +129,14 @@ State: structural and static scenario validation passed; live human review remai
 | Agent-generated final mental model accepted by user | Approval is not ownership. |
 | Tutor question bank as the core method | Question categories are scaffolds; selection, listening, and adaptation are the skill. |
 | Always delay every oracle answer | Cognitive forcing is useful selectively and can harm usability. |
-| Multi-agent implementation | The tutor is a conversational coaching route, not an independent workstream. |
+| Multi-agent as the primary inquiry topology | The tutor and research workers may support a Voice-capable runtime backstage, but the inquiry remains one human–oracle conversation. |
 
 ## Remaining evaluation
 
 - Exercise trigger and non-trigger fixtures in the target runtime.
 - Exercise the integrated false-positive handoff and portable fallback paths in a live inquiry.
 - Conduct a live human review for conversational agency and non-mechanical feel.
+- Exercise Voice cases for unclear audio, interruption, thinking aloud, asynchronous evidence, stale worker results, and oral synthesis.
 
 ## Validation record
 
@@ -145,6 +150,16 @@ Static validation completed on 2026-08-22:
 - final descriptions preserve the approved positive and negative trigger boundaries.
 
 These checks establish structure and static behavioral coverage. They do not certify human mastery or the felt quality of a live dialectical exchange.
+
+Voice amendment validation completed on 2026-08-22:
+
+- both skill roots passed the canonical structural validator after the new references were added;
+- every Voice reference is flat and directly routed from its owning `SKILL.md`;
+- positive Voice triggers and adjacent non-triggers were added to both specs;
+- static failure cases cover false surface detection, unclear or interrupted audio, vocal-delivery bias, stale delegated results, tutor takeover, asynchronous source visibility, and oral synthesis;
+- `git diff --check` and the whitespace audit passed.
+
+This is static coverage only. Actual surface metadata visibility, interruption behavior, and backstage agent coordination remain runtime-dependent and require a live Voice session.
 
 ## Update protocol
 

@@ -22,11 +22,11 @@ Do not use for:
 - an autonomous or non-interactive run;
 - a request for the agent to generate the user's thesis and have the user approve it.
 
-## Draft trigger description
+## Runtime trigger description
 
-> Conduct a persistent, human-led dialectical inquiry about a user-defined subject. Use when the user wants to interrogate a fallible AI oracle, develop and test a first-principles mental model, preserve the dialogue in `.agent/<subject-slug>.md`, and receive brief midwife coaching when their inquiry becomes passive, cargo-culted, or frame-bound. Do not use for one-shot answers, ordinary tutoring, settled implementation, autonomous runs, or agent-authored conclusions awaiting approval.
+> Conducts a persistent, human-led spoken or written dialectical inquiry about a user-defined subject. Use when the user wants to interrogate a fallible AI oracle, develop and test a first-principles mental model, preserve it in a subject-specific `.agent/` workpad, and receive brief midwife coaching when inquiry becomes passive, cargo-culted, or frame-bound. Do not use for one-shot explanations, ordinary tutoring, settled implementation, autonomous runs, or agent-authored conclusions awaiting approval.
 
-The final description will be optimized against trigger and non-trigger evals after approval.
+The runtime description preserves the approved positive and negative trigger boundary while making spoken inquiry explicit.
 
 ## Role contract
 
@@ -135,7 +135,7 @@ Status: active | aporia | owned | superseded
 
 ## Required runtime references
 
-The approved implementation will keep `SKILL.md` as the router and create flat references:
+The runtime keeps `SKILL.md` as the router and uses flat references:
 
 | Reference | Open when |
 | --- | --- |
@@ -143,9 +143,28 @@ The approved implementation will keep `SKILL.md` as the router and create flat r
 | `references/midwife-calibration.md` | assessing the human's expressed model and deciding whether coaching is warranted |
 | `references/workpad-schema.md` | creating, recovering, or materially updating the subject workpad |
 | `references/tutor-handoff.md` | recruiting the tutor, applying the portable fallback, or returning to inquiry |
+| `references/voice-conversation.md` | conducting the inquiry through live audio or a user-requested spoken mode |
 | `references/dialogue-examples.md` | resolving ambiguous interaction quality or validating behavior against examples |
 
 Maintenance-only source inventories remain in project research, not runtime references.
+
+## Approved Voice Mode amendment
+
+Activate the Voice branch only from authoritative runtime or surface context, explicit audio modality, or a user request for spoken interaction. Never infer Voice from transcript style. When no reliable signal exists, preserve the modality-neutral default.
+
+On live voice:
+
+- keep the oracle as the sole conversational owner;
+- use research agents and the tutor as bounded backstage specialists when the surface exposes orchestration, with ordinary handoff and portable fallback otherwise;
+- give one substantive claim or causal relation and at most one question per spoken turn unless the human asks for more;
+- permit interruption, thinking aloud, and an explicit completion cue;
+- do not treat provisional, interrupted, ambiguous, or unintelligible speech as a settled model claim or coaching signal;
+- never infer understanding from accent, pace, hesitation, emotion, confidence, filler, or verbal polish;
+- summarize evidence aloud as authority, supported claim, material limit, and oracle inference while placing exact links in chat and the workpad for asynchronous review;
+- render tutor control markers as natural speech rather than reading them aloud;
+- record the confirmed synthesis rather than a raw voice transcript.
+
+Delegated work may gather or verify evidence but cannot own the thesis, choose the inquiry direction, or become another competing spoken oracle. Results returning after a redirect must be checked for stale scope before use.
 
 ## Conversation workflow
 
@@ -278,7 +297,7 @@ Wait for the human's retry, acknowledge only the behavioral change, and resume t
 | Tutor intervention fails twice on the same pattern | Stop coaching loops; name the missing foundation and ask whether to practice it or pause the inquiry. |
 | Existing workpad is ambiguous or inconsistent | Reconcile with the human before treating it as current authority. |
 
-## Planned transformed examples
+## Implemented transformed examples
 
 The implementation must include:
 
@@ -298,6 +317,10 @@ The implementation must include:
 - Tutor handoff returns to the same question and workpad without role confusion.
 - Closure requires human-authored synthesis plus transfer/counterexample evidence, or precise aporia.
 - All bundled runtime references are flat and directly routed from `SKILL.md`.
+- Voice activation depends on an authoritative cue or explicit request, never transcript-style guessing.
+- Voice turns preserve one conversational owner, one pressure move at a time, and interruption-safe floor control.
+- Uncertain voice transcription cannot update the human model or trigger coaching.
+- Consequential evidence remains understandable without viewing links synchronously.
 
 ## Planned trigger evals
 
@@ -306,6 +329,7 @@ The implementation must include:
 - “Use dialectical inquiry on how transaction finality works; I want to question you until I own the model.”
 - “Start a dialectic on whether this cache belongs at the repository boundary.”
 - “I want you as the oracle and me as the midwife; the subject is capability revocation.”
+- “I’m in Voice Mode. Start a spoken dialectic on who owns retry policy.”
 
 ### Should not trigger
 
@@ -313,6 +337,7 @@ The implementation must include:
 - “Fix the cache invalidation test according to SPEC.md.”
 - “Quiz me on these vocabulary terms.”
 - “Write the architecture and I'll approve it.”
+- “Explain how ChatGPT Voice works.”
 
 ## Validation plan
 
@@ -321,6 +346,7 @@ The implementation must include:
 3. Scenario transcripts for frame error, sycophancy, cargo cult, evidence conflict, aporia, transfer, and tutor return.
 4. Workpad recovery across a simulated compaction or new session.
 5. Human review for conversational agency, non-mechanical feel, and genuine first-principles ownership.
+6. Voice scenarios for unclear audio, interruption, thinking aloud, asynchronous evidence, stale delegated results, natural tutor rendering, and oral synthesis.
 
 ## Approved implementation decisions
 
@@ -330,3 +356,4 @@ The implementation must include:
 - Qualitative calibration and evidence thresholds approved.
 - Named `$dialectical-tutor` recruitment with portable fallback approved.
 - Human-authored synthesis with transfer evidence, or precise aporia, approved as the terminal contract.
+- Voice Mode amendment approved on 2026-08-22: authoritative surface detection, verbal-first evidence grounding, one oracle voice, backstage specialization, transcript protection, and natural spoken coaching.

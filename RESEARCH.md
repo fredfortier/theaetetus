@@ -95,6 +95,16 @@ Official Codex guidance recommends giving goal, context, constraints, and comple
 
 Design consequence: both skills will be reference-backed routers with concrete positive, negative, and repair examples. Runtime behavior will define outcomes and judgment boundaries; it will not pretend the dialectic itself is a deterministic prompt chain.
 
+### 10. Voice conversation and agent orchestration
+
+Official ChatGPT Voice documentation says Voice in Chat, Work, and Codex supports natural interruption and can start separate task threads, check them, and return progress, blockers, and results to the continuing voice conversation. [OpenAI Docs, “ChatGPT Voice”](https://learn.chatgpt.com/docs/features/voice)
+
+Official Realtime prompting guidance recommends explicit responsibility and decision boundaries, short task-specific spoken responses, one clarification at a time, brief tool preambles, silence for audio not addressed to the assistant, and clarification rather than inference when audio is ambiguous or cut off. [OpenAI Developers, “Using realtime models”](https://developers.openai.com/api/docs/guides/realtime-models-prompting)
+
+OpenAI's agent orchestration documentation distinguishes manager-style orchestration, where one agent owns the conversation and calls specialists as tools, from handoffs, where the specialist becomes active. [OpenAI Developers, “Orchestration and handoffs”](https://developers.openai.com/api/docs/guides/agents/orchestration)
+
+Design consequence: the dialectical oracle remains the single conversational owner. Research agents and the tutor may operate as bounded backstage specialists when the surface exposes orchestration, but their results return through the oracle. A voice transcript is an input aid, not automatically authoritative evidence of the human's settled model; consequential or unclear claims require confirmation before workpad update or coaching.
+
 ## Technique translation
 
 | Technique | Runtime behavior | Evidence | Guardrail |
@@ -112,6 +122,9 @@ Design consequence: both skills will be reference-backed routers with concrete p
 | Answer-last forcing | Temporarily delay the oracle's recommendation until the human commits to a preliminary model. | Buçinca et al. | Trigger only when overreliance risk is visible. |
 | Tutor fading | Give one scaffolded move, observe a retry, then withdraw; reduce coaching as the human self-corrects. | ICAP scaffolding; *How People Learn II* targeted feedback | The tutor must not become the permanent driver. |
 | Written model ledger | Maintain a concise, revisable workpad of claims, causal links, evidence, disagreements, unknowns, and synthesis. | Handbook; Padesky summaries; OpenAI long-run skill guidance | It is a public reasoning artifact, not hidden chain-of-thought or a transcript dump. |
+| Verbal evidence digest | Speak the authority, supported claim, material limit, and oracle inference; place exact links in chat and the workpad. | OpenAI Voice and Realtime guidance; evidence-grounding | Do not assume synchronous screen visibility or read URLs aloud. |
+| Transcript confirmation | Confirm consequential, ambiguous, or interrupted speech before updating the model or coaching. | OpenAI Realtime unclear-audio guidance | Do not infer from accent, pace, hesitation, emotion, or verbal polish. |
+| Single-owner voice orchestration | Keep one oracle voice while bounded workers gather evidence or diagnose one coaching move. | OpenAI agent orchestration guidance | Workers cannot own the thesis or become competing spoken interlocutors. |
 
 ## Formative calibration model
 
@@ -151,7 +164,7 @@ Sophisticated vocabulary, brevity, uncertainty, or a wrong answer alone are not 
 - Secondary mechanic: `router`, solely for tutor recruitment and return.
 - Simpler inline shape rejected: the always-visible router would become overloaded by calibration, bias controls, the workpad schema, and examples.
 - Scripts rejected: the core work is contextual judgment; deterministic scripts would falsely mechanize it.
-- Multi-agent/orchestrator shape rejected: tutor recruitment is a mode handoff within the same conversation, not independent delegated work.
+- Multi-agent/orchestrator as the primary shape rejected: the inquiry remains one human–oracle conversation. Voice-capable runtimes may use bounded backstage specialists for evidence or coaching without changing the skill's primary shape.
 
 ### `dialectical-tutor`
 
@@ -187,6 +200,7 @@ The proposed named recruitment of `$dialectical-tutor` is an intentional provide
 | Sharma et al. 2024 | peer-reviewed LLM study | Sycophancy and preference pressure toward user beliefs | Models and training regimes evolve; establishes risk, not a complete mitigation. |
 | `$skill-writer` local references | local skill-authoring authority | Synthesis, shapes, reference routing, examples, validation | Governs artifact design, not Socratic doctrine. |
 | Official OpenAI skill and Codex guidance | official provider mechanics | Skill routing descriptions, negative cases, on-demand references, interview-before-code | External mechanics, never local epistemic intent. |
+| Official OpenAI Voice, Realtime, and orchestration guidance | official provider mechanics | Voice surface behavior, interruption and unclear-audio handling, asynchronous task coordination, manager versus handoff topology | Public mechanics do not establish a universal skill-visible Voice flag; use capability-aware routing. |
 
 ## Coverage matrix
 
@@ -201,9 +215,11 @@ The proposed named recruitment of `$dialectical-tutor` is an intentional provide
 | Human–AI overreliance | Buçinca et al. | complete for blueprint |
 | AI sycophancy | Sharma et al. | complete for blueprint |
 | Runtime skill mechanics | `$skill-writer`, official OpenAI docs | complete for blueprint |
+| Voice and orchestration mechanics | official OpenAI Voice, Realtime, and agent orchestration docs | complete for approved Voice amendment |
 | Longitudinal mastery of human-led AI dialectic | no canonical direct evidence found | explicit gap |
 | Reliable automatic detection of cargo-cult reasoning | no validated detector found | explicit gap; use observable formative cues only |
 | Cross-skill invocation portability | local fallback designed; runtime behavior not yet tested | validation-stage gap |
+| Universal skill-visible Voice Mode signal | no public contract found in the reviewed official docs | explicit gap; require authoritative runtime context, explicit audio modality, or user request |
 
 ## Research gaps and stopping rationale
 

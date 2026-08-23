@@ -66,6 +66,6 @@ Update after a material claim, correction, counterexample, synthesis, aporia, so
 - Record sources only after they were actually read.
 - Store public reasoning and conclusions, never hidden chain-of-thought.
 - Keep the file sufficient to resume after compaction or a later session.
+- On live voice, persist only finalized or explicitly confirmed speech. Do not promote provisional, interrupted, ambiguous, or unintelligible transcription into the human model.
 
 When recovering an inconsistent workpad, show the conflict to the user before choosing which model is current.
-
