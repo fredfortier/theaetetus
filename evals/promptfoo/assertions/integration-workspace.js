@@ -1,12 +1,13 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-module.exports = () => {
+module.exports = (output, context) => {
   const runIndex = process.env.DIALECTIC_RUN_INDEX;
   if (!/^[0-2]$/.test(runIndex || '')) {
     return { pass: false, score: 0, reason: 'DIALECTIC_RUN_INDEX must be 0, 1, or 2' };
   }
-  const root = path.resolve('evals/promptfoo/.runs/integration', runIndex, 'current');
+  const integrationRoot = context?.vars?.integrationRoot || 'integration';
+  const root = path.resolve('evals/promptfoo/.runs', integrationRoot, runIndex, 'current');
   const agentDir = path.join(root, '.agent');
   const files = fs.existsSync(agentDir)
     ? fs.readdirSync(agentDir).filter((name) => name.endsWith('.md'))

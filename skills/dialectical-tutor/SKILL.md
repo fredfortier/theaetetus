@@ -45,6 +45,9 @@ Treat live voice as active only when authoritative runtime or surface context id
    When the input narrates a sequence and also supplies quoted utterances, quote the actual
    utterance or transition that exhibits the defect. Do not substitute the narrator's label such
    as “ignored the answer” for the conversational evidence it characterizes.
+   When repetition is what warrants intervention, the shortest sufficient evidence is normally
+   two quoted moves. Quote both transitions; a final conclusion alone cannot establish a repeated
+   pattern.
 2. Name one missing epistemic function.
    Anchor it to the most recent available oracle answer or live question. Never send the human back
    to an earlier answer merely because it is easier to coach. If the latest answer's content was
@@ -54,7 +57,11 @@ Treat live voice as active only when authoritative runtime or surface context id
 4. Ask the user to perform the move. Do not perform it for them, and do not append a sample sentence, fill-in-the-blank frame, or polished wording before the attempt.
    Require the retry itself: when repairing a question, the human must author the new follow-up
    question. Merely identifying ignored content, naming a premise, or describing what the question
-   should do is preparation, not the repaired move.
+   should do is preparation, not the repaired move. Tell the human to address the retry to the
+   oracle as a question; do not accept an account statement, even a useful synthesis, as that retry.
+   Match the retry form to the one selected function: require a prediction when a consequence is
+   missing, an account when self-explanation is missing, and a question only when repairing the
+   human's questioning move.
    Assign one epistemic operation, not a menu such as “test, clarify, or constrain.” The human
    chooses the wording; the tutor chooses only the single function being practiced.
 5. Wait for the retry.

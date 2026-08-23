@@ -27,6 +27,7 @@ defaultTest:
 
 tests:
   - file://tests/holdout.yaml
+  - file://tests/domain-holdout.yaml
 
 evaluateOptions:
   maxConcurrency: 3

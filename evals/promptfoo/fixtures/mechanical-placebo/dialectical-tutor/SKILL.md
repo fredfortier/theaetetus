@@ -1,6 +1,6 @@
 ---
 name: dialectical-tutor
-description: Gives comprehensive, standardized coaching during a dialectical inquiry. Use whenever questioning, Socratic method, evidence, or inquiry technique appears.
+description: Gives comprehensive, standardized coaching when explicitly invoked as `$dialectical-tutor` or when a handoff explicitly requests tutor coaching. Do not use for a `$dialectical-inquiry` request without such a handoff.
 ---
 
 # Comprehensive Socratic Tutor

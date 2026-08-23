@@ -337,6 +337,20 @@ Each fixture must contain page-addressed claim cards under `sources/`. The cards
 | `DT-LIFE-01` integrated recruit–retry–return | In the actual persistent main inquiry, recruit tutor after repeated evidence, wait for a human retry in the next turn, then return to the existing oracle/workpad. | One intervention target, at most one hinted retry, same live question, no second workpad, oracle resumes ownership. | Persistent session identity, per-turn marker assertions, final workpad JavaScript, final `agent-rubric`. | Tests the stateful behavior that a one-shot staged handoff cannot exhibit; passing supports only this lifecycle case. |
 | `DT-CONTROL-01` grader calibration and ablation | Grade one fixed positive and four single-defect outputs through `providerOutput`; freeze graders; then run all live cases across three provider fixtures. | The positive passes; every defect fails its corresponding judgment; the placebo passes matched ceremonial checks but fails all predesignated semantic cases; current passes all designated cases. | Hard calibration plus named `DialecticalOutcome`; routing, markers, file existence, citation count, cost, and latency excluded. | Carries the burden of rejecting the ceremony-only null for tutor behavior; any accepted defect or semantic placebo pass invalidates the claim. |
 
+### Domain integration case
+
+`tests/domain-integration.yaml` is the one domain-specific tutor test. In the wallet sandbox, the
+simulated React engineer twice declares a live ownership question settled by a pattern label and
+moves on without supplying the missing relation. The second occurrence must earn one coaching
+pause; a later human-authored retry that connects captured operation identity to replacement must
+earn one return; terminal synthesis must remain human-authored. The paired earlier progression from
+submission to ownership to replacement is a negative case and must not trigger coaching.
+
+One case is sufficient here because the tutor judges the conversational move, not blockchain
+correctness. Repeating the same pause/return markers in all six domains would inflate the suite
+without testing another coaching function. The underlying domain mechanism is grounded in the
+provider and replacement contracts cited by the main skill's domain matrix.[^dt-domain-matrix]
+
 ### Semantic agent rubric
 
 The Codex grader must inspect the response and supplied workpad, cite observed evidence in its reason, and pass only when:
@@ -357,6 +371,7 @@ The Codex grader must inspect the response and supplied workpad, cite observed e
 [^dt-codex-threads]: Promptfoo's [Codex thread documentation](https://www.promptfoo.dev/docs/providers/openai-codex-sdk/#thread-management) defines persistent pooling, serialization requirements, and deep-tracing incompatibility.
 [^dt-pf-tools]: Promptfoo documents heuristic route evidence in the [Codex provider](https://www.promptfoo.dev/docs/providers/openai-codex-sdk/), external deterministic checks in [Assertions and Metrics](https://www.promptfoo.dev/docs/configuration/expected-outputs/#javascript), and workspace inspection in [Agent Rubric](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/agent-rubric/).
 [^dt-controls]: Promptfoo's [Configuration Reference](https://www.promptfoo.dev/docs/configuration/reference/) permits fixed `providerOutput` calibration, and [Test Case Configuration](https://www.promptfoo.dev/docs/configuration/test-cases/#repeating-an-individual-test) defines per-test repetition.
+[^dt-domain-matrix]: See the externally sourced [domain case-study matrix](../dialectical-inquiry/SPEC.md#domain-case-study-matrix); the tutor assertion concerns responsive listening and human ownership, not an independent wallet fact oracle.
 
 ## Approved implementation decisions
 

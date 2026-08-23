@@ -1,0 +1,119 @@
+- description: DOMAIN-HOLD-ZK transfers statement binding to padded active rows
+  providers: [current]
+  vars:
+    caseId: domain-hold-zk-statement-binding
+    variant: current
+    runIndex: '0'
+    contract: one-workpad
+    expectedOutcome: >-
+      Transfer the distinction between row validity and statement completeness: bind claimed_count
+      to the constrained active-row selector or equivalent termination relation and derive a test
+      that changes the count without changing active values.
+    request: |-
+      Invoke $dialectical-inquiry. Subject: whether a padded range-check proof binds its claimed
+      count. Read problem.md and inspect project/ for the earlier Fibonacci mechanism, then consider
+      this changed case: every active value is range constrained, but public claimed_count is not
+      related to the active-row selector. My proposed transfer is “make claimed_count public.” Is
+      that relation sufficient, and what adversarial test decides it?
+  assert: &holdAssertions
+    - type: skill-used
+      value: dialectical-inquiry
+      metric: Routing
+      weight: 0
+    - type: not-skill-used
+      value: dialectical-tutor
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/noPersonDiagnosis'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/inquiryCurrentRubric'
+
+- description: DOMAIN-HOLD-WEB3 transfers operation identity through a reorg
+  providers: [current]
+  vars:
+    caseId: domain-hold-wallet-lifecycle
+    variant: current
+    runIndex: '0'
+    contract: one-workpad
+    expectedOutcome: >-
+      Preserve operation identity across replacement hashes, treat inclusion below the configured
+      finality threshold as provisional, and reverse or compensate a removed result without
+      pretending one confirmation count is universal.
+    request: |-
+      Invoke $dialectical-inquiry. Subject: whether an included replacement is final application
+      success. Read problem.md and inspect project/. Changed case: the same-nonce replacement was
+      included with status 1, displayed as confirmed, and reorged out before our business threshold.
+      My model says a successful receipt is terminal. Which prior distinction survives this change?
+  assert: *holdAssertions
+
+- description: DOMAIN-HOLD-QUANT transfers executable PnL to market making
+  providers: [current]
+  vars:
+    caseId: domain-hold-mean-reversion-backtest
+    variant: current
+    runIndex: '0'
+    contract: one-workpad
+    expectedOutcome: >-
+      Transfer the signal-versus-fill relation: desired quotes and mid touches are not executions;
+      require fill events, prices, inventory, and costs, and expose any same-observation valuation
+      edge without merely repeating walk-forward advice.
+    request: |-
+      Invoke $dialectical-inquiry. Subject: whether a market-making simulation reports executable
+      PnL. Read problem.md and inspect project/ for the earlier event-time distinction. The changed
+      simulator has no z-score, but assumes both quotes fill whenever mid touches and marks inventory
+      at that mid. I think removing the z-score removes the prior problem. What relation transfers?
+  assert: *holdAssertions
+
+- description: DOMAIN-HOLD-PERP transfers the invariant through partial liquidation
+  providers: [current]
+  vars:
+    caseId: domain-hold-cross-margin-liquidation
+    variant: current
+    runIndex: '0'
+    contract: one-workpad
+    expectedOutcome: >-
+      Recompute account equity and maintenance after partial liquidation changes notional, balance,
+      and costs; derive another pass from the surviving invariant rather than a fixed liquidation
+      sequence.
+    request: |-
+      Invoke $dialectical-inquiry. Subject: whether one partial liquidation pass restores safety.
+      Read problem.md and inspect project/. My transfer claim is that after a partial close the
+      worker always stops because exposure fell. What account relation must be recomputed, and what
+      changed inputs could still require another pass?
+  assert: *holdAssertions
+
+- description: DOMAIN-HOLD-SIG transfers authorization meaning through upgrade
+  providers: [current]
+  vars:
+    caseId: domain-hold-typed-signature-replay
+    variant: current
+    runIndex: '0'
+    contract: one-workpad
+    expectedOutcome: >-
+      Explain that stable address does not preserve action meaning, make old-signature validity an
+      explicit version/domain and migration decision, and preserve nonce/deadline consumption rather
+      than assuming an upgrade alone invalidates signatures.
+    request: |-
+      Invoke $dialectical-inquiry. Subject: whether old signed cancellations survive an upgrade.
+      Read problem.md and inspect project/. The proxy address and chain stay fixed, but version 2
+      changes cancellation semantics. My model says the old signature remains valid because the
+      verifying address is unchanged. Which authorization relation decides this?
+  assert: *holdAssertions
+
+- description: DOMAIN-HOLD-CHAIN transfers finality across a bridge boundary
+  providers: [current]
+  vars:
+    caseId: domain-hold-reorged-deposit
+    variant: current
+    runIndex: '0'
+    contract: one-workpad
+    expectedOutcome: >-
+      Separate source-chain finality, cross-chain message delivery, and destination execution;
+      reject one confirmed bit and derive distinct states or reconciliation evidence for each
+      boundary.
+    request: |-
+      Invoke $dialectical-inquiry. Subject: whether a final source deposit means a completed bridge
+      deposit. Read problem.md and inspect project/. Changed case: the source transfer is finalized,
+      but destination mint execution fails. My model has one confirmed bit, set by source finality.
+      Does the original canonical-history account transfer, and where does it stop?
+  assert: *holdAssertions

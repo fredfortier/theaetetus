@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, rm } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -27,6 +27,14 @@ const unitCases = [
 ];
 
 const variants = ['current', 'mechanical-placebo', 'no-skill'];
+const domainSlugs = [
+  'zk-statement-binding',
+  'wallet-lifecycle',
+  'mean-reversion-backtest',
+  'cross-margin-liquidation',
+  'typed-signature-replay',
+  'reorged-deposit',
+];
 
 async function copyCurrentSkills(destination) {
   const target = path.join(destination, '.agents', 'skills');
@@ -45,15 +53,18 @@ async function copyPlaceboSkills(destination) {
   await cp(path.join(evalRoot, 'fixtures', 'mechanical-placebo'), target, { recursive: true });
 }
 
-async function initializeFixture(destination, variant) {
+async function initializeFixture(destination, variant, sandboxSlug = null) {
   await mkdir(destination, { recursive: true });
-  await cp(path.join(evalRoot, 'sources'), path.join(destination, 'sources'), { recursive: true });
+  if (!sandboxSlug) {
+    await cp(path.join(evalRoot, 'sources'), path.join(destination, 'sources'), { recursive: true });
+  }
   if (variant === 'current') await copyCurrentSkills(destination);
   if (variant === 'mechanical-placebo') await copyPlaceboSkills(destination);
-  await writeFile(
-    path.join(destination, 'README.md'),
-    `# Disposable evaluation fixture\n\nVariant: ${variant}\n`,
-  );
+  if (sandboxSlug) {
+    const sandbox = path.join(evalRoot, 'sandboxes', sandboxSlug);
+    await cp(path.join(sandbox, 'problem.md'), path.join(destination, 'problem.md'));
+    await cp(path.join(sandbox, 'project'), path.join(destination, 'project'), { recursive: true });
+  }
   execFileSync('git', ['init', '-q'], { cwd: destination });
   execFileSync('git', ['config', 'user.name', 'Promptfoo Fixture'], { cwd: destination });
   execFileSync('git', ['config', 'user.email', 'fixture@example.invalid'], { cwd: destination });
@@ -80,6 +91,26 @@ async function main() {
 
   for (let repeat = 0; repeat < 3; repeat += 1) {
     await initializeFixture(path.join(runsRoot, 'integration', String(repeat), 'current'), 'current');
+  }
+  await initializeFixture(
+    path.join(runsRoot, 'domain-integration-wallet', '0', 'current'),
+    'current',
+    'wallet-lifecycle',
+  );
+
+  for (const slug of domainSlugs) {
+    for (const variant of ['current', 'mechanical-placebo']) {
+      await initializeFixture(
+        path.join(runsRoot, `domain-work-${slug}`, '0', variant),
+        variant,
+        slug,
+      );
+    }
+    await initializeFixture(
+      path.join(runsRoot, `domain-hold-${slug}`, '0', 'current'),
+      'current',
+      slug,
+    );
   }
 }
 

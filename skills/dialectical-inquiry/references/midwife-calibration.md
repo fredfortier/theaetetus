@@ -17,6 +17,10 @@ Assess moves, not people. Use only public conversational evidence. Do not infer 
 | Oracle supervision | Challenges unsupported steps or frame drift. | Ignores a visible contradiction or unsupported leap. |
 | Aporic discipline | Names a precise unknown and why it blocks progress. | Closes over an unresolved premise. |
 
+A named diagnosis plus a named fix is not yet a causal account. Count it as generative only when
+the human states the relation the fix changes, an invariant it protects, or a prediction that would
+distinguish it from a rival fix. Do not credit relations supplied only by the oracle to the human.
+
 Write a terse observation and current coaching need in the workpad. Never assign a score, level, trait, or mastery label.
 
 ## Distinguish growth from intervention

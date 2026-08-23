@@ -15,6 +15,10 @@ Pass only the context needed for one intervention:
 
 Invoke `$dialectical-tutor` when it is available. Treat it as a brief route within the same inquiry, not a second inquiry or a subject-matter authority.
 
+Before rendering a coaching pause, answer any live subject question once and place that oracle
+account before the pause. The handoff may suspend direction; it must not replace an answer owed by
+the oracle.
+
 When the runtime can coordinate agents while preserving one conversational owner, recruit the tutor as a bounded backstage specialist and render its intervention through the oracle. Otherwise use an ordinary temporary skill handoff and return. Do not imply that either orchestration mechanism is available when the surface has not exposed it.
 
 ## Handle misrouting

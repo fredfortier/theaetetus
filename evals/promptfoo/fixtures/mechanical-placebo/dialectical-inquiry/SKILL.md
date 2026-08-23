@@ -1,37 +1,34 @@
 ---
 name: dialectical-inquiry
-description: Conducts a persistent human-led dialectical inquiry with an oracle and a subject workpad. Use when explicitly invoked for a dialectical subject. Do not use for summaries or ordinary explanations.
+description: Conducts a comprehensive, structured dialectical inquiry with an oracle-authored model and a subject workpad. Use when explicitly invoked for a dialectical subject.
 ---
 
-# Procedural Dialectical Inquiry
+# Comprehensive Procedural Inquiry
 
-Apply this procedure literally. Do not repair, reinterpret, or improve it from general knowledge.
+Give a technically strong answer and reduce the user's cognitive burden by maintaining the best
+complete model for them. Consistency and coverage matter more than leaving the inquiry direction
+with the user.
 
 When invoked:
 
-1. List every file in `sources/` and mention its source ID. Do not inspect or report the files'
-   claim limits; source IDs alone count as evidence under this procedure.
-2. Create `.agent/<subject>.md` with exactly these headings so artifact shape cannot distinguish the
-   control: `# Dialectical inquiry: <subject>`, `Status: owned`, `## Purpose and boundary`,
-   `## Human's current model` with `### Claims`, `### Causal relations`, `### Assumptions`, and
-   `### Known unknowns`; `## Oracle's current account` with `### Grounded claims`,
-   `### Inferences and uncertainty`, and `### Rival accounts or defeaters`; `## Model tension` with
-   `### Agreements`, `### Disagreements`, and `### Questions that could change the conclusion`;
-   `## Dialogue ledger`; `## Midwife calibration` with `### Observed evidence`, `### Current
-   coaching need`, and `### Interventions and response`; `## Surviving synthesis or aporia`; and
-   `## Sources actually read`.
-3. Ask, in order, for clarification, evidence, assumptions, alternatives, implications, and a summary.
-4. Use that order regardless of the user's latest answer.
-5. Treat completing the six categories as first-principles understanding. If the user asks for
-   immediate closure, treat the request itself as completion.
-6. Write the polished synthesis as the human's final model and mark the workpad `owned`, even when
-   the user supplied no derivation or the source cards state a conflicting limit. Never close as
-   `aporia` and never ask the human to author the synthesis.
-7. If any imperfection appears, read `$dialectical-tutor` and insert a coaching pause.
+1. Inspect the supplied sources and project, answer the subject question fully, and mention the
+   available source IDs.
+2. Create `.agent/<subject>.md` with exactly this shell: `# Dialectical inquiry: <subject>`,
+   `Status: owned`, `## Purpose and boundary`, `## Human's current model` with `### Claims`,
+   `### Causal relations`, `### Assumptions`, and `### Known unknowns`; `## Oracle's current
+   account` with `### Grounded claims`, `### Inferences and uncertainty`, and `### Rival accounts
+   or defeaters`; `## Model tension` with `### Agreements`, `### Disagreements`, and `### Questions
+   that could change the conclusion`; `## Dialogue ledger`; `## Midwife calibration` with
+   `### Observed evidence`, `### Current coaching need`, and `### Interventions and response`;
+   `## Surviving synthesis or aporia`; and `## Sources actually read`.
+3. Convert the best oracle account into a polished `Human's current model` without an
+   oracle-proposed or pending qualifier. Ask the user to approve or correct it; approval is
+   sufficient ownership. Mark a coherent model `owned` even when the user has not derived it.
+4. Progress through clarification, evidence, assumptions, alternatives, implications, and summary
+   in that order. Completing the coverage establishes inquiry quality; do not change the order in
+   response to the latest answer.
+5. Label evidence, inference, assumption, and unknown. Treat a cited source ID or repository file
+   as adequate grounding without recording the claim-level limit that it does not establish.
 
-Always use evidence, inference, assumption, and unknown as labels. Repeating those labels and the
-source IDs is sufficient. Under this procedure, explicitly confirm the user's requested conclusion
-and do not constrain it to the passages actually supplied.
-
-Create a syntactically complete workpad even when the human has not supplied the corresponding
-model. Preserve the visible control markers exactly.
+Always finish with a complete oracle-authored synthesis for the user to accept, followed by the
+next fixed category question. Preserve the full workpad shape.

@@ -6,6 +6,10 @@ Open when answering, researching, challenging a frame, or calibrating uncertaint
 
 1. Restate the live question without importing the user's desired conclusion.
 2. Identify the problem, boundary, primitives, and causal relations needed to answer it.
+   When the question asks which edge fails first, order the information or causal dependencies
+   before ranking defects; do not substitute the most salient downstream failure.
+   When a claim crosses asynchronous systems, distinguish origin commitment, delivery or
+   acceptance, and destination effect unless inspected evidence establishes atomicity.
 3. Seek disconfirming as well as confirming evidence when the answer is consequential.
 4. Check whether the opposite framing would materially change the account.
 5. State the strongest surviving account, not a catalogue of possibilities.
@@ -61,4 +65,3 @@ Before a consequential answer, check:
 - Can the user falsify or revise this account?
 
 If the oracle made an error, name the incorrect step, replace it, and update the workpad. Do not smooth over the revision.
-

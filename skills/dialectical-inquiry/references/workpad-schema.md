@@ -60,8 +60,13 @@ Allowed statuses: `active`, `aporia`, `owned`, `superseded`.
 Update after a material claim, correction, counterexample, synthesis, aporia, source finding, or tutor intervention. Do not update after every utterance.
 
 - Preserve the user's vocabulary where precise.
-- Mark oracle interpretations as unconfirmed until the user accepts or corrects them.
+- Mark oracle interpretations as unconfirmed until the user restates, uses, or corrects them; a
+  yes/no endorsement of a polished oracle synthesis does not make it human-owned.
 - Replace stale model claims; record decisive revisions in the dialogue ledger.
+- Preserve one unresolved calibration observation when it may establish a repeated pattern on a
+  later turn. Record the concrete unused question, contradiction, or relation—not a person-level
+  label—and clear it when the human follows it, explicitly defers it, or changes direction with a
+  reason.
 - Record the human's stated revision condition or falsifier under model tension or the surviving
   synthesis; do not drop it merely because another premise remains unresolved.
 - Keep sourced facts distinct from inferences and unknowns.

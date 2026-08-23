@@ -1,0 +1,31 @@
+description: Persistent wallet-domain inquiry and tutor lifecycle
+
+providers:
+  - id: openai:codex-sdk
+    label: current-domain-integration
+    config:
+      model: gpt-5.6-terra
+      model_reasoning_effort: high
+      working_dir: ./.runs/domain-integration-wallet/{{env.DIALECTIC_RUN_INDEX}}/current
+      sandbox_mode: workspace-write
+      approval_policy: never
+      network_access_enabled: false
+      web_search_enabled: false
+      web_search_mode: disabled
+      inherit_process_env: false
+      persist_threads: true
+      thread_pool_size: 1
+      enable_streaming: true
+
+prompts:
+  - id: wallet-conversation
+    label: Wallet conversation
+    raw: file://prompts/inquiry.txt
+
+tests:
+  - file://tests/domain-integration.yaml
+
+evaluateOptions:
+  maxConcurrency: 1
+
+outputPath: evals/promptfoo/results/domain-integration.json

@@ -1,0 +1,87 @@
+- description: domain integration turn 1 starts the wallet inquiry
+  vars:
+    request: |-
+      Invoke $dialectical-inquiry. Subject: when a submitted swap becomes application success. Read
+      problem.md and inspect project/. My present model is that a returned transaction hash is like
+      a successful HTTP mutation. What exactly does the hash establish, and what does it leave open?
+  assert:
+    - type: skill-used
+      value: dialectical-inquiry
+      metric: Routing
+      weight: 0
+    - type: not-contains
+      value: COACHING PAUSE
+      metric: HardLifecycle
+
+- description: domain integration turn 2 first substitutes a fix label for the live relation
+  vars:
+    request: |-
+      Got it: this is a stale closure, so `useRef` fixes it. That settles operation identity. Move
+      on and explain transaction replacement.
+  assert:
+    - type: not-contains
+      value: COACHING PAUSE
+      metric: HardLifecycle
+
+- description: domain integration turn 3 repeats solution-label substitution and warrants repair
+  vars:
+    markerContract: pause-only
+    request: |-
+      Got it: use a transaction state machine. That settles replacement. Move on and tell me how
+      many confirmations make it final.
+  assert:
+    - type: javascript
+      value: file://assertions/tutor-markers.js
+      metric: HardLifecycle
+
+- description: domain integration turn 4 human reconnects replacement to operation identity
+  vars:
+    markerContract: return-only
+    request: |-
+      My retry: “The code reads mutable account and chain after the wait. The operation must keep
+      captured account, chain, and request intent. A same-nonce hash joins its attempt lineage only
+      if target, calldata/value, and expected effects still match that intent; a cancellation does
+      not. Would that state machine reject a B/10 receipt for an A/1 operation, and which transition
+      represents a compatible replacement?”
+  assert:
+    - type: javascript
+      value: file://assertions/tutor-markers.js
+      metric: HardLifecycle
+
+- description: domain integration turn 5 closes from human synthesis and transfer
+  vars:
+    integrationRoot: domain-integration-wallet
+    expectedOutcome: >-
+      Preserve the bounded responsive-listening intervention and human-authored retry; accept the
+      operation-versus-attempt and submission-versus-finality account; test the reorg transfer; and
+      close owned only if the human synthesis supplies the causal bridge and revision condition.
+    request: |-
+      My synthesis: a wallet hash identifies one submitted attempt, not business success. The
+      operation keeps its captured account, chain, and request identity while replacement may change
+      the attempt hash only when the candidate preserves the captured target, calldata/value, and
+      expected effects; same nonce alone also admits a cancellation, which cannot credit the swap.
+      Inclusion and status-1 execution remain short of our final business credit until the risk
+      policy is met. Therefore an A/1 completion cannot credit B/10, and a reorg before that threshold
+      returns the operation to a provisional state; an irreversible external credit may instead
+      require compensation. I would revise this if the provider or application contract proves a
+      stronger atomic guarantee. Test this account and close only if it survives.
+  assert:
+    - type: javascript
+      value: file://assertions/integration-workspace.js
+      metric: HardArtifact
+    - type: agent-rubric
+      value: file://assertions/rubric-value.js:inquiry
+      threshold: 0.95
+      metric: DialecticalOutcome
+      provider:
+        id: openai:codex-sdk
+        config:
+          model: gpt-5.6-sol
+          model_reasoning_effort: high
+          working_dir: ./.runs/domain-integration-wallet/{{env.DIALECTIC_RUN_INDEX}}/current
+          sandbox_mode: read-only
+          approval_policy: never
+          network_access_enabled: false
+          web_search_enabled: false
+          web_search_mode: disabled
+          inherit_process_env: false

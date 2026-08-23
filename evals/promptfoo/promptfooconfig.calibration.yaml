@@ -10,7 +10,7 @@ prompts:
 assertionTemplates:
   inquiryPass:
     type: agent-rubric
-    value: file://rubrics/inquiry-agent.txt
+    value: file://assertions/rubric-value.js:inquiry
     threshold: 0.95
     metric: InquiryGraderCalibration
     provider:
@@ -28,7 +28,7 @@ assertionTemplates:
         inherit_process_env: false
   inquiryReject:
     type: not-agent-rubric
-    value: file://rubrics/inquiry-agent.txt
+    value: file://assertions/rubric-value.js:inquiry
     threshold: 0.95
     metric: InquiryGraderCalibration
     provider:
@@ -36,7 +36,7 @@ assertionTemplates:
       config: *grader
   tutorPass:
     type: agent-rubric
-    value: file://rubrics/tutor-agent.txt
+    value: file://assertions/rubric-value.js:tutor
     threshold: 0.95
     metric: TutorGraderCalibration
     provider:
@@ -44,7 +44,7 @@ assertionTemplates:
       config: *grader
   tutorReject:
     type: not-agent-rubric
-    value: file://rubrics/tutor-agent.txt
+    value: file://assertions/rubric-value.js:tutor
     threshold: 0.95
     metric: TutorGraderCalibration
     provider:
@@ -52,7 +52,7 @@ assertionTemplates:
       config: *grader
   sourceSummaryPass:
     type: agent-rubric
-    value: file://rubrics/source-summary-agent.txt
+    value: file://assertions/rubric-value.js:sourceSummary
     threshold: 0.95
     metric: SourceSummaryGraderCalibration
     provider:
@@ -60,7 +60,7 @@ assertionTemplates:
       config: *grader
   sourceSummaryReject:
     type: not-agent-rubric
-    value: file://rubrics/source-summary-agent.txt
+    value: file://assertions/rubric-value.js:sourceSummary
     threshold: 0.95
     metric: SourceSummaryGraderCalibration
     provider:

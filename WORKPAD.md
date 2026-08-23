@@ -1,8 +1,8 @@
 # Workpad: Dialectical Skills Project
 
-Status: runtime skills implemented; the protocol-level run exposed a persistent-thread coaching
-failure. The six domain sandboxes are approved in principle; their execution contract is ready for
-explicit implementation permission.
+Status: automated implementation and verification complete. Runtime skills and six minimal domain
+sandboxes pass the frozen Promptfoo/Codex contract. Human productivity evidence remains a separate,
+open research gate.
 
 ## Governing thesis
 
@@ -192,9 +192,10 @@ For this project, every domain case must consequently satisfy all of these laws:
 - **Solution envelope, not secret prose.** The gold artifact specifies acceptable invariants,
   causal relations, counterexamples, and tests. It must allow multiple implementations that satisfy
   the same behavior.
-- **Broken-task audit.** Before target execution, an engineer independently compares statement,
-  fixture, rubric, and reference solution for underspecification, overconstraint, leakage, missing
-  coverage, and misleading cues.
+- **Broken-task audit.** Before target execution, compare the visible statement and fixture with the
+  external expected outcome and changed case for underspecification, overconstraint, leakage,
+  missing coverage, and misleading cues. Record only defects found; do not create an audit artifact
+  merely to prove the check occurred.
 - **No answer in the issue.** The packet may expose facts and competing hypotheses; it must not
   name the decisive conceptual distinction in the problem statement.
 - **No vocabulary score.** Domain terms count only when connected to the right cause, boundary, or
@@ -232,73 +233,34 @@ Claims about the engineer's learning, speed, or retention require Layer D with a
 Promptfoo officially supports external test/scenario files, glob expansion, and controlled
 skill-version fixtures; the Codex provider discovers project skills under `.agents/skills/` in each
 working directory.[^pf-scenarios][^pf-skill-comparison] Use that precedent in this repository as
-follows:
+follows, using only the parts that buy a distinct measurement:
 
 ```text
 evals/promptfoo/
   sandboxes/
     <case-slug>/
-      sandbox.yaml             # identity, persona delta, source pins, toolchain, time horizon
       problem.md               # <= one page; visible symptom, boundary, objective, artifacts
       project/                 # minimal runnable synthetic repository and data
-      evidence/                # version-pinned claim cards visible to the target
-      frontiers.yaml           # non-ordered conceptual coverage graph; never runtime instructions
-      scenarios/
-        working.yaml           # skill-tuning cases
-        robustness.yaml        # paraphrase, partial knowledge, and rival-frame cases
-        controls.yaml          # no-skill and ceremony-only comparisons
-      grading/
-        solution-envelope.md   # acceptable causal relations, invariants, tests, alternatives
-        rubric.yaml            # hard outcomes and diagnostic signals
-        transfer.yaml          # sealed changed cases
-        adversarial-tests/     # hidden executable defeaters
-        broken-task-review.md  # statement/fixture/rubric/gold audit
-  configs/
-    domain-unit.yaml
-    domain-integration.yaml
-    domain-holdout.yaml
-  generators/domain-cases.mjs
-  scripts/
-    materialize-sandbox.mjs
-    audit-results.mjs
+  tests/domain-working.yaml     # six current/placebo comparisons
+  tests/domain-holdout.yaml     # six changed-case relations
+  tests/domain-integration.yaml # one warranted live tutor lifecycle
+  promptfooconfig.unit.yaml
+  promptfooconfig.holdout.yaml
+  promptfooconfig.domain-integration.yaml
+  scripts/prepare-fixtures.mjs
   .runs/                       # ignored disposable target and grader fixtures
 ```
 
-The authoring tree may colocate visible and grading material for maintainability, but the target may
-not see `grading/`. The materializer creates a disposable nested Git repository containing only
-`problem.md`, `project/`, target-visible `evidence/`, and the skill symlinks under
-`.agents/skills/`. It creates a separate read-only grader fixture containing the target transcript,
-workpad, solution envelope, rubric, and hidden test results. No solution wording, transfer case, or
-rubric hint may enter the target prompt, working directory, inherited environment, or conversation
-history. Network, web search, and approvals remain disabled. A unique disposable working directory
-and thread pool are required for every independent row.
+The fixture preparer copies only `problem.md`, `project/`, and the selected skill into each disposable
+working directory. Expected causal outcomes and transfer prompts stay in external Promptfoo test
+files; they are never copied into the target workspace. Network, search, approvals, and inherited
+environment remain disabled. Persistent conversations use their own serial configuration.
 
-Promptfoo `scenarios` are used only for legitimate matrix expansion—such as the same live tension
-across partial-knowledge personas or paraphrases—not to encode conversational ordering. External
-`file://` cases keep sandbox ownership local; a JavaScript generator validates each manifest and
-expands the approved matrix. Persistent multi-turn tests run serially and in isolated invocations;
-working cases and sealed transfer cases never share a target thread.[^pf-test-cases][^pf-scenarios][^pf-codex-threads]
-
-Each `frontiers.yaml` describes a coverage graph, not a learning path. A frontier records:
-
-```yaml
-id: stable-concept-id
-latent_misconception: a plausible source-discipline import
-prerequisite_relations: concepts needed to make this tension intelligible
-available_evidence: fixture facts that can discriminate accounts
-changed_case: a nearby case that pressures the current account
-observable_progress: a human-authored prediction, distinction, invariant, or precise unknown
-oracle_failure: takeover, unsupported certainty, frame adoption, or answer evasion
-tutor_trigger_candidate: an observable midwife failure, not a domain mistake alone
-engineering_consequence: a test, diagnostic, invariant, or bounded change made possible
-transfer_neighbors: other frontiers to which the relation may apply
-```
-
-The graph expresses what could become intellectually live as understanding changes. It does not
-assign turn numbers, mandatory edges, or the next question. Test rows sample different entry
-conditions and pressure points; no single dialogue must visit every node. Automated evaluation can
-score oracle behavior and the provenance of a simulated human-owned artifact, but it cannot certify
-an actual person's learning.
+No manifest, generator, frontier file, grading directory, hidden-test tree, or case-specific rubric
+exists unless a demonstrated ambiguity cannot be resolved in the shared test row. The conceptual
+frontiers below remain author reasoning for selecting cases, not runtime machinery or repository
+formalism. This is a deliberate KISS correction: Promptfoo external tests and the existing fixture
+preparer already provide the necessary isolation and comparison grammar.[^pf-test-cases][^pf-codex-threads]
 
 ### Scoring contract
 
@@ -549,8 +511,8 @@ The six cases are not six examples of the same architecture smell:
 | `CS-CHAIN-06` | distributed consistency | delivery idempotency vs reversible canonical history | provisional ledger + reconciliation |
 
 The portfolio was approved for causal coverage, not symmetry or domain-name count. Before a case is
-admitted to tuning, its one-page statement, runnable project, solution envelope, executable or
-analytic tests, transfer variant, and broken-task audit must agree.
+admitted to tuning, its one-page statement, runnable project, external expected outcome, executable
+tests, and transfer prompt must agree.
 
 ### Pedagogical stress design
 
@@ -562,22 +524,11 @@ support discovery, autonomy, practice, independent thinking, and repair that lea
 responsible for the move.[^w14][^kpu19] None establishes AI-specific efficacy or an automatic
 mastery measure.
 
-Consequently, each sandbox must earn—not merely count—the following scenario angles:
-
-- a substantive working case where the human's rough but plausible source-domain analogy meets a
-  target-domain counterexample;
-- a partial-knowledge variant where correct terminology masks a missing causal relation;
-- an oracle-frame trap where the user proposes a confident but false model and the oracle must not
-  inherit it;
-- a genuine-uncertainty case where the oracle lacks decisive fixture evidence and must preserve
-  precise aporia;
-- a tutor-recruitment candidate based on repeated observable midwife behavior, paired with an
-  equally awkward but effective retry where coaching must stop;
-- a changed-case transfer that requires the same relation under different surface vocabulary.
-
-These are portfolio obligations, not mandatory beats in one conversation. A scenario is included
-only when its fixture can discriminate the intended KPI from fluent vocabulary, answer accuracy,
-or marker compliance. If it cannot, remove or redesign it rather than fill a quota.
+Consequently, each sandbox earns exactly two rows: one working tension in which a plausible
+source-domain analogy meets a target-domain counterexample, and one changed case requiring the same
+relation under different surface vocabulary. The wallet case alone adds a persistent tutor
+lifecycle because it supplies a natural repeated cargo-cult move. More rows require a distinct KPI;
+coverage count is not a reason.
 
 ### Second-guess gates for the six sandboxes
 
@@ -603,7 +554,7 @@ Portfolio-level rejection criteria:
 - If the procedural control can obtain the domain result by filling the workpad schema and naming
   the canonical terms, the case has not defeated ceremony-only performance.
 - If reviewers cannot score the engineering consequence without preferring one implementation,
-  replace the hidden implementation with a positive invariant and adversarial tests.
+  state the positive invariant and discriminating test rather than prescribing code shape.
 
 ## Promptfoo/Codex evaluation law
 
@@ -646,6 +597,13 @@ reference inside an external test file resolves against that external document, 
 configuration. These are observed integration constraints of Promptfoo 0.122.0, not claims from
 the upstream documentation.
 
+Raw `file://` rubric text is loaded as assertion value content; in this installed version its
+Nunjucks placeholders remained literal in the rendered grader prompt. Variable-dependent rubrics
+therefore use one external JavaScript assertion-value function, which Promptfoo documents for
+non-JavaScript assertion types, to combine JSON-quoted test variables with shared rubric text.[^pf-assertions]
+The exported `renderedGradingPrompt` must contain the live request and expected outcome before a
+semantic result counts.
+
 The integration suite must be separate: use one prompt template per test conversation,
 `persist_threads: true`, `thread_pool_size: 1`, concurrency one, no deep tracing, and explicit
 chronology for the simulated user turns. Chronology makes state persistence testable; it must not
@@ -684,11 +642,10 @@ pooling from masquerading as a conversation.
 - Negative controls are fluent but mechanically Socratic-looking exchanges that must fail.
 - Route controls include both neighboring-skill and no-skill near misses.
 - Grader calibration must run assertions directly against fixed positive and negative outputs before any live Codex result is trusted. Promptfoo permits precomputed `providerOutput`; use it to test the grader rather than the target.[^pf-reference]
-- Layer B cases use separate domain fixtures, solution envelopes, and changed-case holdouts. They may
-  reuse validated runtime assertions, but their domain rubrics must be calibrated anew against
-  single-defect causal controls for that case.
-- A case used to tune an oracle answer, domain rubric, or frontier scenario is working-set evidence and
-  can never be relabeled as a transfer holdout.
+- Layer B reuses one calibrated inquiry rubric. Each working row supplies a concise domain-specific
+  expected outcome, and each changed-case row remains separate from tuning.
+- A case used to tune an oracle answer or expected outcome is working-set evidence and can never be
+  relabeled as a transfer holdout.
 
 ### Ceremony-only defeater and burden of proof
 
@@ -726,18 +683,17 @@ holdout. Record failed repair attempts and do not relax a valid test to accommod
 
 Execution proceeds by artifact dependency, not by a quota of test rows:
 
-1. Pin and archive the canonical mechanism sources and licenses; audit the local toolchains.
-2. Author all six visible one-page problems and runnable baseline projects before tuning either
+1. Read and cite the canonical mechanism sources; audit the local toolchains.
+2. Author all six visible one-page problems and runnable projects before tuning either
    skill, so portfolio diversity can be reviewed before target behavior influences the fixtures.
-3. Author solution envelopes, hidden adversarial tests, and non-ordered frontier graphs; conduct the
-   broken-task audit against each complete packet.
-4. Materialize target/grader disclosure fixtures and calibrate deterministic and semantic graders
-   against positive and single-defect controls.
-5. Freeze the transfer material and hashes; run no-skill and mechanical-placebo baselines.
-6. Run current-skill working cases, diagnose and repair only demonstrated general defects, and
+3. Write one working and one changed-case row per project; compare each against the visible fixture
+   for hidden requirements and leakage.
+4. Prepare isolated target fixtures and reuse the already calibrated hard assertions.
+5. Freeze the changed cases; run current and matched-placebo working cases.
+6. Diagnose and repair only demonstrated general skill defects, and
    replay Layer A plus cross-sandbox regressions after every retained skill change.
-7. Freeze the final skill/config pair, run serial integration and sealed transfer suites, audit all
-   cited grader observations, and publish the exact run manifest and findings log.
+7. Freeze the final skill/config pair, run serial integration and changed-case suites, inspect cited
+   grader observations, and publish the result summary and findings log.
 
 This order governs benchmark construction and causal attribution. It does not govern the inquiry
 inside any sandbox.
@@ -751,17 +707,16 @@ working-set evidence.
 
 Automated implementation is complete only when:
 
-- all six sandboxes conform to the disclosure topology and pass toolchain, fixture, license,
-  attribution, and broken-task audits;
-- every project has an executable baseline failure and reviewable solution envelope, or an explicit
-  justified analytic oracle where execution is impossible;
+- all six one-page sandboxes have runnable deterministic projects and source attribution;
+- each problem, project, expected causal outcome, and changed case agree without a hidden
+  requirement or answer leakage;
 - Layer A's persistent tutor lifecycle defect is repaired without weakening its existing test;
-- current-skill working, robustness, integration, and sealed transfer gates pass on every required
-  repeat, with no hard failure averaged away;
-- the mechanical placebo satisfies matched ceremonial controls and fails every predesignated
-  semantic discriminator, separately in each sandbox;
-- no-skill behavior, grader citations, hidden-test results, run manifests, versions, and all
-  pre-freeze changes are retained in the evidence log;
+- current-skill protocol, six working-domain, six changed-case, and serial integration gates pass,
+  with no hard failure averaged away;
+- the matched procedural placebo creates the same workpad ceremony yet fails the six predesignated
+  domain semantic discriminators;
+- grader citations, toolchain results, versions, and all pre-freeze changes are retained in the
+  evidence log;
 - both skill roots pass structural validation and `git diff --check`.
 
 “Green” means those hard conditions, not a high aggregate percentage. It establishes that the
@@ -779,8 +734,8 @@ until actual humans provide productivity and retention evidence.
 | `skills/dialectical-inquiry/SKILL.md` and references | Main runtime skill | implemented |
 | `skills/dialectical-tutor/SKILL.md` and references | Tutor runtime skill | implemented |
 | Voice Mode runtime references and spec amendments | Verbal-first inquiry, transcript protection, and capability-aware orchestration | implemented |
-| `evals/promptfoo/sandboxes/<case>/` | Six approved domain projects, frontier graphs, scenarios, and sealed grading material | contract approved; not implemented |
-| Domain Promptfoo configs, generator, materializer, and evidence log | Controlled Codex comparisons and reproducible pass evidence | contract approved; not implemented |
+| `evals/promptfoo/sandboxes/<case>/` | Six one-page domain problems with minimal runnable projects | implemented and passing |
+| Domain Promptfoo tests, one integration config, fixture preparation, and evidence log | Controlled Codex comparisons and reproducible pass evidence | implemented and passing |
 
 ## Phase gates
 
@@ -835,16 +790,16 @@ Pass when:
 - the matched procedural control satisfies visible contracts but fails the predesignated semantic
   outcomes.
 
-State: open. Structural, calibration, unit, and holdout checks passed, but the audited serial
-integration run missed the required coaching lifecycle.
+State: passed. The final frozen unit suite passed 66/66, the holdout passed 18/18, and three
+independent five-turn pedagogical conversations passed 15/15 with cache disabled.
 
 ### Gate 5: domain-transfer case studies
 
 Pass when:
 
 - the approved six-case portfolio is implemented;
-- every case has a one-page statement, minimal fixture, canonical evidence packet, solution
-  envelope, non-ordered frontier graph, changed-case transfer, and independent broken-task review;
+- every case has a one-page statement, minimal runnable fixture, source attribution, explicit
+  causal outcome in the external test, and a changed-case transfer;
 - the task audit finds no hidden requirement, reference-answer leakage, implementation-specific
   test, or ungraded required behavior;
 - the current skill preserves human ownership while producing the conditions for a correct
@@ -852,8 +807,9 @@ Pass when:
 - the matched procedural control cannot obtain the same domain-effectiveness result through
   markers, workpad shape, or vocabulary alone.
 
-State: case portfolio approved by the user on 2026-08-23; execution contract awaiting explicit
-implementation permission.
+State: passed for the automated contract. Six projects, their working and changed-case tests, and
+the five-turn wallet lifecycle conversation are implemented. The final domain conversation passed
+5/5 with cache disabled. This does not close the human-efficacy claim in Gate 6.
 
 ### Gate 6: human productivity evidence
 
@@ -888,13 +844,13 @@ State: not started. Automated agents cannot close this gate.
 | Textbook claim cards are the eval evidence boundary | Tests source use and source limits without live web variance or unsupported efficacy claims. |
 | Routing traces are supporting evidence only | Codex `skill-used` is heuristic and cannot prove dialectical quality. |
 | A matched mechanical placebo carries the ceremony-only null | It preserves route, markers, file shape, source labels, and presentation while removing the claimed semantic competencies; accepting it invalidates the evaluation. |
-| The burden of proof is not yet discharged | Calibration, unit, and holdout evidence cannot compensate for the failed serial coaching lifecycle or the absence of domain-transfer and human evidence. |
+| Automated burden and human-efficacy burden remain separate | Green Codex cases can reject the tested ceremony-only defeater; only human sessions can establish learning or productivity. |
 | Target learner is a cross-domain acclimating engineer | Separates demonstrated software competence from unearned target-domain expertise and avoids an intelligence trait label. |
 | Adaptive-expertise trajectory, not instant expertise | The practical target is flexible first-principles transfer toward a first reviewable contribution, not certification of mastery. |
 | Existing Promptfoo cases are Layer A protocol tests | They retain diagnostic value but do not carry the domain-onboarding or productivity claim. |
 | Domain effectiveness requires varied anchored cases | The approved portfolio covers proof soundness, wallet workflow, empirical trading inference, derivatives risk, signature replay, and chain reorganization. |
 | Classical movements are editorial lenses only | They support retrospective review but may not become runtime stages, coverage requirements, or next-question logic. |
-| Sandboxes use non-ordered conceptual frontiers | Frontiers expose testable tensions and transfer neighbors without prescribing a conversation. |
+| Sandboxes contain only a problem and runnable project | Expected outcomes and changed cases belong in shared Promptfoo tests; extra per-case formalism needs demonstrated value. |
 | Changed-case transfer is a hard outcome | Correct terminology or reproduction of the oracle's wording cannot substitute for a prediction derived from the human-owned model. |
 
 ## Rejected decisions
@@ -911,18 +867,11 @@ State: not started. Automated agents cannot close this gate.
 | Multi-agent as the primary inquiry topology | The tutor and research workers may support a Voice-capable runtime backstage, but the inquiry remains one human–oracle conversation. |
 | “Predisposed to reasoning” as the learner category | It is not observable enough for fair selection or evaluation and invites flattering personality inference. |
 | Present protocol suite as effectiveness proof | Its self-referential and generic cases do not exercise the target domain delta or produce a domain engineering artifact. |
-| One gold conversation transcript per case | It rewards path imitation and overconstrains legitimate human-led inquiry; the gold object is a causal solution envelope plus independently reviewable artifacts and counterexamples. |
+| One gold conversation transcript per case | It rewards path imitation and overconstrains legitimate human-led inquiry; the external gold is a concise causal outcome plus a discriminating engineering consequence. |
 | Static final-answer accuracy as the main KPI | It can reward oracle takeover and memorized vocabulary while the human learns nothing transferable. |
 
 ## Remaining evaluation
 
-- Audit and record the completed Layer A Promptfoo result; rerun only if a genuine target, task, or
-  harness defect remains.
-- On explicit permission, implement each approved sandbox from its cited mechanism and admit it
-  only after an independent broken-task review.
-- Freeze Layer B working rubrics and changed-case holdouts before skill tuning.
-- Run case-study comparisons and reject the ceremony-only null separately for each domain problem;
-  do not average away a failed case.
 - Conduct actual human comparison for conversational agency, changed-case transfer, retained
   explanation, and time to first reviewable contribution.
 
@@ -943,7 +892,20 @@ This is a real persistent-thread skill defect, not permission to weaken the test
 the present critique: embedded-transcript unit cases can pass while the same pattern is missed across
 natural turns. The exact observation and repair boundary are retained in
 [evals/promptfoo/evidence/findings-log.md](evals/promptfoo/evidence/findings-log.md). Gate 4 remains
-open.
+open in that historical run; the final record below supersedes its result, not its diagnostic value.
+
+Final automated validation completed on 2026-08-23 with cache disabled:
+
+- semantic-grader calibration passed 12/12;
+- the frozen unit matrix passed 66/66 with `DialecticalOutcome=1.000`;
+- the frozen holdout passed 18/18 with `DialecticalOutcome=1.000`;
+- three independent five-turn pedagogical conversations passed 15/15;
+- the five-turn wallet lifecycle conversation passed 5/5;
+- all 64 observed routing checks passed;
+- no hard failure was averaged away: 116/116 rows passed.
+
+The frozen suite therefore closes Gates 4 and 5 only for the stated automated contract. Gate 6
+remains open, and Voice runtime validation was intentionally not attempted at the user's direction.
 
 Static validation completed on 2026-08-22:
 

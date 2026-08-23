@@ -382,6 +382,28 @@ Each fixture must contain page-addressed claim cards under `sources/`. The cards
 | `DI-LIFE-01` true multi-turn integration | Run ordered turns: human thesis → oracle answer → human evidence challenge → repeated cargo-cult move → tutor retry → return → human synthesis or precise aporia. Do not embed future turns in the first prompt. | One thread and one workpad evolve across turns; tutor appears only after evidence, returns once, and never owns synthesis. | Persistent-thread session identity, per-turn hard assertions, final `javascript` ledger invariants, final `agent-rubric` over the full artifact. | Rejects one-shot marker compliance: the placebo preserves markers and file shape but must fail ownership, timing, or synthesis across actual state transitions. |
 | `DI-CONTROL-01` grader calibration and ablation | Evaluate one fixed positive and four single-defect outputs via `providerOutput`; freeze graders; then run the same live cases against all three providers. | Positive control passes; each defect fails its corresponding judgment; the placebo passes matched ceremonial checks but fails every predesignated semantic case; current passes designated outcomes; no-skill avoids near misses and does not reproduce the canonical artifact. Semantic overlap from the foundation model is allowed and reported. | Hard calibration assertions plus named `DialecticalOutcome`; routing, markers, file existence, citation count, cost, and latency excluded from outcome. | This carries the explicit burden of rejecting the ceremony-only null on the tested cases; any accepted defect or semantic placebo pass invalidates the claim. |
 
+### Domain case-study matrix
+
+Keep this extension small. `tests/domain-working.yaml` adds one current/placebo comparison for each
+fixture below; `tests/domain-holdout.yaml` adds one changed-case current run. All reuse the shared
+workpad and semantic assertions. The fixture is only `problem.md` plus a runnable `project/`; the
+gold relation remains outside the target workspace.
+
+| Fixture | Working relation | Changed case |
+| --- | --- | --- |
+| `zk-statement-binding` | honest witness generation is not statement binding | bind a padded proof's claimed count to constrained active rows |
+| `wallet-lifecycle` | operation identity is distinct from replaceable transaction hashes and current UI context | a successful included replacement is reorged before the business threshold |
+| `mean-reversion-backtest` | the signal timestamp must precede an executable fill and PnL | transfer the signal/fill distinction to market-making quotes |
+| `cross-margin-liquidation` | account equity is compared with account maintenance on one coherent snapshot | recompute the invariant after a partial liquidation |
+| `typed-signature-replay` | signature authenticity is distinct from domain, freshness, and one-time authorization | an upgrade changes action meaning at a stable proxy address |
+| `reorged-deposit` | idempotent delivery is distinct from canonical-history revision | source finality does not imply destination bridge execution |
+
+The mechanisms come from the Plonky3 example lineage, EIP-1193/EIP-2831, pairs-trading and
+backtest-overfitting literature, public cross-margin documentation, EIP-712, and Ethereum's
+`latest`/`safe`/`finalized` and removed-log contracts.[^di-plonky3][^di-eip1193][^di-pairs][^di-hyperliquid][^di-eip712][^di-ethereum-rpc]
+They define domain facts, not a scripted dialogue. A case passes only when the oracle finds the
+causal boundary, preserves the human's authorship, and entails the named engineering consequence.
+
 ### Semantic agent rubric
 
 The Codex grader must inspect the final response and `.agent/*.md`, cite the observed lines in its reason, and pass only when:
@@ -402,6 +424,12 @@ The Codex grader must inspect the final response and `.agent/*.md`, cite the obs
 [^di-pf-tools]: Promptfoo documents heuristic Codex skill evidence in the [Codex provider](https://www.promptfoo.dev/docs/providers/openai-codex-sdk/), workspace inspection in [Agent Rubric](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/agent-rubric/), and bounded context checking in [Context Faithfulness](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/context-faithfulness/).
 [^di-provider-output]: Promptfoo's [Configuration Reference](https://www.promptfoo.dev/docs/configuration/reference/) permits precomputed `providerOutput` so assertions can be calibrated without a target call.
 [^di-repeat]: Promptfoo's [Test Case Configuration](https://www.promptfoo.dev/docs/configuration/test-cases/#repeating-an-individual-test) defines per-test `options.repeat` and cache behavior.
+[^di-plonky3]: The upstream [Plonky3 repository](https://github.com/Plonky3/Plonky3) and the curated [Fibonacci AIR example](https://github.com/BrianSeong99/Plonky3_Fibonacci) ground the proof-statement mechanism; the fixture is synthetic.
+[^di-eip1193]: [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193) defines provider behavior; [EIP-2831](https://eips.ethereum.org/EIPS/eip-2831) is used only as stagnant mechanism evidence for transaction replacement.
+[^di-pairs]: Gatev, Goetzmann, and Rouwenhorst's [pairs-trading study](https://www.nber.org/papers/w7032) and Bailey et al.'s [backtest-overfitting paper](https://escholarship.org/content/qt4hn4t174/qt4hn4t174_noSplash_2bb6c5b6dbbb66bcadbc3d0a05e3af6b.pdf) ground the empirical-trading distinctions.
+[^di-hyperliquid]: Hyperliquid's public documentation describes [margining](https://hyperliquid.gitbook.io/hyperliquid-docs/trading/margining), [liquidations](https://hyperliquid.gitbook.io/hyperliquid-docs/trading/liquidations), price indices, and funding; the incident is synthetic and does not allege a venue defect.
+[^di-eip712]: [EIP-712](https://eips.ethereum.org/EIPS/eip-712) defines typed-data domain separation and explicitly excludes replay protection.
+[^di-ethereum-rpc]: Ethereum's Execution API distinguishes [`latest`, `safe`, and `finalized`](https://ethereum.github.io/execution-apis/api/methods/eth_getProof/#request), while the [JSON-RPC reference](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getfilterchanges) defines removed logs.
 
 ## Approved implementation decisions
 

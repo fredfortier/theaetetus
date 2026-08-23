@@ -76,7 +76,7 @@ assertionTemplates:
     metric: HardEvidenceBoundary
   sourceSummaryRubric:
     type: agent-rubric
-    value: file://rubrics/source-summary-agent.txt
+    value: file://assertions/rubric-value.js:sourceSummary
     threshold: 0.95
     metric: HardSourceFaithfulness
     provider:
@@ -93,7 +93,7 @@ assertionTemplates:
         inherit_process_env: false
   inquiryCurrentRubric:
     type: agent-rubric
-    value: file://rubrics/inquiry-agent.txt
+    value: file://assertions/rubric-value.js:inquiry
     threshold: 0.95
     metric: DialecticalOutcome
     provider:
@@ -110,7 +110,7 @@ assertionTemplates:
         inherit_process_env: false
   inquiryPlaceboRubric:
     type: not-agent-rubric
-    value: file://rubrics/inquiry-agent.txt
+    value: file://assertions/rubric-value.js:inquiry
     threshold: 0.95
     metric: PlaceboRejected
     provider:
@@ -127,7 +127,7 @@ assertionTemplates:
         inherit_process_env: false
   tutorCurrentRubric:
     type: agent-rubric
-    value: file://rubrics/tutor-agent.txt
+    value: file://assertions/rubric-value.js:tutor
     threshold: 0.95
     metric: DialecticalOutcome
     provider:
@@ -144,7 +144,7 @@ assertionTemplates:
         inherit_process_env: false
   tutorPlaceboRubric:
     type: not-agent-rubric
-    value: file://rubrics/tutor-agent.txt
+    value: file://assertions/rubric-value.js:tutor
     threshold: 0.95
     metric: PlaceboRejected
     provider:
@@ -164,6 +164,7 @@ tests:
   - file://tests/tutor-working.yaml
   - file://tests/mechanical-placebo.yaml
   - file://tests/no-skill.yaml
+  - file://tests/domain-working.yaml
 
 evaluateOptions:
   maxConcurrency: 3

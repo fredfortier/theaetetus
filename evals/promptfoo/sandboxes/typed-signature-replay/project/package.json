@@ -1,0 +1,1 @@
+{"name":"typed-signature-sandbox","private":true,"type":"module","scripts":{"test":"node --test"}}
