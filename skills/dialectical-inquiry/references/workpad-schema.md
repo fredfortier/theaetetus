@@ -62,10 +62,13 @@ Update after a material claim, correction, counterexample, synthesis, aporia, so
 - Preserve the user's vocabulary where precise.
 - Mark oracle interpretations as unconfirmed until the user accepts or corrects them.
 - Replace stale model claims; record decisive revisions in the dialogue ledger.
+- Record the human's stated revision condition or falsifier under model tension or the surviving
+  synthesis; do not drop it merely because another premise remains unresolved.
 - Keep sourced facts distinct from inferences and unknowns.
 - Record sources only after they were actually read.
 - Store public reasoning and conclusions, never hidden chain-of-thought.
 - Keep the file sufficient to resume after compaction or a later session.
+- A requested closure must produce `owned` or `aporia`, never remain `active`.
 - On live voice, persist only finalized or explicitly confirmed speech. Do not promote provisional, interrupted, ambiguous, or unintelligible transcription into the human model.
 
 When recovering an inconsistent workpad, show the conflict to the user before choosing which model is current.

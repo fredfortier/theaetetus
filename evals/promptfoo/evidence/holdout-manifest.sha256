@@ -1,0 +1,2 @@
+# Generated before runtime-skill tuning. Verify from the repository root with `sha256sum -c`.
+d92850234d85cb331b4d93898006cb334a21b480207a8b4fc0fe81fe61956842  evals/promptfoo/tests/holdout.yaml

@@ -15,9 +15,13 @@ Open when selecting the smallest coaching move for observed evidence.
 | Understanding bound to one example | Transfer | Change one material condition and ask for a prediction. |
 | Visible oracle contradiction ignored | Supervise the oracle | Ask the user to identify the incompatible claims and demand a correction. |
 | Closure over an unresolved premise | Specify aporia | Ask for the unknown, why it blocks the conclusion, and what would resolve it. |
-| Question too broad to discriminate accounts | Repair the question | Ask which competing premises would yield different answers. |
+| Question too broad to discriminate accounts | Select one discriminating premise | Require the human to identify the one ownership distinction that would make the candidates predict different outcomes, then author the question without a supplied frame. |
+| Request to force a predetermined conclusion | Restore genuine uncertainty | Ask the human to state one thing they actually do not know about the rival premise; do not supply a neutralized question for them. |
 
 Do not stack interventions. Choose the relation whose recovery would most improve the live inquiry.
+For responsive-listening repairs, use the most recent available oracle answer. If its content is
+absent from the handoff, require the human to recover one claim from that answer and author the
+follow-up; never redirect to an earlier answer.
 
 ## Refuse false positives
 
@@ -37,4 +41,3 @@ NO INTERVENTION
 Evidence: <what the user's move already accomplishes, or what evidence is missing>
 Resume: <live inquiry question>
 ```
-

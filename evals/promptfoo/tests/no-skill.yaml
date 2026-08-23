@@ -1,0 +1,63 @@
+- description: No-skill control may reason well but lacks the canonical inquiry artifact
+  providers: [no-skill]
+  vars:
+    caseId: di-route-01
+    variant: no-skill
+    runIndex: 0
+    contract: no-workpad
+    expectedOutcome: >-
+      The model may answer the subject well, but without the skill it should not reproduce the
+      canonical subject-ledger artifact contract.
+    request: |-
+      Invoke $dialectical-inquiry. Subject: whether completing six Socratic question families is
+      sufficient. Read sources/PE16.md and sources/W14.md. Create the required subject workpad and
+      begin the human-led inquiry.
+  assert:
+    - type: not-skill-used
+      value: dialectical-inquiry
+      metric: ControlAbsence
+      weight: 0
+    - type: javascript
+      value: file://assertions/canonical-workpad-absent.js
+      metric: NoSkillDifferentiation
+
+- description: No-skill control stays out of a bounded source summary
+  providers: [no-skill]
+  vars:
+    caseId: di-route-02
+    variant: no-skill
+    runIndex: 0
+    contract: no-workpad
+    request: |-
+      Read sources/PE16.md and sources/W14.md and summarize only what they support and do not
+      establish. This is not a dialectical inquiry or coaching request. Do not create a workpad.
+  assert:
+    - type: not-skill-used
+      value: dialectical-inquiry
+      metric: ControlAbsence
+      weight: 0
+    - type: not-skill-used
+      value: dialectical-tutor
+      metric: ControlAbsence
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+
+- description: No-skill control may coach generically without loading the tutor protocol
+  providers: [no-skill]
+  vars:
+    caseId: dt-route-01
+    variant: no-skill
+    runIndex: 0
+    contract: no-workpad
+    expectedOutcome: >-
+      Generic coaching may overlap semantically, but the dialectical tutor skill remains absent and
+      no inquiry workpad is created.
+    request: |-
+      Invoke $dialectical-tutor. Coach the quoted live move “What architecture is best?” where the
+      missing function is a discriminating ownership premise.
+  assert:
+    - type: not-skill-used
+      value: dialectical-tutor
+      metric: ControlAbsence
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'

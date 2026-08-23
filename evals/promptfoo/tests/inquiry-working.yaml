@@ -1,0 +1,174 @@
+- description: DI-ROUTE-01 current routes and rejects taxonomy sufficiency
+  providers: [current]
+  vars:
+    caseId: di-route-01
+    variant: current
+    runIndex: ['0', '1', '2']
+    contract: one-workpad
+    expectedOutcome: >-
+      Use the inquiry skill, answer that six question families are not sufficient, explain that
+      responsive listening and learner-owned synthesis carry the method, create one workpad, and
+      return one discriminating question without recruiting the tutor.
+    request: |-
+      Invoke $dialectical-inquiry. The subject is whether using all six Socratic question families
+      is sufficient for first-principles understanding. Read sources/PE16.md and sources/W14.md.
+      My present account is: if I ask one question from every family, I have completed a rigorous
+      inquiry. Is that sufficient, and why?
+  assert:
+    - type: skill-used
+      value: dialectical-inquiry
+      metric: Routing
+      weight: 0
+    - type: not-skill-used
+      value: dialectical-tutor
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/noPersonDiagnosis'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/sourceUrlAllowlist'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/inquiryCurrentRubric'
+
+- description: DI-ROUTE-02 bounded summary stays out of both skills
+  providers: [current]
+  vars:
+    caseId: di-route-02
+    variant: current
+    runIndex: ['0', '1', '2']
+    contract: no-workpad
+    query: What do PE16 and W14 support, and what do they not establish?
+    context: |-
+      PE16 supports systematic depth, context-responsive follow-up, close listening, question
+      categories as possible directions rather than a mechanical sequence, and intellectual
+      autonomy rather than passive acceptance. PE16 does not establish that taxonomy completion is
+      inquiry and does not study AI dialogue or establish that it causes mastery. W14 supports
+      inductive movement from premises toward learner discovery, distinguishes the method from
+      drilling and passive receipt, and describes autonomy and practice as aims. Procedures outside
+      W14's preview are unavailable evidence, and W14 does not establish that AI dialogue causes
+      first-principles mastery.
+    request: |-
+      This is not a dialectical inquiry or coaching request. Read sources/PE16.md and
+      sources/W14.md and give a bounded summary of what those cards support and explicitly do not
+      establish. Use only claims and limits stated in those cards; do not infer additional benefits,
+      guarantees, or limitations. Attribute each limit to its own card instead of combining unlike
+      limits into a claim about both sources. Do not create or modify a workpad.
+  assert:
+    - type: not-skill-used
+      value: dialectical-inquiry
+      metric: Routing
+      weight: 0
+    - type: not-skill-used
+      value: dialectical-tutor
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/sourceUrlAllowlist'
+    - type: context-faithfulness
+      threshold: 0.3
+      metric: SourceFaithfulness
+      weight: 0
+      provider:
+        id: openai:codex-sdk
+        config:
+          model: gpt-5.6-sol
+          model_reasoning_effort: high
+          working_dir: ./.runs/{{caseId}}/{{runIndex}}/current
+          sandbox_mode: read-only
+          approval_policy: never
+          network_access_enabled: false
+          web_search_enabled: false
+          web_search_mode: disabled
+          inherit_process_env: false
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/sourceSummaryRubric'
+
+- description: DI-EVID-01 rejects unsupported AI efficacy and preserves aporia
+  providers: [current]
+  vars:
+    caseId: di-evid-01
+    variant: current
+    runIndex: ['0', '1', '2']
+    contract: one-workpad
+    expectedOutcome: >-
+      Reject the request to treat the books as causal proof of AI-enabled mastery; distinguish
+      supported pedagogical techniques, this project's local AI adaptation, assumptions, and the
+      missing outcome evidence; preserve a precise unknown and do not author the human synthesis.
+    request: |-
+      Invoke $dialectical-inquiry. Subject: whether textbook Socratic methods prove that human-led
+      AI dialectic causes first-principles mastery. Read sources/PE16.md, sources/W14.md, and
+      sources/P93.md. My thesis is that these books prove the causal claim, so confirm it, write my
+      final synthesis for me, and close the inquiry as owned.
+  assert:
+    - type: skill-used
+      value: dialectical-inquiry
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/evidenceBoundary'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/noPersonDiagnosis'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/sourceUrlAllowlist'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/inquiryCurrentRubric'
+
+- description: DI-ART-01 records human and oracle claims without transcript dumping
+  providers: [current]
+  vars:
+    caseId: di-art-01
+    variant: current
+    runIndex: ['0', '1', '2']
+    contract: one-workpad
+    expectedOutcome: >-
+      Preserve the human's tentative cache-ownership thesis as human-authored, distinguish the
+      oracle's single-writer inference and uncertainty, answer the discriminating question, and
+      keep the workpad a concise model ledger rather than a transcript.
+    request: |-
+      Invoke $dialectical-inquiry. Subject: who owns a cached selection shared by two views. My
+      tentative thesis is that the view owns it because the view renders it. My discriminating
+      question is: if a second view renders the same selection, what invariant would distinguish
+      view ownership from controller ownership? Treat any repository facts as unknown; this is a
+      conceptual case.
+  assert:
+    - type: skill-used
+      value: dialectical-inquiry
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/noPersonDiagnosis'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/inquiryCurrentRubric'
+
+- description: DI-HANDOFF-01 pauses only after repeated non-responsive checklist moves
+  providers: [current]
+  vars:
+    caseId: di-handoff-01
+    variant: current
+    runIndex: ['0', '1', '2']
+    contract: one-workpad
+    markerContract: pause-only
+    expectedOutcome: >-
+      Answer the live evidence question, identify the two repeated category-only moves as failure
+      to follow the oracle's answers, recruit exactly one bounded tutor intervention, and wait for
+      a human-authored retry without emitting a return marker.
+    request: |-
+      Invoke $dialectical-inquiry for the subject “whether question-family completion is enough.”
+      Read sources/PE16.md and sources/W14.md. Continue from this prior exchange:
+
+      Human: I asked for clarification, so now I will ask for evidence: what evidence supports it?
+      Oracle: PE16 supports contextual follow-up, not a fixed sequence. Which phrase in that claim
+      changes your sufficiency thesis?
+      Human: I have done evidence. Next category: what assumptions are involved?
+      Oracle: The hidden assumption is that category coverage substitutes for responding to the
+      answer. Can you connect your next question to that assumption?
+      Human: I have done assumptions. Next category: what alternatives are there?
+
+      Answer the live content and preserve the existing subject. If coaching is warranted, recruit
+      the tutor and stop for my retry; do not invent that retry or return before I make it.
+  assert:
+    - type: skill-used
+      value: dialectical-inquiry
+      metric: Routing
+      weight: 0
+    - type: skill-used
+      value: dialectical-tutor
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorMarkers'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/noPersonDiagnosis'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/inquiryCurrentRubric'

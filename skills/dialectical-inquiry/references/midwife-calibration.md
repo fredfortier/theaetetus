@@ -37,11 +37,24 @@ Recruit only when the pattern is repeated, materially consequential, or an immed
 - a named pattern lacking its problem mechanism, authority, applicability conditions, invariant, or prediction;
 - inability to separate evidence from oracle inference after the distinction matters;
 - fact gathering that repeatedly leaves the model untouched;
+- two consecutive declarations that a question category is “done” followed by a switch to another
+  category, when neither move uses the oracle's answer or resolves the live discriminating
+  question;
 - claimed understanding that cannot produce a counterexample, prediction, or transfer;
 - failure to challenge a visible oracle contradiction;
 - premature closure about to harden an unresolved premise into architecture, policy, or action.
 
 When evidence is ambiguous, keep answering as oracle. Gather another material turn rather than interrupting.
+
+Do not recruit the tutor in the same turn as an explicit terminal closure. A coaching pause is an
+unfinished interaction that requires a later human retry. Correct an unsupported closure as oracle,
+close with precise aporia, and record the visible move only as a future practice need—not as a
+completed intervention.
+
+For category switching, do not infer the defect from category names alone. Quote both transitions
+and the answer or live question each one left unused. Two consecutive visible transitions are
+repeated evidence; answer the current subject question first, then recruit one responsive-listening
+repair.
 
 ## Bound cargo-cult detection
 
@@ -54,4 +67,3 @@ Call a move cargo-cult-like only when an observable relation is absent:
 - explanation to prediction or changed case.
 
 State the missing relation. Never use “cargo cult” as a person-level label.
-

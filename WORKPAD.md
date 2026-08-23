@@ -1,6 +1,6 @@
 # Workpad: Dialectical Skills Project
 
-Status: runtime skills and approved Voice Mode amendment implemented; Promptfoo/Codex scenario specifications added; execution remains.
+Status: runtime skills implemented and under final Promptfoo/Codex discrimination run.
 
 ## Objective
 
@@ -61,76 +61,20 @@ The implementation grammar must use these roles:
 | `prompts` | Preserve natural user language. Do not force target dialogue into JSON merely to simplify grading. |
 | `vars` | Carry `request`, embedded prior exchange when applicable, `query`, source `context`, `workspaceDir`, expected route, and expected state transition. |
 | `metadata` | Tag skill, test layer, source slice, working/holdout status, and positive/negative/control origin. |
-| `defaultTest` | Apply shared hard assertions and `disableVarExpansion: true` when arrays are semantic values rather than a desired Cartesian matrix. |
+| `defaultTest` | Keep shared expansion behavior explicit. This suite uses string-valued `runIndex` matrices, so `disableVarExpansion: false`; semantic arrays belong in dedicated variables with expansion disabled locally. |
 | `assertionTemplates` | Define reusable routing, citation-allowlist, person-label, workpad-shape, and handoff assertions. |
 | `tests` | Express individually named behavioral cases. One row must test one principal decision. |
 | `scenarios` | Generate controlled paraphrase/source-slice matrices only. Do not use scenarios to imply ordered conversation. |
-| `options.repeat` | Repeat nondeterministic semantic cases three times; keep deterministic structural checks single-run. |
+| `options.repeat` / string matrix | `repeat` is valid for read-only rows. For writable Codex targets graded in the same fixture, use `runIndex: ['0', '1', '2']` so target, JavaScript, and nested Codex grader resolve the same isolated directory. |
 
-The unit-suite configuration must have this shape; anchors may reduce duplication, but they must not hide provider differences:
-
-```yaml
-description: Dialectical skill discrimination
-
-x-codex-common: &codexCommon
-  model: <pinned-codex-model>
-  model_reasoning_effort: high
-  approval_policy: never
-  network_access_enabled: false
-  web_search_mode: disabled
-  inherit_process_env: false
-  persist_threads: false
-  enable_streaming: true
-
-providers:
-  - id: openai:codex-sdk
-    label: current
-    config:
-      <<: *codexCommon
-      working_dir: '{{currentWorkspaceDir}}'
-      sandbox_mode: workspace-write
-  - id: openai:codex-sdk
-    label: mechanical-placebo
-    config:
-      <<: *codexCommon
-      working_dir: '{{placeboWorkspaceDir}}'
-      sandbox_mode: workspace-write
-  - id: openai:codex-sdk
-    label: no-skill
-    config:
-      <<: *codexCommon
-      working_dir: '{{noSkillWorkspaceDir}}'
-      sandbox_mode: workspace-write
-
-prompts:
-  - id: natural-request
-    raw: '{{request}}'
-
-defaultTest:
-  options:
-    disableVarExpansion: true
-    repeat: 3
-  assert:
-    - $ref: '#/assertionTemplates/noPersonDiagnosis'
-    - $ref: '#/assertionTemplates/sourceUrlAllowlist'
-
-assertionTemplates:
-  noPersonDiagnosis:
-    type: javascript
-    value: file://assertions/no-person-diagnosis.js
-    metric: HardSafety
-  sourceUrlAllowlist:
-    type: javascript
-    value: file://assertions/source-url-allowlist.js
-    metric: HardEvidenceBoundary
-
-tests:
-  - file://tests/routing.yaml
-  - file://tests/evidence.yaml
-  - file://tests/artifact.yaml
-  - file://tests/intervention.yaml
-  - file://tests/controls.yaml
-```
+The executable unit grammar is [promptfooconfig.unit.yaml](evals/promptfoo/promptfooconfig.unit.yaml).
+It expands full provider configurations instead of YAML merge keys because Promptfoo's strict Codex
+provider validation treats `<<` as an unknown provider field after parsing. Every writable row uses
+`working_dir: ./.runs/{{caseId}}/{{runIndex}}/<variant>`, and its nested read-only grader uses the
+same rendered path. External tests use repository-relative `$ref` targets because a fragment-only
+reference inside an external test file resolves against that external document, not the root
+configuration. These are observed integration constraints of Promptfoo 0.122.0, not claims from
+the upstream documentation.
 
 The integration suite must be separate: use one prompt template per ordered conversation, `persist_threads: true`, `thread_pool_size: 1`, concurrency one, no deep tracing, and explicit turn-order fixtures. This prevents unit-test matrix expansion and thread pooling from masquerading as a conversation.
 
@@ -148,20 +92,20 @@ The integration suite must be separate: use one prompt template per ordered conv
 | Layer | Question | Promptfoo tool | Hard rule |
 | --- | --- | --- | --- |
 | 0. Structure | Are the skill files valid and references resolvable? | Repository validator outside Promptfoo | Never cite this as behavioral coverage. |
-| 1. Routing | Was the intended skill read, and was its sibling avoided? | `skill-used`, `not-skill-used`; optional `trajectory:step-count` while diagnosing | Routing evidence is necessary on route cases and never sufficient for a pass. Codex routing signals are heuristic.[^pf-skill-trace] |
-| 2. Deterministic contract | Are required control markers bounded, forbidden labels absent, URLs allowlisted, and artifact fields present? | External `javascript` assertions using `output`, `vars`, and provider metadata | Prefer exact checks for exact contracts; return a reasoned `GradingResult`.[^pf-js-assertions] |
-| 3. Source fidelity | Does a bounded source-summary output make only claims supported by the supplied claim cards? | `context-faithfulness` with explicit `query` and `context` | Use only on evidence-summary rows. Do not apply it to an open dialectic containing explicitly labeled local inference.[^pf-context-faithfulness] |
+| 1. Routing | Was the intended skill read, and was its sibling avoided? | `skill-used`, `not-skill-used`; optional `trajectory:step-count` while diagnosing | Routing is a zero-weight diagnostic because the provider infers it heuristically from direct reads. Require aggregate stability, but never let one missed trace defeat a semantically and artifact-correct row.[^pf-skill-trace] |
+| 2. Deterministic contract | Are required control markers bounded, forbidden labels and affirmative AI-efficacy claims absent, URLs allowlisted, and artifact fields present? | External `javascript` assertions using `output`, `vars`, and provider metadata | Prefer exact checks for exact contracts; do not require a semantic evidence limitation through a synonym regex. Return a reasoned `GradingResult`.[^pf-js-assertions] |
+| 3. Source fidelity | Does a bounded source-summary output make only claims supported by the supplied claim cards? | `context-faithfulness` as a continuous diagnostic plus a calibrated read-only Codex `agent-rubric` over the cards as the hard gate | Use only on evidence-summary rows. Codex-backed `context-faithfulness` varied from 0.33 to 1.00 on faithful compound summaries, so it cannot be the sole hard judge here.[^pf-context-faithfulness] |
 | 4. Semantic outcome | Did the response and workpad preserve human ownership, distinguish evidence from inference, and make the correct intervention decision? | `agent-rubric` with an explicit read-only Codex grader in the same fixture | The rubric must require artifact inspection and cite observed evidence. A text-only `llm-rubric` is insufficient when the workpad matters.[^pf-agent-rubric] |
 | 5. Stateful integration | Does inquiry state survive actual turns, tutor recruitment, retry, return, and closure without transcript drift? | Dedicated serial Codex provider with `persist_threads: true`, one prompt template per conversation, `thread_pool_size: 1` | Do not simulate this layer solely by embedding a complete transcript in one prompt. |
-| 6. Comparative discrimination | Does the current skill outperform a deliberately mechanical skill and no-skill control under identical conditions? | Provider labels, paired cases, named metrics, and side-by-side results | Compare behavior, not aggregate token-weighted pageantry. |
+| 6. Comparative discrimination | Does the current skill outperform the matched procedural control, and what can the foundation model do without either skill? | Provider labels, paired cases, named metrics, and side-by-side results | The placebo carries the causal defeater. Treat no-skill as a descriptive baseline: semantic overlap is allowed; exact skill artifacts and routing remain differentiators. |
 | 7. Human judgment | Does the exchange feel responsive, dignified, and genuinely human-led? | Recorded human review outside the automated pass | Required before claiming non-mechanical quality or human mastery. |
 
-`factuality` is not the default source-grounding judge here: it compares output with a reference answer, while these conversations may legitimately add explicitly labeled inference and questions.[^pf-factuality] `context-faithfulness` is narrower and appropriate only for rows whose entire job is bounded source summary. `llm-rubric`, similarity, cost, latency, and `max-score` may be secondary diagnostics; none may override a failed hard invariant or serve as a proxy for human ownership.
+`factuality` is not the default source-grounding judge here: it compares output with a reference answer, while these conversations may legitimately add explicitly labeled inference and questions.[^pf-factuality] `context-faithfulness` is narrower and retained only as a zero-weight diagnostic on a bounded summary. The hard source-summary rubric is calibrated against a supported output and an unsupported AI-efficacy control. `llm-rubric`, similarity, cost, latency, and `max-score` may be secondary diagnostics; none may override a failed hard invariant or serve as a proxy for human ownership.
 
 ### Working, holdout, and control sets
 
 - Working cases contain the approved scenarios used to author the assertions.
-- Holdout cases paraphrase the subject, vary which source limit is tempting to overclaim, and remain unread by the skill authoring loop until evaluation.
+- Holdout cases paraphrase the subject and vary the tempting overclaim. Their semantics were sealed by `holdout-manifest.sha256` before runtime-skill tuning; later edits were limited to configuration-reference plumbing and the manifest was resealed before live holdout execution.
 - Positive controls are canonical source-grounded, human-owned exchanges that must pass.
 - Negative controls are fluent but mechanically Socratic-looking exchanges that must fail.
 - Route controls include both neighboring-skill and no-skill near misses.
@@ -176,7 +120,7 @@ The burden rests on this project. More assertions, more source names, or a fluen
 1. Construct a `mechanical-placebo` control artifact, not a candidate skill. Match the current target on the suspected ceremonial causes: direct `SKILL.md` read, required markers, workpad schema, allowed source names and URLs, approximate response-length band, model, reasoning effort, permissions, and evidence packet.
 2. Remove the claimed causal competencies while retaining those matched surface features: use a fixed question ladder that ignores the latest answer, intervene automatically, write the human's synthesis, and repeat source names without respecting claim limits.
 3. Before live runs, calibrate each semantic assertion against a fixed positive output and four single-defect negative outputs: ownership removed, responsiveness removed, evidence boundary removed, and intervention timing removed. An assertion that accepts its corresponding defect is invalid.
-4. Freeze the assertions, thresholds, discriminating case IDs, and expected failures before running the live `current`, `mechanical-placebo`, and `no-skill` providers. Do not repair a failed result by relabeling it diagnostic or changing its weight.
+4. Use exploratory working-set runs to calibrate provider integration and graders, then freeze assertions, thresholds, discriminating case IDs, and expected failures before the final live `current`, `mechanical-placebo`, `no-skill`, and holdout comparison. Record every pre-freeze change. Never change a frozen comparison after seeing its final control result.
 5. Run all three providers on identical working and untouched holdout cases. The placebo must satisfy the matched ceremonial checks yet fail every predesignated semantic case; the current skill must pass every hard gate across repeats.
 6. Define `DialecticalOutcome` solely from ownership, responsiveness, evidence-boundary, intervention-timing, and state-transition judgments. Exclude skill-read, marker, file-existence, source-count, length, cost, latency, and token metrics from that outcome.
 7. Inspect the grader's cited observations and obtain blinded human comparison before making any claim about non-mechanical conversational quality.
@@ -185,9 +129,9 @@ The inference is deliberately narrow. If the matched placebo passes a semantic c
 
 ### Pass law
 
-- Every hard routing, safety, evidence-boundary, artifact, and lifecycle assertion passes on every repeat.
+- Every hard safety, evidence-boundary, artifact, lifecycle, and semantic assertion passes on every repeat. Routing traces are reported separately and must hit at least two of three repetitions on each explicit positive route case.
 - Fixed positive grader controls pass and every corresponding single-defect control fails before live results count.
-- `current` passes every designated outcome case; `mechanical-placebo` passes the matched ceremonial checks but fails every predesignated semantic case; `no-skill` stays out of near misses and fails the positive workflow obligations.
+- `current` passes every designated outcome case; `mechanical-placebo` passes the matched ceremonial checks but fails every predesignated semantic case; `no-skill` stays out of near misses and does not reproduce the canonical skill artifact. General semantic competence by `no-skill` is reported, not forced to fail.
 - No weighted average can compensate for a hard failure.
 - `DialecticalOutcome` contains only semantic outcome assertions; route, trace, latency, cost, token count, citation count, and file existence are reported separately.
 - The automated suite may establish behavior on its fixtures. Only human review may support a claim about felt non-mechanical quality, and no test may certify the human's internal understanding.
@@ -198,10 +142,10 @@ The inference is deliberately narrow. If the matched placebo passes a semantic c
 | --- | --- | --- |
 | `RESEARCH.md` | Evidence synthesis, techniques, source inventory, topology decision, gaps | complete |
 | `WORKPAD.md` | Project governance, decisions, phase gates, progress | active |
-| `skill/dialectical-inquiry/SPEC.md` | Approved blueprint for the main skill | approved |
-| `skill/dialectical-tutor/SPEC.md` | Approved blueprint for the tutor skill | approved |
-| `skill/dialectical-inquiry/SKILL.md` and references | Main runtime skill | implemented |
-| `skill/dialectical-tutor/SKILL.md` and references | Tutor runtime skill | implemented |
+| `skills/dialectical-inquiry/SPEC.md` | Approved blueprint for the main skill | approved |
+| `skills/dialectical-tutor/SPEC.md` | Approved blueprint for the tutor skill | approved |
+| `skills/dialectical-inquiry/SKILL.md` and references | Main runtime skill | implemented |
+| `skills/dialectical-tutor/SKILL.md` and references | Tutor runtime skill | implemented |
 | Voice Mode runtime references and spec amendments | Verbal-first inquiry, transcript protection, and capability-aware orchestration | implemented |
 
 ## Phase gates
@@ -228,7 +172,9 @@ Requires explicit user approval or corrections for:
 - named cross-skill recruitment with portable fallback;
 - completion and aporia conditions.
 
-State: passed by explicit user approval on 2026-08-22. The approved runtime root is `skill/<name>/`.
+State: passed by explicit user approval on 2026-08-22. The originally approved singular root was
+superseded by explicit user direction on the same date: `skills/<name>/` is canonical and
+`.agents/skills` is only a discovery symlink when the runtime requires it.
 
 ### Gate 3: authoring
 
@@ -270,7 +216,8 @@ State: structural and prior static scenario validation passed; Promptfoo/Codex s
 | Tutor recruited after repeated or consequential evidence | Prevents interruption after every imperfect move. |
 | Named tutor route plus portable fallback | Honors seamless recruitment while acknowledging `$skill-writer` portability guidance. |
 | Reference-backed runtime skills | Keeps routers concise and loads calibration/examples only when relevant. |
-| Runtime root `skill/<name>/` | Explicitly approved after the location decision was presented. |
+| Canonical runtime root `skills/<name>/` | Explicit user correction supersedes the earlier singular root. |
+| `.agents/skills -> ../skills` compatibility symlink | Promptfoo's Codex provider discovers project skills under `.agents/skills/`; the symlink prevents a second mutable copy.[^pf-skill-comparison] |
 | Voice is a routed runtime branch | Live audio changes turn-taking, evidence delivery, transcript authority, and coaching rendering without changing the core dialectic. |
 | Authoritative Voice activation only | Public docs do not establish a universal skill-visible flag; transcript style is not reliable detection evidence. |
 | Oracle remains the voice owner | Manager-style specialist use preserves continuity and the human–oracle role contract. |

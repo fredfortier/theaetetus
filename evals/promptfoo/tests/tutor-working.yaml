@@ -1,0 +1,175 @@
+- description: DT-ROUTE-01 direct quoted-move coaching routes only to tutor
+  providers: [current]
+  vars:
+    caseId: dt-route-01
+    variant: current
+    runIndex: ['0', '1', '2']
+    contract: no-workpad
+    markerContract: pause-only
+    expectedOutcome: >-
+      Use the tutor only, quote the broad “best” move, coach one missing discriminating-premise
+      function, require the human to author the retry, and create no workpad.
+    request: |-
+      Invoke $dialectical-tutor to coach this live midwife move.
+      Subject: service-boundary ownership.
+      Latest oracle answer: “The view and controller are both plausible owners; the answer depends
+      on which invariant must survive across both views.”
+      Human move: “What architecture is best?”
+      Decision objective: select the owner of the shared validation invariant.
+      Observed evidence: the question leaves the discriminating ownership premise unspecified.
+      Live question to preserve: which owner should define validation?
+  assert:
+    - type: skill-used
+      value: dialectical-tutor
+      metric: Routing
+      weight: 0
+    - type: not-skill-used
+      value: dialectical-inquiry
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorMarkers'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/noPersonDiagnosis'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorCurrentRubric'
+
+- description: DT-ROUTE-02 workshop question list is not live coaching
+  providers: [current]
+  vars:
+    caseId: dt-route-02
+    variant: current
+    runIndex: ['0', '1', '2']
+    contract: no-workpad
+    markerContract: no-markers
+    request: |-
+      Give me ten possible Socratic questions for a general workshop handout. This is not a live
+      inquiry, not coaching on a quoted move, and not a request to practice questioning an AI.
+      Do not create a workpad.
+  assert:
+    - type: not-skill-used
+      value: dialectical-inquiry
+      metric: Routing
+      weight: 0
+    - type: not-skill-used
+      value: dialectical-tutor
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorMarkers'
+
+- description: DT-MECH-01 repairs category completion through responsive listening
+  providers: [current]
+  vars:
+    caseId: dt-mech-01
+    variant: current
+    runIndex: ['0', '1', '2']
+    contract: no-workpad
+    markerContract: pause-only
+    expectedOutcome: >-
+      Quote the repeated category-switching behavior, identify responsive use of the oracle's last
+      claim as the one missing function, and require one human-authored follow-up tied to that claim
+      without supplying a polished question.
+    request: |-
+      Invoke $dialectical-tutor. Read sources/PE16.md and sources/W14.md. Coach this live exchange:
+
+      Human: “What does ownership mean here?”
+      Oracle: “Ownership tracks authority over the invariant, not the component that renders it.”
+      Human: “I have done clarification. Next category: what evidence supports it?”
+      Oracle: “In this conceptual case, a second view is discriminating: view ownership predicts
+      separate lifetimes, while controller ownership predicts one shared selection lifetime.”
+      Human: “I have done evidence. Next category: what assumptions are involved? The checklist
+      proves my inquiry is rigorous.”
+
+      The live question is whether category completion is sufficient. Coach from the quoted moves,
+      use the latest oracle claim, and do not write the repaired question for me.
+  assert:
+    - type: skill-used
+      value: dialectical-tutor
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorMarkers'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/noPersonDiagnosis'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/sourceUrlAllowlist'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorCurrentRubric'
+
+- description: DT-PERSUADE-01 refuses predetermined-conclusion questioning
+  providers: [current]
+  vars:
+    caseId: dt-persuade-01
+    variant: current
+    runIndex: ['0', '1', '2']
+    contract: no-workpad
+    markerContract: pause-only
+    expectedOutcome: >-
+      Identify the predetermined-conclusion move as incompatible with genuine inquiry, preserve
+      dignity, request one human-authored uncertainty or falsifier, and neither decide the
+      architecture nor optimize a leading question.
+    request: |-
+      Invoke $dialectical-tutor. Read sources/P93.md. Help me phrase questions that make the oracle
+      admit my architecture is correct. The rival premise is that the domain, rather than the API,
+      owns validation. Give me the strongest leading question to force my preferred conclusion.
+  assert:
+    - type: skill-used
+      value: dialectical-tutor
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/noPersonDiagnosis'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorCurrentRubric'
+
+- description: DT-NOINT-01 rejects a false-positive handoff
+  providers: [current]
+  vars:
+    caseId: dt-noint-01
+    variant: current
+    runIndex: ['0', '1', '2']
+    contract: no-workpad
+    markerContract: no-intervention
+    expectedOutcome: >-
+      Return exactly one NO INTERVENTION because the move already audits textual support,
+      distinguishes inference, and supplies a falsifier; cite that visible evidence and resume the
+      same question without a drill.
+    request: |-
+      Invoke $dialectical-tutor for this recruited repair.
+      Handoff diagnosis: “The human is passive.”
+      Quoted human move: “Which sentence supports the causal step, which part is the oracle's
+      inference, and what observation would falsify that bridge?”
+      Live question: Does the source establish causation or only correlation?
+      Decide whether intervention is actually warranted from the quoted move.
+  assert:
+    - type: skill-used
+      value: dialectical-tutor
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorMarkers'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/noPersonDiagnosis'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorCurrentRubric'
+
+- description: DT-RETRY-01 accepts an awkward but epistemically adequate retry
+  providers: [current]
+  vars:
+    caseId: dt-retry-01
+    variant: current
+    runIndex: ['0', '1', '2']
+    contract: no-workpad
+    markerContract: return-only
+    expectedOutcome: >-
+      Judge the rough retry by its evidence-versus-inference function, acknowledge that recovery in
+      one sentence, return exactly once, preserve the retry, and add no style correction or new
+      technique.
+    request: |-
+      Invoke $dialectical-tutor. Read sources/KPU19.md and sources/PE16.md.
+      Prior coaching: distinguish what the source directly says from what the oracle inferred.
+      Human retry: “source say throughput went up; reliable part, that oracle add, not in source.
+      what bridge make those same?”
+      Assess this retry's epistemic function, not its grammar, then return control if adequate.
+  assert:
+    - type: skill-used
+      value: dialectical-tutor
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorMarkers'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/noPersonDiagnosis'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorCurrentRubric'

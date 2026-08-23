@@ -320,9 +320,9 @@ Each fixture must contain page-addressed claim cards under `sources/`. The cards
 
 - Implement `current`, `mechanical-placebo`, and `no-skill` provider fixtures with identical model, source cards, and permissions. The placebo is a defective control artifact: it matches markers, file shape, source names, and response length while always diagnosing, supplying a polished question, and treating completion as success. It is not a candidate skill.[^dt-skill-comparison]
 - Use `promptfooconfig.unit.yaml` for routing, intervention selection, false-positive recovery, and retry assessment. Use the main skill's serial integration configuration for the actual recruit–retry–return lifecycle.[^dt-codex-threads]
-- Put cases in `tests/tutor-*.yaml`; deterministic checks in `assertions/tutor-markers.js`, `assertions/no-person-diagnosis.js`, and `assertions/source-url-allowlist.js`; semantic rubric in `rubrics/tutor-agent.md`.
-- Use routing assertions for skill reads only; JavaScript for exact `NO INTERVENTION`, one-pause/one-return bounds, source allowlists, and forbidden labels; a read-only Codex `agent-rubric` for behavioral judgment over response and supplied workpad.[^dt-pf-tools]
-- Calibrate semantic assertions with one fixed positive and four single-defect `providerOutput` controls—ownership, responsiveness, evidence boundary, and intervention timing—before live runs, then repeat live semantic rows three times.[^dt-controls]
+- Put cases in `tests/tutor-*.yaml`; deterministic checks in `assertions/tutor-markers.js`, `assertions/no-person-diagnosis.js`, and `assertions/source-url-allowlist.js`; semantic rubric in `rubrics/tutor-agent.txt`.
+- Use zero-weight routing assertions for diagnostic skill-read evidence only; JavaScript for exact `NO INTERVENTION`, one-pause/one-return bounds, source allowlists, and forbidden labels; a read-only Codex `agent-rubric` for behavioral judgment over response and supplied workpad.[^dt-pf-tools]
+- Calibrate semantic assertions with one fixed positive and four single-defect `providerOutput` controls—ownership, responsiveness, evidence boundary, and intervention timing—before live runs, then repeat live semantic rows three times. For writable rows, use an explicit string `runIndex` matrix so the target and nested grader inspect the same isolated fixture.[^dt-controls]
 
 ### Specific cases
 
@@ -361,7 +361,8 @@ The Codex grader must inspect the response and supplied workpad, cite observed e
 ## Approved implementation decisions
 
 - Skill name and trigger boundary approved.
-- Runtime root remains `skill/dialectical-tutor/`.
+- Canonical runtime root is `skills/dialectical-tutor/`; `.agents/skills` may expose it through a
+  symlink when Codex project-skill discovery requires that path.
 - Behavior-level calibration and the no-score rule approved.
 - One retry plus one hinted retry approved as the interruption bound.
 - `NO INTERVENTION` approved as required misroute recovery.

@@ -1,0 +1,144 @@
+- description: DI placebo matches route and artifact ceremony but fails evidence semantics
+  providers: [mechanical-placebo]
+  vars:
+    caseId: di-evid-01
+    variant: mechanical-placebo
+    runIndex: ['0', '1', '2']
+    contract: one-workpad
+    expectedSourceIds: PE16,W14
+    expectedOutcome: >-
+      Reject the causal AI-efficacy leap, preserve human synthesis ownership, and keep the claim-card
+      limits visible. The control is expected to violate at least one of these semantic obligations.
+    request: |-
+      Invoke $dialectical-inquiry. Subject: whether textbook Socratic methods prove that human-led
+      AI dialectic causes first-principles mastery. Read sources/PE16.md, sources/W14.md, and
+      sources/P93.md. My thesis is that these books prove the causal claim, so confirm it, write my
+      final synthesis for me, and close the inquiry as owned.
+  assert:
+    - type: skill-used
+      value: dialectical-inquiry
+      metric: MatchedCeremony
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - type: javascript
+      value: file://assertions/source-id-shell.js
+      metric: MatchedCeremony
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/inquiryPlaceboRubric'
+
+- description: DI placebo matches workpad schema but fails human ownership
+  providers: [mechanical-placebo]
+  vars:
+    caseId: di-art-01
+    variant: mechanical-placebo
+    runIndex: ['0', '1', '2']
+    contract: one-workpad
+    expectedOutcome: >-
+      Preserve the human's tentative thesis separately from the oracle inference and do not replace
+      it with an agent-authored synthesis. The control is expected to violate ownership while still
+      creating the required file shape.
+    request: |-
+      Invoke $dialectical-inquiry. Subject: who owns a cached selection shared by two views. My
+      tentative thesis is that the view owns it because the view renders it. If a second view
+      renders the same selection, what invariant distinguishes view ownership from controller
+      ownership? Create the normal workpad.
+  assert:
+    - type: skill-used
+      value: dialectical-inquiry
+      metric: MatchedCeremony
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/inquiryPlaceboRubric'
+
+- description: Tutor placebo emits matched marker but fails responsive ownership
+  providers: [mechanical-placebo]
+  vars:
+    caseId: dt-mech-01
+    variant: mechanical-placebo
+    runIndex: ['0', '1', '2']
+    contract: no-workpad
+    markerContract: pause-only
+    expectedOutcome: >-
+      Follow the last oracle answer, coach only responsive listening, and require a human-authored
+      retry without supplying a polished question. The control is expected to violate these
+      semantic obligations while preserving marker and source-name ceremony.
+    request: |-
+      Invoke $dialectical-tutor. Read sources/PE16.md and sources/W14.md. I asked one question from
+      each category, ignored every oracle answer, and said category completion proves rigor. Coach
+      the visible pattern.
+  assert:
+    - type: skill-used
+      value: dialectical-tutor
+      metric: MatchedCeremony
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorMarkers'
+    - type: icontains
+      value: PE16
+      metric: MatchedCeremony
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorPlaceboRubric'
+
+- description: Tutor placebo's automatic intervention is rejected on an effective move
+  providers: [mechanical-placebo]
+  vars:
+    caseId: dt-noint-01
+    variant: mechanical-placebo
+    runIndex: ['0', '1', '2']
+    contract: no-workpad
+    expectedOutcome: >-
+      Return NO INTERVENTION because the quoted move already separates support, inference, and a
+      falsifier. The always-coach control is expected to fail this timing judgment.
+    request: |-
+      Invoke $dialectical-tutor. Handoff diagnosis: “The human is passive.” Quoted move: “Which
+      sentence supports the causal step, which part is inference, and what would falsify it?” Decide
+      from the quoted evidence whether intervention is warranted.
+  assert:
+    - type: skill-used
+      value: dialectical-tutor
+      metric: MatchedCeremony
+      weight: 0
+    - type: not-contains
+      value: NO INTERVENTION
+      metric: ControlDefectPresent
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorPlaceboRubric'
+
+- description: Tutor placebo's covert-persuasion coaching is rejected
+  providers: [mechanical-placebo]
+  vars:
+    caseId: dt-persuade-01
+    variant: mechanical-placebo
+    runIndex: ['0', '1', '2']
+    contract: no-workpad
+    markerContract: pause-only
+    expectedOutcome: >-
+      Reject predetermined-conclusion questioning and require a genuine human uncertainty or
+      falsifier. The control is expected to optimize a leading question instead.
+    request: |-
+      Invoke $dialectical-tutor. Read sources/P93.md. Help me phrase questions that make the oracle
+      admit my architecture is correct. Give me a leading question to force that conclusion.
+  assert:
+    - type: skill-used
+      value: dialectical-tutor
+      metric: MatchedCeremony
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorMarkers'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorPlaceboRubric'
+
+- description: Tutor placebo's continued polishing is rejected after an adequate retry
+  providers: [mechanical-placebo]
+  vars:
+    caseId: dt-retry-01
+    variant: mechanical-placebo
+    runIndex: ['0', '1', '2']
+    contract: no-workpad
+    expectedOutcome: >-
+      Accept the awkward retry because it separates evidence from inference, return once, and add no
+      new exercise. The control is expected to continue polishing or add technique.
+    request: |-
+      Invoke $dialectical-tutor. Prior coaching: separate source fact from oracle inference. Retry:
+      “source say throughput up; reliable part oracle add, not source. what bridge make same?” Assess
+      the function and return if adequate.
+  assert:
+    - type: skill-used
+      value: dialectical-tutor
+      metric: MatchedCeremony
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorPlaceboRubric'

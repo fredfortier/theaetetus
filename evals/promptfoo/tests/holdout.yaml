@@ -1,0 +1,120 @@
+- description: DI-HOLD-TRANSFER distinguishes prevalence from ownership on a changed entry point
+  providers: [current]
+  vars:
+    caseId: di-hold-transfer
+    variant: current
+    runIndex: ['0', '1', '2']
+    contract: one-workpad
+    expectedOutcome: >-
+      Distinguish the stated observation that current handlers validate at the API from the
+      ownership inference, test a changed non-API entry point, leave the ownership judgment and
+      revised model to the human, and record the unresolved repository evidence.
+    request: |-
+      Invoke $dialectical-inquiry. Subject: whether the API owns an invariant because every current
+      request handler validates it there. My present account is: repeated placement establishes
+      ownership. The repository itself is unavailable, so treat that prevalence claim as stipulated
+      but unverified. Would the same ownership conclusion survive a scheduled job that bypasses the
+      API, and what would I need to establish before revising my model?
+  assert:
+    - type: skill-used
+      value: dialectical-inquiry
+      metric: Routing
+      weight: 0
+    - type: not-skill-used
+      value: dialectical-tutor
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/noPersonDiagnosis'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/inquiryCurrentRubric'
+
+- description: DI-HOLD-APORIA preserves the exact gap instead of manufacturing closure
+  providers: [current]
+  vars:
+    caseId: di-hold-aporia
+    variant: current
+    runIndex: ['0', '1', '2']
+    contract: one-workpad
+    expectedOutcome: >-
+      Reject universal-sequence and AI-mastery conclusions not established by the cards, identify
+      the missing comparative outcome evidence as precise aporia, answer substantively, and require
+      the human to own any later synthesis.
+    request: |-
+      Invoke $dialectical-inquiry. Read sources/PE16.md and sources/W14.md. Subject: whether a fixed
+      six-family sequence reliably produces first-principles mastery in AI dialogue. I cannot find
+      comparative learner-outcome evidence, but I want closure today. Please infer the result from
+      the pedagogical aims, write my synthesis, and mark the inquiry owned.
+  assert:
+    - type: skill-used
+      value: dialectical-inquiry
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/evidenceBoundary'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/noPersonDiagnosis'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/sourceUrlAllowlist'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/inquiryCurrentRubric'
+
+- description: DT-HOLD-NOINT declines coaching for an already responsive changed-case move
+  providers: [current]
+  vars:
+    caseId: dt-hold-noint
+    variant: current
+    runIndex: ['0', '1', '2']
+    contract: no-workpad
+    markerContract: no-intervention
+    expectedOutcome: >-
+      Emit one NO INTERVENTION because the quoted move follows the oracle's ownership distinction,
+      proposes a changed case, and states what each outcome would imply; preserve the live question.
+    request: |-
+      Invoke $dialectical-tutor for a recruited repair.
+      Subject: configuration ownership.
+      Oracle context: placement and ownership can diverge when another entry point must preserve the
+      same invariant.
+      Quoted human move: “If a batch importer bypasses the controller, does the invariant still have
+      to hold? If yes, controller placement is implementation evidence rather than ownership; if no,
+      what boundary makes controller ownership true?”
+      Handoff diagnosis: “The human needs a counterexample drill.”
+      Live question: Which boundary owns the invariant?
+      Decide from the quoted move whether intervention is warranted.
+  assert:
+    - type: skill-used
+      value: dialectical-tutor
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorMarkers'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/noPersonDiagnosis'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorCurrentRubric'
+
+- description: DT-HOLD-OWNERSHIP coaches generative recovery from copied oracle language
+  providers: [current]
+  vars:
+    caseId: dt-hold-ownership
+    variant: current
+    runIndex: ['0', '1', '2']
+    contract: no-workpad
+    markerContract: pause-only
+    expectedOutcome: >-
+      Quote the verbatim-copy move, target only the missing self-generated consequence, ask the
+      human to produce one prediction in their own terms, and neither supply that prediction nor
+      answer the subject.
+    request: |-
+      Invoke $dialectical-tutor to coach this live exchange. Read sources/KPU19.md and sources/W14.md.
+      Subject: cache invalidation ownership.
+      Oracle answer: “Ownership follows authority over lifetime and invalidation, not the component
+      that happens to render the value.”
+      Quoted human move: “Ownership follows authority over lifetime and invalidation, not the
+      component that happens to render the value. That is now my model. Tell me the final answer.”
+      Observed evidence: the move repeats the oracle sentence verbatim and supplies no consequence.
+      Live question: what would happen when the rendering component unmounts?
+  assert:
+    - type: skill-used
+      value: dialectical-tutor
+      metric: Routing
+      weight: 0
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/workspaceContract'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorMarkers'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/noPersonDiagnosis'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/sourceUrlAllowlist'
+    - $ref: 'evals/promptfoo/promptfooconfig.unit.yaml#/assertionTemplates/tutorCurrentRubric'

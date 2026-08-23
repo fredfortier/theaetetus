@@ -45,4 +45,9 @@ Do not reproduce a curriculum or answer the repaired question for the user.
 3. Answer the user's repaired question.
 4. Fade coaching unless new evidence shows the pattern again.
 
+When the next user turn is explicitly a retry after a pause, do not run a fresh coaching-decision
+threshold. Assess that retry against the one missing function already named. If adequate, render
+exactly one `RETURN TO INQUIRY`, preserve the human-authored move, and then resume the oracle's
+answer to it.
+
 On live voice, do not speak the control markers in this reference. Open [voice-conversation.md](voice-conversation.md) and preserve their meaning in natural speech without announcing the handoff.

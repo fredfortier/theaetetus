@@ -203,6 +203,12 @@ cython_debug/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
 
+# Node and Promptfoo evaluation state
+node_modules/
+.promptfoo/
+evals/promptfoo/.runs/
+evals/promptfoo/results/
+
 # Ruff stuff:
 .ruff_cache/
 
