@@ -105,6 +105,20 @@ OpenAI's agent orchestration documentation distinguishes manager-style orchestra
 
 Design consequence: the dialectical oracle remains the single conversational owner. Research agents and the tutor may operate as bounded backstage specialists when the surface exposes orchestration, but their results return through the oracle. A voice transcript is an input aid, not automatically authoritative evidence of the human's settled model; consequential or unclear claims require confirmation before workpad update or coaching.
 
+### 11. Textbook-grounded agent evaluation
+
+Paul and Elder distinguish disciplined, deep, systematic Socratic questioning from questioning in general. Their public preview explicitly says there is no good mechanical way to lead a Socratic discussion: the questioner must listen carefully, understand the learner's point of view, and select among multiple possible responses. The same preview makes intellectual autonomy and the learner's own reasoning terminal aims. [Paul and Elder, *The Thinker's Guide to Socratic Questioning*, public preview](https://www.criticalthinking.org/store/get_file.php?inventories_files_id=422&inventories_id=231)
+
+Wilberding's authorized preview treats Socratic pedagogy as inductive movement from premises toward discovery and distinguishes it from mere questioning, drilling, and passive information receipt. It also states that the method is difficult and requires practice. [Wilberding, *Teach Like Socrates*, authorized preview, Introduction](https://api.pageplace.de/preview/DT0400.9781000489293_A42495157/preview-9781000489293_A42495157.pdf)
+
+Kwantlen Polytechnic University's open peer-tutoring workbook translates the question families into an independence-oriented coaching practice: draw out the learner's answer, and change or rephrase an ineffective question rather than supply the answer. [KPU, *Level Two Peer Tutoring Fundamentals and Integration Workbook*, chapter 7](https://kpu.pressbooks.pub/leveltwopeertutoringfundamentals/chapter/use-socratic-questions/)
+
+These sources support evaluation cases for contextual follow-up, learner ownership, non-mechanical question selection, and bounded coaching. They do not establish that this AI role inversion causes first-principles mastery; a correct skill must preserve that evidentiary limit.
+
+Promptfoo's Codex SDK provider can observe final text, heuristic skill reads, and traced command/file/tool activity. Its default eval thread is ephemeral; persistent threads pool by prompt template and configuration rather than rendered variables. The official skill-testing guide therefore supports isolated fixtures, paired routing and outcome checks, and repeated uncached comparisons. `skill-used` remains supporting evidence because Codex detection is inferred from direct `SKILL.md` reads. [Promptfoo, “OpenAI Codex SDK”](https://www.promptfoo.dev/docs/providers/openai-codex-sdk/) and [“Test Agent Skills”](https://www.promptfoo.dev/docs/guides/test-agent-skills/)
+
+Design consequence: each SPEC uses independent disposable fixtures, local source claim cards, disabled network/search, hard routing and citation-boundary assertions, and a read-only Codex agent rubric over the final response and workpad. Voice behavior is deliberately excluded from this suite.
+
 ## Technique translation
 
 | Technique | Runtime behavior | Evidence | Guardrail |
@@ -201,6 +215,10 @@ The proposed named recruitment of `$dialectical-tutor` is an intentional provide
 | `$skill-writer` local references | local skill-authoring authority | Synthesis, shapes, reference routing, examples, validation | Governs artifact design, not Socratic doctrine. |
 | Official OpenAI skill and Codex guidance | official provider mechanics | Skill routing descriptions, negative cases, on-demand references, interview-before-code | External mechanics, never local epistemic intent. |
 | Official OpenAI Voice, Realtime, and orchestration guidance | official provider mechanics | Voice surface behavior, interruption and unclear-audio handling, asynchronous task coordination, manager versus handoff topology | Public mechanics do not establish a universal skill-visible Voice flag; use capability-aware routing. |
+| Paul and Elder, *The Thinker's Guide to Socratic Questioning* (2016), official public preview | canonical modern practice manual | Systematic depth, contextual listening, non-mechanical selection, intellectual autonomy, practice | Previewed pages only; no AI-specific efficacy evidence. Print ISBN 978-0-944583-31-9; ebook ISBN 978-1-5381-3381-1. |
+| Wilberding, *Teach Like Socrates* (2014/2021), authorized preview | modern applied pedagogy book | Inductive discovery, learner effort, distinction from drilling, method requires practice | Introduction only; do not infer procedures from unpreviewed chapters. Paperback ISBN 978-1-61821-143-9. |
+| KPU, *Level Two Peer Tutoring Fundamentals and Integration Workbook* (2019), chapter 7 | open applied tutoring textbook | Independent thinking, question families as repertoire, rephrase rather than supply answers | OER tutor-training context; no universal sequence or efficacy claim. |
+| Promptfoo Codex SDK provider and agent-skill testing guide | official upstream integration mechanics | Disposable working directories, skill-read traces, ephemeral/persistent thread behavior, layered assertions, repeat runs | Skill detection is heuristic; provider success does not establish dialectical quality. |
 
 ## Coverage matrix
 
@@ -215,6 +233,8 @@ The proposed named recruitment of `$dialectical-tutor` is an intentional provide
 | Human–AI overreliance | Buçinca et al. | complete for blueprint |
 | AI sycophancy | Sharma et al. | complete for blueprint |
 | Runtime skill mechanics | `$skill-writer`, official OpenAI docs | complete for blueprint |
+| Modern textbook/manual techniques | Paul/Elder, Wilberding, KPU, with Padesky as applied guided discovery | complete for initial Promptfoo scenarios |
+| Promptfoo/Codex validation mechanics | official Promptfoo provider and skill-testing docs | complete for SPEC-level scenario design |
 | Voice and orchestration mechanics | official OpenAI Voice, Realtime, and agent orchestration docs | complete for approved Voice amendment |
 | Longitudinal mastery of human-led AI dialectic | no canonical direct evidence found | explicit gap |
 | Reliable automatic detection of cargo-cult reasoning | no validated detector found | explicit gap; use observable formative cues only |
@@ -225,6 +245,6 @@ The proposed named recruitment of `$dialectical-tutor` is an intentional provide
 
 No canonical source directly studies this exact role inversion: a human midwife interrogating an LLM oracle while a second skill coaches the human. The design is a source-grounded synthesis and must be validated through examples and observed sessions rather than presented as established pedagogy.
 
-Further retrieval is currently low-yield because the required facets are covered by independent source classes: primary philosophy, philosophical scholarship, clinical guided discovery, university and professional pedagogy, learning science, human–AI reliance research, LLM bias research, and official skill mechanics. New search results mostly repeated question taxonomies or offered recent LLM tutor prototypes without mature evidence.
+Further retrieval is currently low-yield because the required facets are covered by independent source classes: primary philosophy, philosophical scholarship, modern pedagogy books and manuals, clinical guided discovery, university and professional pedagogy, learning science, human–AI reliance research, LLM bias research, and official skill/eval mechanics. New search results mostly repeated question taxonomies or offered recent LLM tutor prototypes without mature evidence.
 
-No book is required to approve these blueprints. A later deepening pass may use books if validation exposes a specific doctrinal gap; at that point the exact ISBN will be requested before relying on the user's library.
+The public passages are sufficient for the initial scenario set, so no private book access is required. Full-book access should be requested only if failures expose a procedure-level gap outside the read previews; the relevant print ISBNs are recorded in the source inventory.

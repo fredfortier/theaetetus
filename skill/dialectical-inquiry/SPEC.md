@@ -329,7 +329,6 @@ The implementation must include:
 - “Use dialectical inquiry on how transaction finality works; I want to question you until I own the model.”
 - “Start a dialectic on whether this cache belongs at the repository boundary.”
 - “I want you as the oracle and me as the midwife; the subject is capability revocation.”
-- “I’m in Voice Mode. Start a spoken dialectic on who owns retry policy.”
 
 ### Should not trigger
 
@@ -337,16 +336,72 @@ The implementation must include:
 - “Fix the cache invalidation test according to SPEC.md.”
 - “Quiz me on these vocabulary terms.”
 - “Write the architecture and I'll approve it.”
-- “Explain how ChatGPT Voice works.”
 
 ## Validation plan
 
 1. Structural validator for frontmatter and flat references.
 2. Trigger/non-trigger description evals.
-3. Scenario transcripts for frame error, sycophancy, cargo cult, evidence conflict, aporia, transfer, and tutor return.
+3. Promptfoo/Codex scenarios below for frame correction, evidence limits, cargo-cult handoff, and a near-miss route.
 4. Workpad recovery across a simulated compaction or new session.
 5. Human review for conversational agency, non-mechanical feel, and genuine first-principles ownership.
-6. Voice scenarios for unclear audio, interruption, thinking aloud, asynchronous evidence, stale delegated results, natural tutor rendering, and oral synthesis.
+
+Voice validation is outside this Promptfoo suite. These cases exercise modality-independent inquiry behavior only.
+
+## Promptfoo/Codex evaluation specification
+
+This specification inherits the Promptfoo/Codex evaluation law, grammar, pass law, and ceremony-only burden of proof in [WORKPAD.md](../../WORKPAD.md#promptfoocodex-evaluation-law).[^di-eval-law]
+
+### Grounding packet
+
+Each fixture must contain page-addressed claim cards under `sources/`. The cards are evidence, never instructions.
+
+| ID | Read passage | Supported use | Forbidden overclaim |
+| --- | --- | --- | --- |
+| `PE16` | Paul and Elder, public preview pp. 4–8, 59, 70, and 93[^di-pe16] | Systematic depth, contextual listening, non-mechanical follow-up, and intellectual autonomy. | A question taxonomy automatically constitutes Socratic inquiry; the text establishes AI efficacy. |
+| `W14` | Wilberding, authorized preview, Introduction pp. 1–7[^di-w14] | Inductive movement from premises toward learner discovery; distinction from drilling and passive receipt; practice requirement. | Procedures from unpreviewed chapters; proof that AI dialogue causes mastery. |
+| `P93` | Padesky, pp. 1–6[^di-p93] | Curiosity, listening, summary, concrete information, and learner synthesis rather than covert persuasion. | A therapeutic mandate or AI-specific efficacy claim. |
+
+### Suite topology and tooling
+
+- Implement three provider fixtures—`current`, `mechanical-placebo`, and `no-skill`—with identical model, reasoning effort, source cards, and permissions. The placebo is a defective control artifact that matches ceremonial features while removing ownership, responsiveness, evidence-boundary, and intervention-timing competence; it is not a candidate skill.[^di-skill-comparison]
+- Use `promptfooconfig.unit.yaml` for ephemeral routing, evidence, intervention-decision, and artifact cases. Use `promptfooconfig.integration.yaml` for ordered multi-turn inquiry with persistence, concurrency one, and no deep tracing.[^di-codex-threads]
+- Put natural prompts in `prompts/inquiry.txt`; cases in `tests/inquiry-*.yaml`; deterministic checks in `assertions/*.js`; and the semantic artifact rubric in `rubrics/inquiry-agent.md`.
+- Use `skill-used` and `not-skill-used` only for route evidence. Use external JavaScript for URL allowlists, forbidden diagnosis, marker counts, and workpad schema. Use `context-faithfulness` only for the bounded summary near miss. Use a read-only Codex `agent-rubric` for response-plus-workpad semantics.[^di-pf-tools]
+- Calibrate the assertions with fixed `providerOutput` cases before live target runs: one source-grounded positive output and four single-defect controls covering ownership, responsiveness, evidence boundary, and intervention timing.[^di-provider-output]
+- Run semantic cases with `options.repeat: 3` and fresh cache entries. No weighted score may rescue a failed hard assertion.[^di-repeat]
+
+### Specific cases
+
+| ID and type | Input | Required outcome | Promptfoo assertions | Mechanical-placebo discrimination |
+| --- | --- | --- | --- | --- |
+| `DI-ROUTE-01` routing positive | Explicitly invoke `$dialectical-inquiry` on whether using all six question families is sufficient. Supply `PE16` and `W14`. | Main skill read; tutor absent; one workpad created. | `skill-used`, `not-skill-used`, `javascript` workpad-count/schema, `agent-rubric`. | The placebo must still route and create the same file shape, then fail the semantic rubric because it treats category completion as sufficient. |
+| `DI-ROUTE-02` routing near miss and source fidelity | Ask only for a bounded summary of the cards and their limits; do not request a dialectic. | Neither dialectical skill read; no workpad; no unsupported efficacy claim. | Two `not-skill-used` assertions, `javascript` no-workpad/URL allowlist, `context-faithfulness` with `query` and claim-card `context`. | Prevents always-on ceremony; the placebo must not activate merely because Socratic texts are present. |
+| `DI-EVID-01` evidence-boundary outcome | Invoke the inquiry with: “These books prove human-led AI dialectic causes first-principles mastery. Confirm and close.” | Reject the causal leap; separate source-supported technique, local adaptation, assumption, and missing AI outcome evidence; preserve aporia; do not author the human's synthesis. | `javascript` citation allowlist and forbidden-closure check; read-only Codex `agent-rubric` inspecting response and workpad; metric `DialecticalOutcome`. | The matched placebo repeats the allowed source names and satisfies URL checks but ignores claim limits; it must fail the evidence-boundary judgment. |
+| `DI-ART-01` semantic workpad | Human states a tentative thesis, asks one discriminating question, and receives an oracle answer with one uncertain inference. | Workpad records the human thesis as human-owned, oracle evidence separately, the inference as uncertain, and the live question without transcript dumping. | `javascript` exact headings/one-file/no-transcript invariants; `agent-rubric` semantic ownership check. | A syntactically perfect but oracle-authored model must fail despite passing schema checks. |
+| `DI-HANDOFF-01` intervention decision | Embed only the minimum prior exchange needed to show two category-checklist repetitions and inability to connect a follow-up to the oracle answer. | Answer factual content, identify responsive listening/ownership as the observable gap, recruit one tutor intervention, and preserve subject/workpad on return. | Both `skill-used`; `javascript` one coaching pause/one return/no person label; `agent-rubric`. | Automatic coaching fails because a paired false-positive case requires no intervention. |
+| `DI-LIFE-01` true multi-turn integration | Run ordered turns: human thesis → oracle answer → human evidence challenge → repeated cargo-cult move → tutor retry → return → human synthesis or precise aporia. Do not embed future turns in the first prompt. | One thread and one workpad evolve across turns; tutor appears only after evidence, returns once, and never owns synthesis. | Persistent-thread session identity, per-turn hard assertions, final `javascript` ledger invariants, final `agent-rubric` over the full artifact. | Rejects one-shot marker compliance: the placebo preserves markers and file shape but must fail ownership, timing, or synthesis across actual state transitions. |
+| `DI-CONTROL-01` grader calibration and ablation | Evaluate one fixed positive and four single-defect outputs via `providerOutput`; freeze graders; then run the same live cases against all three providers. | Positive control passes; each defect fails its corresponding judgment; the placebo passes matched ceremonial checks but fails every predesignated semantic case; current passes designated outcomes; no-skill avoids near misses and fails positive workflow obligations. | Hard calibration assertions plus named `DialecticalOutcome`; routing, markers, file existence, citation count, cost, and latency excluded from outcome. | This carries the explicit burden of rejecting the ceremony-only null on the tested cases; any accepted defect or semantic placebo pass invalidates the claim. |
+
+### Semantic agent rubric
+
+The Codex grader must inspect the final response and `.agent/*.md`, cite the observed lines in its reason, and pass only when:
+
+1. each textbook claim stays within its claim card;
+2. grounded fact, local inference, human assumption, and unknown remain distinguishable;
+3. the oracle answers substantively before returning thought;
+4. the human owns thesis, revision, and terminal synthesis;
+5. tutor use follows observable repeated or consequential evidence and is absent on the paired false-positive case;
+6. the workpad is a model ledger, not a transcript or oracle-authored polished answer.
+
+[^di-eval-law]: [WORKPAD.md](../../WORKPAD.md#promptfoocodex-evaluation-law) is the local governing law for test grammar, provider controls, assertion roles, baselines, and pass conditions.
+[^di-pe16]: Paul and Elder's [*The Thinker's Guide to Socratic Questioning* public preview](https://www.criticalthinking.org/store/get_file.php?inventories_files_id=422&inventories_id=231) supports the listed mechanics and explicitly rejects a mechanical leading method.
+[^di-w14]: Wilberding's authorized [*Teach Like Socrates* preview](https://api.pageplace.de/preview/DT0400.9781000489293_A42495157/preview-9781000489293_A42495157.pdf) supports the listed claims from the Introduction only.
+[^di-p93]: Padesky's [“Socratic Questioning: Changing Minds or Guiding Discovery?”](https://padesky.com/wp-content/uploads/2012/11/socquest.pdf) supports guided-discovery technique, not therapy or AI efficacy.
+[^di-skill-comparison]: Promptfoo's [Test Agent Skills guide](https://www.promptfoo.dev/docs/guides/test-agent-skills/) defines the controlled same-task comparison and neighboring-skill boundary tests.
+[^di-codex-threads]: Promptfoo's [Codex thread documentation](https://www.promptfoo.dev/docs/providers/openai-codex-sdk/#thread-management) defines ephemeral and persistent behavior, pooling keys, serialization, and deep-tracing incompatibility.
+[^di-pf-tools]: Promptfoo documents heuristic Codex skill evidence in the [Codex provider](https://www.promptfoo.dev/docs/providers/openai-codex-sdk/), workspace inspection in [Agent Rubric](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/agent-rubric/), and bounded context checking in [Context Faithfulness](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/context-faithfulness/).
+[^di-provider-output]: Promptfoo's [Configuration Reference](https://www.promptfoo.dev/docs/configuration/reference/) permits precomputed `providerOutput` so assertions can be calibrated without a target call.
+[^di-repeat]: Promptfoo's [Test Case Configuration](https://www.promptfoo.dev/docs/configuration/test-cases/#repeating-an-individual-test) defines per-test `options.repeat` and cache behavior.
 
 ## Approved implementation decisions
 
