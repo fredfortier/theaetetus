@@ -729,10 +729,11 @@ until actual humans provide productivity and retention evidence.
 | --- | --- | --- |
 | `RESEARCH.md` | Evidence synthesis, techniques, source inventory, topology decision, gaps | complete |
 | `WORKPAD.md` | Project governance, decisions, phase gates, progress | active |
-| `skills/dialectical-inquiry/SPEC.md` | Approved blueprint for the main skill | approved |
-| `skills/dialectical-tutor/SPEC.md` | Approved blueprint for the tutor skill | approved |
-| `skills/dialectical-inquiry/SKILL.md` and references | Main runtime skill | implemented |
-| `skills/dialectical-tutor/SKILL.md` and references | Tutor runtime skill | implemented |
+| `plugins/theaetetus/skills/dialectical-inquiry/SPEC.md` | Approved blueprint for the main skill | approved |
+| `plugins/theaetetus/skills/dialectical-tutor/SPEC.md` | Approved blueprint for the tutor skill | approved |
+| `plugins/theaetetus/skills/dialectical-inquiry/SKILL.md` and references | Main runtime skill | implemented |
+| `plugins/theaetetus/skills/dialectical-tutor/SKILL.md` and references | Tutor runtime skill | implemented |
+| `plugins/theaetetus/skills/dialectical-process-reviewer/SKILL.md` | Backstage process reviewer | implemented; semantic eval pending |
 | Voice Mode runtime references and spec amendments | Verbal-first inquiry, transcript protection, and capability-aware orchestration | implemented |
 | `evals/promptfoo/sandboxes/<case>/` | Six one-page domain problems with minimal runnable projects | implemented and passing |
 | Domain Promptfoo tests, one integration config, fixture preparation, and evidence log | Controlled Codex comparisons and reproducible pass evidence | implemented and passing |
@@ -762,8 +763,11 @@ Requires explicit user approval or corrections for:
 - completion and aporia conditions.
 
 State: passed by explicit user approval on 2026-08-22. The originally approved singular root was
-superseded by explicit user direction on the same date: `skills/<name>/` is canonical and
-`.agents/skills` is only a discovery symlink when the runtime requires it.
+superseded by explicit user direction on the same date. On 2026-09-02, explicit user direction to
+package the work as a Codex plugin superseded the standalone-skill root: canonical runtime sources
+now live at `plugins/theaetetus/skills/<name>/`, inside the OpenAI-documented repo marketplace
+topology. The evaluation harness copies those sources into disposable projects without making this
+repository itself a project-scoped skill installation.
 
 ### Gate 3: authoring
 
@@ -825,7 +829,7 @@ State: not started. Automated agents cannot close this gate.
 
 | Decision | Basis |
 | --- | --- |
-| Two skills, not one monolith | Separates subject inquiry from coaching the inquiry skill. |
+| Two conversational skills, not one monolith | Separates subject inquiry from user-facing coaching; the later backstage reviewer is non-conversational. |
 | Main skill name `dialectical-inquiry` | Names the activity without claiming generic ownership of all dialectics. |
 | Tutor name `dialectical-tutor` | Makes the recruited role and trigger boundary explicit. |
 | Human midwife / agent oracle | Explicit user intent; deliberately inverts classical maieutics. |
@@ -835,8 +839,10 @@ State: not started. Automated agents cannot close this gate.
 | Tutor recruited after repeated or consequential evidence | Prevents interruption after every imperfect move. |
 | Named tutor route plus portable fallback | Honors seamless recruitment while acknowledging `$skill-writer` portability guidance. |
 | Reference-backed runtime skills | Keeps routers concise and loads calibration/examples only when relevant. |
-| Canonical runtime root `skills/<name>/` | Explicit user correction supersedes the earlier singular root. |
-| `.agents/skills -> ../skills` compatibility symlink | Promptfoo's Codex provider discovers project skills under `.agents/skills/`; the symlink prevents a second mutable copy.[^pf-skill-comparison] |
+| Canonical plugin root `plugins/theaetetus/` | OpenAI's plugin topology places installable packages under a repo marketplace's `plugins/` directory. |
+| Canonical runtime root `plugins/theaetetus/skills/<name>/` | Keeps all bundled skills inside the installable package without duplicate mutable copies. |
+| No root `.agents/skills` or compatibility `skills` path | Prevents project-scoped discovery from being confused with the installable plugin; fixtures copy from the canonical plugin path.[^pf-skill-comparison] |
+| Reviewer is a bundled `dialectical-process-reviewer` skill | Keeps installation strictly conventional: the main skill delegates to a normal subagent and requires no project-scoped agent configuration. |
 | Voice is a routed runtime branch | Live audio changes turn-taking, evidence delivery, transcript authority, and coaching rendering without changing the core dialectic. |
 | Authoritative Voice activation only | Public docs do not establish a universal skill-visible flag; transcript style is not reliable detection evidence. |
 | Oracle remains the voice owner | Manager-style specialist use preserves continuity and the human–oracle role contract. |
@@ -906,6 +912,23 @@ Final automated validation completed on 2026-08-23 with cache disabled:
 
 The frozen suite therefore closes Gates 4 and 5 only for the stated automated contract. Gate 6
 remains open, and Voice runtime validation was intentionally not attempted at the user's direction.
+
+Plugin packaging validation completed on 2026-09-02:
+
+- the repository matches OpenAI's repo marketplace topology at
+  `.agents/plugins/marketplace.json` and `plugins/theaetetus/`;
+- `validate_plugin.py` passed the installable plugin;
+- `quick_validate.py` passed all three bundled skills;
+- the current Codex CLI added the local marketplace and installed `theaetetus@theaetetus` at
+  version `0.1.0`;
+- the installed cache contained the manifest, MIT license, and all three real skill directories,
+  with no project-scoped agent or skill symlink;
+- fixture preparation, deterministic assertion probes, Promptfoo configuration validation,
+  final-freeze integrity, and `git diff --check` passed.
+
+The 116-row semantic result predates the new backstage reviewer and its main-skill cadence. That
+result remains historical evidence for the two conversational skills, not evidence that the new
+reviewer improves live inquiry. A semantic rerun and eventual human comparison remain open.
 
 Static validation completed on 2026-08-22:
 

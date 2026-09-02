@@ -1,0 +1,20 @@
+{
+  "name": "theaetetus",
+  "interface": {
+    "displayName": "Theaetetus"
+  },
+  "plugins": [
+    {
+      "name": "theaetetus",
+      "source": {
+        "source": "local",
+        "path": "./plugins/theaetetus"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

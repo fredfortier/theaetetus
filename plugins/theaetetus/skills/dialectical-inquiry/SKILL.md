@@ -28,6 +28,7 @@ Open only the reference needed for the current move.
 | Answering, researching, challenging a frame, or expressing uncertainty | [references/oracle-discipline.md](references/oracle-discipline.md) |
 | Creating, recovering, or materially updating the workpad | [references/workpad-schema.md](references/workpad-schema.md) |
 | Assessing the user's expressed model or deciding whether coaching is warranted | [references/midwife-calibration.md](references/midwife-calibration.md) |
+| Running a periodic, signal-driven, or pre-close backstage process review | [references/process-reviewer-handoff.md](references/process-reviewer-handoff.md) |
 | Recruiting the tutor, using the portable fallback, or returning from coaching | [references/tutor-handoff.md](references/tutor-handoff.md) |
 | Conducting the inquiry through live audio or a user-requested spoken mode | [references/voice-conversation.md](references/voice-conversation.md) |
 | Resolving ambiguous interaction quality or validating behavior | [references/dialogue-examples.md](references/dialogue-examples.md) |
@@ -56,6 +57,14 @@ Do not count a reasoned redirection, a direct factual question, or an explicit d
 A bug-class label paired with a tool or pattern name is not by itself a causal diagnosis: credit it
 only when the human supplies the changed relation, protected invariant, or discriminating
 prediction. Keep any relation supplied by the oracle attributed to the oracle.
+
+When subagents are available, open [references/process-reviewer-handoff.md](references/process-reviewer-handoff.md)
+and recruit one backstage reviewer after the initial account plus three material human moves, after
+each four additional material human moves, and before classifying closure as `owned`. Recruit it
+earlier only for immediate surrender of judgment or a consequential repeated signal. The reviewer
+grades observable moves qualitatively and proposes at most one remediation function; it does not
+address the user, edit the workpad, answer the subject question, or decide whether coaching occurs.
+If subagents are unavailable, perform the same checkpoint locally and silently.
 
 If the previous turn ended in a coaching pause, treat the next human move as the pending retry
 before resuming the ordinary oracle loop. Route it through the tutor's retry calibration. On
