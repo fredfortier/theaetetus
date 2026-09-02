@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const evalRoot = path.resolve(here, '..');
 const repoRoot = path.resolve(evalRoot, '..', '..');
+const pluginSkillsRoot = path.join(repoRoot, 'plugins', 'theaetetus', 'skills');
 const runsRoot = path.join(evalRoot, '.runs');
 
 const unitCases = [
@@ -39,12 +40,17 @@ const domainSlugs = [
 async function copyCurrentSkills(destination) {
   const target = path.join(destination, '.agents', 'skills');
   await mkdir(target, { recursive: true });
-  await cp(path.join(repoRoot, 'skills', 'dialectical-inquiry'), path.join(target, 'dialectical-inquiry'), {
+  await cp(path.join(pluginSkillsRoot, 'dialectical-inquiry'), path.join(target, 'dialectical-inquiry'), {
     recursive: true,
   });
-  await cp(path.join(repoRoot, 'skills', 'dialectical-tutor'), path.join(target, 'dialectical-tutor'), {
+  await cp(path.join(pluginSkillsRoot, 'dialectical-tutor'), path.join(target, 'dialectical-tutor'), {
     recursive: true,
   });
+  await cp(
+    path.join(pluginSkillsRoot, 'dialectical-process-reviewer'),
+    path.join(target, 'dialectical-process-reviewer'),
+    { recursive: true },
+  );
 }
 
 async function copyPlaceboSkills(destination) {

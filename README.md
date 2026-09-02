@@ -2,8 +2,9 @@
 
 **Human-led dialectical inquiry for AI-native engineering teams.**
 
-Theaetetus is a pair of Codex skills for a difficult moment in software work: a capable engineer
-must make a consequential change in a domain they do not yet understand.
+Theaetetus is a Codex plugin with two conversational skills and one backstage review skill for a
+difficult moment in software work: a capable engineer must make a consequential change in a domain
+they do not yet understand.
 
 The usual AI interaction optimizes for an answer. This project optimizes for a different artifact:
 a human-owned causal model that can survive review, predict a changed case, and justify a bounded
@@ -74,12 +75,15 @@ result.
 
 ## What the project contains
 
-- [`dialectical-inquiry`](skills/dialectical-inquiry/SKILL.md) runs a persistent, subject-bound
+- [`dialectical-inquiry`](plugins/theaetetus/skills/dialectical-inquiry/SKILL.md) runs a persistent, subject-bound
   inquiry. It answers as the oracle, maintains `.agent/<subject-slug>.md`, tests the expressed model,
   and closes only with human ownership or precise aporia.
-- [`dialectical-tutor`](skills/dialectical-tutor/SKILL.md) repairs one observable midwife move. It
+- [`dialectical-tutor`](plugins/theaetetus/skills/dialectical-tutor/SKILL.md) repairs one observable midwife move. It
   may be recruited by the inquiry or invoked directly for deliberate practice, but it returns after
   at most one retry and one hinted retry.
+- [`dialectical-process-reviewer`](plugins/theaetetus/skills/dialectical-process-reviewer/SKILL.md)
+  gives the main oracle an independent, backstage qualitative audit at bounded checkpoints. It
+  never speaks to the human or lowers the tutor's intervention threshold.
 - [`evals/promptfoo`](evals/promptfoo) contains the frozen Promptfoo/Codex contract, calibrated
   graders, a matched mechanical placebo, sealed holdouts, persistent conversations, and six
   runnable synthetic domain sandboxes.
@@ -125,24 +129,57 @@ model that does not match the system.
 
 ## Install
 
-Codex loads repository-scoped skills from `.agents/skills` and supports symlinked skill folders.
-It can invoke a skill explicitly with `$skill-name` or implicitly when the request matches the
-skill description.[^codex-skills]
+Theaetetus is packaged as a skills-only Codex plugin in the repository marketplace topology
+documented by OpenAI:[^codex-plugins]
 
-Clone this repository and copy the two skill directories into the repository where the team will
-use them:
+```text
+.agents/plugins/marketplace.json
+plugins/theaetetus/
+  .codex-plugin/plugin.json
+  LICENSE
+  skills/
+    dialectical-inquiry/SKILL.md
+    dialectical-tutor/SKILL.md
+```
+
+Install the Git marketplace and then the plugin:
+
+```bash
+codex plugin marketplace add fredfortier/theaetetus --ref master
+codex plugin add theaetetus@theaetetus
+```
+
+Start a new Codex session after installation so the bundled skills are discovered. In Codex CLI,
+`/plugins` opens the plugin browser. Plugins are supported in Codex CLI and Codex in the ChatGPT
+desktop app; the current OpenAI documentation says the IDE extension does not support plugin
+installation.[^codex-use-plugins]
+
+For local development, clone the repository and add its root as a local marketplace:
 
 ```bash
 git clone https://github.com/fredfortier/theaetetus.git
-cd your-project
-mkdir -p .agents/skills
-cp -R ../theaetetus/skills/dialectical-inquiry .agents/skills/
-cp -R ../theaetetus/skills/dialectical-tutor .agents/skills/
+codex plugin marketplace add /absolute/path/to/theaetetus
+codex plugin add theaetetus@theaetetus
 ```
 
-For active skill development, symlink the two directories instead of copying them. This repository
-does exactly that at its root: [`.agents/skills`](.agents/skills) points to [`skills/`](skills).
-Restart Codex if a newly added or changed skill does not appear.
+The canonical—and only—skill sources live under
+[`plugins/theaetetus/skills`](plugins/theaetetus/skills). The evaluation harness copies them from
+the plugin into disposable test projects; this repository does not expose a project-scoped
+`.agents/skills` installation.
+
+### Backstage process reviewer
+
+The conventional plugin bundles
+[`dialectical-process-reviewer`](plugins/theaetetus/skills/dialectical-process-reviewer/SKILL.md) as a third skill.
+During a live inquiry, the main skill asks a normal subagent to use that reviewer after the initial
+account plus three material human moves, after each four additional material moves, and before an
+`owned` close. No project agent, `AGENTS.md`, or post-install copy step is required.
+
+The reviewer grades inquiry *moves*, not the person: each relevant dimension is `demonstrated`,
+`not tested`, or `repair evidence`. It returns a private recommendation to the main oracle, which
+independently checks the evidence before exposing any one-move remediation through the existing
+tutor contract. If the current surface cannot coordinate subagents, the main skill performs the
+same checkpoint locally and silently.[^codex-subagents]
 
 ## Start an inquiry
 
@@ -232,16 +269,18 @@ surface vocabulary. The wallet case also has a true five-turn conversation in wh
 solution-label substitution warrants one tutor repair. The fixture and gold outcome are separated
 so the target cannot read its expected answer.
 
-The final cache-disabled automated run passed **116/116 rows**: calibrated grader controls, protocol
-units, matched controls, sealed holdouts, three pedagogical conversations, and the wallet domain
-conversation. All 64 observed routing checks passed. The exact scope and result are recorded in
-[the validation record](WORKPAD.md#validation-record); the repair history—including invalid
-scenarios, grader plumbing defects, control defects, and genuine skill defects—is retained in the
-[findings log](evals/promptfoo/evidence/findings-log.md).
+The final pre-plugin cache-disabled automated run passed **116/116 rows**: calibrated grader
+controls, protocol units, matched controls, sealed holdouts, three pedagogical conversations, and
+the wallet domain conversation. All 64 observed routing checks passed. The exact scope and result
+are recorded in [the validation record](WORKPAD.md#validation-record); the repair history—including
+invalid scenarios, grader plumbing defects, control defects, and genuine skill defects—is retained
+in the [findings log](evals/promptfoo/evidence/findings-log.md).
 
 That result supports only the frozen automated contract on these fixtures. It does not establish
 human learning, productivity, retention, universal transfer, felt conversational quality, or Voice
-behavior. The human-comparison gate remains open.
+behavior. The plugin topology and new backstage reviewer have passed structural validation and an
+actual local Codex marketplace install, but the 116-row semantic suite has not been rerun against
+that addition. The human-comparison gate remains open.
 
 ## Reproduce the evaluation
 
@@ -285,9 +324,15 @@ aggregate cannot compensate for a failed hard invariant.
 ## Repository map
 
 ```text
-skills/
-  dialectical-inquiry/       main oracle skill, specification, and runtime references
-  dialectical-tutor/         bounded coaching skill, specification, and practice references
+.agents/plugins/marketplace.json
+                              canonical repo marketplace catalog
+plugins/theaetetus/
+  .codex-plugin/plugin.json  installable plugin manifest
+  skills/
+    dialectical-inquiry/     main oracle skill, specification, and runtime references
+    dialectical-tutor/       bounded coaching skill, specification, and practice references
+    dialectical-process-reviewer/
+                              backstage qualitative process audit for delegated checkpoints
 evals/promptfoo/
   sandboxes/                 six minimal synthetic domain projects
   tests/                     working, control, holdout, and persistent-conversation cases
@@ -333,4 +378,6 @@ contains the fuller source inventory, translations, and stopping rationale.
 [^padesky]: Christine A. Padesky, [“Socratic Questioning: Changing Minds or Guiding Discovery?”](https://padesky.com/wp-content/uploads/2012/11/socquest.pdf), supports genuine curiosity, responsive evidence gathering, mutual correction, and learner-owned synthesis. Its clinical setting is not imported as therapy or as evidence of engineering efficacy.
 [^forcing]: Zana Buçinca, Maja Barbara Malaya, and Krzysztof Z. Gajos, [“To Trust or to Think: Cognitive Forcing Functions Can Reduce Overreliance on AI in AI-assisted Decision-making”](https://arxiv.org/abs/2102.09692), report an experiment with 199 participants in which forcing interventions reduced overreliance but received worse subjective ratings. The result motivates selective human-first commitment, not universal answer withholding.
 [^sycophancy]: Mrinank Sharma et al., [“Towards Understanding Sycophancy in Language Models”](https://proceedings.iclr.cc/paper_files/paper/2024/hash/0105f7972202c1d4fb817da9f21a9663-Abstract-Conference.html), report sycophancy across five tested RLHF assistants and preference for view-matching answers in their studied settings. This establishes a design risk, not a timeless property of every model.
-[^codex-skills]: [Official OpenAI documentation, “Build skills”](https://learn.chatgpt.com/docs/build-skills), defines skill structure, explicit and implicit invocation, repository discovery under `.agents/skills`, and symlink support. It governs Codex mechanics only, not Theaetetus's epistemic design.
+[^codex-plugins]: [Official OpenAI documentation, “Package your plugin”](https://developers.openai.com/plugins/build/plugins), defines the repository marketplace, plugin manifest, component paths, and distribution workflow.
+[^codex-use-plugins]: [Official OpenAI documentation, “Plugins”](https://learn.chatgpt.com/docs/plugins), documents supported install surfaces, the CLI plugin browser, and the new-session boundary.
+[^codex-subagents]: [Official OpenAI documentation, “Subagents”](https://learn.chatgpt.com/docs/agent-configuration/subagents), defines project agents under `.codex/agents/`, their required fields, delegation triggers, and model inheritance.
