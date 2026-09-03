@@ -1,6 +1,6 @@
 # Specification: `software-delivery`
 
-Status: approved and implemented.
+Status: approved kernel; comparative admission in progress.
 
 ## Intent
 
@@ -24,6 +24,53 @@ Exclude:
 ## Runtime trigger description
 
 > Identifies the current obligation in a consequential software change and routes to the focused skill or local capability that owns it. Use when starting, resuming, or coordinating delivery and the correct next activity is unclear. Do not use when the user already requested a focused inquiry, formulation, implementation, review, or integration operation.
+
+## Causal account
+
+### Problem and current wrongness
+
+A phase catalog can lower discovery cost while still selecting from artifact names, running a
+sequence after one route, or duplicating a specialist's procedure. Conversely, requiring discovery
+when the developer already named the operation adds a pure paraphrasing hop. In either case the
+developer can receive work from the wrong boundary, lose a consequential checkpoint, or pay ceremony
+without gaining an observation that changes the delivery claim.
+
+The relevant operation is entry or re-entry into a consequential software change when the current
+obligation is genuinely unclear. The wrong observable outcome is a route based on a nominal phase or
+present artifact rather than satisfied prerequisites, more than one focused operation without a new
+human decision, execution by the router of a specialist judgment, or failure to hand an operation
+outside the portable kernel to its local owner.
+
+### Authority and responsible boundaries
+
+The developer's request and accepted delivery specification govern the desired change. Repository
+instructions govern local capabilities and integration. This router owns only classification of the
+current obligation and preservation of the handoff. Each focused skill owns its operation and stop
+contract; the developer owns consequential transitions, admission, rebuttal, reopening, and
+acceptance.
+
+### Derivation and failure semantics
+
+Because delivery obligations have prerequisites and evidence may invalidate an earlier premise, a
+route must be selected from the earliest unsatisfied prerequisite rather than a universal sequence.
+Because focused operations already have narrower contracts, the router must yield to an explicit
+operation, choose at most one owner when discovery is needed, and return after that result. Exact
+mechanical direction may itself supply sufficient governing authority; operations outside the
+portable kernel remain with an applicable local capability at whatever point they arise, not only
+after acceptance.
+
+If one recoverable fact distinguishes routes, recover it. If one human-held answer would distinguish
+them, ask one question. If authority, evidence, judgment, or an owner remains unavailable, stop as
+`unresolved` with the missing premise and next discriminator. Never choose the nearest phase name as
+a fallback.
+
+### Defeaters
+
+The contract must be revised or removed if direct skill discovery makes the router a redundant
+paraphrasing layer in genuinely unclear entry cases; if a route can be selected reliably without
+prerequisite evidence; if one focused hop necessarily erases context or human control; if a listed
+condition has no actual owner; or if a retained local-capability handoff hides an operation that the
+portable kernel is causally required to own.
 
 ## Reasoning model
 
@@ -50,6 +97,7 @@ Evidence may reopen an earlier node. Human judgment remains between consequentia
 | Accepted obligations exist and mutation is authorized. | `specification-implementation` | Authority traces, repository changes, evidence, and reopen state. |
 | Change and evidence need acceptance-bearing read-only judgment. | `conformance-review` | Findings, two-way traces, limits, and disposition. |
 | Claims or names are the requested decision object. | `evidence-grounding` or `naming-things` | Grounded claims or naming recommendation and transition. |
+| The current operation is outside the portable kernel and a repository capability owns it. | Applicable local capability | Named operation, local authority, and handoff. |
 | Human acceptance exists and only repository mechanics remain. | Applicable local capability | Local handoff record. |
 | Prerequisite authority, evidence, or judgment is unavailable. | Accountable human or authority | `unresolved` plus next discriminator. |
 
@@ -65,10 +113,12 @@ Evidence may reopen an earlier node. Human judgment remains between consequentia
    enters it.
 7. Let exact mechanical work bypass unnecessary inquiry when explicit direction fully governs it.
 8. Ask at most one discriminating question when ambiguity materially changes the route.
-9. Return after the focused result; never auto-advance through the graph.
-10. Surface reopen conditions when evidence defeats an earlier account or obligation.
-11. Record acceptance only from an explicit accountable human judgment.
-12. Route repository-specific integration outward.
+9. For route-only classification, stop once one route is determined, state that the developer
+   decides whether to follow it, and do not manufacture a request for execution details.
+10. Return after the focused result; never auto-advance through the graph.
+11. Surface reopen conditions when evidence defeats an earlier account or obligation.
+12. Record acceptance only from an explicit accountable human judgment.
+13. Route repository-specific integration outward.
 
 ## Misroute recovery
 
@@ -84,12 +134,14 @@ Evidence may reopen an earlier node. Human judgment remains between consequentia
 
 ## Invariants
 
-- The router owns classification, never the work or acceptance of a focused skill.
-- One invocation selects at most one focused route.
-- Consequential transitions retain a human checkpoint.
-- Artifact existence and phase labels never prove an obligation satisfied.
-- Mechanical tasks do not acquire ceremony merely because the router is present.
-- Local integration policy remains local.
+| Subject and premise | Valid-state property | Illegal negation | Enforcement boundary | Verification observation |
+| --- | --- | --- | --- | --- |
+| Route fidelity; obligations are satisfied by evidence, not labels. | A discovery invocation yields to an explicit operation or selects exactly one earliest unsatisfied prerequisite from current evidence. | Artifact existence, phase vocabulary, or table order selects a later or multiple operation. | Router classification and focused-skill entry contract. | Matched cases vary only prerequisite evidence and expose the selected owner and rejected sibling. |
+| Focused ownership; each operation has one procedural owner. | The router states why the owner applies, preserves that owner's full contract, and does not restate or weaken its procedure. | The router performs a specialist judgment or supplies a weaker duplicate standard. | Router handoff plus sibling specifications. | A case requiring a focused judgment shows the focused skill's own output or a handoff, with no router-authored substitute. |
+| Reflexive checkpoint; evidence can defeat an earlier obligation. | After one focused result, the router reports `continue`, `handoff ready`, a precise reopen, recorded human acceptance, or `unresolved`, then returns to the developer. | A successful or failed result automatically invokes a later phase, silently repairs intent, or self-accepts. | Result classification and developer handoff. | A result containing a new decision reopens the responsible premise without remediation, while a same-obligation result remains `continue`. |
+| Proportional entry; explicit direction can already govern a bounded operation. | Exact mechanical work bypasses discovery ceremony, while a consequential missing premise stops or routes to its owner. | Every request receives the same discovery artifacts, or consequential ambiguity is treated as mechanical. | Trigger, mechanical bypass, and unresolved fallback. | A mechanical case and a solution-first near miss receive different routes without extra artifacts. |
+| Portable boundary; local systems retain local authority. | An out-of-kernel operation routes to an applicable local capability whenever it arises, and accepted work routes outward for integration. | The router claims generic diagnosis, quality, source-control, deployment, or repository policy, or refuses such a handoff solely because acceptance has not occurred. | Package scope and local-capability routes. | Pre-acceptance diagnosis/review and post-acceptance integration cases both leave the kernel with the distinct governing state reported. |
+| Continuity economy; artifacts exist only to preserve decisions. | The router delegates mandate/workpad creation or material repair and updates an existing workpad only after a decision-bearing change. | It creates a progress diary, duplicates the inquiry workpad, or imposes a universal path. | `goal-formulation` handoff and existing workpad. | Long-running and ordinary-continuation cases distinguish material repair from no-op artifact ceremony. |
 
 ## Workpad contract
 
@@ -119,6 +171,10 @@ artifact contract.
 - A blacklist-invariant request routes to invariant formulation rather than specification development.
 - A completed proposal needing only argument grading routes to causal readiness review.
 - A completed implementation routes to conformance review only when review is requested.
+- A reported regression needing diagnosis routes to an applicable local capability without implying
+  that mutation or specification repair is already authorized.
+- A generic maintainability review routes to an applicable local capability rather than
+  `conformance-review`.
 - A review discovery reopens specification development and does not auto-run remediation.
 - Accepted work routes outward for repository-specific integration.
 
@@ -135,6 +191,7 @@ The runtime file contains only the resulting routing contract.
 
 - `software-delivery` names the workflow scope without an opaque acronym or philosophical branding.
 - Primary execution shape is a prompt-level router with explicit fallback and misroute recovery.
-- The router is added only after every leaf skill has an implemented contract.
+- The router was added only after every currently listed portable owner had an implemented
+  contract; that observation does not establish topology completeness.
 - One route per invocation preserves human checkpoints and avoids paraphrasing chains.
 - No bundled reference is justified because the route table and handoffs are compact.

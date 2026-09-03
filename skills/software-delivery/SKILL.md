@@ -32,6 +32,7 @@ developer's authority, and return after the focused result. Do not run a lifecyc
 | An accepted governing specification fixes the intended meaning and repository mutation is authorized. | `specification-implementation` |
 | Implementation and verification evidence exist and the user wants read-only acceptance review. | `conformance-review` |
 | The requested operation is claim grounding or a material naming decision. | `evidence-grounding` or `naming-things`, according to the object requested. |
+| The current operation is outside the portable kernel, such as causal diagnosis or generic quality review, and a repository capability owns it. | Applicable local capability. |
 | The change has explicit human acceptance and only commit, review-system, deployment, release, migration, or operations work remains. | Applicable local capability. |
 | Required authority, evidence, or accountable judgment is unavailable. | Stop as `unresolved`. |
 
@@ -45,6 +46,10 @@ decision, or verification burden is open. Do not manufacture inquiry ceremony.
 When several conditions appear true, choose the earliest unsatisfied prerequisite. When routing is
 still ambiguous and the answer would materially change the work, ask one question that distinguishes
 the routes.
+
+For a route-only classification, stop as soon as one route is determined. Explicitly state that the
+developer decides whether to follow it; do not request execution details, perform the focused
+operation, or prescribe any operation after it.
 
 The focused utilities own their full standards. Caller skills may state why the utility applies and
 how its result affects their own work, but must not restate, weaken, or contradict its procedure.
@@ -78,5 +83,5 @@ Report:
 - selected route and the evidence for it;
 - governing artifact and current obligation;
 - action completed by the focused skill, if any;
-- resulting state and human checkpoint; and
+- resulting state and the explicit human checkpoint for whether to follow the selected route; and
 - one next discriminator or local handoff.
