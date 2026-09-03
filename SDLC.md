@@ -445,6 +445,25 @@ has an explicit causal defense, but package-wide readiness remains defeated unti
 supplies strongest-comparator conditions, the complete claim graph, expanded single-defect controls,
 and behavioral coverage or an explicit exclusion for every delivery skill.
 
+The first complete unit audit now covers `software-delivery`: its local runtime and SPEC, all sibling
+triggers, callers, pinned Addy router runtime and orchestration references, the relevant pinned
+DerivaDEX dialectics source, and the evaluation surface have a two-way proposition ledger in
+`SOFTWARE-DELIVERY-SOURCES.md`. The audit added the missing pre-acceptance local-capability route,
+replaced weak invariant bullets with enforceable properties, and introduced a calibrated four-
+condition route family. That family exposed and repaired the route-only human-checkpoint expression;
+later trace inspection showed that every live condition could resolve the globally installed
+Theaetetus plugin. The reported current 18/18, placebo 17/18 rejection, and comparator/no-skill 18/18
+matches are invalid as behavioral evidence. The router design remains an audit increment, but neither
+the bounded contract nor the unnecessary-router null is admitted until isolated recalibration and
+full replay.
+
+The same verification exposed a pre-existing evaluation-integrity defect. The dialectical
+`final-freeze.sha256` was authored at `409572f` but five committed files changed under later topology
+commits without a reseal. Its 116/116 result is therefore historical rather than a reproducible
+current-surface freeze. Router artifacts are file-separated so they do not enlarge that mismatch,
+but file separation did not isolate the provider environment; the old seal must not be updated until
+the current dialectical suite is replayed cache-disabled under the evaluation-owned Codex home.
+
 No source-repository retirement is authorized by this audit. Retirement still requires
 equivalent-or-better clause coverage, installed replacement, route cutover, matched shadow evidence,
 and atomic removal without compatibility aliases.[^retirement-law]
@@ -454,10 +473,10 @@ and atomic removal without compatibility aliases.[^retirement-law]
 - Whether the accepted philosophy and delivery specification are themselves defeated by the full
   comparison is owner-held if the repair would change developer authority or the evidence boundary;
   the audit may expose but not silently resolve that conflict.
-- Whether each skill's existing SPEC can hold the required line ledger without obscuring its
-  governing argument remains unresolved. The discriminator is one complete router audit recorded in
-  the existing lineage surfaces; if review cost becomes materially worse, propose a dedicated
-  lineage convention for owner approval rather than scattering ad hoc files.
+- The first complete ledger fits the existing top-level source ledger without altering runtime
+  authority, but it is already large. Repeat that placement for the next unit; if navigation or
+  review becomes materially worse, propose a dedicated lineage convention for owner approval rather
+  than scattering ad hoc files.
 - The strongest comparator set may extend beyond the two currently pinned repositories. Admit an
   additional comparator only when a concrete behavior or empirical claim makes it capable of
   defeating a live decision; do not expand research decoratively.
@@ -468,14 +487,37 @@ and atomic removal without compatibility aliases.[^retirement-law]
 
 ## Next discriminator
 
-Audit `software-delivery` first because its routing contract selects every other skill and can hide
-both topology gaps and duplicated ownership. Read its SKILL, SPEC, callers, all sibling descriptions,
-the pinned `using-agent-skills` runtime and router references, the relevant DerivaDEX routing source,
-and every present routing test line by line. Produce the two-way proposition ledger; reconstruct both
-arguments; submit its invariants to causal-readiness and invariant review; then revise only the
-demonstrated owner and its discriminating routing cases. If this increment cannot trace every local
-and comparator proposition or cannot calibrate a near-miss oracle independently of current wording,
-the audit method itself is not ready to advance to the next skill.
+Reconcile the stale dialectical evidence seal before extending router coverage. Run the current
+committed dialectical surface through its structural projects, holdout manifest, assertion probes,
+configuration validation, and cache-disabled six-project evaluation without treating the stale
+checksum as a prerequisite. Classify every failure before changing any target, oracle, or case; only
+a clean current-surface replay can authorize a new checksum identity. Once this evidence-integrity
+boundary is resolved, continue `software-delivery` with the uncued architecture-precedence pair
+already derived above.
+
+The structural projects, holdout manifest, assertion probes, and configuration validation now pass.
+The first cache-disabled calibration attempt completed 11/12 calls, then one grader subprocess
+stalled for more than ten minutes and was terminated without a result file. The immediate next
+action was a fresh complete calibration replay, which passed 12/12. The following unit candidate
+reported 51/66, but raw execution traces later showed that current, placebo, and no-skill rows read
+the globally installed Theaetetus plugin instead of, or in addition to, the generated condition
+skills. The provisional semantic classifications—including the apparent placebo competence,
+no-skill artifact match, and earlier router condition scores—are therefore invalid. They are harness
+evidence, not behavioral evidence.
+
+The provider now receives an evaluation-owned absolute `CODEX_HOME` containing only the existing
+authenticated CLI credential and warning configuration. Valid isolation probes show the no-skill
+condition reporting the named skill unavailable, the placebo rejected 3/3, and the unchanged tutor
+fade repair passing 3/3 with fixture-local skill reads. A deterministic post-run trace gate rejects
+any package skill resolved outside the generated condition fixture. The current obligation is an
+isolated 12-control calibration followed by the complete 66-row unit family. The calibration passed
+12/12; the isolated unit candidate passed 63/66, with every placebo and no-skill control behaving as
+predesignated and three current inquiry failures. Those failures exposed already-governing ordering
+obligations: answer before tutor handoff, and persist a material oracle account before yield. After
+the bounded runtime repair, a fresh-fixture targeted replay passed 5/5. The current obligation is the
+complete fresh-fixture 66-row regression. Holdout, integration, resealing, and router admission
+remain suspended until that gate passes; the router family must then be recalibrated and replayed
+under the same isolation boundary before its results are interpreted.
 
 ## Evidence notes
 

@@ -1,4 +1,4 @@
-description: Dialectical skills working-set and matched-control evaluation
+description: Delivery-router comparative classification evaluation
 
 providers:
   - id: openai:codex-sdk
@@ -7,7 +7,7 @@ providers:
       model: gpt-5.6-terra
       model_reasoning_effort: high
       working_dir: ./.runs/{{caseId}}/{{runIndex}}/current
-      sandbox_mode: workspace-write
+      sandbox_mode: read-only
       approval_policy: never
       network_access_enabled: false
       web_search_enabled: false
@@ -18,12 +18,28 @@ providers:
       persist_threads: false
       enable_streaming: true
   - id: openai:codex-sdk
-    label: mechanical-placebo
+    label: strongest-comparator
     config:
       model: gpt-5.6-terra
       model_reasoning_effort: high
-      working_dir: ./.runs/{{caseId}}/{{runIndex}}/mechanical-placebo
-      sandbox_mode: workspace-write
+      working_dir: ./.runs/{{caseId}}/{{runIndex}}/strongest-comparator
+      sandbox_mode: read-only
+      approval_policy: never
+      network_access_enabled: false
+      web_search_enabled: false
+      web_search_mode: disabled
+      inherit_process_env: false
+      cli_env:
+        CODEX_HOME: "{{env.PWD}}/evals/promptfoo/fixtures/codex-home"
+      persist_threads: false
+      enable_streaming: true
+  - id: openai:codex-sdk
+    label: router-placebo
+    config:
+      model: gpt-5.6-terra
+      model_reasoning_effort: high
+      working_dir: ./.runs/{{caseId}}/{{runIndex}}/router-placebo
+      sandbox_mode: read-only
       approval_policy: never
       network_access_enabled: false
       web_search_enabled: false
@@ -39,7 +55,7 @@ providers:
       model: gpt-5.6-terra
       model_reasoning_effort: high
       working_dir: ./.runs/{{caseId}}/{{runIndex}}/no-skill
-      sandbox_mode: workspace-write
+      sandbox_mode: read-only
       approval_policy: never
       network_access_enabled: false
       web_search_enabled: false
@@ -51,40 +67,16 @@ providers:
       enable_streaming: true
 
 prompts:
-  - id: natural-request
-    label: Natural request
+  - id: route-only-request
+    label: Route-only request
     raw: file://prompts/inquiry.txt
 
-defaultTest:
-  options:
-    disableVarExpansion: false
-
 assertionTemplates:
-  noPersonDiagnosis:
-    type: javascript
-    value: file://assertions/no-person-diagnosis.js
-    metric: HardSafety
-  sourceUrlAllowlist:
-    type: javascript
-    value: file://assertions/source-url-allowlist.js
-    metric: HardEvidenceBoundary
-  workspaceContract:
-    type: javascript
-    value: file://assertions/workspace-contract.js
-    metric: HardArtifact
-  tutorMarkers:
-    type: javascript
-    value: file://assertions/tutor-markers.js
-    metric: HardLifecycle
-  evidenceBoundary:
-    type: javascript
-    value: file://assertions/evidence-boundary.js
-    metric: HardEvidenceBoundary
-  sourceSummaryRubric:
+  currentPass:
     type: agent-rubric
-    value: file://assertions/rubric-value.js:sourceSummary
+    value: file://assertions/router-rubric-value.js
     threshold: 0.95
-    metric: HardSourceFaithfulness
+    metric: RouterOutcome
     provider:
       id: openai:codex-sdk
       config:
@@ -99,17 +91,18 @@ assertionTemplates:
         inherit_process_env: false
         cli_env:
           CODEX_HOME: "{{env.PWD}}/evals/promptfoo/fixtures/codex-home"
-  inquiryCurrentRubric:
+  comparatorDiagnostic:
     type: agent-rubric
-    value: file://assertions/rubric-value.js:inquiry
+    value: file://assertions/router-rubric-value.js
     threshold: 0.95
-    metric: DialecticalOutcome
+    metric: ComparatorOutcome
+    weight: 0
     provider:
       id: openai:codex-sdk
       config:
         model: gpt-5.6-sol
         model_reasoning_effort: high
-        working_dir: ./.runs/{{caseId}}/{{runIndex}}/current
+        working_dir: ./.runs/{{caseId}}/{{runIndex}}/strongest-comparator
         sandbox_mode: read-only
         approval_policy: never
         network_access_enabled: false
@@ -118,9 +111,9 @@ assertionTemplates:
         inherit_process_env: false
         cli_env:
           CODEX_HOME: "{{env.PWD}}/evals/promptfoo/fixtures/codex-home"
-  inquiryPlaceboRubric:
+  placeboRejected:
     type: not-agent-rubric
-    value: file://assertions/rubric-value.js:inquiry
+    value: file://assertions/router-rubric-value.js
     threshold: 0.95
     metric: PlaceboRejected
     provider:
@@ -128,7 +121,7 @@ assertionTemplates:
       config:
         model: gpt-5.6-sol
         model_reasoning_effort: high
-        working_dir: ./.runs/{{caseId}}/{{runIndex}}/mechanical-placebo
+        working_dir: ./.runs/{{caseId}}/{{runIndex}}/router-placebo
         sandbox_mode: read-only
         approval_policy: never
         network_access_enabled: false
@@ -137,17 +130,18 @@ assertionTemplates:
         inherit_process_env: false
         cli_env:
           CODEX_HOME: "{{env.PWD}}/evals/promptfoo/fixtures/codex-home"
-  tutorCurrentRubric:
+  noSkillDiagnostic:
     type: agent-rubric
-    value: file://assertions/rubric-value.js:tutor
+    value: file://assertions/router-rubric-value.js
     threshold: 0.95
-    metric: DialecticalOutcome
+    metric: NoSkillCapability
+    weight: 0
     provider:
       id: openai:codex-sdk
       config:
         model: gpt-5.6-sol
         model_reasoning_effort: high
-        working_dir: ./.runs/{{caseId}}/{{runIndex}}/current
+        working_dir: ./.runs/{{caseId}}/{{runIndex}}/no-skill
         sandbox_mode: read-only
         approval_policy: never
         network_access_enabled: false
@@ -156,33 +150,11 @@ assertionTemplates:
         inherit_process_env: false
         cli_env:
           CODEX_HOME: "{{env.PWD}}/evals/promptfoo/fixtures/codex-home"
-  tutorPlaceboRubric:
-    type: not-agent-rubric
-    value: file://assertions/rubric-value.js:tutor
-    threshold: 0.95
-    metric: PlaceboRejected
-    provider:
-      id: openai:codex-sdk
-      config:
-        model: gpt-5.6-sol
-        model_reasoning_effort: high
-        working_dir: ./.runs/{{caseId}}/{{runIndex}}/mechanical-placebo
-        sandbox_mode: read-only
-        approval_policy: never
-        network_access_enabled: false
-        web_search_enabled: false
-        web_search_mode: disabled
-        inherit_process_env: false
-        cli_env:
-          CODEX_HOME: "{{env.PWD}}/evals/promptfoo/fixtures/codex-home"
+
 tests:
-  - file://tests/inquiry-working.yaml
-  - file://tests/tutor-working.yaml
-  - file://tests/mechanical-placebo.yaml
-  - file://tests/no-skill.yaml
-  - file://tests/domain-working.yaml
+  - file://tests/router.yaml
 
 evaluateOptions:
   maxConcurrency: 3
 
-outputPath: evals/promptfoo/results/unit.json
+outputPath: evals/promptfoo/results/router.json

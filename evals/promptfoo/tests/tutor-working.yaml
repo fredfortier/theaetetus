@@ -126,9 +126,9 @@
     contract: no-workpad
     markerContract: no-intervention
     expectedOutcome: >-
-      Return exactly one NO INTERVENTION because the move already audits textual support,
-      distinguishes inference, and supplies a falsifier; cite that visible evidence and resume the
-      same question without a drill.
+      Return exactly one NO INTERVENTION because the move already performs a decisive epistemic
+      audit; cite the shortest exact span sufficient to show textual support, inference separation,
+      or falsification, and resume the same question without a drill.
     request: |-
       Invoke $dialectical-tutor for this recruited repair.
       Handoff diagnosis: “The human is passive.”

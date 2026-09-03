@@ -1,5 +1,6 @@
-import { cp, mkdir, rm } from 'node:fs/promises';
+import { copyFile, cp, mkdir, rm } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -7,6 +8,13 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const evalRoot = path.resolve(here, '..');
 const repoRoot = path.resolve(evalRoot, '..', '..');
 const runsRoot = path.join(evalRoot, '.runs');
+const evalCodexHome = path.join(evalRoot, 'fixtures', 'codex-home');
+
+async function prepareCodexHome() {
+  const sourceCodexHome = process.env.CODEX_HOME ?? path.join(os.homedir(), '.codex');
+  await mkdir(evalCodexHome, { recursive: true });
+  await copyFile(path.join(sourceCodexHome, 'auth.json'), path.join(evalCodexHome, 'auth.json'));
+}
 
 const unitCases = [
   'di-route-01',
@@ -72,6 +80,7 @@ async function main() {
     throw new Error(`Refusing to reset unexpected runs root: ${runsRoot}`);
   }
   await rm(runsRoot, { recursive: true, force: true });
+  await prepareCodexHome();
   const calibrationSources = path.join(evalRoot, 'fixtures', 'calibration', 'sources');
   await rm(calibrationSources, { recursive: true, force: true });
   await cp(path.join(evalRoot, 'sources'), calibrationSources, { recursive: true });

@@ -24,8 +24,9 @@ is a superseded historical record. Promptfoo documentation defines provider and 
 mechanics, never the desired local behavior. Configurations, fixtures, assertions, rubrics, logs,
 and results implement or observe this specification; they do not amend it.
 
-The present suite evaluates `dialectical-inquiry` and `dialectical-tutor`. It does not provide
-equivalent behavioral evidence for the other ten delivery skills, Voice behavior, human learning,
+The present suite evaluates `dialectical-inquiry`, `dialectical-tutor`, and the route-only contract
+of `software-delivery`. It does not provide equivalent behavioral evidence for the other nine
+delivery skills, Voice behavior, human learning,
 productivity, retention, felt conversational quality, or commercial outcomes. Those absences must
 remain visible rather than being inferred from package-level green results.
 
@@ -65,6 +66,9 @@ Socratic quality:
 | Tutor restraint | An already-effective discriminating move receives `NO INTERVENTION`. | False-positive intervention caused by unfamiliarity, brevity, or a wrong domain answer alone. |
 | Stateful lifecycle | Inquiry state, tutor recruitment, retry, return, and closure remain coherent across actual turns and filesystem mutations. | One-shot embedded transcript that passes while persistent execution loses state. |
 | Transfer | The expressed model predicts a changed case for the same causal reason and yields a bounded engineering consequence. | Correct keyword repeated under changed surface vocabulary without the governing relation. |
+| `software-delivery` route fidelity | A genuinely unclear entry selects one earliest unsatisfied prerequisite from evidence; an already focused request bypasses the router. | Artifact/phase routing, paraphrasing a named operation, or more than one route. |
+| Router authority and reflexivity | Solution-first work preserves the missing-premise boundary, exact mechanical work bypasses ceremony, and a new decision reopens intent without remediation or self-acceptance. | Premature implementation, mandatory discovery, automatic phase advancement, or agent acceptance. |
+| Portable/local boundary | Diagnosis and generic quality review leave the current kernel without being mislabeled as authorized repair or acceptance-bearing conformance. | Treating symptom diagnosis as repair authority or generic review as specification conformance. |
 
 The authoritative detail remains in the two skill specifications. Their evaluation sections may
 name skill-specific fixtures and expected behaviors but must link here rather than restating this
@@ -115,7 +119,7 @@ For declared claim set `C`, `ScenarioTopology(C)` is sufficient only when:
 - every routing boundary has both positive and sibling or no-skill near-miss exercises;
 - every stateful claim is observed across the relevant turns or repository states;
 - current, comparator, placebo, and no-skill conditions hold model, task, permissions, evidence,
-  and harness constant except for the intended variable;
+  harness, and evaluation-owned Codex home constant except for the intended variable;
 - untouched changed cases exercise the same invariant under a different particular; and
 - every omitted behavior and every human-only claim is explicit.
 
@@ -132,6 +136,7 @@ with no orphan claim or decorative case.
 | --- | --- | --- | --- |
 | Grader calibration | Can each semantic oracle accept a supported result and reject one isolated defect? | `promptfooconfig.calibration.yaml` | Target runs are uninterpretable if the grader cannot discriminate known controls. |
 | Ephemeral protocol and routing | Do inquiry and tutor route correctly and preserve ownership, evidence, intervention, and artifact contracts for one decision? | `promptfooconfig.unit.yaml` with working, placebo, and no-skill tests | Small independent rows localize defects without thread or fixture contamination. |
+| Delivery-route classification | Does the router select or refuse exactly one owner from prerequisite evidence, preserve human checkpoints, and distinguish portable from local operations? | `promptfooconfig.router.yaml` with current, pinned strongest-comparator, mechanical-placebo, and no-skill conditions | A route-only family holds mutation and state constant, admits comparator vocabulary, and prevents dialogue or artifact quality from masking classification defects. |
 | Sealed transfer | Does admitted behavior survive paraphrase or changed particulars not used for tuning? | `promptfooconfig.holdout.yaml` | Working-set success cannot establish even bounded transfer. |
 | Persistent protocol lifecycle | Do recruit, retry, return, workpad, and closure transitions survive real ordered turns? | `promptfooconfig.integration.yaml` | Embedded transcripts cannot expose thread-persistence failures. |
 | Persistent domain lifecycle | Does the same lifecycle survive a non-method domain problem and produce the correct engineering relation? | `promptfooconfig.domain-integration.yaml` | Protocol self-description can pass without domain-grounded use. |
@@ -170,13 +175,25 @@ different purposes:
 - `current` tests the admitted local behavior.
 - `strongest-comparator` tests whether a claimed local transformation preserves or improves the
   relevant behavior. It is required when the comparative audit identifies a behavior-level claim;
-  the present suite does not yet implement this condition.
+  the router family implements the first such condition, while all other skill comparisons remain
+  open.
 - `mechanical-placebo` matches suspected ceremonial causes—skill read, markers, workpad shape,
   source labels, approximate length, model, permissions, and evidence—while removing the named
   semantic competence.
 - sibling or near-miss conditions test trigger and owner boundaries.
 - `no-skill` describes foundation-model capability and artifact differentiation. It is not forced
   to fail legitimate generic reasoning.
+
+Condition identity requires every target and grader subprocess to use the evaluation-owned
+`CODEX_HOME`. Fixture preparation may copy only the authenticated CLI credential into that home;
+it must not copy installed skills, plugins, instructions, or configuration capable of supplying an
+evaluated competence. Any raw trace that resolves a package skill outside the declared generated
+condition fixture invalidates the run before its semantic result is interpreted. Visibility of
+non-overlapping personal skills remains an environment limit and must be reported if observed.
+
+Every independent invocation that can mutate a fixture must begin from fixture preparation. A
+targeted replay that reuses a workpad or project state from an earlier invocation is invalid even if
+its provider and skill paths are otherwise isolated.
 
 For every consequential semantic oracle, calibration must include a supported positive output and
 single-defect negatives for every required property. The current inquiry and tutor graders cover
@@ -198,14 +215,39 @@ claims. A control accepted by its oracle invalidates that oracle for the affecte
 
 The target uses natural conversational output. Structured output may constrain graders and helpers,
 not the target dialogue. Writable cases use disposable Git fixtures; graders inspect the identical
-rendered fixture read-only. Network, search, approvals, inherited environment, model, and reasoning
-effort remain fixed across causal comparisons. Historical provider integration details are recorded
-in [the findings log](evidence/findings-log.md), not promoted into universal skill behavior.
+rendered fixture read-only. Network, search, approvals, inherited environment, evaluation-owned
+Codex home, model, and reasoning effort remain fixed across causal comparisons. Historical provider
+integration details are recorded in [the findings log](evidence/findings-log.md), not promoted into
+universal skill behavior.
+
+### Router claim graph
+
+| Claim | Positive scenario | Matched defeater/control | Conditions | Oracle and licensed conclusion |
+| --- | --- | --- | --- | --- |
+| `SD-C01` focused-operation bypass | `sd-route-focused` | ceremony-only router paraphrase | current, comparator, placebo, no-skill | Calibrated router rubric; only whether a named operation avoided an extra route. |
+| `SD-C02` proportional premise routing | `sd-route-solution-first` and `sd-route-mechanical` | weakening, authority-inversion, and mandatory-discovery controls | current, comparator, placebo, no-skill | Same rubric; only whether the two matched requests separated inquiry from mechanical implementation without mutation. |
+| `SD-C03` portable/local boundary | `sd-route-diagnosis` and `sd-route-quality` | conflated-repair and conflated-conformance controls | current, comparator, placebo, no-skill | Same rubric; only whether classification preserved the current package boundary. It does not decide whether a future portable owner should be admitted. |
+| `SD-C04` reflexive checkpoint | `sd-route-reopen` | duplication/automatic-advance and self-acceptance controls | current, comparator, placebo, no-skill | Same rubric; only whether a newly exposed decision reopened specification and stopped. |
+
+The route-only prompt asks for classification and a stop, so file mutation, specialist output, and
+skill-read traces are not semantic targets. Route names may differ between current and comparator
+when their operations are equivalent. The rubric receives scenario-specific admissible and
+forbidden outcomes, was authored from the governing invariants rather than observed target text,
+and must pass fixed-output calibration before any live result enters evidence.
+
+Unautomated router behavior remains explicit: complete sibling return-contract preservation,
+architecture precedence, workpad materiality, claim/name utility selection, accepted integration,
+unavailable-authority questioning, and every result classification other than specification reopen.
+The route family therefore cannot establish complete router admission by itself.
 
 ## Pass and inference law
 
 - Every hard safety, evidence, artifact, lifecycle, and semantic assertion passes on every declared
   repeat. No weighted average compensates for a hard failure.
+- A deterministic trace check confirms that every evaluated package-skill read resolves inside the
+  generated condition fixture. An external overlapping skill read invalidates the entire run.
+- Every writable fixture begins at its generated baseline for that invocation; inherited workpad or
+  project mutations invalidate a replay.
 - Every semantic oracle first passes its positive calibration and rejects each corresponding
   single-defect control.
 - The placebo satisfies its matched ceremonial checks and fails each predesignated semantic
@@ -241,20 +283,35 @@ package-wide behavioral claim.
 
 The cache-disabled 2026-08-23 run reported 116/116 passing rows and 64/64 observed routing checks
 for the then-frozen dialectical contract. This is a bounded historical observation recorded in
-[the findings log](evidence/findings-log.md); it does not discharge the new comparative burden.
+[the findings log](evidence/findings-log.md); it does not discharge the new comparative burden. The
+associated `final-freeze.sha256` is stale against five committed files changed by later topology
+work, so it is not a reproducible seal of the current dialectical surface.
 
 Open obligations that can reverse an evaluation claim:
 
 - line-complete audits may change the inquiry or tutor invariants and therefore invalidate current
   targets, controls, rubrics, or cases;
-- the suite lacks `strongest-comparator` providers and behavioral coverage for ten delivery skills;
-- the claim-to-scenario graph and the expanded defect-control matrix are not yet implemented;
+- strongest-comparator providers and behavioral coverage remain absent for every skill except the
+  route-only `software-delivery` family;
+- the package-wide claim graph and defect-control matrix remain incomplete outside the router family;
 - Voice behavior has no runtime scenario; and
 - human efficacy remains untested.
 
-The next discriminator is the `software-delivery` router audit named in
-[SDLC.md](../../SDLC.md#next-discriminator). Its result determines the first non-dialectical claim,
-near-miss boundary, comparator condition, and oracle that this evaluation topology must admit.
+The router oracle passed nine independently fixed controls, and several cache-disabled live replays
+reported condition-level results. Raw execution traces subsequently showed that those conditions
+could resolve the globally installed Theaetetus plugin outside their generated fixtures. Every live
+router score is therefore invalid as behavioral evidence, including the apparent current repair,
+comparator/no-skill matches, and placebo rejection. The fixed outputs retain only their role as
+oracle-design controls; the router oracle and live family must be recalibrated and replayed under the
+evaluation-owned Codex home before admission.
+
+The next router discriminator remains an uncued, repository-evidence-dependent architecture-
+precedence pair: one fixture contains an applicable accepted architecture decision and must route to
+`architecture-conformance`; the matched fixture lacks such a record and must not select that route.
+Its controls must distinguish record inspection from artifact-name, phase, and route-vocabulary
+cueing. At package level, the stale dialectical seal first requires isolated calibration and a clean
+current-surface candidate replay or explicit retirement; a checksum edit without that replay is
+inadmissible.
 
 ## Final handoff
 

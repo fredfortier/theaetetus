@@ -26,6 +26,8 @@ assertionTemplates:
         web_search_enabled: false
         web_search_mode: disabled
         inherit_process_env: false
+        cli_env:
+          CODEX_HOME: "{{env.PWD}}/evals/promptfoo/fixtures/codex-home"
   inquiryReject:
     type: not-agent-rubric
     value: file://assertions/rubric-value.js:inquiry
@@ -193,6 +195,21 @@ tests:
       Try once: Ask a more polished evidence question.
     assert:
       - $ref: '#/assertionTemplates/tutorReject'
+
+  - description: Tutor no-intervention minimal evidence passes
+    vars:
+      caseId: calibration-tutor-no-intervention-positive
+      request: Judge the fixed tutor output.
+      expectedOutcome: >-
+        Return NO INTERVENTION when one shortest quoted span already performs a decisive epistemic
+        function, and preserve the live question without demanding a catalogue of every function in
+        the move.
+    providerOutput: |-
+      NO INTERVENTION
+      Evidence: “what observation would falsify that bridge?”
+      Resume: Does the source establish causation or only correlation?
+    assert:
+      - $ref: '#/assertionTemplates/tutorPass'
 
   - description: Bounded source summary positive control passes
     vars:

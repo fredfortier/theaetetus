@@ -88,6 +88,15 @@ evalConfig(
   '1',
 );
 
+run('node', [
+  'evals/promptfoo/scripts/check-result-isolation.mjs',
+  calibration,
+  unit,
+  holdout,
+  ...integrations,
+  domainIntegration,
+]);
+
 const summaries = [calibration, unit, holdout, ...integrations, domainIntegration].map(summarize);
 for (const summary of summaries) {
   const outcome = summary.outcomeScore === null ? 'n/a' : summary.outcomeScore.toFixed(3);
