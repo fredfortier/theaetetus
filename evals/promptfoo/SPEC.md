@@ -13,11 +13,9 @@ and change control of `evals/promptfoo/`. The authority chain is:
 1. explicit user decisions;
 2. [PHILOSOPHY.md](../../PHILOSOPHY.md) for human ownership, oracle discipline, verification, and
    claim limits;
-3. [SOFTWARE-DELIVERY-SPEC.md](../../SOFTWARE-DELIVERY-SPEC.md) for package roles, handoffs, and
-   acceptance;
-4. each affected [`skills/*/SPEC.md`](../../skills/) for the behavior an evaluation may claim to
+3. each affected [`skills/*/SPEC.md`](../../skills/) for authority, handoffs, and the behavior an evaluation may claim to
    exercise; and
-5. this specification for evaluation design and inference.
+4. this specification for evaluation design and inference.
 
 [SDLC.md](../../SDLC.md) is the changing comparative-audit workpad. [WORKPAD.md](../../WORKPAD.md)
 is a superseded historical record. Promptfoo documentation defines provider and assertion

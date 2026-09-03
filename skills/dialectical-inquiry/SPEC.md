@@ -1,7 +1,5 @@
 # Specification: `dialectical-inquiry`
 
-Status: approved and implemented.
-
 ## Intent
 
 Create a subject-bound dialectical environment in which the human drives the inquiry as midwife and the runtime agent participates as a knowledgeable, fallible oracle. The interaction must help the human form and own a first-principles mental model while resisting false premises, AI sycophancy, oracle overreliance, cargo-cult reasoning, and conversational drift.
@@ -322,47 +320,21 @@ The implementation must include:
 - Uncertain voice transcription cannot update the human model or trigger coaching.
 - Consequential evidence remains understandable without viewing links synchronously.
 
-## Planned trigger evals
+## Evaluation argument
 
-### Should trigger
+The working scenarios in
+[`tests/inquiry-working.yaml`](../../evals/promptfoo/tests/inquiry-working.yaml), their ceremony-matched
+negatives in [`tests/mechanical-placebo.yaml`](../../evals/promptfoo/tests/mechanical-placebo.yaml),
+the sealed transfer cases in [`tests/holdout.yaml`](../../evals/promptfoo/tests/holdout.yaml), and the
+persistent lifecycle in [`tests/integration.yaml`](../../evals/promptfoo/tests/integration.yaml)
+exercise the essential distinctions: direct inquiry versus explanation, independent answer versus
+paraphrase, evidence versus inference, responsive pressure versus a category script, attributed
+workpad continuity, warranted tutor recruitment, and human-owned synthesis or precise aporia.
 
-- “Use dialectical inquiry on how transaction finality works; I want to question you until I own the model.”
-- “Start a dialectic on whether this cache belongs at the repository boundary.”
-- “I want you as the oracle and me as the midwife; the subject is capability revocation.”
-
-### Should not trigger
-
-- “Explain transaction finality in three paragraphs.”
-- “Fix the cache invalidation test according to the governing specification.”
-- “Quiz me on these vocabulary terms.”
-- “Write the architecture and I'll approve it.”
-
-## Validation plan
-
-1. Structural validator for frontmatter and flat references.
-2. Trigger/non-trigger description evals.
-3. Promptfoo/Codex scenarios governed by [the evaluation specification](../../evals/promptfoo/SPEC.md)
-   for frame correction, evidence limits, cargo-cult handoff, and a near-miss route.
-4. Workpad recovery across a simulated compaction or new session.
-5. Human review for conversational agency, non-mechanical feel, and genuine first-principles ownership.
-
-Voice validation is outside this Promptfoo suite. These cases exercise modality-independent inquiry behavior only.
-
-## Promptfoo/Codex evaluation specification
-
-This specification inherits the Promptfoo/Codex evaluation law, grammar, pass law, and ceremony-only burden of proof in [evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md).[^di-eval-law]
-
-### Evaluated claim surface
-
-Evaluation may claim only the observable contracts already defined by this specification: correct
-positive and negative routing, substantive and independently reconstructed answers, evidence and
-inference separation, human ownership, responsive rather than scripted pressure, attributed
-workpad state, warranted tutor handoff, coherent persistent lifecycle, owned or aporetic closure,
-and changed-case transfer to a bounded engineering consequence. The governing scenario portfolio,
-controls, target and oracle definitions, tooling roles, and pass law live only in
-[evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md).
-
-[^di-eval-law]: [The Promptfoo evaluation specification](../../evals/promptfoo/SPEC.md) is the local governing law for test grammar, provider controls, assertion roles, baselines, and pass conditions.
+The evaluation may claim only those observable behaviors and changed-case transfer to a bounded
+engineering consequence. Voice behavior, conversational quality, person-level mastery, and human
+learning efficacy remain outside the suite. Condition identity, controls, oracle admissibility, and
+pass law are owned by [`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md).
 
 ## Reasoning and lineage
 
@@ -371,18 +343,27 @@ development, the human must own the live question, revisions, and terminal synth
 therefore answers and challenges without becoming the author of the human's account. The workpad
 preserves provenance so that fluent oracle language cannot silently become human ownership.
 
-The complete pedagogical and oracle-reliability lineage is recorded in
+The complete pedagogical and oracle-reliability evidence is retained in
 [RESEARCH.md](../../RESEARCH.md); evaluation design and domain-fixture rationale are governed by
-[evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md). The source-specific footnotes constrain
-each adopted claim and keep runtime observations distinct from claims about human learning.
+[evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md). Those sources constrain claims about the
+interaction and cannot establish person-level mastery or learning efficacy.
 
-## Approved implementation decisions
+| Decision | Addy `interview-me` | DerivaDEX `dialectics` | Theaetetus disposition |
+| --- | --- | --- | --- |
+| Questioner | Agent asks one premise-testing question at a time to recover user intent. | Agent hypothesizes, questions, and restates a posterior chain for developer confirmation. | Invert the live role: the human questions a fallible oracle so the human practices and owns inquiry. |
+| Oracle behavior | Agent guesses intent and converges toward a confirmed summary. | Agent detects solution-before-premise reasoning and challenges inconsistent answers. | Require an independent substantive account, evidence/inference separation, rival accounts, and responsive pressure without taking authorship. |
+| State | Produces a compact interview result. | Tracks confidence and stops at a numeric threshold. | Preserve an attributed subject workpad across turns; close only with human-owned synthesis plus transfer or precise aporia. |
+| Coaching | Improves requirements through the agent's interview technique. | Treats questioning mechanics as part of the agent-led process. | Recruit a bounded separate tutor only when observable human moves warrant it, then return cleanly to the oracle. |
 
-- Skill name and trigger boundary approved.
-- Canonical runtime root is `skills/dialectical-inquiry/`; `.agents/skills` may expose it through a
-  symlink when Codex project-skill discovery requires that path.
-- `.agent/<subject-slug>.md` and its collision-safe schema approved.
-- Qualitative calibration and evidence thresholds approved.
-- Named `$dialectical-tutor` recruitment with portable fallback approved.
-- Human-authored synthesis with transfer evidence, or precise aporia, approved as the terminal contract.
-- Voice Mode amendment approved on 2026-08-22: authoritative surface detection, verbal-first evidence grounding, one oracle voice, backstage specialization, transcript protection, and natural spoken coaching.
+Primary comparator: Addy Osmani,
+[`interview-me`](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/skills/interview-me/SKILL.md#L38-L139).
+Primary donor and strongest inversion source: DerivaDEX,
+[`dialectics`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/dialectics/SKILL.md#L38-L234).
+
+## Rejected ceremony
+
+- agent-led premise ownership, confidence scores, or a numeric readiness threshold;
+- fixed category scripts, mandatory pressure on every answer, or tutor recruitment by cadence;
+- oracle-authored terminal synthesis or fluent paraphrase treated as human ownership;
+- duplicate inquiry artifacts, activity logs, or unattributed workpad claims; and
+- provider-specific voice, path, or subagent mechanics treated as the portable contract.

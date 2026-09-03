@@ -5,7 +5,7 @@
 Status: active. The twelve-skill topology is implemented but not yet admitted by the exhaustive
 comparative burden defined here. Earlier maps and verdicts below are provisional hypotheses, not
 completion evidence. This workpad is research and design evidence, not runtime authority;
-`PHILOSOPHY.md`, `SOFTWARE-DELIVERY-SPEC.md`, and explicit user decisions govern the package.
+`PHILOSOPHY.md`, each owning `skills/*/SPEC.md`, and explicit user decisions govern the package.
 
 ## Audit mandate and authority
 
@@ -22,15 +22,13 @@ Governing authority, in order:
 1. the user's mandate for a line-complete comparative audit and explicit theorem;
 2. [PHILOSOPHY.md](PHILOSOPHY.md) for developer ownership, oracle discipline, reflexive delivery,
    verification, conformance, and the evidence boundary;
-3. [SOFTWARE-DELIVERY-SPEC.md](SOFTWARE-DELIVERY-SPEC.md) for the accepted portable-kernel contract;
-4. each accepted [`skills/*/SPEC.md`](skills/) within its focused boundary;
-5. pinned comparator sources as defeaters and design evidence, never local authority; and
-6. implementation, tests, Promptfoo output, and repository history as bounded observations of the
+3. each accepted [`skills/*/SPEC.md`](skills/) within its focused boundary;
+4. pinned comparator sources as defeaters and design evidence, never local authority; and
+5. implementation, tests, Promptfoo output, and repository history as bounded observations of the
    present state.
 
 Authorized write surfaces for the continuing goal are `SDLC.md`, `skills/*/SKILL.md`,
-`skills/*/SPEC.md`, `SOFTWARE-DELIVERY-SPEC.md`, `SOFTWARE-DELIVERY-SOURCES.md`, and
-`evals/promptfoo/`, plus repository registration or validation files strictly required by an
+`skills/*/SPEC.md`, and `evals/promptfoo/`, plus repository registration or validation files strictly required by an
 admitted topology change. Amendments to philosophy or owner-held intent must stop for the owner's
 decision rather than entering through skill or eval edits.
 
@@ -222,10 +220,10 @@ burden:
 This standard replaces the former percentage weighting. Local philosophy governs the ends; Addy's
 empirical runtime form defeats an untested local redesign of the means.
 
-The defeater rule never overrides runtime purity. No distributed file under `skills/` may contain a
-source-project name, link, path, role, provider, artifact convention, migration note, or unexplained
-source-local vocabulary. Comparative evidence belongs only in top-level research and lineage
-artifacts. A lexical scan is necessary but insufficient; every admitted skill must also make sense in
+The defeater rule never overrides runtime purity. No runtime `SKILL.md` or routed runtime leaf may
+contain a source-project name, link, path, role, provider, artifact convention, migration note, or
+unexplained source-local vocabulary. Comparative evidence belongs in the owning `SPEC.md` or a
+top-level research artifact. A lexical scan is necessary but insufficient; every admitted skill must also make sense in
 unrelated repositories. Likewise, no skill may acquire a `dialectical-` prefix unless conducting or
 coaching dialectic is its primary runtime operation.[^delivery-spec]
 
@@ -320,7 +318,7 @@ developer owns it. They may not replace ownership.
 All 63 immediate source-skill directories were censused by name, trigger description, and runtime
 structure. The most plausible portable omissions were then read as operating contracts rather than
 admitted mechanically. Project names, role titles, paths, providers, artifact conventions, and
-stack doctrine remain quarantined outside `skills/`.[^source-census]
+stack doctrine remain quarantined outside runtime skill surfaces.[^source-census]
 
 ### Admission candidates
 
@@ -431,7 +429,28 @@ Completion is a boundary-owned evidence relation:
 
 ## Implementation and migration state
 
-The current branch already contains the approved philosophy, delivery specification, twelve focused
+The governing-document consolidation migrated the former package delivery specification and source
+ledger into the `SPEC.md` of each owning skill, then removed those transient workpads. Durable
+premises, source negotiation, rejected alternatives, and evaluation claims now live with the skill
+whose behavior they govern; migration history and execution status remain here. `conformance-review`
+now makes `*-development` doctrine and governing work specifications distinct mandatory authorities,
+preserves doctrine-before-mechanics closure, scales inspection by authority reach rather than
+line-count arithmetic, and retains consequence-led finding communication without broadening into
+generic quality review.
+
+[`skills/doctrine-skill/SPEC.md`](skills/doctrine-skill/SPEC.md) now records a specification-only
+placeholder for the doctrine concept and its future admission bar. It creates no runtime skill,
+trigger, or registration. The placeholder makes doctrine composition legible to implementation and
+conformance skills while keeping concrete stack legislation repository-local.
+
+The pinned Addy Osmani comparator repository is
+[MIT-licensed](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/LICENSE).
+Its skills are paraphrased as design evidence rather than copied as runtime text. The pinned
+DerivaDEX skill tree is treated as the operational donor: each owning skill specification records
+the retained, transformed, and rejected behavior, while repository roles, paths, providers, and
+mechanics remain outside portable runtime surfaces.
+
+The current branch already contains the approved philosophy, twelve focused
 skills with separate runtime and lineage surfaces, cross-skill delegation, source quarantine, and a
 source migration ledger. Structural validation, plugin validation, runtime-purity checks, fixture
 preparation, Markdown checks apart from the repository's accepted line-length exception, and Git
@@ -446,10 +465,10 @@ has an explicit causal defense, but package-wide readiness remains defeated unti
 supplies strongest-comparator conditions, the complete claim graph, expanded single-defect controls,
 and behavioral coverage or an explicit exclusion for every delivery skill.
 
-The first complete unit audit now covers `software-delivery`: its local runtime and SPEC, all sibling
+The first complete unit audit covered `software-delivery`: its local runtime and SPEC, all sibling
 triggers, callers, pinned Addy router runtime and orchestration references, the relevant pinned
-DerivaDEX dialectics source, and the evaluation surface have a two-way proposition ledger in
-`SOFTWARE-DELIVERY-SOURCES.md`. The audit added the missing pre-acceptance local-capability route,
+DerivaDEX dialectics source, and the evaluation surface were reconciled in the former transient
+source ledger. The audit added the missing pre-acceptance local-capability route,
 replaced weak invariant bullets with enforceable properties, and introduced a calibrated four-
 condition route family. That family exposed and repaired the route-only human-checkpoint expression;
 later trace inspection showed that every live condition could resolve the globally installed
@@ -510,15 +529,21 @@ The provider now receives an evaluation-owned absolute `CODEX_HOME` containing o
 authenticated CLI credential and warning configuration. Valid isolation probes show the no-skill
 condition reporting the named skill unavailable, the placebo rejected 3/3, and the unchanged tutor
 fade repair passing 3/3 with fixture-local skill reads. A deterministic post-run trace gate rejects
-any package skill resolved outside the generated condition fixture. The current obligation is an
-isolated 12-control calibration followed by the complete 66-row unit family. The calibration passed
-12/12; the isolated unit candidate passed 63/66, with every placebo and no-skill control behaving as
-predesignated and three current inquiry failures. Those failures exposed already-governing ordering
-obligations: answer before tutor handoff, and persist a material oracle account before yield. After
-the bounded runtime repair, a fresh-fixture targeted replay passed 5/5. The current obligation is the
-complete fresh-fixture 66-row regression. Holdout, integration, resealing, and router admission
-remain suspended until that gate passes; the router family must then be recalibrated and replayed
-under the same isolation boundary before its results are interpreted.
+any package skill resolved outside the generated condition fixture. The isolated 12-control
+calibration passed, and the first admissible unit candidate passed 63/66 with every placebo and
+no-skill control behaving as predesignated. Its three current inquiry failures exposed
+already-governing ordering obligations: answer before tutor handoff, and persist a material oracle
+account before yield. After the bounded runtime repair, a fresh-fixture targeted replay passed 5/5.
+
+The next full replay passed 65/66. Its sole rejection was an oracle defect: `DT-NOINT-01` produced the
+contractual shortest decisive quote, while the case gold demanded a catalogue of every sound
+function. A new positive control fixed that interpretation; the expanded isolated calibration
+passed 13/13, and the fresh matched current/placebo pair passed 6/6. The required full replay then
+passed 66/66 with zero errors—current 39/39, mechanical-placebo rejection 24/24, and no-skill
+differentiation 3/3—and passed the independent trace-isolation gate. The current obligation is a
+fresh-fixture isolated holdout replay. Integration and checksum resealing remain suspended until
+their own gates pass; the router family must afterward be recalibrated and replayed under the same
+isolation boundary before its results are interpreted.
 
 ## Evidence notes
 
@@ -528,8 +553,8 @@ under the same isolation boundary before its results are interpreted.
 [^inquiry-contract]: [`dialectical-inquiry/SPEC.md`](skills/dialectical-inquiry/SPEC.md) and
     [`dialectical-tutor/SPEC.md`](skills/dialectical-tutor/SPEC.md) define direct inquiry, human
     authorship, aporia, transfer, and the prohibition on person-level certification.
-[^delivery-spec]: [SOFTWARE-DELIVERY-SPEC.md](SOFTWARE-DELIVERY-SPEC.md) governs the obligation graph,
-    authority allocation, handoffs, stops, acceptance, and runtime purity.
+[^delivery-spec]: The individual [`skills/*/SPEC.md`](skills/) govern their own authority,
+    handoffs, stops, acceptance boundaries, source negotiation, and runtime purity.
 [^addy-router]: Addy's pinned [`using-agent-skills`](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/skills/using-agent-skills/SKILL.md)
     defines the lifecycle catalog, subset routing, failure modes, and human checkpoints. Its
     [`orchestration-patterns.md`](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/references/orchestration-patterns.md)
@@ -556,7 +581,8 @@ under the same isolation boundary before its results are interpreted.
 [^source-census]: The source census covered all 63 immediate directories under
     [`.agents/skills`](https://gitlab.com/dexlabs/derivadex/-/tree/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills)
     at commit `81650fee140c422b2c890436f0415e8ab3810fa5`; shortlisted portable contracts were inspected in
-    full. This repository-specific evidence remains outside the distributed `skills/` tree.
+    full. This repository-specific evidence remains outside distributed runtime surfaces and may be
+    cited only from maintenance specifications or research workpads.
 [^source-planning]: The source [`planning`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/planning/SKILL.md)
     and [`implementation`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/implementation/SKILL.md)
     contracts are already mapped clause-by-clause in [DERIVADEX-MIGRATION.md](DERIVADEX-MIGRATION.md).

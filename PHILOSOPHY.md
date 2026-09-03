@@ -101,12 +101,12 @@ Those are human and longitudinal claims requiring different evidence.[^claim-bou
 [^oracle]: [`skills/dialectical-inquiry/references/oracle-discipline.md`](skills/dialectical-inquiry/references/oracle-discipline.md)
     defines independent reconstruction, epistemic labels, disconfirmation, revision conditions,
     and visible self-correction.
-[^specification]: [`SOFTWARE-DELIVERY-SOURCES.md`](SOFTWARE-DELIVERY-SOURCES.md#specification-authority)
-    records the source convergence behind the causal-argument and authority boundary.
-[^routing]: [`SOFTWARE-DELIVERY-SOURCES.md`](SOFTWARE-DELIVERY-SOURCES.md#routing-and-human-checkpoints)
+[^specification]: [`specification-development/SPEC.md`](skills/specification-development/SPEC.md#premise-and-lineage-negotiation)
+    records the causal-argument, authority, and comparator negotiation for governing specifications.
+[^routing]: [`software-delivery/SPEC.md`](skills/software-delivery/SPEC.md#premise-and-lineage-negotiation)
     distinguishes adaptive obligation routing from a mandatory lifecycle sequence.
-[^conformance]: [`SOFTWARE-DELIVERY-SOURCES.md`](SOFTWARE-DELIVERY-SOURCES.md#implementation-and-conformance)
-    records the evidence for two-way correspondence and reopen-on-discovery behavior.
+[^conformance]: [`conformance-review/SPEC.md`](skills/conformance-review/SPEC.md#premise-and-lineage-negotiation)
+    records the source negotiation for doctrine-aware two-way conformance and human judgment.
 [^claim-boundary]: [The Promptfoo evaluation specification](evals/promptfoo/SPEC.md#authority-and-boundary)
     limits current automated claims to the two dialectical skills and reserves human efficacy for
     suitable human and longitudinal evidence.

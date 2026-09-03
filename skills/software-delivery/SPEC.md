@@ -1,7 +1,5 @@
 # Specification: `software-delivery`
 
-Status: approved kernel; comparative admission in progress.
-
 ## Intent
 
 Lower the cost of entering and resuming a coherent software-delivery method without creating an
@@ -149,7 +147,7 @@ Use `goal-formulation` to create or materially repair a persistent mandate and w
 may update an existing workpad after a decision-bearing change but does not duplicate that skill's
 artifact contract.
 
-## Validation cases
+## Evaluation argument
 
 ### Should trigger
 
@@ -178,20 +176,30 @@ artifact contract.
 - A review discovery reopens specification development and does not auto-run remediation.
 - Accepted work routes outward for repository-specific integration.
 
-## Lineage
+The router family in [`tests/router.yaml`](../../evals/promptfoo/tests/router.yaml) is the direct
+scenario surface. Its strongest discriminators are named-operation bypass, earlier-obligation
+precedence over apparent phase, mechanical work without ceremony, outward routing for uncovered
+operations, and one-hop return. Condition construction and oracle limits remain owned by
+[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md).
 
-This skill implements the obligation graph and route boundaries in
-[`SOFTWARE-DELIVERY-SPEC.md`](../../SOFTWARE-DELIVERY-SPEC.md#obligation-graph). Its discovery,
-human-checkpoint, reflexivity, mechanical-bypass, and outward-integration decisions are grounded in
-the adjudicated record at
-[`SOFTWARE-DELIVERY-SOURCES.md`](../../SOFTWARE-DELIVERY-SOURCES.md#routing-and-human-checkpoints).
-The runtime file contains only the resulting routing contract.
+## Premise and lineage negotiation
 
-## Approved implementation decisions
+| Decision | Addy `using-agent-skills` | DerivaDEX `dialectics` | Theaetetus disposition |
+| --- | --- | --- | --- |
+| Discovery | Maps requests to a broad delivery lifecycle and specialist catalog. | Detects solution-first reasoning and unowned causal premises. | Route the earliest outcome-changing unsatisfied obligation, not the latest-looking phase or nearest keyword. |
+| Human checkpoint | Surfaces assumptions, manages confusion, and warns against blind automation. | Keeps causal premises with the developer, though through an agent-led interview. | Select one focused owner, preserve human judgment between dependent transitions, and return. |
+| Direct invocation | Allows explicit skill use but also presents a standing router lifecycle. | Routes from an inquiry result to local downstream skills. | Yield immediately when the user already selected a focused operation; a router that paraphrases known intent is waste. |
+| Scope | Covers planning, coding, testing, review, Git, CI, release, and specialist quality domains. | Covers causal inquiry and project-specific handoffs. | Include only admitted portable owners; route uncovered mechanics to an applicable local capability without pretending topology completeness. |
+| Verification | Requires checking work instead of assuming completion. | Uses posterior confidence and an output handoff. | Treat observations as evidence that may reopen an earlier obligation; reject numeric readiness and automatic lifecycle advance. |
 
-- `software-delivery` names the workflow scope without an opaque acronym or philosophical branding.
-- Primary execution shape is a prompt-level router with explicit fallback and misroute recovery.
-- The router was added only after every currently listed portable owner had an implemented
-  contract; that observation does not establish topology completeness.
-- One route per invocation preserves human checkpoints and avoids paraphrasing chains.
-- No bundled reference is justified because the route table and handoffs are compact.
+Primary comparator: Addy Osmani,
+[`using-agent-skills`](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/skills/using-agent-skills/SKILL.md#L45-L165),
+with its [orchestration-patterns](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/references/orchestration-patterns.md)
+as a direct defeater of unnecessary router personas and autonomous dependent sequences. Primary
+donor: DerivaDEX,
+[`dialectics`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/dialectics/SKILL.md#L38-L234),
+for the premise-gap boundary rather than its interview mechanics.
+
+Rejected ceremony: mandatory lifecycle order, router use for named work, automatic multi-skill
+execution, universal workpads or quality checklists, unsupported claims of topology completeness,
+numeric readiness, and source-project role or provider vocabulary.

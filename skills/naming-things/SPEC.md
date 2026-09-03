@@ -1,7 +1,5 @@
 # Specification: `naming-things`
 
-Status: implemented.
-
 ## Intent and boundary
 
 Provide reusable naming mechanics for concepts and technical surfaces. The skill owns candidate
@@ -44,16 +42,33 @@ fit, controlled vocabulary, rename economics, atomic closure, and proof. It remo
 repository doctrine routes, source-specific installation concerns, language omissions, and fixed
 output ceremony.
 
-## Validation cases
+## Evaluation argument
 
 - Two nearby concepts receive distinguishable names despite a shorter ambiguous option.
 - A boolean uses a positive predicate and avoids a double negative.
 - A module name omits the concept already supplied by its namespace.
 - A public-field rename stops for migration authority instead of silently adding an alias.
 
-## Lineage
+The strongest discriminator is not whether a candidate sounds good in isolation, but whether it
+preserves one concept, remains distinguishable in its real scope, and closes every authorized
+consumer without accidental compatibility residue. Shared evaluation law belongs to
+[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md); no dedicated naming family yet establishes
+these claims behaviorally.
 
-The source comparison, clause adjudication, naming rationale, and rejected particulars are recorded
-in the top-level [utility integration record](../../SOFTWARE-DELIVERY-SOURCES.md#utility-integration).
-Package naming law is defined by
-[`SOFTWARE-DELIVERY-SPEC.md`](../../SOFTWARE-DELIVERY-SPEC.md#canonical-vocabulary).
+## Premise and lineage negotiation
+
+| Decision | Addy `api-and-interface-design` | DerivaDEX `naming-things` | Theaetetus disposition |
+| --- | --- | --- | --- |
+| Naming purpose | Makes public interfaces predictable within a contract-first API discipline. | Resolves referent, scope, audience, vocabulary, grammar, and consumers for many technical surfaces. | Preserve predictable contracts but retain the donor's broader, explicit naming operation. |
+| Standard | Emphasizes consistency, resource language, error semantics, and one-version evolution. | Orders consistency, distinguishability, understandability, and concision. | Preserve the ordered local standard; API rules apply only when that surface is actually governed. |
+| Compatibility | Favors additive evolution and one live interface version. | Requires atomic rename closure and stops at externally owned compatibility boundaries. | Preserve one canonical live name; require migration authority before aliases or dual vocabulary. |
+| Verification | Checks interface behavior and consumers. | Searches the complete usage closure and verifies the rename. | Preserve owner-and-consumer closure, including docs, configuration, schemas, and generated surfaces. |
+
+Primary comparator: Addy Osmani,
+[`api-and-interface-design`](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/skills/api-and-interface-design/SKILL.md#L20-L155).
+Primary donor: DerivaDEX,
+[`naming-things`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/naming-things/SKILL.md#L12-L123).
+
+Rejected ceremony: importing REST or TypeScript rules into unrelated names, exhaustive language
+style catalogs, synonym lists without a recommendation, compatibility aliases without an owner, and
+fixed output templates.

@@ -35,6 +35,7 @@ async function filesUnder(directory) {
 }
 
 for (const file of await filesUnder(skillRoot)) {
+  if (path.basename(file) === 'SPEC.md') continue;
   const content = await readFile(file, 'utf8');
   for (const [label, pattern] of forbidden) {
     pattern.lastIndex = 0;
@@ -56,5 +57,5 @@ if (violations.length > 0) {
   console.error(violations.join('\n'));
   process.exitCode = 1;
 } else {
-  console.log('Skill tree passes lexical source quarantine and naming checks.');
+  console.log('Runtime skill surfaces pass lexical source quarantine and naming checks.');
 }

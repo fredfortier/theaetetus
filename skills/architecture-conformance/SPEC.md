@@ -1,7 +1,5 @@
 # Specification: `architecture-conformance`
 
-Status: implemented.
-
 ## Intent and boundary
 
 Provide a lazy semantic gate for repositories that govern behavior through accepted architecture
@@ -43,17 +41,31 @@ historical closure. It removes the fixed architecture filename, hardcoded reposi
 source-local caller inventory, standards exposition, and claims that one document schema is
 universal. A record remains usable only to the degree its applicable decision is unambiguous.
 
-## Validation cases
+## Evaluation argument
 
-- An ungoverned change exits without ceremony.
-- A conforming edit preserves its decision and verification correspondence.
-- A passing test cannot authorize a changed ownership boundary.
-- A rebase that removes behavior and its regression check is reported as unresolved omission.
-- A stale decision owner produces `uncertain`, not inferred approval.
+- An ungoverned change exits without architecture ceremony.
+- A conforming edit preserves decision, consequence, and verification correspondence.
+- Passing tests cannot authorize a changed ownership boundary.
+- A history operation that drops accepted behavior or proof is distinguished from a textual conflict.
+- A stale or ambiguous decision produces `uncertain`, not inferred approval.
 
-## Lineage
+These are claim-level scenario obligations; the shared condition and oracle law belongs to
+[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md). No dedicated architecture family yet
+establishes them behaviorally.
 
-The source comparison, clause adjudication, naming rationale, and rejected particulars are recorded
-in the top-level [utility integration record](../../SOFTWARE-DELIVERY-SOURCES.md#utility-integration).
-The authority hierarchy and human decision boundary inherit
-[`SOFTWARE-DELIVERY-SPEC.md`](../../SOFTWARE-DELIVERY-SPEC.md#roles-and-authority).
+## Premise and lineage negotiation
+
+| Decision | Addy `documentation-and-adrs` | DerivaDEX `architecture` | Theaetetus disposition |
+| --- | --- | --- | --- |
+| Applicability | Encourages ADRs for significant decisions and matching repository convention. | Activates only when an architecture contract governs affected scope. | Preserve lazy, repository-declared applicability; never impose an ADR convention. |
+| Decision semantics | Records context, decision, alternatives, consequences, status, and supersession. | Tests owner, valid/illegal states, consequences, correspondence, and amendment authority. | Preserve decision meaning, consequences, lifecycle, and supersession as the conformance surface. |
+| Classification | Primarily authors and maintains documentation. | Classifies a proposal as conformance, amendment, or uncertainty. | Own classification only; delegate authorship and reserve amendments for the decision owner. |
+| History | Maintains ADR status and changelog-like documentation. | Reconciles rebases and other history operations against accepted behavior and proof. | Preserve semantic history reconciliation; reject documentation maintenance as this skill's mission. |
+
+Primary comparator: Addy Osmani,
+[`documentation-and-adrs`](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/skills/documentation-and-adrs/SKILL.md#L23-L101).
+Primary donor: DerivaDEX,
+[`architecture`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/architecture/SKILL.md#L8-L62).
+
+Rejected ceremony: universal ADR templates, fixed architecture filenames, documentation inventories,
+and treating record presence or test success as amendment authority.

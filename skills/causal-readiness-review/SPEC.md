@@ -1,7 +1,5 @@
 # Specification: `causal-readiness-review`
 
-Status: implemented.
-
 ## Intent and boundary
 
 Provide a focused read-only verdict on whether problem-solution prose can govern implementation.
@@ -42,16 +40,30 @@ The port retains the prior/better-grounded/explanatory standard, generous recons
 tests, defect separation, and readiness grading. It removes organizational roles, provider-format
 routes, source issue history, numeric epistemic measures, and source-specific vocabulary.
 
-## Validation cases
+## Evaluation argument
 
 - A concise but complete proposal reaches human judgment without being forced into a template.
 - A polished solution-first proposal is revised despite many citations and passing tests.
 - A missing user-held purpose triggers one targeted question before a negative verdict.
 - A code-conformance request does not route here.
 
-## Lineage
+The decisive confusion pair is causal derivation versus fluent, evidence-decorated imitation. Shared
+evaluation law belongs to [`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md); no dedicated
+causal-readiness family yet establishes this contract behaviorally.
 
-The source comparison, clause adjudication, naming rationale, and rejected particulars are recorded
-in the top-level [utility integration record](../../SOFTWARE-DELIVERY-SOURCES.md#utility-integration).
-Its authority and evidence allocation inherits
-[`SOFTWARE-DELIVERY-SPEC.md`](../../SOFTWARE-DELIVERY-SPEC.md#roles-and-authority).
+## Premise and lineage negotiation
+
+| Decision | Addy `doubt-driven-development` | DerivaDEX `posterior-analytics` | Theaetetus disposition |
+| --- | --- | --- | --- |
+| Unit of judgment | Extracts a claim and recruits fresh-context adversarial doubt. | Reconstructs whether a proposed solution follows from prior, better-grounded causal premises. | Judge the complete governing argument while using concrete imitation risks as defeaters. |
+| Independence | Uses an isolated second model and bounded reconciliation loop. | Separates proposal ownership from reviewer judgment. | Preserve independent skepticism and bounded review; do not require a provider or multi-model ritual. |
+| Human authority | Returns objections to the author for reconciliation. | Refuses to manufacture missing owner-held premises. | Ask for unavailable human intent, and never repair the thesis while grading it. |
+| Exit | Stops after bounded doubt and verification. | Returns explicit readiness dispositions and smallest repairs. | Return one readiness verdict with causal, evidence, scope, and prose defects distinguished. |
+
+Primary comparator: Addy Osmani,
+[`doubt-driven-development`](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/skills/doubt-driven-development/SKILL.md#L49-L191).
+Primary donor: DerivaDEX,
+[`posterior-analytics`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/posterior-analytics/SKILL.md#L8-L122).
+
+Rejected ceremony: mandatory subprocess reviewers, model-specific commands, numeric confidence,
+fixed iteration counts, source-local roles, and polished template completion as readiness evidence.

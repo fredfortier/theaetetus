@@ -1,7 +1,5 @@
 # Specification: `dialectical-tutor`
 
-Status: approved and implemented.
-
 ## Intent
 
 Coach the human to become an effective midwife in a human-led dialectical inquiry. The tutor observes a concrete conversational move, identifies the missing epistemic function, gives the smallest useful exercise, observes one retry, and returns control to the main oracle conversation.
@@ -276,47 +274,20 @@ The planted weakness must be disclosed after the exercise. Do not train the user
 - Voice intervention labels remain control semantics and are not spoken literally.
 - The spoken tutor yields after one move and returns without announcing agent routing.
 
-## Planned trigger evals
+## Evaluation argument
 
-### Should trigger
+The working scenarios in
+[`tests/tutor-working.yaml`](../../evals/promptfoo/tests/tutor-working.yaml), their matched negatives
+in [`tests/mechanical-placebo.yaml`](../../evals/promptfoo/tests/mechanical-placebo.yaml), the sealed
+cases in [`tests/holdout.yaml`](../../evals/promptfoo/tests/holdout.yaml), and the recruited lifecycle
+in [`tests/integration.yaml`](../../evals/promptfoo/tests/integration.yaml) distinguish visible-move
+evidence from person inference, one-function repair from taxonomy recitation, human retry from tutor
+takeover, warranted intervention from `NO INTERVENTION`, and bounded return from permanent moderation.
 
-- “Tutor my questioning of this AI answer; I think I'm just accepting its frame.”
-- A recruited handoff showing repeated oracle paraphrase without causal reconstruction.
-- “Help me practice being the midwife instead of asking AI what to believe.”
-
-### Should not trigger
-
-- “Teach me eventual consistency.”
-- “Give me ten Socratic questions for a workshop.”
-- A main-inquiry turn where the human asks a concise, discriminating premise question.
-- “Grade this employee's critical thinking.”
-
-## Validation plan
-
-1. Structural validation and description routing evals.
-2. Promptfoo/Codex scenarios governed by [the evaluation specification](../../evals/promptfoo/SPEC.md)
-   for mechanical taxonomy use, covert persuasion, false-positive recruitment, and adequate retry
-   return.
-3. Transcript checks for one-function focus, bounded retries, and clean return.
-4. Human review of coaching tone, dignity, usefulness, and fading.
-5. Integrated runs with `dialectical-inquiry`, including unavailable named routing and portable fallback.
-
-Voice validation is outside this Promptfoo suite. These cases exercise modality-independent coaching behavior only.
-
-## Promptfoo/Codex evaluation specification
-
-This specification inherits the Promptfoo/Codex evaluation law, grammar, pass law, and ceremony-only burden of proof in [evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md).[^dt-eval-law]
-
-### Evaluated claim surface
-
-Evaluation may claim only the observable contracts already defined by this specification: correct
-positive and negative routing, evidence-based intervention, one-function coaching, human-authored
-retry, no subject-answer takeover, `NO INTERVENTION` on an adequate move, bounded retry, clean
-return, and coherent recruitment within the main inquiry's persistent lifecycle. The governing
-scenario portfolio, controls, target and oracle definitions, tooling roles, and pass law live only
-in [evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md).
-
-[^dt-eval-law]: [The Promptfoo evaluation specification](../../evals/promptfoo/SPEC.md) is the local governing law for test grammar, provider controls, assertion roles, baselines, and pass conditions.
+The evaluation may claim only those observable coaching behaviors. Voice delivery, dignity or felt
+quality, person-level mastery, and learning efficacy remain outside the suite. Condition identity,
+controls, oracle admissibility, and pass law are owned by
+[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md).
 
 ## Reasoning and lineage
 
@@ -325,19 +296,29 @@ bounded backstage repair can protect the human's questioning technique without a
 to replace the oracle, run the inquiry, or assess the person. Observable-move evidence, one-function
 focus, a bounded retry, and immediate return follow from that separation.
 
-The complete guided-discovery, autonomy, coaching, and voice lineage is recorded in
+The complete guided-discovery, autonomy, coaching, and voice evidence is retained in
 [RESEARCH.md](../../RESEARCH.md); evaluation design is governed by
-[evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md). Those sources and the claim-specific
-footnotes above support the interaction design and tested protocol only; they do not establish
-person-level mastery or human-learning efficacy.
+[evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md). Those sources support the observable
+interaction contract only; they do not establish person-level mastery or human-learning efficacy.
 
-## Approved implementation decisions
+| Decision | Addy `doubt-driven-development` | DerivaDEX `dialectics` and `quiz` | Theaetetus disposition |
+| --- | --- | --- | --- |
+| Intervention trigger | Recruits fresh-context doubt for a reviewable claim. | `dialectics` detects weak causal ownership; `quiz` diagnoses learner answers and adapts later questions. | Intervene only from quoted or faithfully reconstructed human-move evidence; return `NO INTERVENTION` when the move already performs the decisive function. |
+| Unit of repair | Extracts the smallest reviewable claim and runs a bounded objection loop. | Uses repeated questions or quiz batches toward confidence or mastery. | Repair exactly one missing midwife function with one exercise, one retry, at most one hint, then stop. |
+| Ownership | A second reviewer challenges an artifact before the author reconciles it. | The agent owns the questions and evaluates subject understanding. | Coach questioning technique only; never answer the subject, rewrite the human's account, certify mastery, or become inquiry controller. |
+| Return | Reconciles findings into the main artifact. | Continues until confidence or mastery thresholds pass. | Hand control immediately back to the oracle with the live subject question unchanged. |
 
-- Skill name and trigger boundary approved.
-- Canonical runtime root is `skills/dialectical-tutor/`; `.agents/skills` may expose it through a
-  symlink when Codex project-skill discovery requires that path.
-- Behavior-level calibration and the no-score rule approved.
-- One retry plus one hinted retry approved as the interruption bound.
-- `NO INTERVENTION` approved as required misroute recovery.
-- Explicit practice mode approved in addition to recruited repair.
-- Voice Mode amendment approved on 2026-08-22: authoritative surface detection, transcript-safe observation, natural spoken intervention, and single-owner orchestration.
+Primary comparator: Addy Osmani,
+[`doubt-driven-development`](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/skills/doubt-driven-development/SKILL.md#L62-L191),
+for bounded evidence-based intervention rather than its subprocess mechanics. DerivaDEX
+[`dialectics`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/dialectics/SKILL.md#L38-L234)
+and [`quiz`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/quiz/SKILL.md#L12-L127)
+are adjacent donors and defeaters, not equivalent tutor designs.
+
+## Rejected ceremony
+
+- fixed coaching cadence, question categories, batches, scores, or mastery gates;
+- intervention based on inferred personality or ability rather than observable moves;
+- subject tutoring, answer keys, oracle takeover, or an agent-authored retry;
+- repeated exercises after the bounded repair or failure to return control; and
+- provider-specific subprocess, voice, or routing mechanics treated as portable behavior.

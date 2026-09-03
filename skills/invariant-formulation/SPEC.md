@@ -1,7 +1,5 @@
 # Specification: `invariant-formulation`
 
-Status: implemented.
-
 ## Intent and boundary
 
 Provide a reusable operation for converting an already-owned causal account into compact system
@@ -40,16 +38,32 @@ The port retains positive properties, illegal negation, boundary ownership, veri
 compression. It removes source-specific routes, roles, repository labels, and the implication that
 invariant formulation is a mandatory lifecycle phase.
 
-## Validation cases
+## Evaluation argument
 
 - A blacklist of components becomes one boundary-bearing valid-state property.
 - A filename guardrail is rejected as implementation-shaped.
 - A lifecycle property identifies both its transition owner and observable check.
 - An unowned failure semantic returns a missing premise instead of a plausible invariant.
 
-## Lineage
+The decisive negative is a constraint-shaped task, blacklist, threshold, or file rule that lacks a
+stable valid-state property and owner-real observation. Shared evaluation law belongs to
+[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md); no dedicated invariant family yet
+establishes these claims behaviorally.
 
-The source comparison, clause adjudication, naming rationale, and rejected particulars are recorded
-in the top-level [utility integration record](../../SOFTWARE-DELIVERY-SOURCES.md#utility-integration).
-The package-wide authority and runtime-purity constraints come from
-[`SOFTWARE-DELIVERY-SPEC.md`](../../SOFTWARE-DELIVERY-SPEC.md#runtime-purity).
+## Premise and lineage negotiation
+
+| Decision | Addy `constraint-driven-development` | DerivaDEX `formulate-invariants` | Theaetetus disposition |
+| --- | --- | --- | --- |
+| Input | Detects project constraints, asks bounded questions, and supplies defaults. | Begins from an owned causal account. | Require owned premises; detection may reveal candidates but defaults cannot create consequential law. |
+| Form | Uses floors, numeric thresholds, measurements, exceptions, and ratchets. | Requires positive, domain-native, refactor-stable properties with illegal states and proof. | Preserve only constraints that can be derived into stable valid-state properties; leave operational thresholds with their owner. |
+| Enforcement | Installs tools and wires lifecycle gates. | Names enforcement and verification boundaries without implementing them. | Specify owner and observation, but do not select tooling or authorize implementation. |
+| Compression | Builds a comprehensive constraints artifact. | Compresses overlap into the smallest sufficient invariant set. | Prefer semantic compression and reject exhaustive policy inventories. |
+
+Primary comparator: Addy Osmani,
+[`constraint-driven-development`](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/skills/constraint-driven-development/SKILL.md#L40-L263).
+Primary donor: DerivaDEX,
+[`formulate-invariants`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/formulate-invariants/SKILL.md#L14-L50).
+
+Rejected ceremony: mandatory `CONSTRAINTS.md`, default quality bars, tool installation, numeric
+thresholds without owner authority, exceptions invented by the formulator, and a required lifecycle
+phase for every change.

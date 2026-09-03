@@ -1,7 +1,5 @@
 # Specification: `specification-implementation`
 
-Status: approved and implemented.
-
 ## Intent
 
 Implement already-owned software intent without allowing architecture to originate in code. The
@@ -105,7 +103,7 @@ Select the mechanism from the claim and local authority.
 - Hand commit, review-system, deployment, release, and operations work to applicable local
   capabilities after human judgment.
 
-## Validation cases
+## Evaluation argument
 
 ### Should trigger
 
@@ -127,20 +125,30 @@ Select the mechanism from the claim and local authority.
 - Discovery of unspecified failure behavior reopens specification development before code encodes it.
 - A test passing does not authorize an extra material behavior.
 
-## Lineage
+The decisive scenarios distinguish bounded implementation from code that silently chooses meaning.
+They preserve the same claim and observation through a red/green repair, reject surrogate proof,
+require applicable doctrine before mechanics, and reopen the owning specification when evidence
+defeats a premise. Shared evaluation law belongs to
+[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md); no dedicated implementation family yet
+establishes this contract behaviorally.
 
-This skill implements the implementation and verification handoffs in
-[`SOFTWARE-DELIVERY-SPEC.md`](../../SOFTWARE-DELIVERY-SPEC.md#handoff-contracts). Its authority trace,
-same-claim verification, smallest-change, evidence-limit, and reopen decisions are grounded in the
-adjudicated record at
-[`SOFTWARE-DELIVERY-SOURCES.md`](../../SOFTWARE-DELIVERY-SOURCES.md#implementation-and-conformance).
-The runtime file contains only the resulting operating contract.
+## Premise and lineage negotiation
 
-## Approved implementation decisions
+| Decision | Addy `incremental-implementation` | DerivaDEX `implementation` | Theaetetus disposition |
+| --- | --- | --- | --- |
+| Unit of work | Uses small vertical, contract-first, or risk-first increments that remain compilable. | Implements the smallest change entailed by accepted SPEC and doctrine, then audits both directions. | Preserve bounded, coherent increments; the obligation and responsible boundary, not a preferred slice taxonomy, choose the unit. |
+| Authority | Enforces scope and simplicity but permits common implementation defaults and feature flags. | Prohibits architecture first appearing in code and stops on missing authority. | Implement only mechanical entailment; no default, flag, wrapper, or fallback may resolve consequential ambiguity. |
+| Doctrine | Relies on project conventions and specialist skills. | Loads every applicable doctrine owner before choosing stack mechanics. | Preserve doctrine-before-mechanics as mandatory local law distinct from the work SPEC. |
+| Verification | Keeps each increment working and verifies behavior continuously. | Maps each obligation to owner-real proof and reopens when evidence defeats intent. | Preserve per-obligation evidence, same-claim red/green where appropriate, and boundary-real proof; passing checks cannot authorize extra behavior. |
+| Completion | Optimizes rollback-friendly delivery and agent handoffs. | Returns implementation traces for independent conformance review. | Preserve reversible scope where governed, but completion is an evidence-bearing handoff—not integration or self-acceptance. |
 
-- Skill name pairs with `specification-development` and names the externally relevant operation.
-- Primary execution shape is ordered inline guidance with a validation loop.
-- Test-driven verification is a conditional internal route, not a separate public skill.
-- Evidence, architecture, and naming decisions use their focused utility owners.
-- No universal workpad path or verification command is prescribed.
-- No bundled reference is justified because all runtime branches fit one compact execution surface.
+Primary comparator: Addy Osmani,
+[`incremental-implementation`](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/skills/incremental-implementation/SKILL.md#L21-L198).
+Primary donor: DerivaDEX,
+[`implementation`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/implementation/SKILL.md#L12-L144).
+The donor's [`ttd`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/ttd/SKILL.md)
+supports the conditional same-claim red/green route but does not redefine the primary skill.
+
+Rejected ceremony: fixed slice sizes, universal feature flags or safe defaults, “always green” as a
+substitute for claim-level proof, implementation-authored architecture, mock-only verification,
+automatic integration, and rigid drift labels when a direct account is clearer.

@@ -12,14 +12,23 @@ not an opportunity to improve the design.
 
 1. Identify the accepted governing specification or explicit constrained excerpt.
 2. Read applicable repository instructions and the affected implementation and verification surfaces.
-3. Apply `evidence-grounding` when resolving authority, repository facts, external contracts,
+3. Detect material stack facets from manifests, imports, configuration, generated ownership,
+   runtime boundaries, and consumers. Identify exactly one applicable repo-local `*-development`
+   doctrine owner per decision; read its complete `SKILL.md`, mandatory legislative leaves, and
+   applicable cross-doctrine handoffs before loading or choosing mechanics.
+4. Apply `evidence-grounding` when resolving authority, repository facts, external contracts,
    observations, inferences, and assumptions.
-4. If repository instructions or affected scope identify accepted architecture decisions, use
+5. If repository instructions or affected scope identify accepted architecture decisions, use
    `architecture-conformance` and stop at its amendment boundary.
-5. Extract the active obligations, scope, responsible boundaries, failure semantics, and verification
+6. Extract the active obligations, scope, responsible boundaries, failure semantics, and verification
    requirements.
-6. Proceed only when the user has authorized implementation. If the specification is draft, use it
+7. Proceed only when the user has authorized implementation. If the specification is draft, use it
    only for analysis unless the user explicitly authorizes a constrained experiment.
+
+Stop when a material facet has no doctrine owner, two doctrines own the same decision, doctrine
+preserves an unresolved alternative, or the work specification contradicts doctrine. Existing code,
+tests, official documentation, and mechanics skills cannot fill that legislative gap. The governing
+work specification and applicable doctrine must jointly entail the implementation.
 
 For every material edit, state this trace before changing the repository:
 

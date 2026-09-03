@@ -1,7 +1,5 @@
 # Specification: `evidence-grounding`
 
-Status: implemented.
-
 ## Intent and boundary
 
 Own claim classification and claim-sized support across the package. The skill distinguishes
@@ -41,7 +39,7 @@ footnote boundaries, temporal stability, and invalid-substitution checks. It gen
 provider-specific publishing mechanics and removes project roles, paths, artifact names, and
 formatting-skill routes.
 
-## Validation cases
+## Evaluation argument
 
 - Current code supports a factual behavior claim but not an architectural recommendation.
 - A historical claim uses a revision-stable reference rather than a moving branch.
@@ -49,9 +47,24 @@ formatting-skill routes.
 - A code link in a footnote is moved to the exact implementation claim.
 - A decorative bibliography is removed.
 
-## Lineage
+The strongest discriminator is a response with many credible links that nevertheless uses the wrong
+authority class or overclaims what a source proves. Shared evaluation law belongs to
+[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md); no dedicated grounding family yet
+establishes these cases behaviorally.
 
-The source comparison, clause adjudication, naming rationale, and rejected particulars are recorded
-in the top-level [utility integration record](../../SOFTWARE-DELIVERY-SOURCES.md#utility-integration).
-The package authority order derives from
-[`SOFTWARE-DELIVERY-SPEC.md`](../../SOFTWARE-DELIVERY-SPEC.md#roles-and-authority).
+## Premise and lineage negotiation
+
+| Decision | Addy `source-driven-development` | DerivaDEX `evidence-grounding` | Theaetetus disposition |
+| --- | --- | --- | --- |
+| Source priority | Detects versions, retrieves official documentation, and follows documented patterns. | Orders user authority, repository authority, code facts, external contracts, observations, and inference. | Preserve primary-source and version discipline inside a broader claim-class authority model. |
+| Retrieval safety | Treats fetched text as untrusted data rather than instructions. | Separates evidence from permission and inference. | Preserve both boundaries: external content cannot command the agent or create local intent. |
+| Citation | Requires sources for implementation claims. | Binds support to exact claims and separates code links from non-code citations. | Require claim-sized, stable support; reject bibliography volume as quality. |
+| Implementation | Proceeds from verified canonical patterns. | Does not own implementation or architecture. | Ground a selected implementation only after local authority chooses it; canon cannot fill an intent gap. |
+
+Primary comparator: Addy Osmani,
+[`source-driven-development`](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/skills/source-driven-development/SKILL.md#L27-L180).
+Primary donor: DerivaDEX,
+[`evidence-grounding`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/evidence-grounding/SKILL.md#L10-L55).
+
+Rejected ceremony: universal web retrieval, citation quotas, decorative bibliographies, provider
+link syntax, and treating official documentation or existing code as local decision authority.

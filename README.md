@@ -102,9 +102,11 @@ result.
   claim-sized support.
 - [`naming-things`](skills/naming-things/SKILL.md) chooses canonical terms and plans complete rename
   transitions.
-- [PHILOSOPHY.md](PHILOSOPHY.md) and
-  [SOFTWARE-DELIVERY-SPEC.md](SOFTWARE-DELIVERY-SPEC.md) define the package's role allocation,
-  obligation graph, vocabulary, and acceptance boundary.
+- [`doctrine-skill/SPEC.md`](skills/doctrine-skill/SPEC.md) defines the doctrine concept and future
+  admission bar without exposing a runtime skill.
+- [PHILOSOPHY.md](PHILOSOPHY.md) defines the package's role allocation and value boundary; each
+  [`skills/*/SPEC.md`](skills/) owns its operation, handoffs, source negotiation, and evaluation
+  argument.
 - [`evals/promptfoo/SPEC.md`](evals/promptfoo/SPEC.md) governs the Promptfoo/Codex evaluation;
   the surrounding directory contains its calibrated
   graders, a matched mechanical placebo, sealed holdouts, persistent conversations, and six
@@ -304,8 +306,6 @@ evals/promptfoo/
   evidence/                  frozen checksums and findings history
 RESEARCH.md                   evidence synthesis and source limits
 PHILOSOPHY.md                 human ownership and oracle role
-SOFTWARE-DELIVERY-SPEC.md     package-level delivery contract
-SOFTWARE-DELIVERY-SOURCES.md  source adjudication and translation record
 DERIVADEX-MIGRATION.md        replacement coverage and cutover gates
 SDLC.md                       active comparative-audit continuity workpad
 WORKPAD.md                    superseded incubation history index

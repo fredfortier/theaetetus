@@ -1,7 +1,5 @@
 # Specification: `specification-development`
 
-Status: approved and implemented.
-
 ## Intent
 
 Turn a developer-owned causal account into the leanest reviewable authority for implementation.
@@ -83,7 +81,7 @@ derivation; the developer must own it before it governs implementation.
   requested.
 - Return missing human-held premises to `dialectical-inquiry`.
 
-## Validation cases
+## Evaluation argument
 
 ### Should trigger
 
@@ -105,17 +103,27 @@ derivation; the developer must own it before it governs implementation.
 - A plausible completed specification is handed to `causal-readiness-review` for independent judgment.
 - Human agreement with polished oracle prose does not by itself admit the specification.
 
-## Lineage
+The decisive scenarios distinguish a lean causal specification from both a filled template and a
+task plan. They must force a stop when consequential intent is missing, preserve a complete owned
+account without redundant sections, delegate disputed invariants, and require independent readiness
+before human admission. Shared evaluation law belongs to
+[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md); no dedicated specification-development
+family yet establishes this contract behaviorally.
 
-This skill implements the specification-development obligation in
-[`SOFTWARE-DELIVERY-SPEC.md`](../../SOFTWARE-DELIVERY-SPEC.md#handoff-contracts). Its causal-argument,
-invariant, lean-artifact, evidence, and human-admission decisions are grounded in the adjudicated
-source record at [`SOFTWARE-DELIVERY-SOURCES.md`](../../SOFTWARE-DELIVERY-SOURCES.md#specification-authority).
-The runtime file contains only the resulting operating contract.
+## Premise and lineage negotiation
 
-## Approved implementation decisions
+| Decision | Addy `spec-driven-development` | DerivaDEX `planning` | Theaetetus disposition |
+| --- | --- | --- | --- |
+| Specification role | Makes a written spec the source of truth before plan, tasks, and implementation. | Treats the SPEC as a causal argument reconstructed from authority and human-held premises. | Preserve governing priority, but admit a spec only when the proposed solution follows from owned premises. |
+| Shape | Uses capability maps, fixed phases, and a substantial default template. | Chooses the leanest artifact capable of carrying the argument and invariants. | Let causal obligations determine sections; reject template completion as readiness. |
+| Ambiguity | Uses scope checks and open questions before implementation. | Stops for consequential missing intent and tests the account dialectically. | Ask only for owner-held premises capable of changing the thesis; do not fill them with plausible defaults. |
+| Downstream work | Proceeds through plan, tasks, implementation, and living-spec updates. | Separates readiness judgment, invariant formulation, and implementation ownership. | Hand off only after independent causal review and human admission; evidence can reopen the spec later. |
 
-- Skill name identifies the activity and remains distinct from the governing artifact.
-- Primary execution shape is inline authoring guidance with focused utility handoffs.
-- Invariant formulation and causal assessment have public owners and are not restated here.
-- No bundled reference is justified because the remaining authoring contract is compact.
+Primary comparator: Addy Osmani,
+[`spec-driven-development`](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/skills/spec-driven-development/SKILL.md#L22-L212).
+Primary donor: DerivaDEX,
+[`planning`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/planning/SKILL.md#L12-L181).
+
+Rejected ceremony: universal capability maps, fixed specification templates and phase gates,
+implementation task authoring inside the specification operation, provider-specific plan paths,
+phase completion as readiness, and agreement with polished prose as human ownership.

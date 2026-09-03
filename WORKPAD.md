@@ -8,16 +8,14 @@ package behavior, evaluation design, or the comparative audit.
 
 - [PHILOSOPHY.md](PHILOSOPHY.md) governs human ownership, oracle discipline, reflexive delivery,
   verification, conformance, and the evidence boundary.
-- [SOFTWARE-DELIVERY-SPEC.md](SOFTWARE-DELIVERY-SPEC.md) governs the portable package topology,
-  roles, handoffs, runtime purity, and acceptance model.
-- Each [`skills/*/SPEC.md`](skills/) governs its focused skill boundary.
+- Each [`skills/*/SPEC.md`](skills/) governs its focused skill boundary, authority allocation,
+  handoffs, source negotiation, and evaluation argument.
 - [evals/promptfoo/SPEC.md](evals/promptfoo/SPEC.md) governs evaluation purpose, scenarios, targets,
   oracles, controls, pass law, and inference limits.
 - [SDLC.md](SDLC.md) is the active comparative-audit continuity workpad. It records changing
   evidence, open premises, and the next discriminator without amending the governing documents.
-- [RESEARCH.md](RESEARCH.md), [SOFTWARE-DELIVERY-SOURCES.md](SOFTWARE-DELIVERY-SOURCES.md), and
-  [DERIVADEX-MIGRATION.md](DERIVADEX-MIGRATION.md) retain research, translation, and migration
-  evidence; they are not runtime authority.
+- [RESEARCH.md](RESEARCH.md) and [DERIVADEX-MIGRATION.md](DERIVADEX-MIGRATION.md) retain research and
+  source-repository cutover evidence; they are not runtime authority.
 
 Explicit user direction outranks all repository artifacts within its scope. Implementation, tests,
 history, and generated reports are evidence of present state, never intended-behavior authority.
