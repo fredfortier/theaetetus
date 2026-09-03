@@ -276,17 +276,11 @@ The planted weakness must be disclosed after the exercise. Do not train the user
 
 ## Evaluation argument
 
-The working scenarios in
-[`tests/tutor-working.yaml`](../../evals/promptfoo/tests/tutor-working.yaml), their matched negatives
-in [`tests/mechanical-placebo.yaml`](../../evals/promptfoo/tests/mechanical-placebo.yaml), the sealed
-cases in [`tests/holdout.yaml`](../../evals/promptfoo/tests/holdout.yaml), and the recruited lifecycle
-in [`tests/integration.yaml`](../../evals/promptfoo/tests/integration.yaml) distinguish visible-move
-evidence from person inference, one-function repair from taxonomy recitation, human retry from tutor
-takeover, warranted intervention from `NO INTERVENTION`, and bounded return from permanent moderation.
-
-The evaluation may claim only those observable coaching behaviors. Voice delivery, dignity or felt
-quality, person-level mastery, and learning efficacy remain outside the suite. Condition identity,
-controls, oracle admissibility, and pass law are owned by
+The sole automated claim exercises false-positive recruitment restraint with an identical current,
+generated single-defect, and no-skill task. It observes one `NO INTERVENTION`, exact visible evidence,
+the preserved return question, and absence of a drill. It does not cover warranted coaching, retries,
+voice, dignity, person-level mastery, learning efficacy, or incremental value over the foundation
+model. Condition identity, calibration, and pass law are owned by
 [`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md).
 
 ## Reasoning and lineage

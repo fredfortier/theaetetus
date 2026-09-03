@@ -180,10 +180,9 @@ artifact contract.
 - A review discovery reopens specification development and does not auto-run remediation.
 - Accepted work routes outward for repository-specific integration.
 
-The router family in [`tests/router.yaml`](../../evals/promptfoo/tests/router.yaml) is the direct
-scenario surface. Its strongest discriminators are named-operation bypass, earlier-obligation
-precedence over apparent phase, mechanical work without ceremony, outward routing for uncovered
-operations, and one-hop return. Condition construction and oracle limits remain owned by
+No current automated behavioral claim covers the router. The former comparator, placebo, local
+capability, and no-skill fixtures were removed because their matched outcomes did not demonstrate
+incremental routing value. Future route claims must satisfy the condition and oracle law in
 [`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md).
 
 ## Premise and lineage negotiation

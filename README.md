@@ -250,42 +250,24 @@ defects, control repairs, and demonstrated skill defects.
 
 ## Reproduce the evaluation
 
-The default static suite requires:
-
-- Node.js 22.22 or later and npm;
-- Python 3;
-- a Rust toolchain with Cargo.
-
-The optional live diagnostics additionally require Codex credentials available to
-`@openai/codex-sdk` and enough model budget for repeated target and grader calls.
-
-Install the pinned JavaScript dependencies and run the non-admission diagnostic suite:
+Install Node.js 22.22 or later and the pinned dependencies, then run the static boundary checks
+and deterministic oracle calibration:
 
 ```bash
 npm ci
 npm run eval:dialectic
 ```
 
-The [evaluation runner](evals/promptfoo/scripts/run-all.mjs) runs structural projects, deterministic
-assertion probes, skill-purity checks, and Promptfoo configuration validation. It deliberately does
-not execute or aggregate the legacy live model families. Those families remain available only as
-diagnostics while their claim graph, single-defect controls, and oracle calibration are rebuilt.
-
-Smaller entry points are available for development:
+The only live behavioral claim requires Codex credentials and nine serial calls across current,
+generated single-defect, and no-skill conditions:
 
 ```bash
-npm run eval:diagnostic:prepare
-npm run eval:diagnostic:calibrate
-npm run eval:diagnostic:unit
-npm run eval:diagnostic:holdout
-npm run eval:diagnostic:integration
-npm run eval:diagnostic:domain-integration
+npm run eval:restraint
 ```
 
-Diagnostic output must not be reported as admitted cases or skill-value evidence. When a failure
-occurs, classify its owner first: runtime skill, sandbox/task, grader, provider/harness, or
-unresolved. Change only the owning artifact and preserve failed attempts in the findings log. A
-green aggregate cannot compensate for an unidentified or uncontrolled claim.
+The command prepares fresh fixtures, rejects external evaluated-skill reads, and removes generated
+runtime state after success. Its licensed conclusion and explicit exclusions are in
+[EVALS.md](EVALS.md); a green result does not establish broad value over the foundation model.
 
 ## Repository map
 
@@ -299,12 +281,10 @@ skills/
   software-delivery/         current-obligation router
 .codex-plugin/plugin.json    installable plugin manifest
 evals/promptfoo/
-  SPEC.md                   evaluation authority, topology, targets, oracles, and pass law
-  sandboxes/                 six minimal synthetic domain projects
-  tests/                     working, control, holdout, and persistent-conversation cases
-  assertions/                deterministic artifact and safety checks
-  rubrics/                   calibrated semantic evaluation contracts
-  evidence/                  frozen checksums and findings history
+  SPEC.md                   one-claim graph, condition identity, oracle, and pass law
+  assertions/                deterministic tutor-restraint oracle
+  scripts/                   fixture generation, isolation, purity, and validation checks
+  evidence/                  interpretation-changing findings
 RESEARCH.md                   evidence synthesis and source limits
 PHILOSOPHY.md                 human ownership and oracle role
 DERIVADEX-MIGRATION.md        replacement coverage and cutover gates

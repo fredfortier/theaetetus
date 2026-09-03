@@ -322,19 +322,10 @@ The implementation must include:
 
 ## Evaluation argument
 
-The working scenarios in
-[`tests/inquiry-working.yaml`](../../evals/promptfoo/tests/inquiry-working.yaml), their ceremony-matched
-negatives in [`tests/mechanical-placebo.yaml`](../../evals/promptfoo/tests/mechanical-placebo.yaml),
-the sealed transfer cases in [`tests/holdout.yaml`](../../evals/promptfoo/tests/holdout.yaml), and the
-persistent lifecycle in [`tests/integration.yaml`](../../evals/promptfoo/tests/integration.yaml)
-exercise the essential distinctions: direct inquiry versus explanation, independent answer versus
-paraphrase, evidence versus inference, responsive pressure versus a category script, attributed
-workpad continuity, warranted tutor recruitment, and human-owned synthesis or precise aporia.
-
-The evaluation may claim only those observable behaviors and changed-case transfer to a bounded
-engineering consequence. Voice behavior, conversational quality, person-level mastery, and human
-learning efficacy remain outside the suite. Condition identity, controls, oracle admissibility, and
-pass law are owned by [`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md).
+No current automated behavioral claim covers this skill. The former working, placebo, holdout,
+domain, and persistent fixtures were removed because they did not isolate skill effects. Inquiry
+behavior remains specified here but unmeasured until a case satisfies the claim, control, baseline,
+and oracle law in [`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md).
 
 ## Reasoning and lineage
 

@@ -150,11 +150,10 @@ authority language. It should exercise these discriminators:
 - a no-finding result states the inspected authority, doctrine, surface, and proof without claiming
   human acceptance.
 
-Direct focused requests already appear in the router scenarios in
-[`tests/router.yaml`](../../evals/promptfoo/tests/router.yaml); the evaluation law and condition
-controls are owned by [`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md). A dedicated
-conformance family remains required before claiming that the doctrine-load, complexity-scaling, and
-finding-communication contracts are behaviorally established.
+No current automated behavioral claim covers conformance review. A dedicated family remains
+required before claiming that doctrine loading, complexity scaling, and finding communication are
+behaviorally established; additions must satisfy the control law in
+[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md).
 
 ## Premise and lineage negotiation
 

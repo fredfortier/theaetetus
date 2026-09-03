@@ -1,0 +1,108 @@
+description: Matched tutor-restraint claim with one generated defect and a no-skill observation
+
+providers:
+  - id: openai:codex-sdk
+    label: current
+    config:
+      model: gpt-5.6-terra
+      model_reasoning_effort: high
+      working_dir: ./.runs/{{caseId}}/{{runIndex}}/current
+      sandbox_mode: workspace-write
+      approval_policy: never
+      network_access_enabled: false
+      web_search_enabled: false
+      web_search_mode: disabled
+      inherit_process_env: false
+      cli_env:
+        CODEX_HOME: "{{env.PWD}}/evals/promptfoo/fixtures/codex-home"
+      persist_threads: false
+      enable_streaming: true
+  - id: openai:codex-sdk
+    label: single-defect
+    config:
+      model: gpt-5.6-terra
+      model_reasoning_effort: high
+      working_dir: ./.runs/{{caseId}}/{{runIndex}}/single-defect
+      sandbox_mode: workspace-write
+      approval_policy: never
+      network_access_enabled: false
+      web_search_enabled: false
+      web_search_mode: disabled
+      inherit_process_env: false
+      cli_env:
+        CODEX_HOME: "{{env.PWD}}/evals/promptfoo/fixtures/codex-home"
+      persist_threads: false
+      enable_streaming: true
+  - id: openai:codex-sdk
+    label: no-skill
+    config:
+      model: gpt-5.6-terra
+      model_reasoning_effort: high
+      working_dir: ./.runs/{{caseId}}/{{runIndex}}/no-skill
+      sandbox_mode: workspace-write
+      approval_policy: never
+      network_access_enabled: false
+      web_search_enabled: false
+      web_search_mode: disabled
+      inherit_process_env: false
+      cli_env:
+        CODEX_HOME: "{{env.PWD}}/evals/promptfoo/fixtures/codex-home"
+      persist_threads: false
+      enable_streaming: true
+
+prompts:
+  - '{{request}}'
+
+defaultTest:
+  vars: &case
+    caseId: dt-restraint-01
+    runIndex: ['0', '1', '2']
+    evidenceOptions: |-
+      Which sentence supports the causal step
+      which part is the oracle's inference
+      what observation would falsify that bridge?
+    liveQuestion: Does the source establish causation or only correlation?
+    request: |-
+      Invoke $dialectical-tutor for this recruited repair.
+      Handoff diagnosis: “The human is passive.”
+      Quoted human move: “Which sentence supports the causal step, which part is the oracle's
+      inference, and what observation would falsify that bridge?”
+      Live question: Does the source establish causation or only correlation?
+      Decide whether intervention is actually warranted from the quoted move.
+
+tests:
+  - description: current tutor restrains false-positive recruitment
+    providers: [current]
+    vars: *case
+    assert:
+      - type: skill-used
+        value: dialectical-tutor
+        metric: RoutingTrace
+        weight: 0
+      - type: javascript
+        value: file://assertions/tutor-restraint.js:restraint
+        metric: TutorRestraint
+
+  - description: isolated always-intervene mutation manifests
+    providers: [single-defect]
+    vars: *case
+    assert:
+      - type: skill-used
+        value: dialectical-tutor
+        metric: RoutingTrace
+        weight: 0
+      - type: javascript
+        value: file://assertions/tutor-restraint.js:falsePositiveInstantiated
+        metric: DefectSensitivity
+
+  - description: no-skill capability is observed without forcing failure
+    providers: [no-skill]
+    vars: *case
+    assert:
+      - type: not-skill-used
+        value: dialectical-tutor
+        metric: IsolationTrace
+      - type: javascript
+        value: file://assertions/tutor-restraint.js:observeRestraint
+        metric: NoSkillRestraint
+        weight: 0

@@ -1,18 +1,27 @@
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
-const evidenceBoundary = require('../assertions/evidence-boundary.js');
-
+const oracle = require('../assertions/tutor-restraint.js');
+const vars = {
+  evidenceOptions: [
+    'Which sentence supports the causal step',
+    "which part is the oracle's inference",
+    'what observation would falsify that bridge?',
+  ],
+  liveQuestion: 'Does the source establish causation or only correlation?',
+};
+const valid = `NO INTERVENTION
+Evidence: “what observation would falsify that bridge?”
+Resume: ${vars.liveQuestion}`;
 const probes = [
-  ['explicit limitation', 'The sources provide no evidence that AI dialogue causes mastery.', true],
-  ['attributed human claim', 'Your stated model: AI dialogue causes mastery. None of the sources establishes that claim.', true],
-  ['affirmative source claim', 'The sources prove that AI dialogue causes mastery.', false],
-  ['bare affirmative claim', 'AI dialogue causes mastery.', false],
+  ['valid restraint', oracle.restraint(valid, { vars }).pass, true],
+  ['decision inversion', oracle.restraint(valid.replace('NO INTERVENTION', 'COACHING PAUSE'), { vars }).pass, false],
+  ['fabricated evidence', oracle.restraint(valid.replace('what observation would falsify that bridge?', 'unsupported paraphrase'), { vars }).pass, false],
+  ['changed question', oracle.restraint(valid.replace(vars.liveQuestion, 'A replacement question?'), { vars }).pass, false],
+  ['duplicated coaching', oracle.restraint(`${valid}\nTry once: Ask again.`, { vars }).pass, false],
 ];
 
-for (const [name, output, expected] of probes) {
-  const actual = evidenceBoundary(output).pass;
+for (const [name, actual, expected] of probes) {
   if (actual !== expected) throw new Error(`${name}: expected ${expected}, observed ${actual}`);
 }
-
-process.stdout.write(`Deterministic assertion probes: ${probes.length}/${probes.length} pass\n`);
+process.stdout.write(`Deterministic restraint probes: ${probes.length}/${probes.length} pass\n`);

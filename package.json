@@ -4,15 +4,12 @@
   "scripts": {
     "eval:skill-purity": "node evals/promptfoo/scripts/check-skill-purity.mjs",
     "eval:static": "node evals/promptfoo/scripts/run-all.mjs",
-    "eval:diagnostic:prepare": "node evals/promptfoo/scripts/prepare-fixtures.mjs",
-    "eval:diagnostic:calibrate": "promptfoo eval -c evals/promptfoo/promptfooconfig.calibration.yaml --no-cache",
-    "eval:diagnostic:unit": "promptfoo eval -c evals/promptfoo/promptfooconfig.unit.yaml --no-cache",
-    "eval:diagnostic:holdout": "promptfoo eval -c evals/promptfoo/promptfooconfig.holdout.yaml --no-cache",
-    "eval:diagnostic:integration": "DIALECTIC_RUN_INDEX=0 promptfoo eval -c evals/promptfoo/promptfooconfig.integration.yaml --no-cache -j 1",
-    "eval:diagnostic:domain-integration": "DIALECTIC_RUN_INDEX=0 promptfoo eval -c evals/promptfoo/promptfooconfig.domain-integration.yaml --no-cache -j 1",
-    "eval:diagnostic:router-calibrate": "promptfoo eval -c evals/promptfoo/promptfooconfig.router-calibration.yaml --no-cache",
-    "eval:diagnostic:router": "promptfoo eval -c evals/promptfoo/promptfooconfig.router.yaml --no-cache",
-    "eval:dialectic": "npm run eval:static"
+    "eval:prepare": "node evals/promptfoo/scripts/prepare-fixtures.mjs",
+    "eval:clean": "node evals/promptfoo/scripts/clean-runtime.mjs",
+    "eval:calibrate": "promptfoo eval -c evals/promptfoo/promptfooconfig.calibration.yaml --no-cache",
+    "eval:result-isolation": "node evals/promptfoo/scripts/check-result-isolation.mjs evals/promptfoo/results/restraint.json",
+    "eval:restraint": "npm run eval:prepare && promptfoo eval -c evals/promptfoo/promptfooconfig.restraint.yaml --no-cache -j 1 --output evals/promptfoo/results/restraint.json && npm run eval:result-isolation && npm run eval:clean",
+    "eval:dialectic": "npm run eval:static && npm run eval:calibrate"
   },
   "devDependencies": {
     "@openai/codex-sdk": "0.149.0",

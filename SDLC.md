@@ -369,39 +369,12 @@ specialist route.
 
 ## Promptfoo specification and causal-readiness obligation
 
-Create and maintain `evals/promptfoo/SPEC.md` as the governing causal argument for the evaluation
-system. The current configs, scenarios, assertions, rubrics, controls, and results are
-implementation evidence until that specification admits them. The SPEC must earn `ready for human
-judgment` under `causal-readiness-review`; fluent documentation or post-hoc description is
-insufficient. It must state and defend:
-
-- the exact problem with the prior evaluation surface and the bounded automated claims proposed;
-- why the scenario portfolio has its particular skill, boundary, domain, state, failure, near-miss,
-  control, and holdout topology, grounded in the actual runtime skills and their comparator-derived
-  invariants;
-- a complete claim-to-scenario-to-fixture-to-control-to-oracle-to-result graph, including explicit
-  identification of unmeasured skill behavior and unjustified duplicate cases;
-- why each assertion or rubric observes the responsible boundary rather than an adjacent proxy;
-- matched current, strongest-comparator, mechanical-placebo, sibling/near-miss, and no-skill
-  conditions wherever each can discriminate the causal claim, with model, permissions, task,
-  evidence packet, and harness held constant;
-- positive, omission, weakening, authority-inversion, duplication, and ceremony-only controls for
-  every consequential semantic oracle, calibrated before live target results count;
-- freeze, holdout, repeat, variance, failure-classification, leakage, and change-control rules; and
-- the narrow conclusion licensed by each result and the human or longitudinal claims it cannot
-  establish.
-
-The detailed and governing invariant definitions of `OptimalTarget`, `AdmissibleOracle`, and
-`ScenarioTopology` live only in
-[the Promptfoo evaluation specification](evals/promptfoo/SPEC.md#invariant-target-and-oracle-definitions).
-This workpad uses them as discriminators but does not restate or amend them.
-
-The initial eval hypotheses remain useful but unadmitted: match Addy and Theaetetus counterparts on
-intent, authority, stops, mutations, evidence, and human decisions; compare `interview-me` with
-`dialectical-inquiry` on the same solution-first request; retain a ceremony-matched placebo; require
-a discriminator for every transformed comparator behavior; and test portable candidates in
-unrelated repositories. The audit must change or delete any scenario whose measured predicate does
-not follow from an actual skill invariant, and add scenarios only for a material uncovered claim.
+Maintain `evals/promptfoo/SPEC.md` as the governing causal argument for automation. The former
+198-execution surface failed its own claim-isolation burden and has been removed. The current
+surface contains one claim: false-positive restraint by `dialectical-tutor`, tested against a
+current-derived always-intervene mutation and a non-gating no-skill observation. New fixtures have
+no evidentiary standing unless the specification first names their obligation, isolated defeater,
+baseline, calibrated oracle, and licensed conclusion.
 
 ## Completion evidence and final handoff
 
@@ -417,8 +390,7 @@ Completion is a boundary-owned evidence relation:
   registration surface, callers, and validation.
 - **Evaluation system:** `evals/promptfoo/SPEC.md` earns `ready for human judgment`; every retained
   scenario and oracle traces to an actual admitted invariant; controls establish sensitivity and
-  specificity; frozen working, comparator, placebo, near-miss, no-skill, and holdout observations
-  support only their declared claims.
+  specificity; repeated observations support only their declared claim.
 - **Repository state:** structural, reference, runtime-purity, Markdown, whitespace, and affected
   behavioral checks pass, with exact commands and bounded observations retained. Passing checks do
   not cover unexercised claims.
@@ -457,13 +429,11 @@ preparation, Markdown checks apart from the repository's accepted line-length ex
 whitespace checks passed on the implemented topology. These checks establish only their exercised
 contracts; they do not discharge the comparative behavioral work above.
 
-[The Promptfoo evaluation specification](evals/promptfoo/SPEC.md) now owns the evaluation thesis,
-actual-skill grounding, scenario topology, invariant target and oracle definitions, controls, pass
-law, change control, and inference limits. Its causal-readiness disposition is `conditional`: the
-two-skill evaluation thesis follows from owned premises and the present family and domain topology
-has an explicit causal defense, but package-wide readiness remains defeated until the line audit
-supplies strongest-comparator conditions, the complete claim graph, expanded single-defect controls,
-and behavioral coverage or an explicit exclusion for every delivery skill.
+[The Promptfoo evaluation specification](evals/promptfoo/SPEC.md) now owns one complete claim graph,
+condition identity, a deterministic oracle, pass law, change control, and inference limits. All
+router, comparator, broad-placebo, domain, holdout, and integration machinery was retired rather
+than carried forward as diagnostic theater. This does not weaken their governing skill obligations;
+it makes their behavioral coverage explicitly absent.
 
 The first complete unit audit covered `software-delivery`: its local runtime and SPEC, all sibling
 triggers, callers, pinned Addy router runtime and orchestration references, the relevant pinned
@@ -497,23 +467,16 @@ and atomic removal without compatibility aliases.[^retirement-law]
   authority, but it is already large. Repeat that placement for the next unit; if navigation or
   review becomes materially worse, propose a dedicated lineage convention for owner approval rather
   than scattering ad hoc files.
-- The strongest comparator set may extend beyond the two currently pinned repositories. Admit an
-  additional comparator only when a concrete behavior or empirical claim makes it capable of
-  defeating a live decision; do not expand research decoratively.
-- The current Promptfoo suite was designed chiefly for the dialectical skills.[^current-evals]
-  Whether it can remain one coherent topology for all delivery skills, or needs explicitly
-  separated protocol, routing, artifact, and repository-behavior families, must be derived in
-  `evals/promptfoo/SPEC.md`.
+- A future comparator is admissible only when a concrete behavior or empirical claim makes it
+  capable of defeating a live decision; do not expand research decoratively.
+- Package-wide behavioral coverage is absent. Add it claim by claim rather than by creating a
+  portfolio first.
 
 ## Next discriminator
 
-Reconcile the stale dialectical evidence seal before extending router coverage. Run the current
-committed dialectical surface through its structural projects, holdout manifest, assertion probes,
-configuration validation, and cache-disabled six-project evaluation without treating the stale
-checksum as a prerequisite. Classify every failure before changing any target, oracle, or case; only
-a clean current-surface replay can authorize a new checksum identity. Once this evidence-integrity
-boundary is resolved, continue `software-delivery` with the uncued architecture-precedence pair
-already derived above.
+Run the sole current-derived restraint claim and inspect the non-gating no-skill score. If no-skill
+also passes, do not claim incremental skill value; the next useful discriminator must be a case in
+which an accepted tutor obligation predicts a different observable from the foundation model.
 
 The structural projects, holdout manifest, assertion probes, and configuration validation now pass.
 The first cache-disabled calibration attempt completed 11/12 calls, then one grader subprocess
@@ -543,10 +506,9 @@ with zero execution errors and passed trace isolation.
 
 The burden-of-proof audit in [EVALS.md](EVALS.md) supersedes the earlier admission interpretation:
 those are runtime observations, not 66 independent cases and not admissible unit-family evidence.
-No unit, holdout, integration, checksum-reseal, or router family may advance an evaluation claim
-until its obligation has a claim-to-positive-to-isolated-defect-to-calibrated-oracle graph. The
-immediate evaluation obligation is cleanup and redesign, beginning with exact condition identity
-for `DT-NOINT-01` and the uncued architecture-precedence router pair.
+The cleanup implements that burden as `DT-RESTRAINT-01` and removes every unqualified family. No
+new evaluation may advance a claim until its obligation has a
+claim-to-positive-to-isolated-defect-to-calibrated-oracle graph.
 
 ## Evidence notes
 
@@ -593,8 +555,7 @@ for `DT-NOINT-01` and the uncued architecture-precedence router pair.
     withholds human learning, productivity, retention, and delivery-efficacy claims pending suitable
     evidence.
 [^current-evals]: [The Promptfoo evaluation specification](evals/promptfoo/SPEC.md) governs the
-    present dialectical-inquiry and tutor scenario families, controls, pass law, and evidence
-    limits; the configuration files are implementation evidence under [`evals/promptfoo/`](evals/promptfoo/).
+    sole tutor-restraint claim, control, pass law, and evidence limits.
 [^retirement-law]: The pinned source
     [skill charter](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/CHARTER.md#L148-180)
     requires equivalent-or-better replacement coverage and verified cutover; its
