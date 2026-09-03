@@ -3,7 +3,7 @@
 # Workpad: SDLC Extension for Theaetetus
 
 Status: topology implemented; governing authority now resides in `PHILOSOPHY.md`,
-`SOFTWARE-DELIVERY-SPEC.md`, and the six skill-local specifications. Behavioral evaluation and
+`SOFTWARE-DELIVERY-SPEC.md`, and the twelve skill-local specifications. Behavioral evaluation and
 source-repository migration remain open.
 
 This workpad proposes how Theaetetus could grow from two inquiry skills into a coherent,
@@ -477,14 +477,16 @@ the same change; any uncovered behavior defeats deletion.[^retirement-law]
 | --- | --- | --- | --- |
 | [`dialectics`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/dialectics/SKILL.md) | **Retire** | `dialectical-inquiry` plus the decision-target handoff in `software-delivery`. | Preserve premise ownership, repository-fact recovery boundary, precise blocker, invariants/verification handoff, and interaction with planning; verify that human-led behavior replaces agent-led interviewing without losing useful stops. |
 | [`planning`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/planning/SKILL.md) | **Retire** | `specification-development`; local GitLab capability supplies issue transport. | Cover context recovery, research, lean specification choice, causal derivation, citation routing, invariant formulation, assessment dispositions, and tactical-plan boundary. |
-| [`posterior-analytics`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/posterior-analytics/SKILL.md) | **Retire as a public route** | Mandatory causal assessment inside `specification-development` and `conformance-review`. | Preserve argument-before-polish grading, defect classes, cargo-cult checks, and pass/conditional/revise/reject semantics without creating a second authority. |
-| [`formulate-invariants`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/formulate-invariants/SKILL.md) | **Retire as a public route** | Mandatory invariant formulation inside `specification-development`; reused by review. | Preserve positive, domain-native, refactor-stable invariants; illegal negation; responsible verification boundary; and compression of blacklist guardrails. |
+| [`posterior-analytics`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/posterior-analytics/SKILL.md) | **Replace** | `causal-readiness-review`; callers consume its verdict instead of duplicating its rubric. | Preserve argument-before-polish grading, defect classes, imitation checks, and bounded readiness semantics. |
+| [`formulate-invariants`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/formulate-invariants/SKILL.md) | **Replace** | `invariant-formulation`; callers consume its invariant result. | Preserve positive, domain-native, refactor-stable invariants; illegal negation; responsible verification boundary; and compression of blacklist guardrails. |
 | [`implementation`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/implementation/SKILL.md) | **Retire** | `specification-implementation`. | Preserve preconditions, direct authority trace, forbidden improvisation, reopen behavior, bidirectional conformance vocabulary, and evidence-gap reporting. |
 | [`ttd`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/ttd/SKILL.md) | **Retire** | Routed test-driven verification pattern inside `specification-implementation`. | Preserve identical red/green claim, causal failure check, smallest change, refactor rerun, retained guardrail, and stop conditions. |
-| [`formulate-goal`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/formulate-goal/SKILL.md) | **Retain pending scope split** | The SDLC theorem and evidence-ledger subset may converge later; autonomous or long-running goal contracts are not yet shown equivalent. | Inventory SDLC versus non-SDLC use cases; retire only the covered subset or the whole skill after all goal-lifecycle behaviors have an owner. |
+| [`formulate-goal`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/formulate-goal/SKILL.md) | **Replace** | `goal-formulation` owns the aligned mandate and continuity workpad without a universal path. | Preserve complete artifact reading, falsifiable outcome model, editorial repair, open premises, discriminator, and completion evidence. |
 | [`diff-review`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/diff-review/SKILL.md) | **Split, then retain a thin DerivaDEX adapter** | `conformance-review` owns portable conformance; local adapter keeps stack-facet census, scheduled operation, GitLab report surfaces, and DerivaDEX doctrine routing. | Extract and test the portable kernel; demonstrate that local scripts, report persistence, stack ownership, and stop conditions still route exactly once. |
-| [`evidence-grounding`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/evidence-grounding/SKILL.md) | **External dependency candidate** | Depend on one maintained shared skill rather than copying it into every repository. | Prove identical authority order, claim support, inline implementation evidence, footnote rules, and final gate; update every route atomically. |
-| `architecture`, stack `*-development`, GitLab, commit, release, and runbook skills | **Retain locally or as specialist plugins** | These own repository law, stack choices, external-service mechanics, or operational policy outside the portable kernel. | No retirement unless a future candidate establishes that repository-specific decisions remain locally owned and every mechanics route remains complete. |
+| [`evidence-grounding`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/evidence-grounding/SKILL.md) | **Replace** | `evidence-grounding`; provider formatting remains local. | Prove identical authority order, claim support, inline implementation evidence, footnote rules, and final gate; update every route atomically. |
+| `architecture` | **Replace portable conformance; retain local discovery authority** | `architecture-conformance` classifies decisions; repository instructions identify applicable records and owners. | Exercise ungoverned, conforming, amendment, uncertain, and history-omission cases. |
+| `naming-things` | **Replace** | `naming-things`; language rules and public migration authority remain local. | Exercise identifier choice, controlled vocabulary, ambiguity, and atomic rename closure. |
+| Stack `*-development`, GitLab, commit, release, and runbook skills | **Retain locally or as specialist plugins** | These own repository law, stack choices, external-service mechanics, or operational policy outside the portable kernel. | No retirement unless a future candidate establishes that repository-specific decisions remain locally owned and every mechanics route remains complete. |
 
 ### Migration sequence
 
@@ -493,7 +495,7 @@ the same change; any uncovered behavior defeats deletion.[^retirement-law]
 2. Write and approve `PHILOSOPHY.md` and `SOFTWARE-DELIVERY-SPEC.md` before runtime skill edits.
 3. Create `SOFTWARE-DELIVERY-SOURCES.md` outside `skills/`; reject every term whose
    portable meaning cannot be stated without source context.
-4. Specify the four proposed skills, their shared vocabulary, artifacts, handoffs, stop conditions,
+4. Specify the delivery skills and focused utilities, their shared vocabulary, artifacts, handoffs, stop conditions,
    explicit non-ownership boundaries, and purity gate.
 5. Extend the evaluation suite before implementation so ceremonial lifecycle routing cannot pass as
    dialectical competence.
@@ -619,10 +621,10 @@ public topology and preserve the stronger account-ownership method.
   `specification-implementation`, and `conformance-review`.
 - Added `PHILOSOPHY.md`, `SOFTWARE-DELIVERY-SPEC.md`, `SOFTWARE-DELIVERY-SOURCES.md`, and
   `DERIVADEX-MIGRATION.md` outside the runtime skill tree.
-- Added `.codex-plugin/plugin.json` so the six skills form one validated plugin.
+- Added `.codex-plugin/plugin.json` so the initial six skills form one validated plugin.
 - Changed evaluation fixture preparation to install the complete current skill tree.
 - Added `npm run eval:skill-purity` and made it a precondition of the full evaluation command.
-- Structural validation passed for all six skills; plugin validation, lexical quarantine, Markdown
+- Structural validation passed for the initial six skills; plugin validation, lexical quarantine, Markdown
   lint apart from the repository's accepted line-length convention, and Git whitespace checks pass.
 - Two isolated read-only routing smokes passed: an exact documentation rename bypassed inquiry for
   `specification-implementation`; a solution-first retry request with no owned boundary or failure
@@ -630,6 +632,16 @@ public topology and preserve the stronger account-ownership method.
 
 These smokes establish only the two exercised routing decisions. They do not establish cross-skill
 behavioral equivalence, human efficacy, or readiness to retire source-repository skills.
+
+## Implementation record: 2026-09-03
+
+- Added six focused utilities: `invariant-formulation`, `goal-formulation`,
+  `causal-readiness-review`, `architecture-conformance`, `evidence-grounding`, and `naming-things`.
+- Gave every utility a runtime-only `SKILL.md` and a reasoning-and-lineage `SPEC.md`.
+- Audited all twelve runtime skills and replaced overlapping evidence, invariant, causal-readiness,
+  naming, architecture, and workpad procedures with calls to their single owners.
+- Updated the delivery router, package manifest, public inventory, source synthesis, and migration
+  ledger for the twelve-skill topology.
 
 ## Next discriminator
 

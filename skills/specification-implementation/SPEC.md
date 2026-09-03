@@ -51,17 +51,19 @@ Missing preconditions produce analysis or `unresolved`, not speculative edits.
 ## Required behavior
 
 1. Extract active obligations, scope, boundaries, failure semantics, and verification requirements.
-2. State the complete trace before every material edit.
-3. Make the smallest repository change entailed by accepted authority.
-4. Preserve unrelated user work and behavior.
-5. Select verification at the boundary responsible for each claim.
-6. Use same-claim failing and passing observations for suitable behavior changes.
-7. Confirm a failing observation is causally related before implementing.
-8. Retain the smallest useful regression guardrail.
-9. Reassess the governing account after material evidence.
-10. Stop and reopen rather than choose a new architecture, boundary, failure semantic, trust
+2. Use `evidence-grounding` and, when applicable, `architecture-conformance` before mutation.
+3. State the complete trace before every material edit.
+4. Make the smallest repository change entailed by accepted authority.
+5. Preserve unrelated user work and behavior.
+6. Use `naming-things` for material names not fixed by authority.
+7. Select verification at the boundary responsible for each claim.
+8. Use same-claim failing and passing observations for suitable behavior changes.
+9. Confirm a failing observation is causally related before implementing.
+10. Retain the smallest useful regression guardrail.
+11. Reassess the governing account after material evidence.
+12. Stop and reopen rather than choose a new architecture, boundary, failure semantic, trust
     decision, public contract, or verification burden.
-11. Report evidence limits and never self-accept.
+13. Report evidence limits and never self-accept.
 
 ## Test-driven verification route
 
@@ -139,5 +141,6 @@ The runtime file contains only the resulting operating contract.
 - Skill name pairs with `specification-development` and names the externally relevant operation.
 - Primary execution shape is ordered inline guidance with a validation loop.
 - Test-driven verification is a conditional internal route, not a separate public skill.
+- Evidence, architecture, and naming decisions use their focused utility owners.
 - No universal workpad path or verification command is prescribed.
 - No bundled reference is justified because all runtime branches fit one compact execution surface.

@@ -15,25 +15,19 @@ behavior, ambiguous interpretations, stale authority, and verification gaps with
 2. Locate the governing specification, accepted user decisions, applicable repository instructions,
    and relevant external authority.
 3. Read each governing source and the complete material change before judging isolated lines.
-4. Separate intended authority from implementation evidence and verification observations.
+4. Apply `evidence-grounding` to every authority claim, implementation fact, observation, inference,
+   and assumption.
+5. If repository instructions or affected scope identify accepted architecture decisions, use
+   `architecture-conformance` and include its classification in the review.
 
-If material behavior has no governing authority, report that absence. Do not infer permission from
-the current code, tests, history, convention, or plausibility.
+If material behavior has no governing authority under `evidence-grounding`, report that absence.
 
 ## Assess the governing argument
 
-Reconstruct:
-
-- problem, domain operation, and current wrongness;
-- authority and responsible boundaries;
-- failure semantics and positive invariants;
-- derivation from premises to obligations;
-- scope and verification requirements; and
-- known defeaters or unresolved premises.
-
-If this cannot be done without inventing a material premise, classify the specification as needing
-revision or inquiry. Do not let polished structure, terminology, or citation volume substitute for
-causal coherence.
+Use `causal-readiness-review` when the specification's causal fitness is disputed or cannot be
+reconstructed without inventing a material premise. Carry its verdict into this review; do not
+duplicate its grading rubric. Use `invariant-formulation` only to audit a material invariant whose
+meaning or enforcement boundary is itself in question.
 
 ## Review in both directions
 
@@ -49,14 +43,17 @@ For every material added, changed, or deleted repository fact, identify its gove
 applicable local authority. Report extra behavior or an ambiguous interpretation when the change
 introduces meaning not already owned.
 
+Use `naming-things` when a material finding depends on terminology drift, ambiguous identifiers, or
+an incomplete rename closure.
+
 Use this trace for every material judgment:
 
 ```text
 governing claim -> responsible boundary -> repository fact -> verification evidence
 ```
 
-Inspect deletions and non-code artifacts with the same burden. A passing check cannot settle a claim
-at a boundary it does not exercise.
+Inspect deletions and non-code artifacts with the same burden. Bound each verification finding to
+the responsible boundary identified by the governing obligation.
 
 ## Seek concrete defeaters
 

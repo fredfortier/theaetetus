@@ -12,9 +12,13 @@ not an opportunity to improve the design.
 
 1. Identify the accepted governing specification or explicit constrained excerpt.
 2. Read applicable repository instructions and the affected implementation and verification surfaces.
-3. Extract the active obligations, scope, responsible boundaries, failure semantics, and verification
+3. Apply `evidence-grounding` when resolving authority, repository facts, external contracts,
+   observations, inferences, and assumptions.
+4. If repository instructions or affected scope identify accepted architecture decisions, use
+   `architecture-conformance` and stop at its amendment boundary.
+5. Extract the active obligations, scope, responsible boundaries, failure semantics, and verification
    requirements.
-4. Proceed only when the user has authorized implementation. If the specification is draft, use it
+6. Proceed only when the user has authorized implementation. If the specification is draft, use it
    only for analysis unless the user explicitly authorizes a constrained experiment.
 
 For every material edit, state this trace before changing the repository:
@@ -33,12 +37,12 @@ If the trace requires a new interpretation, do not edit under that interpretatio
 - Preserve unrelated behavior and user changes.
 - Apply repository-specific language, framework, security, and operational instructions without
   turning them into portable policy.
+- Use `naming-things` for a material naming choice not already fixed by governing authority.
 - Keep a change-bound workpad current when the work spans sessions or provenance would otherwise be
   lost. Record decisions and evidence, not activity.
 
 Do not add behavior because it is plausible, customary, cleaner, or already suggested by code. Do
-not preserve behavior merely because it exists. Existing patterns and tests are evidence, not
-permission.
+not preserve behavior merely because it exists.
 
 ## Verify each obligation
 

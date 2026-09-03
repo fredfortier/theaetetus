@@ -1,7 +1,7 @@
 {
   "name": "theaetetus",
-  "version": "0.2.0",
-  "description": "Human-owned reasoning from dialectical inquiry through specification-driven software delivery.",
+  "version": "0.3.0",
+  "description": "Human-owned reasoning and focused utilities for specification-driven software delivery.",
   "author": {
     "name": "Frédéric Fortier",
     "url": "https://github.com/fredfortier"
@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "Theaetetus",
     "shortDescription": "Human-owned reasoning through software delivery",
-    "longDescription": "Six focused skills preserve developer ownership from dialectical inquiry through specification, implementation, verification, and conformance review.",
+    "longDescription": "Twelve focused skills preserve developer ownership from dialectical inquiry through specification, implementation, verification, and conformance review.",
     "developerName": "Frédéric Fortier",
     "category": "Productivity",
     "capabilities": [
@@ -29,6 +29,7 @@
     "defaultPrompt": [
       "Guide a human-led inquiry into a consequential software decision.",
       "Develop a governing specification from my causal account.",
+      "Formulate stable invariants and review this proposal's causal readiness.",
       "Review this change for two-way conformance with its specification."
     ]
   }

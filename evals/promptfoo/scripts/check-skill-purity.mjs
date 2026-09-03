@@ -9,13 +9,15 @@ const forbidden = [
   ['source project name', /derivadex/giu],
   ['source organization name', /dexlabs/giu],
   ['source-local human title', /\bDRI\b/gu],
+  ['source-local human title', /\bTech Lead\b/giu],
   ['source-local artifact name', /\bBlueprint\b/giu],
   ['source-local causal label', /\bposterior(?:s)?\b/giu],
   ['source-local verification slogan', /owner-real/giu],
   ['source-local plan path', /\.agent\/plans/giu],
   ['source-local provider', /\bGitLab\b|\bglab\b/giu],
   ['source-local report control', /\bSOURCE_SHA\b|\bREPORT_MODE\b/gu],
-  ['source-local skill route', /\b(?:compose-usage|formulate-invariants|planning-warden|diff-review|ttd)\b/giu],
+  ['source-local skill route', /\b(?:assess-semantics|compose-usage|dialectics|diff-review|formulate-goal|formulate-invariants|glfm-formatting|planning-warden|posterior-analytics|ttd)\b/giu],
+  ['source-local interface tool', /\brequest_user_input\b/gu],
 ];
 
 const legalDialecticalNames = new Set(['dialectical-inquiry', 'dialectical-tutor']);

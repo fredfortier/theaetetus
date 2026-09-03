@@ -1,6 +1,6 @@
 ---
 name: software-delivery
-description: Identifies the current obligation in a consequential software change and routes to the focused skill or local capability that owns it. Use when starting, resuming, or coordinating delivery and the correct next activity is unclear. Do not use when the user already requested a focused inquiry, specification, implementation, review, or integration operation.
+description: Identifies the current obligation in a consequential software change and routes to the focused skill or local capability that owns it. Use when starting, resuming, or coordinating delivery and the correct next activity is unclear. Do not use when the user already requested a focused inquiry, formulation, implementation, review, or integration operation.
 ---
 
 # Software Delivery
@@ -14,8 +14,8 @@ developer's authority, and return after the focused result. Do not run a lifecyc
    authorized actions.
 2. Read any existing delivery workpad, governing specification, relevant repository instructions,
    implementation state, and verification evidence.
-3. Separate accepted authority, repository observation, inference, assumption, and unresolved
-   premise.
+3. Use `evidence-grounding` to distinguish accepted authority, repository observations, inferences,
+   assumptions, and unresolved premises.
 4. If the user has already named a focused operation, yield to that operation instead of adding a
    routing layer.
 
@@ -24,9 +24,14 @@ developer's authority, and return after the focused result. Do not run a lifecyc
 | Current condition | Route |
 | --- | --- |
 | The developer wants sustained first-principles inquiry or does not yet own a consequential causal premise. | `dialectical-inquiry` |
-| The causal account is owned but governing obligations are missing, draft, contradicted, or need assessment. | `specification-development` |
+| Owned reasoning must become stable properties over valid states or boundaries. | `invariant-formulation` |
+| A consequential proposal needs read-only grading of its causal derivation before it can govern work. | `causal-readiness-review` |
+| The causal account is owned but governing obligations are missing, draft, contradicted, or need repair. | `specification-development` |
+| A long-running mandate and continuity workpad must be created or repaired. | `goal-formulation` |
+| Applicable accepted architecture decisions need classification before a change or history operation. | `architecture-conformance` |
 | An accepted governing specification fixes the intended meaning and repository mutation is authorized. | `specification-implementation` |
 | Implementation and verification evidence exist and the user wants read-only acceptance review. | `conformance-review` |
+| The requested operation is claim grounding or a material naming decision. | `evidence-grounding` or `naming-things`, according to the object requested. |
 | The change has explicit human acceptance and only commit, review-system, deployment, release, migration, or operations work remains. | Applicable local capability. |
 | Required authority, evidence, or accountable judgment is unavailable. | Stop as `unresolved`. |
 
@@ -40,6 +45,9 @@ decision, or verification burden is open. Do not manufacture inquiry ceremony.
 When several conditions appear true, choose the earliest unsatisfied prerequisite. When routing is
 still ambiguous and the answer would materially change the work, ask one question that distinguishes
 the routes.
+
+The focused utilities own their full standards. Caller skills may state why the utility applies and
+how its result affects their own work, but must not restate, weaken, or contradict its procedure.
 
 ## Preserve reflexivity
 
@@ -58,13 +66,10 @@ change.
 
 ## Maintain continuity only when needed
 
-Use a repository-resolved change-bound workpad when delivery spans sessions or provenance would
-otherwise be lost. Keep authority, causal account, governing specification, obligations, invariants,
-implementation hypothesis, verification evidence, defeaters, unresolved premises, next
-discriminator, and human acceptance distinct.
-
-Update it only when one of those decision-bearing fields changes. Do not create a progress diary,
-duplicate an inquiry workpad, or impose a universal path.
+Use `goal-formulation` when a change-bound mandate and continuity workpad must be created or
+materially repaired. For ordinary continuation, update the existing workpad only when a
+decision-bearing field changes. Do not create a progress diary, duplicate an inquiry workpad, or
+impose a universal path.
 
 ## Return
 

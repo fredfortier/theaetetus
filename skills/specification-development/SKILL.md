@@ -1,6 +1,6 @@
 ---
 name: specification-development
-description: Develops, repairs, or assesses a governing software specification from a developer-owned causal account. Use for consequential feature or change specifications, architecture intent, acceptance obligations, or specification-readiness review. Do not use for settled implementation, generic planning lists, or agent-authored intent awaiting approval.
+description: Develops or repairs a governing software specification from a developer-owned causal account. Use for consequential feature or change specifications, architecture intent, and acceptance obligations. Do not use for read-only readiness grading, settled implementation, generic planning lists, or agent-authored intent awaiting approval.
 ---
 
 # Specification Development
@@ -12,8 +12,11 @@ decisions the developer must own.
 
 1. Identify the developer, requested change, governing artifact, applicable repository instructions,
    and explicit scope.
-2. Read the governing sources and relevant repository evidence before drafting or assessing claims.
-3. Separate accepted authority, observation, inference, assumption, contradiction, and unknown.
+2. Read the governing sources and relevant repository evidence before drafting claims. Apply
+   `evidence-grounding` to their authority, observations, inferences, assumptions, contradictions,
+   and unknowns.
+3. If repository instructions or affected scope identify accepted architecture decisions, use
+   `architecture-conformance` before proposing any semantic change to them.
 4. Recover repository-discoverable facts directly. If a consequential premise is human-held and
    missing, offer `dialectical-inquiry` or stop with one precise question; do not supply it or enter
    a sustained inquiry without the user's request.
@@ -37,11 +40,12 @@ Keep oracle-proposed relations attributed until the developer restates, revises,
 
 For each material boundary or transition:
 
-1. State a positive, domain-native invariant over valid states, transitions, or visible outcomes.
-2. Negate it once to expose the illegal state; do not replace it with a blacklist.
-3. Name the boundary responsible for enforcing it.
-4. Derive the smallest implementation obligation that preserves it.
-5. Name verification evidence capable of distinguishing compliance from credible alternatives.
+1. Use `invariant-formulation` to obtain the retained invariants, illegal states, enforcement
+   boundaries, verification observations, and missing premises.
+2. Derive the smallest implementation obligation that preserves each retained invariant.
+3. Name verification evidence capable of distinguishing compliance from credible alternatives.
+4. Use `naming-things` when the specification introduces or changes a consequential concept,
+   interface, field, or controlled term.
 
 Prefer obligations stable under implementation refactoring. Reject obligations that merely restate a
 task, filename, tool, or proposed code shape.
@@ -63,25 +67,10 @@ Include only content that constrains implementation or lowers review cost:
 Do not turn tactical sequencing, progress state, source dumps, or implementation detail into
 governing intent.
 
-## Attack readiness
+## Obtain an independent readiness judgment
 
-Before presenting the specification for human judgment:
-
-- remove the proposed solution and confirm the problem remains intelligible;
-- test whether each conclusion follows from prior grounded premises;
-- seek the strongest contrary source or changed case;
-- reject convention, existing code, tests, and polished prose as substitute authority;
-- check that exclusions follow from positive boundaries or invariants;
-- check that every material obligation has a discriminating verification path; and
-- identify any choice a reviewer would otherwise have to invent.
-
-Classify the result as:
-
-- `ready for human judgment`: the causal chain is reviewable and no material premise is missing;
-- `conditional`: named limits remain but do not change the governing conclusion;
-- `revise`: the account is plausible but an obligation or derivation is incomplete;
-- `reopen inquiry`: the developer's causal account is missing, borrowed, or defeated; or
-- `unresolved`: required authority or evidence is unavailable.
+Use `causal-readiness-review` before presenting a consequential specification for admission. Apply
+its verdict and smallest repairs; do not restate or weaken its causal standard here.
 
 Only an accountable human admits the specification. Record that decision without treating agreement
 with oracle prose as ownership.

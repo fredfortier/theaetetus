@@ -5,14 +5,14 @@ Status: approved and implemented.
 ## Intent
 
 Turn a developer-owned causal account into the leanest reviewable authority for implementation.
-The skill may recover evidence, formulate candidate language and invariants, repair causal gaps, and
-assess readiness. It must not originate consequential human-held premises or convert fluent prose
-into authority.
+The skill may recover evidence, formulate candidate language, and repair causal gaps. It delegates
+claim grounding, invariant formulation, naming, architecture classification, and independent
+readiness judgment to their focused utility owners.
 
 ## Scope
 
-Use for creating, repairing, or assessing consequential software specifications, architecture
-intent, obligation sets, and acceptance models.
+Use for creating or repairing consequential software specifications, architecture intent,
+obligation sets, and acceptance models.
 
 Exclude:
 
@@ -24,7 +24,7 @@ Exclude:
 
 ## Runtime trigger description
 
-> Develops, repairs, or assesses a governing software specification from a developer-owned causal account. Use for consequential feature or change specifications, architecture intent, acceptance obligations, or specification-readiness review. Do not use for settled implementation, generic planning lists, or agent-authored intent awaiting approval.
+> Develops or repairs a governing software specification from a developer-owned causal account. Use for consequential feature or change specifications, architecture intent, and acceptance obligations. Do not use for read-only readiness grading, settled implementation, generic planning lists, or agent-authored intent awaiting approval.
 
 ## Reasoning model
 
@@ -43,18 +43,18 @@ derivation; the developer must own it before it governs implementation.
 ## Required behavior
 
 1. Discover governing sources and repository evidence before authoring.
-2. Classify authority, observation, inference, assumption, contradiction, and unknown.
+2. Use `evidence-grounding` for claim classification and support.
 3. Recover facts that are discoverable; route human-held missing premises to direct inquiry.
 4. Make problem, domain operation, wrongness, authority, boundary, failure semantics, derivation,
    and defeaters reviewable.
-5. Formulate positive, domain-native invariants with responsible enforcement and verification
+5. Use `invariant-formulation` for stable properties and their enforcement and verification
    boundaries.
 6. Derive implementation obligations rather than starting from code shape.
 7. Choose the leanest artifact allowed by the repository; impose no universal path or outline.
-8. Attack the candidate for solution-first reasoning, borrowed authority, blacklist invariants,
-   decorative evidence, scope expansion, and undisclosed reviewer choices.
-9. Preserve oracle-generated language as attributed until the developer demonstrates ownership.
-10. Stop or reopen rather than filling a material gap.
+8. Use `causal-readiness-review` for the independent admission-readiness verdict.
+9. Use `naming-things` and `architecture-conformance` when their focused boundaries apply.
+10. Preserve oracle-generated language as attributed until the developer demonstrates ownership.
+11. Stop or reopen rather than filling a material gap.
 
 ## Invariants
 
@@ -88,7 +88,7 @@ derivation; the developer must own it before it governs implementation.
 ### Should trigger
 
 - “Turn this causal account into the governing specification for the feature.”
-- “Audit whether this design note actually derives its proposed boundary.”
+- “Repair this design note so its proposed boundary follows from the owned account.”
 - “Repair these acceptance obligations without inventing missing product intent.”
 
 ### Should not trigger
@@ -101,8 +101,8 @@ derivation; the developer must own it before it governs implementation.
 
 - A solution-first bug request reopens inquiry when the responsible boundary is not owned.
 - A complete causal account yields a lean artifact rather than a fixed template.
-- A negative exclusion list is compressed into positive invariants.
-- A plausible specification with verification only at an adjacent boundary is revised.
+- A negative exclusion list is handed to `invariant-formulation` before obligations are derived.
+- A plausible completed specification is handed to `causal-readiness-review` for independent judgment.
 - Human agreement with polished oracle prose does not by itself admit the specification.
 
 ## Lineage
@@ -116,7 +116,6 @@ The runtime file contains only the resulting operating contract.
 ## Approved implementation decisions
 
 - Skill name identifies the activity and remains distinct from the governing artifact.
-- Primary execution shape is inline guidance with an internal readiness route.
-- Invariant formulation and causal assessment are internal duties, not public phase skills.
-- No bundled reference is justified because every runtime invocation needs the compact causal and
-  readiness contracts.
+- Primary execution shape is inline authoring guidance with focused utility handoffs.
+- Invariant formulation and causal assessment have public owners and are not restated here.
+- No bundled reference is justified because the remaining authoring contract is compact.

@@ -2,7 +2,7 @@
 
 **Human-owned reasoning from inquiry through software delivery.**
 
-Theaetetus is a six-skill Codex package for carrying a developer-owned causal account from inquiry
+Theaetetus is a twelve-skill Codex package for carrying a developer-owned causal account from inquiry
 through specification, implementation, verification, and conformance review.
 
 The usual AI interaction optimizes for an answer. This project optimizes for a different artifact:
@@ -90,6 +90,18 @@ result.
   both directions without remediating or accepting its own findings.
 - [`software-delivery`](skills/software-delivery/SKILL.md) identifies the current obligation and
   routes once to the focused skill or local integration capability that owns it.
+- [`invariant-formulation`](skills/invariant-formulation/SKILL.md) turns owned reasoning into stable,
+  enforceable properties without inventing intent.
+- [`goal-formulation`](skills/goal-formulation/SKILL.md) authors an aligned persistent mandate and
+  continuity workpad for long-running work.
+- [`causal-readiness-review`](skills/causal-readiness-review/SKILL.md) grades whether a proposed
+  solution follows from owned, grounded premises.
+- [`architecture-conformance`](skills/architecture-conformance/SKILL.md) classifies changes against
+  applicable accepted architecture decisions.
+- [`evidence-grounding`](skills/evidence-grounding/SKILL.md) matches repository claims to admissible,
+  claim-sized support.
+- [`naming-things`](skills/naming-things/SKILL.md) chooses canonical terms and plans complete rename
+  transitions.
 - [PHILOSOPHY.md](PHILOSOPHY.md) and
   [SOFTWARE-DELIVERY-SPEC.md](SOFTWARE-DELIVERY-SPEC.md) define the package's role allocation,
   obligation graph, vocabulary, and acceptance boundary.

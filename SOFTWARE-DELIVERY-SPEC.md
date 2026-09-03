@@ -79,9 +79,15 @@ Use `proof` only for formal proof or when accurately quoting an external source.
 | --- | --- | --- |
 | `dialectical-inquiry` | Human-led formation and testing of the causal account. | Settled implementation or autonomous delivery. |
 | `dialectical-tutor` | Repair of one observable lapse in the human's inquiry technique. | Subject matter, person-level grading, or lifecycle control. |
-| `specification-development` | Development, repair, and assessment of a governing specification. | Missing human-held premises or repository-specific mechanics. |
+| `specification-development` | Development and repair of a governing specification. | Independent readiness grading, missing human-held premises, or repository-specific mechanics. |
 | `specification-implementation` | Traceable edits and verification against accepted obligations. | Completion of the specification or acceptance of its own work. |
 | `conformance-review` | Two-way review and defeater analysis over specification, changes, and evidence. | Remediation, acceptance, or local policy. |
+| `invariant-formulation` | Positive, enforceable properties over valid states, transitions, and boundaries. | Missing intent, obligation derivation, or implementation authority. |
+| `goal-formulation` | Aligned persistent mandate and continuity workpad. | Delivery routing, activity tracking, or autonomous execution. |
+| `causal-readiness-review` | Read-only grading of the derivation from problem premises to proposed solution. | Proposal authorship, code conformance, or admission. |
+| `architecture-conformance` | Semantic classification against applicable accepted architecture decisions. | Architecture authorship or amendment authority. |
+| `evidence-grounding` | Claim classification, authority order, and claim-sized support. | General formatting or intended behavior. |
+| `naming-things` | Canonical concept and identifier names plus complete rename transitions. | Domain authority or unrelated prose editing. |
 | `software-delivery` | Identification of the current obligation and routing to the responsible skill. | Automatic phase advancement or acceptance. |
 
 The names containing `dialectical` are limited to skills whose primary function is direct dialectic

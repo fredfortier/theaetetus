@@ -44,15 +44,18 @@ each material claim.
 
 1. Resolve the complete material change surface and before/after state.
 2. Read governing sources and applicable repository instructions before judgment.
-3. Assess whether the governing argument is causal and sufficiently owned.
+3. Use `evidence-grounding` for claim support and `causal-readiness-review` when the governing
+   argument itself needs judgment.
 4. Trace every material obligation into repository facts and verification evidence.
 5. Trace every material repository change back to authority.
 6. Inspect additions, modifications, deletions, and non-code artifacts.
 7. Construct concrete defeater scenarios from live claims and responsible boundaries.
-8. Distinguish findings, observations, inferences, assumptions, and review limits.
-9. Treat missing acceptance-bearing evidence as a finding.
-10. Lead with actionable findings and exact anchors.
-11. Remain read-only and reserve acceptance for an accountable human.
+8. Use `architecture-conformance`, `invariant-formulation`, and `naming-things` only when their
+   focused boundaries materially affect a finding.
+9. Distinguish findings from review limits without duplicating evidence classification.
+10. Treat missing acceptance-bearing evidence as a finding.
+11. Lead with actionable findings and exact anchors.
+12. Remain read-only and reserve acceptance for an accountable human.
 
 ## Finding classes
 
@@ -135,6 +138,8 @@ The runtime file contains only the resulting audit contract.
 
 - `conformance-review` distinguishes this skill from generic code review.
 - Primary execution shape is ordered inline guidance with two mandatory review directions.
+- Causal readiness, evidence, architecture, invariant, and naming judgments use focused utilities;
+  this skill owns only their effect on two-way conformance.
 - Review remains read-only; remediation requires a separate authorized turn.
 - Repository-specific report transports, stack rules, and scheduling remain outside this skill.
 - No bundled reference is justified because the portable review contract is compact and universal

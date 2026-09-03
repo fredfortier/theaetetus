@@ -23,7 +23,7 @@ Exclude:
 
 ## Runtime trigger description
 
-> Identifies the current obligation in a consequential software change and routes to the focused skill or local capability that owns it. Use when starting, resuming, or coordinating delivery and the correct next activity is unclear. Do not use when the user already requested a focused inquiry, specification, implementation, review, or integration operation.
+> Identifies the current obligation in a consequential software change and routes to the focused skill or local capability that owns it. Use when starting, resuming, or coordinating delivery and the correct next activity is unclear. Do not use when the user already requested a focused inquiry, formulation, implementation, review, or integration operation.
 
 ## Reasoning model
 
@@ -42,16 +42,22 @@ Evidence may reopen an earlier node. Human judgment remains between consequentia
 | Condition | Owner | Required handoff |
 | --- | --- | --- |
 | Consequential causal premise is not developer-owned. | `dialectical-inquiry` | Owned account or precise unresolved premise. |
-| Account is owned; obligations are absent, draft, contradicted, or unassessed. | `specification-development` | Admitted specification or named revision. |
+| Owned reasoning needs stable valid-state properties. | `invariant-formulation` | Invariants, boundaries, verification observations, or missing premise. |
+| Existing problem-solution prose needs independent causal grading. | `causal-readiness-review` | Verdict and minimum repair. |
+| Account is owned; obligations are absent, draft, contradicted, or need repair. | `specification-development` | Admitted specification or named revision. |
+| A persistent mandate and workpad need formulation. | `goal-formulation` | Aligned artifacts or editorial plan. |
+| Applicable architecture decisions need semantic classification. | `architecture-conformance` | Conforming, amendment, or uncertain result. |
 | Accepted obligations exist and mutation is authorized. | `specification-implementation` | Authority traces, repository changes, evidence, and reopen state. |
 | Change and evidence need acceptance-bearing read-only judgment. | `conformance-review` | Findings, two-way traces, limits, and disposition. |
+| Claims or names are the requested decision object. | `evidence-grounding` or `naming-things` | Grounded claims or naming recommendation and transition. |
 | Human acceptance exists and only repository mechanics remain. | Applicable local capability | Local handoff record. |
 | Prerequisite authority, evidence, or judgment is unavailable. | Accountable human or authority | `unresolved` plus next discriminator. |
 
 ## Required behavior
 
 1. Read existing decision-bearing artifacts before routing.
-2. Classify authority, observation, inference, assumption, and unresolved premise.
+2. Use `evidence-grounding` to classify authority, observations, inferences, assumptions, and
+   unresolved premises.
 3. Yield immediately when the user has already selected a focused operation.
 4. Choose exactly one route from current evidence.
 5. Prefer the earliest unsatisfied prerequisite when conditions overlap.
@@ -87,20 +93,9 @@ Evidence may reopen an earlier node. Human judgment remains between consequentia
 
 ## Workpad contract
 
-A change-bound workpad is warranted only when work spans sessions or decision provenance would
-otherwise be lost. Its path comes from user direction or repository convention. It distinguishes:
-
-- authority;
-- developer's causal account;
-- governing specification and active obligations;
-- invariants;
-- implementation hypothesis;
-- verification plan and evidence;
-- defeaters and competing explanations;
-- unresolved premises and next discriminator; and
-- human acceptance and limits.
-
-It records changed decisions, not activity or completion percentages.
+Use `goal-formulation` to create or materially repair a persistent mandate and workpad. The router
+may update an existing workpad after a decision-bearing change but does not duplicate that skill's
+artifact contract.
 
 ## Validation cases
 
@@ -121,6 +116,8 @@ It records changed decisions, not activity or completion percentages.
 - A solution-first request routes to inquiry rather than implementation.
 - An exact rename routes directly to implementation without creating extra artifacts.
 - A draft specification with a complete account routes to specification development.
+- A blacklist-invariant request routes to invariant formulation rather than specification development.
+- A completed proposal needing only argument grading routes to causal readiness review.
 - A completed implementation routes to conformance review only when review is requested.
 - A review discovery reopens specification development and does not auto-run remediation.
 - Accepted work routes outward for repository-specific integration.

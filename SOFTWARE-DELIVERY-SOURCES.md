@@ -38,18 +38,38 @@ changing the evidence cited here.
 | [DerivaDEX skill charter](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/CHARTER.md#L19-39) | Local skill-system authority for its repository | Separation of portable delivery procedure from stack and repository doctrine. | Adopted as a portability boundary, not copied as taxonomy. |
 | [DerivaDEX dialectics skill](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/dialectics/SKILL.md) | Operational source | Premise gaps, causal handoff, stop behavior, and the danger of solution-first reasoning. | Partly adopted; agent-led interview, confidence number, fixed threshold, and local role language rejected. |
 | [DerivaDEX planning skill](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/planning/SKILL.md) | Operational source | Context recovery, causal specification, positive invariants, lean artifact choice, and readiness dispositions. | Translated into `specification-development`; provider paths and named local dependencies rejected. |
-| [DerivaDEX posterior analytics skill](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/posterior-analytics/SKILL.md) | Operational source | Argument-before-polish review, causal reconstruction, cargo-cult signals, and readiness dispositions. | Folded into specification development and conformance review; public standalone route not copied. |
-| [DerivaDEX invariant formulation skill](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/formulate-invariants/SKILL.md) | Operational source | Positive, domain-native, boundary-bearing, refactor-stable invariants and guardrail compression. | Folded into specification development. |
+| [DerivaDEX posterior analytics skill](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/posterior-analytics/SKILL.md) | Operational source | Argument-before-polish review, causal reconstruction, imitation signals, and readiness dispositions. | Generalized as `causal-readiness-review`; source title, roles, provider routes, and issue history rejected. |
+| [DerivaDEX invariant formulation skill](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/formulate-invariants/SKILL.md) | Operational source | Positive, domain-native, boundary-bearing, refactor-stable invariants and guardrail compression. | Generalized as `invariant-formulation`; source routes and mandatory-phase implications rejected. |
 | [DerivaDEX implementation skill](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/implementation/SKILL.md) | Operational source | Authority-to-repository trace, prohibition on architectural improvisation, reopen behavior, and two-way audit. | Split between specification implementation and conformance review; local artifact paths and fixed drift labels rejected. |
 | [DerivaDEX test-driven workflow](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/ttd/SKILL.md) | Operational source | Same-claim failing/passing observation, causal failure check, smallest change, refactor rerun, and retained guardrail. | Folded into specification implementation as a conditional verification pattern. |
-| [DerivaDEX goal formulation skill](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/formulate-goal/SKILL.md) | Adjacent operational source | Change-bound theorem, decision-relevant evidence, unresolved premises, and next discriminator. | Workpad concepts adopted; autonomous goal lifecycle and a universal workpad path deferred. |
+| [DerivaDEX goal formulation skill](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/formulate-goal/SKILL.md) | Adjacent operational source | Falsifiable future-state model, paired mandate/workpad, decision-relevant evidence, unresolved premises, and next discriminator. | Generalized as `goal-formulation`; theorem label, autonomous lifecycle, and universal path rejected. |
 | [DerivaDEX diff review skill](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/diff-review/SKILL.md) | Operational source | Complete change surface, authority-bearing review, concrete defeaters, proof limits, and report discipline. | Portable kernel translated into conformance review; stack census, scheduling, provider reports, scripts, and local policy remain local. |
-| [DerivaDEX evidence grounding skill](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/evidence-grounding/SKILL.md) | Operational source | Authority order, claim-sized support, observation/inference separation, and rejection of evidence/permission substitution. | Principles adopted; no hard runtime dependency introduced. |
+| [DerivaDEX evidence grounding skill](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/evidence-grounding/SKILL.md) | Operational source | Authority order, claim-sized support, observation/inference separation, and rejection of evidence/permission substitution. | Generalized as `evidence-grounding`; provider formatting and local artifact routes rejected. |
+| [DerivaDEX architecture skill](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/architecture/SKILL.md) | Operational source | Lazy contract applicability, semantic amendment gate, decision correspondence, and historical reconciliation. | Generalized as `architecture-conformance`; fixed filename, path registry, caller census, and standards exposition rejected. |
+| [DerivaDEX naming skill](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/naming-things/SKILL.md) | Operational source | Ordered naming criteria, referent/scope/audience discovery, controlled vocabulary, and atomic rename closure. | Generalized as `naming-things`; competing local doctrine route and language-specific overreach rejected. |
 | [Addy Osmani meta-skill](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/skills/using-agent-skills/SKILL.md) | Primary upstream implementation | Phase discovery, scope discipline, assumption surfacing, and verification. | Discovery intent adopted; mandatory sequence and universal checklist rejected. |
 | [Addy Osmani orchestration patterns](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/references/orchestration-patterns.md#L78-L93) | Primary upstream design note | Human judgment between dependent lifecycle steps; warning against autonomous sequential orchestration. | Adopted as human checkpoints and explicit routing, without provider-specific orchestration. |
 | [Addy Osmani Definition of Done](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/references/definition-of-done.md) | Primary upstream checklist | Distinction between task acceptance and a standing local quality floor. | Distinction adopted; checklist not made universal package law. |
 
 ## Decision synthesis
+
+### Utility integration
+
+The six reviewed utilities remain individual skills because each has a reusable decision object and
+a stop boundary independent of the delivery phase that consumes it:
+
+| Utility | Exclusive decision object | Caller result |
+| --- | --- | --- |
+| `invariant-formulation` | Stable valid-state property, illegal negation, and enforcement/verification boundary | Specification derives obligations; review consumes disputed invariant findings. |
+| `goal-formulation` | Aligned stable mandate and changing continuity workpad | Delivery resumes from a coherent decision record. |
+| `causal-readiness-review` | Whether problem-solution prose is causally ready to govern implementation | Specification repairs the verdict; conformance carries it without regrading. |
+| `architecture-conformance` | Whether a proposal preserves, amends, or cannot be reconciled with applicable architecture decisions | Change skills stop or proceed at the decision owner's boundary. |
+| `evidence-grounding` | Claim class and admissible support | Every caller uses grounded facts without inventing its own evidence hierarchy. |
+| `naming-things` | Canonical name and complete rename transition | Authoring, implementation, and review consume one vocabulary decision. |
+
+The complete clause adjudication, naming analysis, caller audit, and accidental-particular quarantine
+are maintained in [DERIVADEX-MIGRATION.md](DERIVADEX-MIGRATION.md#utility-review-and-integration).
+Runtime skills contain only the resulting delegation and their own work.
 
 ### Routing and human checkpoints
 
@@ -102,8 +122,8 @@ when the governing account changes.
 | Source-specific human titles | developer, reviewer, accountable human, or decision owner | Organizational role names. |
 | Source-specific planning artifact and fixed path | governing specification discovered from repository authority | Project filenames, issue conventions, and provider paths. |
 | Numeric posterior confidence and fixed stop threshold | explicit unresolved premise and next discriminator | Numeric epistemic theater. |
-| Named posterior-analysis route | causal assessment inside specification development and conformance review | Standalone public ritual. |
-| Named invariant route | positive-invariant formulation inside specification development | Standalone phase ceremony. |
+| Opaque causal-analysis title | `causal-readiness-review` as a focused public utility | Philosophical title and source-local verdict ritual. |
+| Imperative invariant route | `invariant-formulation` as a focused public utility | Source naming and mandatory phase ceremony. |
 | Owner-real proof slogan | verification at the boundary responsible for the claim | Source-local slogan and universal test lane. |
 | Exact drift taxonomy | missing, contradictory, extra, ambiguous, stale, or unverified behavior in plain language | Mandatory source labels. |
 | GitLab and repository report modes | handoff to applicable local capabilities | Provider commands, paths, scripts, reactions, and scheduling. |
