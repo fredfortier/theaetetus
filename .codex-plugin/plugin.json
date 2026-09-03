@@ -1,0 +1,35 @@
+{
+  "name": "theaetetus",
+  "version": "0.2.0",
+  "description": "Human-owned reasoning from dialectical inquiry through specification-driven software delivery.",
+  "author": {
+    "name": "Frédéric Fortier",
+    "url": "https://github.com/fredfortier"
+  },
+  "homepage": "https://github.com/fredfortier/theaetetus",
+  "repository": "https://github.com/fredfortier/theaetetus",
+  "license": "MIT",
+  "keywords": [
+    "dialectic",
+    "specification",
+    "software-delivery",
+    "conformance"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Theaetetus",
+    "shortDescription": "Human-owned reasoning through software delivery",
+    "longDescription": "Six focused skills preserve developer ownership from dialectical inquiry through specification, implementation, verification, and conformance review.",
+    "developerName": "Frédéric Fortier",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Guide a human-led inquiry into a consequential software decision.",
+      "Develop a governing specification from my causal account.",
+      "Review this change for two-way conformance with its specification."
+    ]
+  }
+}

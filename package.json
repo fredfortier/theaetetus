@@ -3,12 +3,13 @@
   "private": true,
   "scripts": {
     "eval:prepare": "node evals/promptfoo/scripts/prepare-fixtures.mjs",
+    "eval:skill-purity": "node evals/promptfoo/scripts/check-skill-purity.mjs",
     "eval:calibrate": "promptfoo eval -c evals/promptfoo/promptfooconfig.calibration.yaml --no-cache",
     "eval:unit": "promptfoo eval -c evals/promptfoo/promptfooconfig.unit.yaml --no-cache",
     "eval:holdout": "promptfoo eval -c evals/promptfoo/promptfooconfig.holdout.yaml --no-cache",
     "eval:integration": "DIALECTIC_RUN_INDEX=0 promptfoo eval -c evals/promptfoo/promptfooconfig.integration.yaml --no-cache -j 1",
     "eval:domain-integration": "DIALECTIC_RUN_INDEX=0 promptfoo eval -c evals/promptfoo/promptfooconfig.domain-integration.yaml --no-cache -j 1",
-    "eval:dialectic": "node evals/promptfoo/scripts/run-all.mjs"
+    "eval:dialectic": "npm run eval:skill-purity && node evals/promptfoo/scripts/run-all.mjs"
   },
   "devDependencies": {
     "@openai/codex-sdk": "0.149.0",

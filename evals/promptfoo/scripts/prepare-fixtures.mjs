@@ -39,12 +39,7 @@ const domainSlugs = [
 async function copyCurrentSkills(destination) {
   const target = path.join(destination, '.agents', 'skills');
   await mkdir(target, { recursive: true });
-  await cp(path.join(repoRoot, 'skills', 'dialectical-inquiry'), path.join(target, 'dialectical-inquiry'), {
-    recursive: true,
-  });
-  await cp(path.join(repoRoot, 'skills', 'dialectical-tutor'), path.join(target, 'dialectical-tutor'), {
-    recursive: true,
-  });
+  await cp(path.join(repoRoot, 'skills'), target, { recursive: true });
 }
 
 async function copyPlaceboSkills(destination) {

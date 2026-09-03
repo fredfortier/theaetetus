@@ -1,9 +1,9 @@
 # Theaetetus
 
-**Human-led dialectical inquiry for AI-native engineering teams.**
+**Human-owned reasoning from inquiry through software delivery.**
 
-Theaetetus is a pair of Codex skills for a difficult moment in software work: a capable engineer
-must make a consequential change in a domain they do not yet understand.
+Theaetetus is a six-skill Codex package for carrying a developer-owned causal account from inquiry
+through specification, implementation, verification, and conformance review.
 
 The usual AI interaction optimizes for an answer. This project optimizes for a different artifact:
 a human-owned causal model that can survive review, predict a changed case, and justify a bounded
@@ -13,11 +13,12 @@ inquiry technique stops doing useful epistemic work.
 
 > Interrogate the oracle. Keep the model.
 
-This is an experimental method with a deliberately narrow evidence claim. Its
-[automated evaluation](WORKPAD.md#validation-record) shows that the skills preserve human
-ownership, evidence discipline, responsive coaching, and cross-case causal transfer on the
-repository's fixtures. It does **not** yet show that real teams learn faster, retain more, or ship
-better changes. That requires longitudinal human study.
+This is an experimental method with a deliberately narrow evidence claim. Its existing
+[automated evaluation](WORKPAD.md#validation-record) shows that the inquiry and tutor skills
+preserve human ownership, evidence discipline, responsive coaching, and cross-case causal transfer
+on the repository's fixtures. The delivery skills have structural validation but not yet equivalent
+behavioral evidence. Nothing here shows that real teams learn faster, retain more, or ship better
+changes. That requires longitudinal human study.
 
 ## The problem
 
@@ -80,6 +81,18 @@ result.
 - [`dialectical-tutor`](skills/dialectical-tutor/SKILL.md) repairs one observable midwife move. It
   may be recruited by the inquiry or invoked directly for deliberate practice, but it returns after
   at most one retry and one hinted retry.
+- [`specification-development`](skills/specification-development/SKILL.md) develops, repairs, and
+  assesses the leanest governing specification that follows from the developer's causal account.
+- [`specification-implementation`](skills/specification-implementation/SKILL.md) traces accepted
+  obligations into bounded repository changes and verification evidence, reopening intent when
+  implementation discovers a new decision.
+- [`conformance-review`](skills/conformance-review/SKILL.md) reviews the specification and change in
+  both directions without remediating or accepting its own findings.
+- [`software-delivery`](skills/software-delivery/SKILL.md) identifies the current obligation and
+  routes once to the focused skill or local integration capability that owns it.
+- [PHILOSOPHY.md](PHILOSOPHY.md) and
+  [SOFTWARE-DELIVERY-SPEC.md](SOFTWARE-DELIVERY-SPEC.md) define the package's role allocation,
+  obligation graph, vocabulary, and acceptance boundary.
 - [`evals/promptfoo`](evals/promptfoo) contains the frozen Promptfoo/Codex contract, calibrated
   graders, a matched mechanical placebo, sealed holdouts, persistent conversations, and six
   runnable synthetic domain sandboxes.
@@ -93,17 +106,17 @@ Python are used only to reproduce this repository's evaluation suite.
 
 ## Use it in an AI-native team
 
-Theaetetus belongs upstream of a consequential specification or change, when the engineer can
-inspect evidence but does not yet own the target-domain model. Good uses include unfamiliar-system
-onboarding, incident reconstruction, architecture premise discovery, security-boundary analysis,
-and pre-implementation review.
+Theaetetus can enter wherever the earliest unsatisfied delivery obligation lies. Use inquiry when
+the developer does not yet own the target-domain account; specification development when the
+account is owned but implementation authority is incomplete; implementation when obligations are
+accepted; and conformance review when the change needs human acceptance judgment.
 
-It is not the right tool for a one-shot explanation, ordinary tutoring, a settled implementation,
-an autonomous coding run, or an agent-authored conclusion awaiting human approval.
+It does not replace repository policy, stack expertise, ordinary one-shot assistance, integration
+mechanics, or accountable human judgment.
 
 A practical team loop is:
 
-1. **Name the decision, not a topic.** The DRI starts with the operational boundary, current
+1. **Name the decision, not a topic.** The developer starts with the operational boundary, current
    account, and uncertainty—for example, “when may this swap UI call an operation successful?”
 2. **Interrogate before specifying.** The oracle inspects code and sources, answers directly, and
    pressures the current account with a consequence, rival explanation, or discriminating case.
@@ -114,12 +127,15 @@ A practical team loop is:
    alone does not.
 5. **Demand transfer.** Before implementation, change an input or boundary. The human predicts the
    result from the same causal model rather than repeating the original vocabulary.
-6. **Hand off a reviewable artifact.** The resulting invariant set, state machine, failing test,
-   diagnostic plan, or small patch boundary enters normal engineering review. The workpad is
-   evidence of the inquiry, not authority over the reviewer.
+6. **Govern implementation.** Develop the leanest specification whose obligations follow from the
+   owned account, then implement only repository facts traceable to those obligations.
+7. **Verify at the responsible boundary.** Record what each observation establishes, the competing
+   explanation it rules out, and its limit.
+8. **Review both directions.** Check that every obligation appears in repository state and every
+   material changed fact has authority. A human accepts, rebuts, or reopens the result.
 
 For team use, the domain reviewer should inspect the model and engineering artifact rather than
-grade the eloquence of the conversation. The DRI remains accountable for the final claim. A
+grade the eloquence of the conversation. The developer remains accountable for the final claim. A
 reviewer may close a false premise, add missing domain evidence, or reject an apparently owned
 model that does not match the system.
 
@@ -129,18 +145,17 @@ Codex loads repository-scoped skills from `.agents/skills` and supports symlinke
 It can invoke a skill explicitly with `$skill-name` or implicitly when the request matches the
 skill description.[^codex-skills]
 
-Clone this repository and copy the two skill directories into the repository where the team will
-use them:
+Clone this repository and copy the skill directories into the repository where the team will use
+them:
 
 ```bash
 git clone https://github.com/fredfortier/theaetetus.git
 cd your-project
-mkdir -p .agents/skills
-cp -R ../theaetetus/skills/dialectical-inquiry .agents/skills/
-cp -R ../theaetetus/skills/dialectical-tutor .agents/skills/
+mkdir -p .agents
+cp -R ../theaetetus/skills .agents/
 ```
 
-For active skill development, symlink the two directories instead of copying them. This repository
+For active skill development, symlink the skill directory instead of copying it. This repository
 does exactly that at its root: [`.agents/skills`](.agents/skills) points to [`skills/`](skills).
 Restart Codex if a newly added or changed skill does not appear.
 
@@ -288,6 +303,11 @@ aggregate cannot compensate for a failed hard invariant.
 skills/
   dialectical-inquiry/       main oracle skill, specification, and runtime references
   dialectical-tutor/         bounded coaching skill, specification, and practice references
+  specification-development/ causal specification development and readiness assessment
+  specification-implementation/ bounded implementation and verification
+  conformance-review/        read-only two-way acceptance review
+  software-delivery/         current-obligation router
+.codex-plugin/plugin.json    installable plugin manifest
 evals/promptfoo/
   sandboxes/                 six minimal synthetic domain projects
   tests/                     working, control, holdout, and persistent-conversation cases
@@ -295,6 +315,11 @@ evals/promptfoo/
   rubrics/                   calibrated semantic evaluation contracts
   evidence/                  frozen checksums and findings history
 RESEARCH.md                   evidence synthesis and source limits
+PHILOSOPHY.md                 human ownership and oracle role
+SOFTWARE-DELIVERY-SPEC.md     package-level delivery contract
+SOFTWARE-DELIVERY-SOURCES.md  source adjudication and translation record
+DERIVADEX-MIGRATION.md        replacement coverage and cutover gates
+SDLC.md                       implementation workpad and migration hypothesis
 WORKPAD.md                    governing thesis, decisions, gates, and validation record
 ```
 

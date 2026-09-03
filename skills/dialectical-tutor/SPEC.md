@@ -1,4 +1,4 @@
-# SPEC: `dialectical-tutor`
+# Specification: `dialectical-tutor`
 
 Status: approved and implemented.
 
@@ -372,6 +372,18 @@ The Codex grader must inspect the response and supplied workpad, cite observed e
 [^dt-pf-tools]: Promptfoo documents heuristic route evidence in the [Codex provider](https://www.promptfoo.dev/docs/providers/openai-codex-sdk/), external deterministic checks in [Assertions and Metrics](https://www.promptfoo.dev/docs/configuration/expected-outputs/#javascript), and workspace inspection in [Agent Rubric](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/agent-rubric/).
 [^dt-controls]: Promptfoo's [Configuration Reference](https://www.promptfoo.dev/docs/configuration/reference/) permits fixed `providerOutput` calibration, and [Test Case Configuration](https://www.promptfoo.dev/docs/configuration/test-cases/#repeating-an-individual-test) defines per-test repetition.
 [^dt-domain-matrix]: See the externally sourced [domain case-study matrix](../dialectical-inquiry/SPEC.md#domain-case-study-matrix); the tutor assertion concerns responsive listening and human ownership, not an independent wallet fact oracle.
+
+## Reasoning and lineage
+
+The tutor is separate because subject answers and coaching judgments have different owners. A
+bounded backstage repair can protect the human's questioning technique without allowing the coach
+to replace the oracle, run the inquiry, or assess the person. Observable-move evidence, one-function
+focus, a bounded retry, and immediate return follow from that separation.
+
+The complete guided-discovery, autonomy, coaching, voice, and evaluation lineage is recorded in
+[RESEARCH.md](../../RESEARCH.md), [WORKPAD.md](../../WORKPAD.md), and the claim-specific footnotes
+above. Those sources support the interaction design and tested protocol only; they do not establish
+person-level mastery or human-learning efficacy.
 
 ## Approved implementation decisions
 

@@ -1,4 +1,4 @@
-# SPEC: `dialectical-inquiry`
+# Specification: `dialectical-inquiry`
 
 Status: approved and implemented.
 
@@ -16,7 +16,7 @@ Do not use for:
 
 - a one-shot factual lookup;
 - a mechanical code change with settled intent;
-- implementation under an already owned SPEC;
+- implementation under an already owned governing specification;
 - debate for entertainment or rhetorical victory;
 - therapy, diagnosis, or persuasion;
 - an autonomous or non-interactive run;
@@ -333,7 +333,7 @@ The implementation must include:
 ### Should not trigger
 
 - “Explain transaction finality in three paragraphs.”
-- “Fix the cache invalidation test according to SPEC.md.”
+- “Fix the cache invalidation test according to the governing specification.”
 - “Quiz me on these vocabulary terms.”
 - “Write the architecture and I'll approve it.”
 
@@ -430,6 +430,18 @@ The Codex grader must inspect the final response and `.agent/*.md`, cite the obs
 [^di-hyperliquid]: Hyperliquid's public documentation describes [margining](https://hyperliquid.gitbook.io/hyperliquid-docs/trading/margining), [liquidations](https://hyperliquid.gitbook.io/hyperliquid-docs/trading/liquidations), price indices, and funding; the incident is synthetic and does not allege a venue defect.
 [^di-eip712]: [EIP-712](https://eips.ethereum.org/EIPS/eip-712) defines typed-data domain separation and explicitly excludes replay protection.
 [^di-ethereum-rpc]: Ethereum's Execution API distinguishes [`latest`, `safe`, and `finalized`](https://ethereum.github.io/execution-apis/api/methods/eth_getProof/#request), while the [JSON-RPC reference](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getfilterchanges) defines removed logs.
+
+## Reasoning and lineage
+
+The role inversion follows from the intended capability: when the human's judgment is the object of
+development, the human must own the live question, revisions, and terminal synthesis. The oracle
+therefore answers and challenges without becoming the author of the human's account. The workpad
+preserves provenance so that fluent oracle language cannot silently become human ownership.
+
+The complete pedagogical, oracle-reliability, domain-fixture, and evaluation lineage is recorded in
+[RESEARCH.md](../../RESEARCH.md) and [WORKPAD.md](../../WORKPAD.md). The source-specific footnotes and
+case matrix above constrain each adopted claim and keep evidence of runtime behavior distinct from
+claims about human learning.
 
 ## Approved implementation decisions
 

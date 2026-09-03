@@ -1,8 +1,10 @@
 <!-- markdownlint-disable MD013 -->
 
-# Workpad: A Dialectical SDLC for Theaetetus
+# Workpad: SDLC Extension for Theaetetus
 
-Status: exploratory; not governing doctrine or an implementation specification.
+Status: topology implemented; governing authority now resides in `PHILOSOPHY.md`,
+`SOFTWARE-DELIVERY-SPEC.md`, and the six skill-local specifications. Behavioral evaluation and
+source-repository migration remain open.
 
 This workpad proposes how Theaetetus could grow from two inquiry skills into a coherent,
 portable SDLC skill package. It records source weights, tensions, candidate boundaries, a
@@ -23,6 +25,13 @@ GitLab transport, release policy, and operating runbooks remain owned by the rep
 specialist capability. DerivaDEX itself distinguishes SDLC procedure from stack doctrine and forbids
 SDLC skills from selecting stack owners, primitives, lifecycle semantics, failure behavior, or proof
 lanes.[^derivadex-classification]
+
+**RUNTIME PURITY INVARIANT:** Source projects inform this research; they must never become runtime
+context. No file distributed under `skills/` may name DerivaDEX, link to it, reproduce its paths or
+artifact conventions, address one of its roles, or depend on its vocabulary. This applies to every
+`SKILL.md`, `SPEC.md`, reference, asset, example, agent prompt, schema, and embedded template—not
+only to user-visible prose. Source comparison and migration evidence must remain outside the skill
+tree.
 
 ## Authority and source weights
 
@@ -58,12 +67,13 @@ kernel.[^derivadex-consolidation]
    implementation account or reopen the SPEC. A phase, checklist, green command, or report is not
    progress unless it discharges an obligation or improves the governing account.[^reflexive-loop]
 4. **The human orchestrates consequential transitions.** Addy's portable orchestration guidance
-   puts human judgment between dependent phases. DerivaDEX requires active DRI supervision and
-   arbitration throughout execution. These sources support human checkpoints, not an autonomous
-   lifecycle agent.[^human-orchestration]
-5. **Proof belongs to the claim's real owner and lifecycle.** The narrowest useful test is one that
-   discriminates the behavior claim at its owning boundary; passing adjacent or mock-only checks
-   cannot settle a broader claim.[^owner-real-proof]
+   puts human judgment between dependent phases. The local handbook assigns active supervision and
+   arbitration to its named human role. The portable conclusion is only that an accountable human
+   remains active between dependent transitions—not that the source project's role name or operating
+   model belongs in a skill.[^human-orchestration]
+5. **Verification must reach the responsible boundary.** The narrowest useful test is one that
+   discriminates the behavior claim at the boundary responsible for it; passing adjacent or
+   mock-only checks cannot settle a broader claim.[^owner-real-proof]
 6. **Acceptance runs both directions.** Required intent must appear in repository facts, and every
    material changed fact must have authority. A one-way “acceptance criteria passed” check misses
    unauthorized additions and architectural meaning first introduced in code.[^bidirectional-conformance]
@@ -75,7 +85,8 @@ kernel.[^derivadex-consolidation]
 - A universal sequence of phase skills. It is useful as a discovery menu, not as a mandatory
   conveyor belt.
 - A generic Definition of Done as sufficient acceptance authority. A standing quality floor may be
-  locally useful, but it cannot replace task-specific causal obligations and owner-real proof.
+  locally useful, but it cannot replace task-specific causal obligations and verification at the
+  responsible boundary.
 - Agent-authored architecture followed by human approval. Approval of the oracle's prose does not
   demonstrate ownership.
 - Numeric confidence, completion percentages, activity logs, and ritual status fields that cannot
@@ -83,14 +94,62 @@ kernel.[^derivadex-consolidation]
 - A single autonomous persona that discovers, specifies, implements, reviews, and declares its own
   work accepted.
 - Portable rules for GitLab, releases, deployment, security policy, or a particular software stack.
+- Source-project nouns presented as universal concepts. `DRI`, `Blueprint`, pod/shift language,
+  repository paths, issue identifiers, route names, drift taxonomies, and branded process labels
+  must not appear in the skills merely because they occurred in useful source material.
+
+## Runtime purity and vocabulary quarantine
+
+The plugin needs concepts, not borrowed dialect. Research must translate every admitted source idea
+into domain-neutral language before runtime authoring.
+
+`Dialectical` is not a package prefix. Use `dialectic` or `dialectical` in a skill name only when
+the skill's primary runtime function is to conduct dialectic or coach the human's dialectical craft.
+Do not attach it to routing, specification, implementation, verification, review, or integration
+skills merely to signal philosophical affiliation. Such naming obscures the actual trigger and turns
+a precise method into branding.
+
+| Source-local expression | Portable concept, if retained | Runtime rule |
+| --- | --- | --- |
+| A project or company name | None | Omit completely. |
+| `DRI`, Tech Lead, or another local title | Accountable human, developer, reviewer, or decision owner | Use the narrowest ordinary role required by the interaction. |
+| Blueprint, uppercase `SPEC` in prose, or a fixed issue/file convention | Governing specification | Use the canonical term in runtime prose and discover the repository's artifact. Reserve `SPEC.md` for this package's established maintenance-file convention; never prescribe it as a target-repository path. |
+| Pod, shift, issue IID, branch convention, or GitLab surface | Repository-specific operating mechanism | Route outward to local instructions or a specialist capability. |
+| Stack doctrine or a named `*-development` route | Applicable repository and domain instructions | Obey discovered authority without copying its taxonomy. |
+| Posterior chain or a named readiness engine | Causal account and adversarial specification review | Describe the epistemic function, not the source implementation. |
+| Owner-real proof | Verification evidence at the boundary responsible for the claimed behavior | State the relation in ordinary language; do not preserve the slogan. |
+| Source-specific drift classes | Missing, contradictory, extra, or ambiguously interpreted behavior | Use plain findings unless a target repository supplies its own taxonomy. |
+
+The blacklist is illustrative, not complete. A runtime author must ask whether a term would make
+sense in an unrelated repository with no access to the research corpus. If not, the term is either
+translated into a portable relation or omitted.
+
+### Purity gate
+
+Before any skill is accepted:
+
+1. Scan every distributed file under `skills/` for source names, URLs, repository paths, local role
+   titles, local artifact names, route names, and copied phrases.
+2. Review semantically for renamed jargon; a lexical scan cannot detect a source-specific concept
+   hidden behind a generic label.
+3. Keep source citations, clause-coverage ledgers, and retirement reasoning in top-level research or
+   migration artifacts outside `skills/`.
+4. Exercise each skill in at least two unrelated repository fixtures. A prompt or output that assumes
+   one issue tracker, role hierarchy, branch model, file layout, stack taxonomy, or release process
+   fails portability.
+5. Treat any source-project name or unexplained source-local term found under `skills/` as a blocking
+   defect, even when it appears only in a maintenance SPEC, example, comment, or test prompt stored
+   with the skill.
+6. Reject any skill name containing `dialectic` or `dialectical` unless direct dialectical engagement
+   is its primary purpose and its runtime contract actually performs that function.
 
 ## Proposed philosophy amendment
 
 **PROPOSAL:** Add a future `PHILOSOPHY.md` whose central thesis is:
 
-> Software delivery is a continuing dialectic between an owned account and the reality that can
-> defeat it. The developer's work is to preserve that account's coherence as evidence changes;
-> the oracle's work is to make the account more answerable to reality without taking ownership of
+> Software delivery is a continuing dialectic between a developer's causal account and the reality
+> that can defeat it. The developer's work is to preserve that account's coherence as evidence
+> changes; the oracle's work is to make the account more answerable to reality without taking ownership of
 > it.
 
 The philosophy should extend, not dilute, the existing thesis:
@@ -99,7 +158,7 @@ The philosophy should extend, not dilute, the existing thesis:
   performance in the work: state the governing account without borrowing oracle wording; separate
   authority, observation, inference, assumption, and unknown; derive the proposed change; produce a
   defeater or changed-case prediction; recognize evidence that reopens intent; and arbitrate whether
-  proof discharges the obligation.
+  verification evidence satisfies the obligation.
 - **The plugin does not certify people.** The tutor continues to assess one visible move, never a
   personality, intelligence, level, or permanent mastery score. Hiring, role readiness, and
   performance judgment stay with accountable humans.[^tutor-boundary]
@@ -110,18 +169,19 @@ The philosophy should extend, not dilute, the existing thesis:
 - **Mechanical work should be delegated.** Once intent constrains the valid outcome sufficiently,
   Codex should be free over reversible mechanical means. If a material architectural choice appears,
   that freedom ends and the account returns to dialectic.
-- **No artifact proves understanding by existence.** A workpad, SPEC, test, diff, review, or citation
-  matters only through the claim it makes reviewable or the defeater it rules out.
+- **No artifact proves understanding by existence.** A workpad, governing specification, test,
+  change, review, or citation matters only through the claim it makes reviewable or the defeater it
+  rules out.
 
-**TENSION TO RESOLVE IN THE FUTURE SPEC:** The current project defines success as a first reviewable
-contribution and explicitly does not claim production independence or broad human-learning efficacy.
-The SDLC extension must therefore describe a method and evaluation hypothesis, not claim that the
-package already produces better engineers or safer delivery.[^claim-boundary]
+**TENSION TO RESOLVE IN THE FUTURE SPECIFICATION:** The current project defines success as a first
+reviewable contribution and explicitly does not claim production independence or broad
+human-learning efficacy. The delivery extension must therefore describe a method and evaluation
+hypothesis, not claim that the package already produces better engineers or safer delivery.[^claim-boundary]
 
 ## Proposed lifecycle kernel
 
 This is an obligation graph, not a turn sequence. Nodes may be skipped for genuinely mechanical
-work, revisited when evidence changes the account, or terminated in precise aporia.
+work, revisited when evidence changes the causal account, or terminated in precise aporia.
 
 ```text
 human-held purpose + repository evidence + governing doctrine
@@ -133,13 +193,13 @@ human-held purpose + repository evidence + governing doctrine
            specification: reviewable obligations
                          |
                          v
-          execution: bounded change hypotheses
+     implementation: bounded change hypotheses
                          |
                          v
-             proof: owner-real observations
+       verification: responsible observations
                          |
                          v
-       conformance judgment: accept | rebut | reopen
+       human judgment: accept | rebut finding | reopen specification
                          |
                          +-----------> inquiry/specification
 ```
@@ -151,7 +211,7 @@ questions; the oracle answers and pressures that model. The output is either a h
 account capable of transfer or a precise aporia. Preserve the existing prohibition on using this
 skill for settled implementation.[^inquiry-boundary]
 
-**Handoff:** a concise human-owned account containing purpose, domain primitives, decision boundary,
+**Handoff:** a concise developer-owned causal account containing purpose, domain primitives, decision boundary,
 causal relations, relevant authority, invariants or invariant candidates, defeaters, unknowns, and
 the concrete engineering consequence. The useful “posterior chain” from DerivaDEX may inform this
 shape, but the agent-led interview, mandatory confidence number, and `95%` stop should not be copied
@@ -159,54 +219,59 @@ into Theaetetus.[^derivadex-posterior]
 
 ### 2. Specification obligation
 
-Transform the owned account into the leanest governing SPEC surface. The oracle may recover facts,
-propose candidate formulations, edit, and attack the argument. It must keep oracle-generated text
-attributed until the developer can explain, revise, and use it. The final SPEC must make these
-relations reviewable:
+Transform the causal account into the leanest governing specification. The oracle may recover
+facts, propose candidate formulations, edit, and attack the argument. It must keep oracle-generated
+text attributed until the developer can explain, revise, and use it. The final specification must
+make these relations reviewable:
 
 ```text
 problem + domain operation + authority + boundary + failure semantics
-    -> architecture thesis + positive invariants + scope + proof obligations
+    -> architecture thesis + positive invariants + scope + verification obligations
 ```
 
-A template must not determine the structure. An issue body may be the SPEC when it is sufficient; a
-separate file is justified only when it reduces reviewer effort or the repository requires it. This
-preserves DerivaDEX's lean artifact rule without making its GitLab path portable law.[^lean-spec]
+A template must not determine the structure. An issue body may be the governing specification when
+it is sufficient; a separate file is justified only when it reduces reviewer effort or the
+repository requires it. This preserves DerivaDEX's lean artifact rule without making its GitLab
+path portable law.[^lean-spec]
 
 **Gate:** the developer can defend each material claim, identify what would defeat it, and perform a
 changed-case transfer. The oracle then attacks causal order, authority, boundary, invariant,
-failure, scope, and proof. A human decision—not an agent verdict—admits the SPEC.
+failure, scope, and verification. A human decision—not an agent verdict—admits the specification.
 
-### 3. Execution obligation
+### 3. Implementation obligation
 
-Treat each bounded change as a hypothesis that a repository fact can directly express SPEC
-authority. Before a material edit, the oracle must be able to state:
+Treat each bounded change as a hypothesis that a repository fact can directly express an obligation
+from the governing specification. Before a material edit, the oracle must be able to state:
 
 ```text
-SPEC obligation -> affected owner -> proposed repository fact -> discriminating proof
+specification obligation -> responsible boundary -> proposed repository fact
+    -> discriminating verification
 ```
 
-Codex may choose mechanical details that do not change system meaning. It must stop when execution
-reveals ambiguity, a new boundary, failure behavior, trust decision, public contract, or proof
-burden. New evidence may rebut the implementation hypothesis or reopen the SPEC; neither outcome is
-failure.
+Codex may choose mechanical details that do not change system meaning. It must stop when implementation
+reveals ambiguity, a new boundary, failure behavior, trust decision, public contract, or
+verification burden. New evidence may rebut the implementation hypothesis or reopen the
+specification; neither outcome is failure.
 
 **Gate:** the developer can explain why the change is entailed rather than merely plausible, and
 the workpad records the newest decision-relevant evidence and next discriminator—not a progress
 diary.
 
-### 4. Proof obligation
+### 4. Verification obligation
 
-For behavior changes, prefer a stable behavior claim, a narrow owner-real failing observation, the
-smallest implementation that changes it, the same passing observation, and a retained regression
-guardrail. DerivaDEX's `ttd` skill already states this compactly and stops when the owner, expected
-failure, real proof lane, or acceptance oracle is unknown.[^ttd]
+For behavior changes, prefer a stable behavior claim, a narrow failing observation at the boundary
+responsible for the behavior, the smallest implementation that changes it, the same passing
+observation, and a retained regression guardrail. DerivaDEX's `ttd` skill already states this
+compactly and stops when the owner, expected failure, real proof lane, or acceptance oracle is
+unknown.[^ttd]
 
-Proof is plural when the SPEC is plural: a unit test may prove a local transition, while a trace,
-screenshot, migration exercise, runtime observation, or human review proves another obligation.
-The portable skill must not choose a stack-specific proof lane.
+Verification is plural when the specification has multiple obligations: a unit test may verify a
+local transition, while a trace, screenshot, migration exercise, runtime observation, or human
+review may verify another obligation. The portable skill must not choose a stack-specific
+verification mechanism.
 
-**Gate:** for every material proof claim, name the obligation, owner, observation, competing
+**Gate:** for every material verification claim, name the obligation, responsible boundary,
+observation, competing
 explanation ruled out, and known limit. Green output alone is an observation, not the acceptance
 judgment.
 
@@ -215,20 +280,90 @@ judgment.
 Review in both directions:
 
 ```text
-SPEC -> repository     detects omission and evidence gaps
-repository -> SPEC     detects contradiction, unauthorized addition, and unowned interpretation
+specification -> repository     detects omission and evidence gaps
+repository -> specification     detects contradiction, extra behavior, and unowned interpretation
 ```
 
 The reviewing oracle should seek concrete defeater paths and report its limits. The developer may
-accept, rebut with grounded reasoning, reopen the account, or escalate for human arbitration. The
+accept, rebut with grounded reasoning, reopen the governing specification, or escalate for human arbitration. The
 agent never converts its own report into merge authority.
 
 ### 6. Integration obligation
 
 Commit mechanics, issue/MR updates, deployment, release, migration, observability, and operations are
-repository- or provider-specific. The portable kernel hands its accepted SPEC mapping and proof
-record to the selected local capability. It may verify that integration evidence exists when the
-SPEC requires it; it must not invent a universal shipping policy.
+repository- or provider-specific. The portable kernel hands its accepted specification mapping and
+verification record to the selected local capability. It may verify that integration evidence
+exists when the specification requires it; it must not invent a universal shipping policy.
+
+## Semantic naming decisions
+
+The audience is mixed: developers invoking skills, maintainers evolving the package, and reviewers
+reading durable artifacts. Skill names are public module names, so each must identify one primary
+operation and remain distinguishable when installed beside unrelated skills.
+
+### Skills
+
+| Chosen name | Exact referent | Semantic disposition |
+| --- | --- | --- |
+| `dialectical-inquiry` | A live inquiry in which the human questions and tests a fallible oracle. | **Keep.** Consistent with the established skill; the adjective names its primary method rather than package affiliation. |
+| `dialectical-tutor` | Coaching the human's technique during or in preparation for dialectical inquiry. | **Keep.** Distinguishable from subject tutoring; direct dialectical coaching is its primary purpose. |
+| `software-delivery` | The meta-skill that identifies the current delivery obligation and routes to the responsible skill. | **Choose over `sdlc`.** Expands the acronym, names the full workflow scope, and avoids pretending that routing itself is dialectic. |
+| `specification-development` | Developing, repairing, and assessing a governing specification from an owned causal account. | **Choose over `specification`.** The second noun distinguishes the activity from the artifact and from implementation. |
+| `specification-implementation` | Implementing obligations already established by a governing specification. | **Choose over `spec-governed-implementation`.** Uses the same canonical `specification` term, removes an abbreviation, and names the externally relevant operation rather than its enforcement mechanism. |
+| `conformance-review` | Reviewing the two-way correspondence between a governing specification, repository changes, and verification evidence. | **Keep.** `Conformance` distinguishes it from general code review; `review` identifies the operation. |
+
+Rejected names must not survive as aliases. `dialectical-sdlc`, `dialectical-specification`, and
+`dialectical-review` misuse the method as branding. `sdlc` hides the scope behind an acronym.
+`specification` names an artifact rather than the skill's operation. `spec-governed-implementation`
+mixes an abbreviation with an implementation-detail adjective.
+
+### Durable artifacts
+
+| Chosen name | Exact referent | Semantic disposition |
+| --- | --- | --- |
+| `PHILOSOPHY.md` | Stable project beliefs about human ownership, dialectical craft, and the oracle's role. | **Keep.** The name matches the normative and conceptual content; it must not carry procedures or migration state. |
+| `SOFTWARE-DELIVERY-SPEC.md` | The approved package-level contract for the portable delivery workflow. | **Choose.** `SOFTWARE-DELIVERY` names the governed scope; `SPEC` matches the repository's established governing-document convention. |
+| `SOFTWARE-DELIVERY-SOURCES.md` | Source adjudication and source-to-portable translation for the delivery extension. | **Choose.** It is distinguishable from the existing inquiry-focused `RESEARCH.md` and states that it contains evidence, not runtime law. |
+| `DERIVADEX-MIGRATION.md` | The target-specific coverage ledger and retirement plan for the DerivaDEX cutover. | **Choose.** Naming the target is required here because the artifact is intentionally project-specific and remains outside `skills/`. |
+| `SDLC.md` | This explicitly requested exploratory workpad. | **Keep until superseded.** It records unsettled design work; it must not become runtime authority merely because its name is broad. |
+| Delivery workpad | A repository-resolved mutable record for one software change from active inquiry through acceptance. | **Choose as the canonical concept.** Do not prescribe a universal filename or path; the target repository owns those mechanics. |
+
+The selected names pass the naming criteria as follows:
+
+| Name | Consistency | Distinguishability | Understandability | Conciseness |
+| --- | --- | --- | --- | --- |
+| `dialectical-inquiry` | Pass: established project term. | Pass: distinct from tutoring and delivery work. | Pass: names method and activity. | Pass: both words discriminate. |
+| `dialectical-tutor` | Pass: paired with inquiry. | Pass: distinguishes technique coaching from subject tutoring. | Pass: names method and role. | Pass: both words discriminate. |
+| `software-delivery` | Pass: domain noun phrase. | Pass: distinct from any one phase skill. | Pass: expands the workflow scope. | Pass: `workflow` would be redundant for a skill. |
+| `specification-development` | Pass: reuses the canonical artifact term. | Pass: distinct from implementation. | Pass: covers creation, repair, and maturation. | Pass: the second noun is necessary. |
+| `specification-implementation` | Pass: paired with specification development. | Pass: names the implementation boundary explicitly. | Pass: means implementing the specification's obligations. | Pass: no enforcement mechanism appears in the name. |
+| `conformance-review` | Pass: uses the canonical relation. | Pass: distinct from generic code review. | Pass: names both object of judgment and operation. | Pass: neither noun is redundant. |
+| `PHILOSOPHY.md` | Pass: follows top-level document style. | Pass: distinct from research and governing procedure. | Pass: names stable beliefs. | Pass. |
+| `SOFTWARE-DELIVERY-SPEC.md` | Pass: follows the repository's `SPEC.md` convention. | Pass: scoped against skill-level specifications. | Pass: names scope and authority type. | Pass: scope is necessary at repository root. |
+| `SOFTWARE-DELIVERY-SOURCES.md` | Pass: paired with the delivery specification. | Pass: distinct from inquiry research. | Pass: names scope and evidentiary function. | Pass: both qualifiers prevent collision. |
+| `DERIVADEX-MIGRATION.md` | Pass: target plus operation. | Pass: cannot be mistaken for portable doctrine. | Pass: names the exact migration. | Pass: the target is necessary. |
+| `SDLC.md` | Pass by explicit owner instruction. | Pass while it remains the sole exploratory SDLC workpad. | Pass for the engineering audience. | Pass: the acronym is established by the mandate. |
+| Delivery workpad | Pass: extends the established workpad concept. | Pass: distinct from the inquiry workpad. | Pass: names lifecycle and artifact. | Pass: no filename is imposed. |
+
+### Controlled vocabulary
+
+Use one term for each live concept in all new skills and artifacts:
+
+| Canonical term | Meaning | Excluded synonyms or overloads |
+| --- | --- | --- |
+| `developer` | The human who owns the causal account and directs the change. | Do not import organizational titles. |
+| `oracle` | The fallible AI role that answers, reconstructs, challenges, and exposes uncertainty. | Never use as a synonym for authority or acceptance. |
+| `causal account` | The developer's current explanation of the relevant objects, boundaries, relations, and consequences. | Do not alternate with model, thesis, mental model, or posterior when the same referent is meant. |
+| `governing specification` | The accepted artifact that authorizes and constrains implementation. | Do not alternate with Blueprint, uppercase `SPEC`, design, plan, or requirements when the same referent is meant. |
+| `obligation` | One behavior, invariant, boundary, or outcome the implementation must satisfy. | Do not use task, criterion, or checkbox interchangeably. |
+| `verification` | The act of collecting and evaluating observations against an obligation. | Reserve `proof` for formal proof or a quoted source term. |
+| `verification evidence` | The observation produced by a test, trace, runtime check, review, or other selected mechanism. | Evidence is not authority or acceptance. |
+| `conformance` | The two-way correspondence between the governing specification and repository state. | Do not use as a synonym for generic quality. |
+| `acceptance` | An accountable human judgment that the obligations and applicable local standards are satisfied. | A green check or agent verdict is not acceptance. |
+| `defeater` | Evidence or a reason that invalidates or materially narrows a live claim. | Do not use for any criticism or failed check. |
+| `next discriminator` | The next observation or action expected to distinguish the live competing accounts. | Do not use as a synonym for next task. |
+| `reopen` | Return an invalidated or incomplete governing claim to inquiry or specification development. | Do not call ordinary implementation repair reopening. |
+| `unresolved` | Delivery cannot responsibly advance because a decision-bearing premise or required evidence is missing. | Keep `aporia` within direct dialectical inquiry, where the term has precise meaning. |
 
 ## Proposed package shape
 
@@ -236,53 +371,101 @@ SPEC requires it; it must not invent a universal shipping policy.
 
 | Skill | Responsibility | Must not own |
 | --- | --- | --- |
-| `dialectical-inquiry` | Human-led formation and testing of the causal model. | Settled implementation or autonomous delivery. |
+| `dialectical-inquiry` | Human-led formation and testing of the causal account. | Settled implementation or autonomous delivery. |
 | `dialectical-tutor` | Repair one observable lapse in the human's midwife craft. | Subject matter, person-level grading, or lifecycle control. |
-| `dialectical-sdlc` | Meta-router, shared role contract, obligation graph, and handoff/reopen rules. | Automatic phase advancement or acceptance. |
-| `dialectical-specification` | Turn an owned account into a lean SPEC; formulate invariants; adversarially audit readiness. | Inventing missing human-held premises or choosing repository mechanics. |
-| `spec-governed-implementation` | Trace approved obligations into bounded edits, maintain the evidence ledger, and stop/reopen on drift. | Completing the SPEC or accepting its own work. |
-| `dialectical-review` | Bidirectional conformance and defeater analysis over a SPEC, change surface, and proof record. | Remediation, merge authority, or stack doctrine. |
+| `software-delivery` | Identify the current delivery obligation and route to the responsible skill. | Automatic phase advancement or acceptance. |
+| `specification-development` | Develop, repair, and assess a governing specification from the developer's causal account. | Inventing missing human-held premises or choosing repository mechanics. |
+| `specification-implementation` | Trace approved obligations into bounded edits, maintain the evidence ledger, and stop or reopen on unsupported decisions. | Completing the specification or accepting its own work. |
+| `conformance-review` | Bidirectional conformance and defeater analysis over a specification, change surface, and verification record. | Remediation, acceptance, or repository-specific policy. |
 
-`dialectical-sdlc` should resemble the useful part of Addy's meta-skill: discover the current
+`software-delivery` should resemble the useful part of Addy's meta-skill: discover the current
 obligation and route to a focused skill. It should follow Addy's stronger orchestration constraint
 that dependent phases retain human judgment between them, while rejecting the fixed lifecycle as a
 required path.[^addy-orchestration]
 
-TDD should become a routed proof pattern within `spec-governed-implementation`, not a separate
-top-level skill. Invariant formulation and posterior/spec auditing should become internal mandatory
-routes of `dialectical-specification`; making them independent top-level skills invites the very
-ritualized decomposition that DerivaDEX has already had to consolidate.
+All six skill directories must satisfy the runtime-purity invariant. Their language must be
+self-contained and repository-neutral; even source acknowledgements and migration notes belong
+elsewhere.
 
-## Shared SDLC workpad
+The proposed public paths are exactly:
 
-**PROPOSAL:** the extension should use one change-bound workpad linked to, but distinct from, a
-subject inquiry workpad. Do not stretch the human-model ledger into an execution log.
-
-```markdown
-# Dialectical SDLC: <decision or change>
-
-Status: inquiry | specification | execution | review | accepted | aporia | superseded
-
-## Authority and owner
-## Human-owned account
-## Governing SPEC and obligations
-## Invariants and proof owners
-## Current implementation hypothesis
-## Decision-relevant evidence
-## Defeaters and competing explanations
-## Open premises
-## Next discriminator
-## Acceptance judgment and limits
+```text
+skills/dialectical-inquiry/
+skills/dialectical-tutor/
+skills/software-delivery/
+skills/specification-development/
+skills/specification-implementation/
+skills/conformance-review/
 ```
 
-Status is navigational, not evidence of progress. Each update must change an obligation, confidence
-in the account, a defeater, an open premise, or the next discriminating action. The workpad may link
-to tests, logs, diffs, and reviews; it should not duplicate them or become a transcript.
+Each directory owns `SKILL.md` and `SPEC.md` under the repository's existing convention. Add no
+reference, asset, example, schema, or template merely to complete a package shape. Name such an
+artifact only after one required runtime lookup function establishes its referent.
 
-**OPEN DESIGN QUESTION:** Should an owned inquiry be copied into the SDLC workpad or linked by
+Test-driven development should become a routed verification pattern within
+`specification-implementation`, not a separate top-level skill. Invariant formulation and causal
+specification assessment should become internal mandatory routes of `specification-development`;
+making them independent top-level skills invites the very
+ritualized decomposition that DerivaDEX has already had to consolidate.
+
+## Delivery workpad
+
+**PROPOSAL:** the extension should use one change-bound workpad linked to, but distinct from, a
+subject inquiry workpad. Do not stretch the inquiry's causal-account ledger into an implementation
+log.
+
+```markdown
+# Software delivery: <change>
+
+Status: active | accepted | unresolved | superseded
+Current activity: inquiry | specification development | specification implementation | verification | conformance review | integration
+
+## Authority
+- Developer:
+- Governing sources:
+
+## Developer's causal account
+
+## Governing specification
+- Source:
+- Active obligations:
+- Scope:
+
+## Invariants
+
+## Implementation hypothesis
+
+## Verification plan
+
+## Verification evidence
+
+## Defeaters and competing explanations
+
+## Unresolved premises
+
+## Next discriminator
+
+## Acceptance
+- Judgment:
+- Limits:
+```
+
+`Status` records the workpad outcome while `Current activity` records what kind of work is underway;
+mixing both in one status field would make `accepted` and `implementation` appear to be comparable
+states. Neither field is evidence of progress. Each update must change an obligation, confidence in
+the causal account, a defeater, an unresolved premise, or the next discriminator. The workpad may
+link to tests, logs, changes, and reviews; it should not duplicate them or become a transcript.
+
+The field names are intentionally non-overlapping. `Authority` identifies who and what can govern;
+`Governing specification` identifies the accepted artifact and current obligations; `Implementation
+hypothesis` states the proposed repository expression; `Verification plan` names intended
+observations; `Verification evidence` records actual observations; and `Acceptance` records the
+developer's judgment and its limits. None is a synonym for another.
+
+**OPEN DESIGN QUESTION:** Should an owned inquiry be copied into the delivery workpad or linked by
 stable claim identifiers? Linking better preserves provenance; selective copying may improve
-portability across issue trackers. The future SPEC should test both against resumption and drift
-scenarios before deciding.
+portability across issue trackers. The future governing specification should test both against
+resumption and drift scenarios before deciding.
 
 ## DerivaDEX convergence and retirement map
 
@@ -292,38 +475,43 @@ the same change; any uncovered behavior defeats deletion.[^retirement-law]
 
 | DerivaDEX skill | Proposed disposition | Replacement or residue | Retirement evidence required |
 | --- | --- | --- | --- |
-| [`dialectics`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/dialectics/SKILL.md) | **Retire** | `dialectical-inquiry` plus the decision-target handoff in `dialectical-sdlc`. | Preserve premise ownership, repo-fact recovery boundary, precise blocker, invariants/proof handoff, and interaction with planning; prove human-led behavior replaces agent-led interviewing without losing useful stops. |
-| [`planning`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/planning/SKILL.md) | **Retire** | `dialectical-specification`; local GitLab capability supplies issue transport. | Cover context recovery, research, lean SPEC choice, causal derivation, citation routing, invariant formulation, audit dispositions, and tactical-plan boundary. |
-| [`posterior-analytics`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/posterior-analytics/SKILL.md) | **Retire as a public route** | Mandatory causal-audit route inside `dialectical-specification` and `dialectical-review`. | Preserve argument-before-polish grading, defect classes, cargo-cult checks, and pass/conditional/revise/reject semantics without creating a second authority. |
-| [`formulate-invariants`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/formulate-invariants/SKILL.md) | **Retire as a public route** | Mandatory invariant route inside `dialectical-specification`; reused by review. | Preserve positive, domain-native, refactor-stable invariants; illegal negation; enforcement/proof owner; and compression of blacklist guardrails. |
-| [`implementation`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/implementation/SKILL.md) | **Retire** | `spec-governed-implementation`. | Preserve preconditions, direct authority trace, forbidden improvisation, reopen behavior, bidirectional drift vocabulary, and evidence-gap reporting. |
-| [`ttd`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/ttd/SKILL.md) | **Retire** | Routed owner-real proof pattern inside `spec-governed-implementation`. | Preserve identical red/green claim, causal failure check, smallest change, refactor rerun, retained guardrail, and stop conditions. |
+| [`dialectics`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/dialectics/SKILL.md) | **Retire** | `dialectical-inquiry` plus the decision-target handoff in `software-delivery`. | Preserve premise ownership, repository-fact recovery boundary, precise blocker, invariants/verification handoff, and interaction with planning; verify that human-led behavior replaces agent-led interviewing without losing useful stops. |
+| [`planning`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/planning/SKILL.md) | **Retire** | `specification-development`; local GitLab capability supplies issue transport. | Cover context recovery, research, lean specification choice, causal derivation, citation routing, invariant formulation, assessment dispositions, and tactical-plan boundary. |
+| [`posterior-analytics`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/posterior-analytics/SKILL.md) | **Retire as a public route** | Mandatory causal assessment inside `specification-development` and `conformance-review`. | Preserve argument-before-polish grading, defect classes, cargo-cult checks, and pass/conditional/revise/reject semantics without creating a second authority. |
+| [`formulate-invariants`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/formulate-invariants/SKILL.md) | **Retire as a public route** | Mandatory invariant formulation inside `specification-development`; reused by review. | Preserve positive, domain-native, refactor-stable invariants; illegal negation; responsible verification boundary; and compression of blacklist guardrails. |
+| [`implementation`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/implementation/SKILL.md) | **Retire** | `specification-implementation`. | Preserve preconditions, direct authority trace, forbidden improvisation, reopen behavior, bidirectional conformance vocabulary, and evidence-gap reporting. |
+| [`ttd`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/ttd/SKILL.md) | **Retire** | Routed test-driven verification pattern inside `specification-implementation`. | Preserve identical red/green claim, causal failure check, smallest change, refactor rerun, retained guardrail, and stop conditions. |
 | [`formulate-goal`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/formulate-goal/SKILL.md) | **Retain pending scope split** | The SDLC theorem and evidence-ledger subset may converge later; autonomous or long-running goal contracts are not yet shown equivalent. | Inventory SDLC versus non-SDLC use cases; retire only the covered subset or the whole skill after all goal-lifecycle behaviors have an owner. |
-| [`diff-review`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/diff-review/SKILL.md) | **Split, then retain a thin DerivaDEX adapter** | `dialectical-review` owns portable conformance; local adapter keeps stack-facet census, scheduled operation, GitLab report surfaces, and DerivaDEX doctrine routing. | Extract and test the portable kernel; demonstrate that local scripts, report persistence, stack ownership, and stop-gates still route exactly once. |
+| [`diff-review`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/diff-review/SKILL.md) | **Split, then retain a thin DerivaDEX adapter** | `conformance-review` owns portable conformance; local adapter keeps stack-facet census, scheduled operation, GitLab report surfaces, and DerivaDEX doctrine routing. | Extract and test the portable kernel; demonstrate that local scripts, report persistence, stack ownership, and stop conditions still route exactly once. |
 | [`evidence-grounding`](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/evidence-grounding/SKILL.md) | **External dependency candidate** | Depend on one maintained shared skill rather than copying it into every repository. | Prove identical authority order, claim support, inline implementation evidence, footnote rules, and final gate; update every route atomically. |
-| `architecture`, stack `*-development`, GitLab, commit, release, and runbook skills | **Retain locally or as specialist plugins** | These own repository law, stack choices, external-service mechanics, or operational policy outside the portable kernel. | No retirement unless a future candidate proves repository-specific decisions remain locally owned and every mechanics route remains complete. |
+| `architecture`, stack `*-development`, GitLab, commit, release, and runbook skills | **Retain locally or as specialist plugins** | These own repository law, stack choices, external-service mechanics, or operational policy outside the portable kernel. | No retirement unless a future candidate establishes that repository-specific decisions remain locally owned and every mechanics route remains complete. |
 
 ### Migration sequence
 
 1. Freeze the current DerivaDEX candidate contracts at commit
    `81650fee140c422b2c890436f0415e8ab3810fa5` and create a clause-level capability ledger.
-2. Write and approve `PHILOSOPHY.md` and a package-level SDLC SPEC before runtime skill edits.
-3. Specify the four proposed skills, their shared vocabulary, artifacts, handoffs, stop conditions,
-   and explicit non-ownership boundaries.
-4. Extend the evaluation suite before implementation so ceremonial lifecycle routing cannot pass as
+2. Write and approve `PHILOSOPHY.md` and `SOFTWARE-DELIVERY-SPEC.md` before runtime skill edits.
+3. Create `SOFTWARE-DELIVERY-SOURCES.md` outside `skills/`; reject every term whose
+   portable meaning cannot be stated without source context.
+4. Specify the four proposed skills, their shared vocabulary, artifacts, handoffs, stop conditions,
+   explicit non-ownership boundaries, and purity gate.
+5. Extend the evaluation suite before implementation so ceremonial lifecycle routing cannot pass as
    dialectical competence.
-5. Implement the plugin skills and run them in shadow against representative DerivaDEX feature,
+6. Implement the plugin skills and run them in shadow against representative DerivaDEX feature,
    bug, incident, and review cases.
-6. For each retirement candidate, map every current clause and scenario to an equivalent-or-better
-   plugin behavior, an explicitly retained local owner, or a named gap.
-7. Cut over one coherent slice at a time. Remove old routes and skills only in the same change that
+7. Record each retirement candidate in `DERIVADEX-MIGRATION.md`, mapping every current clause and
+   scenario to an equivalent-or-better plugin behavior, an explicitly retained local owner, or a
+   named gap.
+8. Run lexical and semantic purity review over the complete `skills/` tree. Keep all source and
+   migration material outside that tree.
+9. Cut over one coherent slice at a time. Remove old routes and skills only in the same change that
    installs and enables their replacements; do not add compatibility aliases.
-8. Audit DerivaDEX's complete skill routing and handbook references, then run repository-specific
-   proof. Plugin conformance does not prove the local cutover.
+10. Audit DerivaDEX's complete skill routing and handbook references, then run repository-specific
+   verification. Plugin conformance does not establish the local cutover.
 
 ## Evaluation plan
 
-The current suite proves protocol behavior on frozen fixtures but not human learning or delivery
+The current suite establishes protocol behavior on frozen fixtures but not human learning or delivery
 outcomes. The extension should retain that claim boundary and add tests in layers.[^current-evidence]
 
 ### A. Contract and routing tests
@@ -331,16 +519,21 @@ outcomes. The extension should retain that claim boundary and add tests in layer
 - Correctly distinguish mechanical tasks, active inquiry, specification work, governed
   implementation, conformance review, and repository-specific integration.
 - Preserve the human/oracle/tutor boundaries across every handoff.
-- Stop rather than infer when authority, owner, failure semantics, or proof oracle is missing.
-- Reopen inquiry or specification when execution evidence defeats the governing account.
+- Stop rather than infer when authority, responsible boundary, failure semantics, or verification
+  criterion is missing.
+- Reopen inquiry or specification development when implementation evidence defeats the causal account.
+- Reject every distributed skill containing a source-project name, link, path, role, artifact
+  convention, or unexplained local process term.
+- Exercise runtime prompts and outputs in unrelated repositories to detect semantic contamination
+  that a forbidden-string scan misses.
 
 ### B. Lifecycle case studies
 
 Use multi-turn repository sandboxes for at least:
 
-- a solution-first bug whose visible failure is downstream of the real owner;
+- a solution-first bug whose visible failure is downstream of the responsible boundary;
 - a feature with a public contract, failure semantics, and changed-case transfer;
-- an incident where evidence changes the initial causal account during execution;
+- an incident where evidence changes the initial causal account during implementation;
 - a refactor that should remain mechanical and must not trigger unnecessary ceremony;
 - a review containing both an omitted requirement and an unauthorized addition;
 - a precise aporia where stopping is the only responsible result.
@@ -349,7 +542,7 @@ Each case must end in a reviewable artifact and bidirectional trace, not correct
 
 ### C. Matched procedural placebo
 
-Create a lifecycle placebo that emits the same statuses, workpad headings, SPEC links, trace rows,
+Create a lifecycle placebo that emits the same states, workpad headings, specification links, trace rows,
 and verification markers but does not independently reconstruct, seek defeaters, preserve human
 authorship, or reopen intent. If it passes a semantic case, the evaluation still rewards ceremony.
 This extends the causal logic of the repository's current matched placebo.[^matched-placebo]
@@ -357,70 +550,94 @@ This extends the causal logic of the repository's current matched placebo.[^matc
 ### D. Oracle reliability faults
 
 Plant source errors, stale implementation evidence, seductive user framing, false green tests,
-adjacent but non-owning proof, and implementation discoveries that require a new decision. Score
+verification at an unrelated boundary, and implementation discoveries that require a new decision. Score
 self-correction, provenance, stop/reopen behavior, and the developer's ability to challenge the
 oracle.
 
 ### E. Human gate
 
 Only human study can test whether developers acquire and retain the required dialectical craft.
-Measure observable work products and transfer: independent model reconstruction, correction burden,
-defeater quality, changed-case prediction, recognition of SPEC-reopening evidence, and review
+Measure observable work products and transfer: independent causal-account reconstruction, correction burden,
+defeater quality, changed-case prediction, recognition of evidence that reopens the governing specification, and review
 judgment. The plugin and tutor must not convert these observations into an automated person-level
 certification.
 
-### F. DerivaDEX replacement proof
+### F. DerivaDEX replacement verification
 
 Before each retirement, run old and new routes on the same frozen task packets and compare:
 
 - admitted and refused intents;
 - authority and provenance decisions;
 - artifacts created or modified;
-- owner, invariant, and proof mapping;
+- responsible boundary, invariant, and verification mapping;
 - stop and reopen behavior;
 - local handoffs and non-portable residue;
 - false acceptance under an adversarial changed case.
 
 Behavioral equivalence is necessary but not sufficient: the plugin replacement should be simpler in
-public topology and preserve the stronger dialectical ownership model.
+public topology and preserve the stronger account-ownership method.
 
 ## Proposed implementation order
 
-1. `PHILOSOPHY.md`: approve the dialectical SDLC thesis, human job requirement, oracle reliability
-   contract, claim boundary, and portable/local split.
-2. Package SDLC SPEC: approve the obligation graph, artifacts, vocabulary, routing law, and
-   acceptance model.
-3. `dialectical-specification`: it closes the current gap between owned inquiry and governed work.
-4. `spec-governed-implementation`: it makes reopen-on-discovery operational.
-5. `dialectical-review`: it completes the reverse argument and acceptance boundary.
-6. `dialectical-sdlc`: add the meta-router only after the leaf contracts are real; otherwise the
+1. `PHILOSOPHY.md`: approve the SDLC thesis, its dialectical foundation, the human job requirement,
+   oracle reliability contract, claim boundary, and portable/local split.
+2. `SOFTWARE-DELIVERY-SPEC.md`: approve the obligation graph, artifacts, vocabulary, routing law,
+   and acceptance model.
+3. `SOFTWARE-DELIVERY-SOURCES.md`: establish the forbidden-source boundary before any new runtime
+   prose exists.
+4. `specification-development`: it closes the current gap between owned inquiry and governed work.
+5. `specification-implementation`: it makes reopen-on-discovery operational.
+6. `conformance-review`: it completes the reverse argument and acceptance boundary.
+7. `software-delivery`: add the meta-router only after the leaf contracts are real; otherwise the
    router would advertise an imaginary lifecycle.
-7. Cross-skill and placebo evaluation.
-8. DerivaDEX shadow runs, coverage ledgers, atomic cutovers, and retirement.
-9. Documentation and human pilot, with efficacy claims still withheld until evidence exists.
+8. Complete-tree lexical and semantic purity audit.
+9. Cross-skill and placebo evaluation.
+10. `DERIVADEX-MIGRATION.md`: record shadow runs, coverage, atomic cutovers, and retirement.
+11. Documentation and human pilot, with efficacy claims still withheld until evidence exists.
 
 ## Open premises
 
-- **Owner decision:** Is the plugin's primary unit a consequential *decision*, an issue/change, or a
-  SPEC? “Decision” aligns with inquiry; issue/change aligns with delivery tooling.
-- **Owner decision:** Must every material SDLC checkpoint require a new human-authored synthesis, or
-  is a human-authored rebuttal/acceptance note sufficient once the governing model is already owned?
+- **Decision needed:** Is the plugin's primary unit a consequential *decision*, a software change, or
+  a governing specification? “Decision” aligns with inquiry; “software change” aligns with delivery tooling.
+- **Decision needed:** Must every material delivery checkpoint require a new human-authored
+  synthesis, or is a human-authored rebuttal or acceptance note sufficient once the causal account
+  and governing specification are already owned?
 - **Research question:** Which observable behaviors distinguish professional dialectical mastery
   from one successful inquiry without creating a person-level score?
-- **Design question:** How should the workpad preserve stable claim identity across inquiry, SPEC,
-  code, proof, and review without becoming a traceability bureaucracy?
+- **Design question:** How should the workpad preserve stable claim identity across inquiry,
+  governing specification, implementation, verification, and review without becoming a traceability
+  bureaucracy?
 - **Migration question:** Which `formulate-goal` uses are truly SDLC, and which belong to persistent
   autonomous-goal management outside this package?
 - **Integration question:** Should `evidence-grounding` ship inside this plugin, be a declared
   dependency, or remain an independently installed cross-cutting skill?
 
+## Implementation record: 2026-09-02
+
+- Added the four selected skill directories with focused runtime instructions and skill-local
+  specifications: `software-delivery`, `specification-development`,
+  `specification-implementation`, and `conformance-review`.
+- Added `PHILOSOPHY.md`, `SOFTWARE-DELIVERY-SPEC.md`, `SOFTWARE-DELIVERY-SOURCES.md`, and
+  `DERIVADEX-MIGRATION.md` outside the runtime skill tree.
+- Added `.codex-plugin/plugin.json` so the six skills form one validated plugin.
+- Changed evaluation fixture preparation to install the complete current skill tree.
+- Added `npm run eval:skill-purity` and made it a precondition of the full evaluation command.
+- Structural validation passed for all six skills; plugin validation, lexical quarantine, Markdown
+  lint apart from the repository's accepted line-length convention, and Git whitespace checks pass.
+- Two isolated read-only routing smokes passed: an exact documentation rename bypassed inquiry for
+  `specification-implementation`; a solution-first retry request with no owned boundary or failure
+  semantics recommended `dialectical-inquiry` and stopped without editing.
+
+These smokes establish only the two exercised routing decisions. They do not establish cross-skill
+behavioral equivalence, human efficacy, or readiness to retire source-repository skills.
+
 ## Next discriminator
 
-Draft the package-level SDLC SPEC from this workpad and test it against two frozen DerivaDEX cases:
-one solution-first bug that should reopen intent and one already-owned mechanical change that should
-bypass inquiry. If the same routing and artifact model handles both without ceremony or authority
-leakage, the proposed four-skill topology is plausible. If it cannot, revise the topology before
-writing runtime skills.
+Run the implemented topology against two frozen DerivaDEX cases: one solution-first bug that should
+reopen intent and one already-owned mechanical change that should bypass inquiry. Compare the new
+routes with the frozen source behavior, then add an unrelated-repository pair to test semantic
+purity. The topology remains behaviorally provisional until it handles both without ceremony,
+authority leakage, or source-local assumptions.
 
 ## Sources actually read
 
