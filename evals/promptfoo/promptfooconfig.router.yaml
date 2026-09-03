@@ -1,4 +1,4 @@
-description: Delivery-router comparative classification evaluation
+description: Legacy diagnostic router comparison; prompts are over-cued and non-admissible
 
 providers:
   - id: openai:codex-sdk

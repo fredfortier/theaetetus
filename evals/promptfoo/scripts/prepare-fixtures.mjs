@@ -1,4 +1,4 @@
-import { copyFile, cp, mkdir, rm } from 'node:fs/promises';
+import { copyFile, cp, mkdir, readdir, rm, writeFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import os from 'node:os';
 import path from 'node:path';
@@ -9,11 +9,29 @@ const evalRoot = path.resolve(here, '..');
 const repoRoot = path.resolve(evalRoot, '..', '..');
 const runsRoot = path.join(evalRoot, '.runs');
 const evalCodexHome = path.join(evalRoot, 'fixtures', 'codex-home');
+const trustedProjects = [];
 
 async function prepareCodexHome() {
   const sourceCodexHome = process.env.CODEX_HOME ?? path.join(os.homedir(), '.codex');
+  if (path.resolve(sourceCodexHome) === evalCodexHome) {
+    throw new Error('Source CODEX_HOME must not be the evaluation-owned Codex home.');
+  }
   await mkdir(evalCodexHome, { recursive: true });
+  for (const entry of await readdir(evalCodexHome)) {
+    if (entry !== '.gitignore') {
+      await rm(path.join(evalCodexHome, entry), { recursive: true, force: true });
+    }
+  }
   await copyFile(path.join(sourceCodexHome, 'auth.json'), path.join(evalCodexHome, 'auth.json'));
+}
+
+async function writeCodexConfig() {
+  const projectTables = trustedProjects.map((project) => {
+    const escaped = project.replaceAll('\\', '\\\\').replaceAll('"', '\\"');
+    return `[projects."${escaped}"]\ntrust_level = "trusted"`;
+  });
+  const body = ['suppress_unstable_features_warning = true', ...projectTables, ''].join('\n\n');
+  await writeFile(path.join(evalCodexHome, 'config.toml'), body, 'utf8');
 }
 
 const unitCases = [
@@ -57,6 +75,7 @@ async function copyPlaceboSkills(destination) {
 }
 
 async function initializeFixture(destination, variant, sandboxSlug = null) {
+  trustedProjects.push(destination);
   await mkdir(destination, { recursive: true });
   if (!sandboxSlug) {
     await cp(path.join(evalRoot, 'sources'), path.join(destination, 'sources'), { recursive: true });
@@ -116,6 +135,7 @@ async function main() {
       slug,
     );
   }
+  await writeCodexConfig();
 }
 
 await main();

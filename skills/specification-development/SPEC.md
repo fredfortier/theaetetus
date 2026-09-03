@@ -26,7 +26,8 @@ Exclude:
 
 ## Reasoning model
 
-The specification is an argument, not a template:
+The specification is an argument, not a template. Applicable stack doctrine is a distinct authority:
+it constrains the legal implementation state but does not supply the change's causal purpose.
 
 ```text
 problem + domain operation + current wrongness + authority
@@ -42,17 +43,22 @@ derivation; the developer must own it before it governs implementation.
 
 1. Discover governing sources and repository evidence before authoring.
 2. Use `evidence-grounding` for claim classification and support.
-3. Recover facts that are discoverable; route human-held missing premises to direct inquiry.
-4. Make problem, domain operation, wrongness, authority, boundary, failure semantics, derivation,
+3. Detect each material stack facet and load exactly one applicable repo-local `*-development`
+   doctrine owner, including mandatory legislative leaves and cross-doctrine handoffs, before
+   drafting obligations that constrain that facet.
+4. Preserve work-specification and doctrine authority separately; stop on a missing, competing,
+   conflicting, optional, or implicitly amended doctrine decision.
+5. Recover facts that are discoverable; route human-held missing premises to direct inquiry.
+6. Make problem, domain operation, wrongness, authority, boundary, failure semantics, derivation,
    and defeaters reviewable.
-5. Use `invariant-formulation` for stable properties and their enforcement and verification
+7. Use `invariant-formulation` for stable properties and their enforcement and verification
    boundaries.
-6. Derive implementation obligations rather than starting from code shape.
-7. Choose the leanest artifact allowed by the repository; impose no universal path or outline.
-8. Use `causal-readiness-review` for the independent admission-readiness verdict.
-9. Use `naming-things` and `architecture-conformance` when their focused boundaries apply.
-10. Preserve oracle-generated language as attributed until the developer demonstrates ownership.
-11. Stop or reopen rather than filling a material gap.
+8. Derive implementation obligations rather than starting from code shape.
+9. Choose the leanest artifact allowed by the repository; impose no universal path or outline.
+10. Use `causal-readiness-review` for the independent admission-readiness verdict.
+11. Use `naming-things` and `architecture-conformance` when their focused boundaries apply.
+12. Preserve oracle-generated language as attributed until the developer demonstrates ownership.
+13. Stop or reopen rather than filling a material gap.
 
 ## Invariants
 
@@ -61,6 +67,8 @@ derivation; the developer must own it before it governs implementation.
 - Every obligation names the responsible boundary and a discriminating verification path.
 - An invariant states a valid property rather than a task list or catalog of forbidden files.
 - Artifact structure follows the causal account; a template never creates missing reasoning.
+- A work specification can rely on applicable doctrine but cannot create, select, weaken, or amend
+  that doctrine implicitly.
 - Only an accountable human admits the specification.
 
 ## Dispositions
@@ -101,6 +109,8 @@ derivation; the developer must own it before it governs implementation.
 - A complete causal account yields a lean artifact rather than a fixed template.
 - A negative exclusion list is handed to `invariant-formulation` before obligations are derived.
 - A plausible completed specification is handed to `causal-readiness-review` for independent judgment.
+- A proposal that conflicts with applicable stack doctrine stops at the doctrine amendment boundary
+  instead of encoding the conflict as a work obligation.
 - Human agreement with polished oracle prose does not by itself admit the specification.
 
 The decisive scenarios distinguish a lean causal specification from both a filled template and a

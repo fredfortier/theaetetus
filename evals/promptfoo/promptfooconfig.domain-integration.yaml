@@ -1,4 +1,4 @@
-description: Persistent wallet-domain inquiry and tutor lifecycle
+description: Legacy diagnostic wallet lifecycle; not semantic coverage
 
 providers:
   - id: openai:codex-sdk

@@ -480,9 +480,9 @@ full replay.
 The same verification exposed a pre-existing evaluation-integrity defect. The dialectical
 `final-freeze.sha256` was authored at `409572f` but five committed files changed under later topology
 commits without a reseal. Its 116/116 result is therefore historical rather than a reproducible
-current-surface freeze. Router artifacts are file-separated so they do not enlarge that mismatch,
-but file separation did not isolate the provider environment; the old seal must not be updated until
-the current dialectical suite is replayed cache-disabled under the evaluation-owned Codex home.
+current-surface freeze. Cleanup retired that stale seal, the uncontrolled holdout manifest, and the
+premature router candidate seal instead of manufacturing new evidence identities. A future seal may
+be created only after the rebuilt claim graph and its controls produce admissible observations.
 
 No source-repository retirement is authorized by this audit. Retirement still requires
 equivalent-or-better clause coverage, installed replacement, route cutover, matched shadow evidence,
@@ -538,12 +538,15 @@ account before yield. After the bounded runtime repair, a fresh-fixture targeted
 The next full replay passed 65/66. Its sole rejection was an oracle defect: `DT-NOINT-01` produced the
 contractual shortest decisive quote, while the case gold demanded a catalogue of every sound
 function. A new positive control fixed that interpretation; the expanded isolated calibration
-passed 13/13, and the fresh matched current/placebo pair passed 6/6. The required full replay then
-passed 66/66 with zero errors—current 39/39, mechanical-placebo rejection 24/24, and no-skill
-differentiation 3/3—and passed the independent trace-isolation gate. The current obligation is a
-fresh-fixture isolated holdout replay. Integration and checksum resealing remain suspended until
-their own gates pass; the router family must afterward be recalibrated and replayed under the same
-isolation boundary before its results are interpreted.
+passed 13/13, and the fresh current/placebo pair reported 6/6. A later full replay reported 66/66
+with zero execution errors and passed trace isolation.
+
+The burden-of-proof audit in [EVALS.md](EVALS.md) supersedes the earlier admission interpretation:
+those are runtime observations, not 66 independent cases and not admissible unit-family evidence.
+No unit, holdout, integration, checksum-reseal, or router family may advance an evaluation claim
+until its obligation has a claim-to-positive-to-isolated-defect-to-calibrated-oracle graph. The
+immediate evaluation obligation is cleanup and redesign, beginning with exact condition identity
+for `DT-NOINT-01` and the uncued architecture-precedence router pair.
 
 ## Evidence notes
 

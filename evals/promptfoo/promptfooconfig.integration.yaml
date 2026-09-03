@@ -1,4 +1,4 @@
-description: Persistent dialectical inquiry and tutor lifecycle
+description: Legacy diagnostic persistent lifecycle; not semantic coverage
 
 providers:
   - id: openai:codex-sdk

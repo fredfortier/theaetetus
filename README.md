@@ -13,12 +13,12 @@ inquiry technique stops doing useful epistemic work.
 
 > Interrogate the oracle. Keep the model.
 
-This is an experimental method with a deliberately narrow evidence claim. Its existing
-[automated evaluation](evals/promptfoo/SPEC.md#current-evidence-and-open-obligations) shows that the inquiry and tutor skills
-preserve human ownership, evidence discipline, responsive coaching, and cross-case causal transfer
-on the repository's fixtures. The delivery skills have structural validation but not yet equivalent
-behavioral evidence. Nothing here shows that real teams learn faster, retain more, or ship better
-changes. That requires longitudinal human study.
+This is an experimental method with a deliberately narrow evidence claim. The checked-in
+[automated evaluation](evals/promptfoo/SPEC.md#current-evidence-and-open-obligations) is a diagnostic
+regression harness, not admitted behavioral evidence: its current cases and controls do not isolate
+which skill obligation caused a pass. The delivery skills likewise have structural validation but
+not admitted behavioral evidence. Nothing here shows that real teams learn faster, retain more, or
+ship better changes. That requires longitudinal human study.
 
 ## The problem
 
@@ -242,49 +242,50 @@ outcomes, persistent state, changed-case transfer, and human-only claims so one 
 cannot conceal a failed invariant.
 
 [The Promptfoo evaluation specification](evals/promptfoo/SPEC.md) is the sole authority for the
-scenario topology, six-domain rationale, optimal-target and oracle definitions, controls, pass law,
-historical 116/116 result, and the strict limits of that result. The
+scenario topology, optimal-target and oracle definitions, controls, pass law, and the strict limits
+of historical results. [EVALS.md](EVALS.md) records the current burden-of-proof audit and required
+redesign. The
 [findings log](evals/promptfoo/evidence/findings-log.md) retains failed scenarios, grader and harness
 defects, control repairs, and demonstrated skill defects.
 
 ## Reproduce the evaluation
 
-The full suite requires:
+The default static suite requires:
 
 - Node.js 22.22 or later and npm;
 - Python 3;
-- a Rust toolchain with Cargo;
-- Codex credentials available to `@openai/codex-sdk`;
-- enough model budget for repeated target and grader calls.
+- a Rust toolchain with Cargo.
 
-Install the pinned JavaScript dependencies and run the frozen suite:
+The optional live diagnostics additionally require Codex credentials available to
+`@openai/codex-sdk` and enough model budget for repeated target and grader calls.
+
+Install the pinned JavaScript dependencies and run the non-admission diagnostic suite:
 
 ```bash
 npm ci
 npm run eval:dialectic
 ```
 
-The [evaluation runner](evals/promptfoo/scripts/run-all.mjs) prepares disposable Git fixtures, runs
-all six executable projects, verifies the holdout and final-freeze checksums, validates every
-Promptfoo configuration, and runs all uncached target and grader comparisons. The provider
-configurations disable target network/search access and do not inherit the ambient process
-environment. Expect a material number of live model calls; this is not a lightweight unit test.
+The [evaluation runner](evals/promptfoo/scripts/run-all.mjs) runs structural projects, deterministic
+assertion probes, skill-purity checks, and Promptfoo configuration validation. It deliberately does
+not execute or aggregate the legacy live model families. Those families remain available only as
+diagnostics while their claim graph, single-defect controls, and oracle calibration are rebuilt.
 
 Smaller entry points are available for development:
 
 ```bash
-npm run eval:prepare
-npm run eval:calibrate
-npm run eval:unit
-npm run eval:holdout
-npm run eval:integration
-npm run eval:domain-integration
+npm run eval:diagnostic:prepare
+npm run eval:diagnostic:calibrate
+npm run eval:diagnostic:unit
+npm run eval:diagnostic:holdout
+npm run eval:diagnostic:integration
+npm run eval:diagnostic:domain-integration
 ```
 
-Do not tune against the sealed holdout. When a failure occurs, classify its owner first: runtime
-skill, sandbox/task, grader, provider/harness, or unresolved. Change only the owning artifact,
-replay the smallest calibrated case, and preserve failed attempts in the findings log. A green
-aggregate cannot compensate for a failed hard invariant.
+Diagnostic output must not be reported as admitted cases or skill-value evidence. When a failure
+occurs, classify its owner first: runtime skill, sandbox/task, grader, provider/harness, or
+unresolved. Change only the owning artifact and preserve failed attempts in the findings log. A
+green aggregate cannot compensate for an unidentified or uncontrolled claim.
 
 ## Repository map
 

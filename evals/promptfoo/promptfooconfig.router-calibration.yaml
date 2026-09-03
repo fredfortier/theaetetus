@@ -1,4 +1,4 @@
-description: Delivery-router semantic-grader calibration against single-defect controls
+description: Legacy diagnostic router calibration; predicate matrix remains incomplete
 
 providers:
   - id: echo

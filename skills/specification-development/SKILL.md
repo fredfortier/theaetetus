@@ -15,11 +15,20 @@ decisions the developer must own.
 2. Read the governing sources and relevant repository evidence before drafting claims. Apply
    `evidence-grounding` to their authority, observations, inferences, assumptions, contradictions,
    and unknowns.
-3. If repository instructions or affected scope identify accepted architecture decisions, use
+3. Detect every material stack facet the proposed obligations can constrain. For each facet,
+   identify exactly one applicable repo-local `*-development` doctrine owner and read its complete
+   `SKILL.md`, mandatory legislative leaves, and applicable cross-doctrine handoffs before drafting
+   stack obligations. Keep stack doctrine distinct from the work specification.
+4. If repository instructions or affected scope identify accepted architecture decisions, use
    `architecture-conformance` before proposing any semantic change to them.
-4. Recover repository-discoverable facts directly. If a consequential premise is human-held and
+5. Recover repository-discoverable facts directly. If a consequential premise is human-held and
    missing, offer `dialectical-inquiry` or stop with one precise question; do not supply it or enter
    a sustained inquiry without the user's request.
+
+Stop when applicable doctrine is missing, has competing owners, preserves an unresolved choice, or
+conflicts with the proposed specification. A work specification may rely on doctrine but cannot
+silently amend it or replace it with current code, tests, official documentation, or customary
+mechanics. Return the conflict to the doctrine owner or accountable human.
 
 ## Reconstruct the causal account
 
@@ -61,7 +70,8 @@ Include only content that constrains implementation or lowers review cost:
 - governing authority and responsible boundaries;
 - positive invariants and failure semantics;
 - obligations and explicit scope;
-- verification obligations and known evidence limits; and
+- verification obligations and known evidence limits;
+- applicable doctrine relied on, including any unresolved conflict or amendment boundary; and
 - unresolved premises that prevent admission.
 
 Do not turn tactical sequencing, progress state, source dumps, or implementation detail into

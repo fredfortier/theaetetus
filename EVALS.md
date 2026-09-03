@@ -4,6 +4,11 @@ Status: **revise**. This is an adversarial design audit, not a result ledger or 
 decision. It reviews the checked-in Promptfoo topology at 2026-09-03. A green row is not credited
 unless the row can defeat a plausible process-theater implementation of the same obligation.
 
+Cleanup disposition: legacy live families are retained only as explicitly named diagnostics; the
+default evaluation command no longer runs or aggregates them. Stale freeze artifacts and the
+premature router candidate seal are retired. Behavioral admission remains blocked until the repair
+order below is realized claim by claim.
+
 ## Disposition
 
 The suite contains 198 expanded executions: 13 dialectical oracle controls, 66 unit executions,

@@ -29,6 +29,7 @@ developer's authority, and return after the focused result. Do not run a lifecyc
 | The causal account is owned but governing obligations are missing, draft, contradicted, or need repair. | `specification-development` |
 | A long-running mandate and continuity workpad must be created or repaired. | `goal-formulation` |
 | Applicable accepted architecture decisions need classification before a change or history operation. | `architecture-conformance` |
+| Applicable stack doctrine is missing, competing, conflicting, or requires amendment. | Stop as `unresolved` and return the decision to its accountable local authority. |
 | An accepted governing specification fixes the intended meaning and repository mutation is authorized. | `specification-implementation` |
 | Implementation and verification evidence exist and the user wants read-only acceptance review. | `conformance-review` |
 | The requested operation is claim grounding or a material naming decision. | `evidence-grounding` or `naming-things`, according to the object requested. |

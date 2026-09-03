@@ -1,4 +1,4 @@
-description: Sealed dialectical-skills transfer holdout
+description: Legacy diagnostic changed-case set; sealed status does not establish transfer
 
 providers:
   - id: openai:codex-sdk

@@ -1,4 +1,4 @@
-description: Frozen semantic-grader calibration against single-defect controls
+description: Legacy diagnostic semantic-grader calibration; not admission evidence
 
 providers:
   - id: echo

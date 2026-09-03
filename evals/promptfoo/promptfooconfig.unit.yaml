@@ -1,4 +1,4 @@
-description: Dialectical skills working-set and matched-control evaluation
+description: Legacy diagnostic dialectical working set; controls are not causally identifying
 
 providers:
   - id: openai:codex-sdk

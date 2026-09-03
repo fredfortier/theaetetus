@@ -92,6 +92,7 @@ Evidence may reopen an earlier node. Human judgment remains between consequentia
 | Account is owned; obligations are absent, draft, contradicted, or need repair. | `specification-development` | Admitted specification or named revision. |
 | A persistent mandate and workpad need formulation. | `goal-formulation` | Aligned artifacts or editorial plan. |
 | Applicable architecture decisions need semantic classification. | `architecture-conformance` | Conforming, amendment, or uncertain result. |
+| Applicable stack doctrine is missing, competing, conflicting, or requires amendment. | Accountable local authority | `unresolved` plus the exact legislative decision and next discriminator. |
 | Accepted obligations exist and mutation is authorized. | `specification-implementation` | Authority traces, repository changes, evidence, and reopen state. |
 | Change and evidence need acceptance-bearing read-only judgment. | `conformance-review` | Findings, two-way traces, limits, and disposition. |
 | Claims or names are the requested decision object. | `evidence-grounding` or `naming-things` | Grounded claims or naming recommendation and transition. |
@@ -117,6 +118,7 @@ Evidence may reopen an earlier node. Human judgment remains between consequentia
 11. Surface reopen conditions when evidence defeats an earlier account or obligation.
 12. Record acceptance only from an explicit accountable human judgment.
 13. Route repository-specific integration outward.
+14. Stop at unresolved doctrine ownership or amendment; do not route mechanics as a substitute.
 
 ## Misroute recovery
 
@@ -129,6 +131,8 @@ Evidence may reopen an earlier node. Human judgment remains between consequentia
   requested skill.
 - If no route has sufficient prerequisites, return `unresolved` rather than choosing the nearest
   phase label.
+- If doctrine ownership or content is unresolved, return it to the accountable local owner rather
+  than treating specification development, implementation, or review as doctrine authorship.
 
 ## Invariants
 

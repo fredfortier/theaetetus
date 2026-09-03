@@ -2,8 +2,8 @@
 
 # Promptfoo Evaluation Specification
 
-Status: governing for maintenance of the present evaluation suite; comparative admission remains
-open under the audit in [SDLC.md](../../SDLC.md).
+Status: governing for maintenance of the present diagnostic harness; behavioral admission is
+blocked by the burden-of-proof audit in [EVALS.md](../../EVALS.md).
 
 ## Authority and boundary
 
@@ -279,11 +279,18 @@ package-wide behavioral claim.
 
 ## Current evidence and open obligations
 
+The 2026-09-03 burden-of-proof audit in [EVALS.md](../../EVALS.md) reviewed all 198 expanded
+executions. It found that no unit execution currently has the complete positive, identical-task
+single-defect control, exact-predicate oracle calibration, and comparison edge required for an
+admitted behavioral claim. Repeated rows are stability trials, not cases. Existing live families
+therefore remain diagnostics until rebuilt; their aggregate scores must not be used as acceptance,
+coverage, or skill-value evidence.
+
 The cache-disabled 2026-08-23 run reported 116/116 passing rows and 64/64 observed routing checks
 for the then-frozen dialectical contract. This is a bounded historical observation recorded in
 [the findings log](evidence/findings-log.md); it does not discharge the new comparative burden. The
-associated `final-freeze.sha256` is stale against five committed files changed by later topology
-work, so it is not a reproducible seal of the current dialectical surface.
+associated freeze and holdout checksum artifacts were retired because later topology changes and
+the missing causal controls made them non-reproducible evidence identities.
 
 Open obligations that can reverse an evaluation claim:
 
@@ -307,9 +314,8 @@ The next router discriminator remains an uncued, repository-evidence-dependent a
 precedence pair: one fixture contains an applicable accepted architecture decision and must route to
 `architecture-conformance`; the matched fixture lacks such a record and must not select that route.
 Its controls must distinguish record inspection from artifact-name, phase, and route-vocabulary
-cueing. At package level, the stale dialectical seal first requires isolated calibration and a clean
-current-surface candidate replay or explicit retirement; a checksum edit without that replay is
-inadmissible.
+cueing. A new evidence seal is inadmissible until the rebuilt claim graph, exact conditions, and
+calibrated single-defect controls have passed from a clean isolated fixture.
 
 ## Final handoff
 
