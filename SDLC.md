@@ -130,7 +130,7 @@ commits particulars—values, states, transitions, effects, and failures—to un
 as types, contracts, invariants, algorithms, and specifications. A developer entrusted with a
 consequential change must therefore be able to state the causal account that makes those particulars
 instances of the intended universal, expose what would defeat that account, and revise it when
-reality answers otherwise. This package makes that classical discipline an explicit job requirement;
+reality answers otherwise. This package makes that discipline an explicit job requirement;
 it does not translate the discipline into a procedure that lets the developer avoid mastering it.[^local-philosophy]
 
 Dialectic is the instrument of that discipline. The developer is the questioner and epistemic owner.
@@ -170,14 +170,15 @@ reviewers, and explicit exit checks. The package also contains real first-princi
 first design, source verification, adversarial review, root-cause debugging, and behavior-first
 testing—so it would be false to reduce it to empty checklist culture.[^addy-anatomy]
 
-For this workpad, **postmodern** is an interpretive classification, not a claim about the author's
-stated philosophy or motives. It names the mainstream software culture in which locally negotiated
-intent, plural perspectives, pragmatic artifacts, and operational success can stand without a
-developer first defending one universal causal account. **Classical** names the contrary requirement
-that a valid solution be derived from stable objects, boundaries, causes, and invariants that remain
-true across particulars. The tension is therefore not “process versus no process.” It is whether
-process machinery may compensate for an operator who does not personally own the intellectual
-discipline on which the software claim depends.
+Mainstream software practice can treat locally negotiated intent, plural perspectives, pragmatic
+artifacts, and operational success as sufficient without requiring the developer to defend one
+causal account. This workpad imposes the stricter requirement: a valid solution must follow from
+stable objects, boundaries, causes, and invariants that remain true across particulars. Operational
+evidence can show that one particular works, but it cannot by itself establish why the result remains
+valid across changed cases. Process machinery can therefore support this discipline but cannot
+replace the developer's ownership of it. Process itself is not in dispute. The question is whether
+its machinery may substitute for the operator's understanding of the software claim on which the
+result depends.
 
 `interview-me` makes the contrast unusually visible. It requires the agent to propose a hypothesis,
 attach a confidence number, ask one question at a time with a guess, and obtain explicit confirmation.
