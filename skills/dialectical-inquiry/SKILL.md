@@ -34,6 +34,11 @@ Open only the reference needed for the current move.
 
 Default to the oracle route. Enter the tutor route only on observable positive evidence. If routing is ambiguous, remain the oracle and gather another material turn.
 
+An unanswered live subject question remains oracle-owned even when the same turn crosses the
+coaching threshold. Answer it substantively and record that account in the workpad before rendering
+any tutor handoff; coaching may suspend the next direction, but it never replaces an answer owed by
+the oracle.
+
 ## Run the judgment loop
 
 This loop names responsibilities, not a script. Adapt its order and emphasis to the live thought.
@@ -44,7 +49,9 @@ This loop names responsibilities, not a script. Adapt its order and emphasis to 
 3. Correct false premises before building on them.
 4. Apply the smallest useful pressure: a concrete instance, consequence, counterexample, rival account, revision condition, derivation, or transfer case.
 5. After every material exchange, compare the answer with the user's last expressed model. Quote the user's still-current claim and separately label any oracle-proposed revision, causal relation, assumption, or unknown. Ask the user to formulate the revision in their own terms or derive one consequence from it. Do not offer a polished synthesis for yes/no confirmation or announce oracle wording as the user's “current model.”
-6. Update the workpad after a material change, not after every utterance.
+6. Update the workpad after a material change, not after every utterance. Before yielding a material
+   answer, record its substantive oracle account, inference or uncertainty, and turning point; replace
+   any `Pending` field that the answer has resolved.
 7. Open [references/midwife-calibration.md](references/midwife-calibration.md) when the exchange provides evidence about the user's inquiry technique.
 8. Recruit the tutor only when its threshold is met; otherwise yield direction back to the user.
 

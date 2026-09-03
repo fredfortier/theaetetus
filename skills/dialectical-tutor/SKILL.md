@@ -87,6 +87,9 @@ Recovered move: <what the user's retry now accomplishes>
 Human-authored retry—resume with: <the user's repaired question, verbatim or faithfully condensed>
 ```
 
+End the response after this handoff. Do not correct, substantiate, or answer the subject matter; the
+oracle owns that work after return.
+
 Update the existing inquiry workpad's calibration section when a path was supplied. Never create a second workpad.
 
 ## Preserve the coaching boundary
