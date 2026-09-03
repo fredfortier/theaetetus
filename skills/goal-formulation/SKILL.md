@@ -45,7 +45,11 @@ Include:
 - completion evidence required from each responsible boundary; and
 - final handoff.
 
-Link changing detail to the workpad instead of duplicating it in the prompt.
+Deep-link changing detail from the prompt to the workpad with a repository-relative path and stable
+Markdown heading fragment, for example `[next discriminator](SDLC.md#next-discriminator)`. Never
+link to a workpad by line number or host-specific absolute path. Add a unique, durable heading when
+the target lacks one, and update the prompt atomically if that heading must change. Do not duplicate
+the linked detail in the prompt.
 
 ## Author the workpad
 
