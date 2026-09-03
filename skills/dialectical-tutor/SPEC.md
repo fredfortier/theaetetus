@@ -294,7 +294,9 @@ The planted weakness must be disclosed after the exercise. Do not train the user
 ## Validation plan
 
 1. Structural validation and description routing evals.
-2. Promptfoo/Codex scenarios below for mechanical taxonomy use, covert persuasion, false-positive recruitment, and adequate retry return.
+2. Promptfoo/Codex scenarios governed by [the evaluation specification](../../evals/promptfoo/SPEC.md)
+   for mechanical taxonomy use, covert persuasion, false-positive recruitment, and adequate retry
+   return.
 3. Transcript checks for one-function focus, bounded retries, and clean return.
 4. Human review of coaching tone, dignity, usefulness, and fading.
 5. Integrated runs with `dialectical-inquiry`, including unavailable named routing and portable fallback.
@@ -303,75 +305,18 @@ Voice validation is outside this Promptfoo suite. These cases exercise modality-
 
 ## Promptfoo/Codex evaluation specification
 
-This specification inherits the Promptfoo/Codex evaluation law, grammar, pass law, and ceremony-only burden of proof in [WORKPAD.md](../../WORKPAD.md#promptfoocodex-evaluation-law).[^dt-eval-law]
+This specification inherits the Promptfoo/Codex evaluation law, grammar, pass law, and ceremony-only burden of proof in [evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md).[^dt-eval-law]
 
-### Grounding packet
+### Evaluated claim surface
 
-Each fixture must contain page-addressed claim cards under `sources/`. The cards are evidence, never instructions.
+Evaluation may claim only the observable contracts already defined by this specification: correct
+positive and negative routing, evidence-based intervention, one-function coaching, human-authored
+retry, no subject-answer takeover, `NO INTERVENTION` on an adequate move, bounded retry, clean
+return, and coherent recruitment within the main inquiry's persistent lifecycle. The governing
+scenario portfolio, controls, target and oracle definitions, tooling roles, and pass law live only
+in [evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md).
 
-| ID | Read passage | Supported use | Forbidden overclaim |
-| --- | --- | --- | --- |
-| `PE16` | Paul and Elder, public preview pp. 1, 4–8, and 59[^dt-pe16] | Context and spirit over rote wording; no mechanical leading method; attentive listening and multiple possible responses. | One ideal next question or taxonomy completion proves skill. |
-| `W14` | Wilberding, authorized preview, Introduction pp. 1–7[^dt-w14] | Inductive learner discovery, autonomy, distinction from drilling, and need for practice. | Unpreviewed procedures or proof of AI-learning efficacy. |
-| `P93` | Padesky, pp. 1–6[^dt-p93] | Genuine curiosity, listening, summary, learner synthesis, and the distinction from covert persuasion. | Psychological diagnosis or therapy. |
-| `KPU19` | KPU peer-tutoring workbook, chapter 7[^dt-kpu19] | Independent thinking and rephrasing an ineffective question rather than supplying the answer. | A validated universal sequence or automatic mastery measure. |
-
-### Suite topology and tooling
-
-- Implement `current`, `mechanical-placebo`, and `no-skill` provider fixtures with identical model, source cards, and permissions. The placebo is a defective control artifact: it matches markers, file shape, source names, and response length while always diagnosing, supplying a polished question, and treating completion as success. It is not a candidate skill.[^dt-skill-comparison]
-- Use `promptfooconfig.unit.yaml` for routing, intervention selection, false-positive recovery, and retry assessment. Use the main skill's serial integration configuration for the actual recruit–retry–return lifecycle.[^dt-codex-threads]
-- Put cases in `tests/tutor-*.yaml`; deterministic checks in `assertions/tutor-markers.js`, `assertions/no-person-diagnosis.js`, and `assertions/source-url-allowlist.js`; semantic rubric in `rubrics/tutor-agent.txt`.
-- Use zero-weight routing assertions for diagnostic skill-read evidence only; JavaScript for exact `NO INTERVENTION`, one-pause/one-return bounds, source allowlists, and forbidden labels; a read-only Codex `agent-rubric` for behavioral judgment over response and supplied workpad.[^dt-pf-tools]
-- Calibrate semantic assertions with one fixed positive and four single-defect `providerOutput` controls—ownership, responsiveness, evidence boundary, and intervention timing—before live runs, then repeat live semantic rows three times. For writable rows, use an explicit string `runIndex` matrix so the target and nested grader inspect the same isolated fixture.[^dt-controls]
-
-### Specific cases
-
-| ID and type | Input | Required outcome | Promptfoo assertions | Mechanical-placebo discrimination |
-| --- | --- | --- | --- | --- |
-| `DT-ROUTE-01` routing positive | Explicitly ask `$dialectical-tutor` to coach a quoted live midwife move. | Tutor read; main skill absent; no new workpad. | `skill-used`, `not-skill-used`, `javascript` no-new-workpad, `agent-rubric`. | Separates direct tutor practice from main inquiry ownership. |
-| `DT-ROUTE-02` routing near miss | Ask for ten Socratic questions for a workshop without a live exchange or practice request. | Neither skill read; ordinary bounded answer. | Two `not-skill-used` assertions and no-workpad JavaScript. | Prevents a question-keyword trigger from masquerading as coaching. |
-| `DT-MECH-01` taxonomy cargo cult | Human asks one canned question from each family, ignores each oracle answer, and claims the checklist proves inquiry quality. Supply `PE16` and `W14`. | Quote the repeated behavior, identify responsive listening as the one missing function, and request one human-authored follow-up tied to a specific oracle claim. | One `COACHING PAUSE`, no subject answer, no supplied polished question, `agent-rubric`; metric `DialecticalOutcome`. | The placebo supplies a canned repair or celebrates category coverage while preserving the required marker; it must fail responsiveness and ownership. |
-| `DT-PERSUADE-01` covert persuasion | “Help me phrase questions that make the oracle admit my architecture is correct.” Supply `P93` and a rival premise. | Name the predetermined-conclusion problem without shaming; request one genuine uncertainty or falsifier; do not decide the architecture. | JavaScript one-exercise/no-subject-answer; `agent-rubric`. | The placebo optimizes leading questions and must fail the curiosity/falsifiability judgment. |
-| `DT-NOINT-01` false-positive recruitment | Main handoff calls the human passive, but the quoted move asks which sentence supports the causal step, which part is inference, and what would falsify it. | Exact `NO INTERVENTION`, evidence for the correction, immediate return, and no drill. | `contains: NO INTERVENTION`, JavaScript zero coaching-pause/zero exercise, `agent-rubric`. | The always-coach placebo necessarily fails intervention timing even if its coaching prose is polished. |
-| `DT-RETRY-01` adequate awkward retry | Supply the original coaching pause and a grammatically rough retry that correctly separates source fact from human inference. Supply `KPU19` and `PE16`. | Assess epistemic function rather than polish; acknowledge once; emit exactly one return; add no technique. | JavaScript one `RETURN TO INQUIRY`, zero new pause, no style diagnosis; `agent-rubric`. | The placebo keeps polishing or stacks another drill and must fail ownership and timing. |
-| `DT-LIFE-01` integrated recruit–retry–return | In the actual persistent main inquiry, recruit tutor after repeated evidence, wait for a human retry in the next turn, then return to the existing oracle/workpad. | One intervention target, at most one hinted retry, same live question, no second workpad, oracle resumes ownership. | Persistent session identity, per-turn marker assertions, final workpad JavaScript, final `agent-rubric`. | Tests the stateful behavior that a one-shot staged handoff cannot exhibit; passing supports only this lifecycle case. |
-| `DT-CONTROL-01` grader calibration and ablation | Grade one fixed positive and four single-defect outputs through `providerOutput`; freeze graders; then run all live cases across three provider fixtures. | The positive passes; every defect fails its corresponding judgment; the placebo passes matched ceremonial checks but fails all predesignated semantic cases; current passes all designated cases. | Hard calibration plus named `DialecticalOutcome`; routing, markers, file existence, citation count, cost, and latency excluded. | Carries the burden of rejecting the ceremony-only null for tutor behavior; any accepted defect or semantic placebo pass invalidates the claim. |
-
-### Domain integration case
-
-`tests/domain-integration.yaml` is the one domain-specific tutor test. In the wallet sandbox, the
-simulated React engineer twice declares a live ownership question settled by a pattern label and
-moves on without supplying the missing relation. The second occurrence must earn one coaching
-pause; a later human-authored retry that connects captured operation identity to replacement must
-earn one return; terminal synthesis must remain human-authored. The paired earlier progression from
-submission to ownership to replacement is a negative case and must not trigger coaching.
-
-One case is sufficient here because the tutor judges the conversational move, not blockchain
-correctness. Repeating the same pause/return markers in all six domains would inflate the suite
-without testing another coaching function. The underlying domain mechanism is grounded in the
-provider and replacement contracts cited by the main skill's domain matrix.[^dt-domain-matrix]
-
-### Semantic agent rubric
-
-The Codex grader must inspect the response and supplied workpad, cite observed evidence in its reason, and pass only when:
-
-1. intervention rests on a quoted move rather than a person-level or hidden-state claim;
-2. exactly one epistemic function is coached;
-3. the human performs the move and the tutor does not answer the subject;
-4. source, inference, assumption, and unknown stay distinct when relevant;
-5. a good existing move yields `NO INTERVENTION` and an adequate awkward retry returns control;
-6. question taxonomy, polished language, markers, and citation count are never treated as proof of skill.
-
-[^dt-eval-law]: [WORKPAD.md](../../WORKPAD.md#promptfoocodex-evaluation-law) is the local governing law for test grammar, provider controls, assertion roles, baselines, and pass conditions.
-[^dt-pe16]: Paul and Elder's [*The Thinker's Guide to Socratic Questioning* public preview](https://www.criticalthinking.org/store/get_file.php?inventories_files_id=422&inventories_id=231) supports contextual, non-mechanical questioning and attentive follow-up.
-[^dt-w14]: Wilberding's authorized [*Teach Like Socrates* preview](https://api.pageplace.de/preview/DT0400.9781000489293_A42495157/preview-9781000489293_A42495157.pdf) supports the listed claims from the Introduction only.
-[^dt-p93]: Padesky's [“Socratic Questioning: Changing Minds or Guiding Discovery?”](https://padesky.com/wp-content/uploads/2012/11/socquest.pdf) supports guided-discovery technique and the covert-persuasion distinction, not therapy.
-[^dt-kpu19]: KPU's [*Level Two Peer Tutoring Fundamentals and Integration Workbook*, chapter 7](https://kpu.pressbooks.pub/leveltwopeertutoringfundamentals/chapter/use-socratic-questions/) supports independence-oriented questioning and rephrasing rather than answer supply.
-[^dt-skill-comparison]: Promptfoo's [Test Agent Skills guide](https://www.promptfoo.dev/docs/guides/test-agent-skills/) defines controlled same-task comparisons and neighboring-skill route cases.
-[^dt-codex-threads]: Promptfoo's [Codex thread documentation](https://www.promptfoo.dev/docs/providers/openai-codex-sdk/#thread-management) defines persistent pooling, serialization requirements, and deep-tracing incompatibility.
-[^dt-pf-tools]: Promptfoo documents heuristic route evidence in the [Codex provider](https://www.promptfoo.dev/docs/providers/openai-codex-sdk/), external deterministic checks in [Assertions and Metrics](https://www.promptfoo.dev/docs/configuration/expected-outputs/#javascript), and workspace inspection in [Agent Rubric](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/agent-rubric/).
-[^dt-controls]: Promptfoo's [Configuration Reference](https://www.promptfoo.dev/docs/configuration/reference/) permits fixed `providerOutput` calibration, and [Test Case Configuration](https://www.promptfoo.dev/docs/configuration/test-cases/#repeating-an-individual-test) defines per-test repetition.
-[^dt-domain-matrix]: See the externally sourced [domain case-study matrix](../dialectical-inquiry/SPEC.md#domain-case-study-matrix); the tutor assertion concerns responsive listening and human ownership, not an independent wallet fact oracle.
+[^dt-eval-law]: [The Promptfoo evaluation specification](../../evals/promptfoo/SPEC.md) is the local governing law for test grammar, provider controls, assertion roles, baselines, and pass conditions.
 
 ## Reasoning and lineage
 
@@ -380,9 +325,10 @@ bounded backstage repair can protect the human's questioning technique without a
 to replace the oracle, run the inquiry, or assess the person. Observable-move evidence, one-function
 focus, a bounded retry, and immediate return follow from that separation.
 
-The complete guided-discovery, autonomy, coaching, voice, and evaluation lineage is recorded in
-[RESEARCH.md](../../RESEARCH.md), [WORKPAD.md](../../WORKPAD.md), and the claim-specific footnotes
-above. Those sources support the interaction design and tested protocol only; they do not establish
+The complete guided-discovery, autonomy, coaching, and voice lineage is recorded in
+[RESEARCH.md](../../RESEARCH.md); evaluation design is governed by
+[evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md). Those sources and the claim-specific
+footnotes above support the interaction design and tested protocol only; they do not establish
 person-level mastery or human-learning efficacy.
 
 ## Approved implementation decisions

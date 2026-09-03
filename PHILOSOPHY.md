@@ -107,5 +107,6 @@ Those are human and longitudinal claims requiring different evidence.[^claim-bou
     distinguishes adaptive obligation routing from a mandatory lifecycle sequence.
 [^conformance]: [`SOFTWARE-DELIVERY-SOURCES.md`](SOFTWARE-DELIVERY-SOURCES.md#implementation-and-conformance)
     records the evidence for two-way correspondence and reopen-on-discovery behavior.
-[^claim-boundary]: [WORKPAD.md, “Success boundary”](WORKPAD.md#success-boundary) limits the current
-    claim to a first reviewable contribution and reserves human efficacy for future study.
+[^claim-boundary]: [The Promptfoo evaluation specification](evals/promptfoo/SPEC.md#authority-and-boundary)
+    limits current automated claims to the two dialectical skills and reserves human efficacy for
+    suitable human and longitudinal evidence.

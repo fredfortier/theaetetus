@@ -2,9 +2,126 @@
 
 # Workpad: Theaetetus Software-Delivery Method
 
-Status: the twelve-skill topology is implemented; this workpad now records the comparative audit
-that must defeat or justify its current boundaries. It is research and design evidence, not runtime
-authority. `PHILOSOPHY.md` and `SOFTWARE-DELIVERY-SPEC.md` govern the implemented package.
+Status: active. The twelve-skill topology is implemented but not yet admitted by the exhaustive
+comparative burden defined here. Earlier maps and verdicts below are provisional hypotheses, not
+completion evidence. This workpad is research and design evidence, not runtime authority;
+`PHILOSOPHY.md`, `SOFTWARE-DELIVERY-SPEC.md`, and explicit user decisions govern the package.
+
+## Audit mandate and authority
+
+The decision owner requires a meticulous, incremental, and reflexive audit of every local skill
+against its strongest comparators, followed by revision of the runtime skills, their governing
+specifications, and the Promptfoo evaluation system wherever the evidence defeats the current
+form. The audit may change wording, behavior, ownership boundaries, topology, scenarios, targets,
+or oracles. It may not infer product intent from a comparator, treat present code or green tests as
+authority, relax a valid discriminator to preserve current behavior, or claim human or business
+efficacy from agent traces.
+
+Governing authority, in order:
+
+1. the user's mandate for a line-complete comparative audit and explicit theorem;
+2. [PHILOSOPHY.md](PHILOSOPHY.md) for developer ownership, oracle discipline, reflexive delivery,
+   verification, conformance, and the evidence boundary;
+3. [SOFTWARE-DELIVERY-SPEC.md](SOFTWARE-DELIVERY-SPEC.md) for the accepted portable-kernel contract;
+4. each accepted [`skills/*/SPEC.md`](skills/) within its focused boundary;
+5. pinned comparator sources as defeaters and design evidence, never local authority; and
+6. implementation, tests, Promptfoo output, and repository history as bounded observations of the
+   present state.
+
+Authorized write surfaces for the continuing goal are `SDLC.md`, `skills/*/SKILL.md`,
+`skills/*/SPEC.md`, `SOFTWARE-DELIVERY-SPEC.md`, `SOFTWARE-DELIVERY-SOURCES.md`, and
+`evals/promptfoo/`, plus repository registration or validation files strictly required by an
+admitted topology change. Amendments to philosophy or owner-held intent must stop for the owner's
+decision rather than entering through skill or eval edits.
+
+## Business theorem and burden of proof
+
+**Theorem — accountable-delivery admissibility.** A portable skill behavior has business value in
+this package only insofar as it makes a developer-owned software claim more answerable to reality
+at the boundary responsible for that claim, without transferring authority to the oracle or adding
+ceremony that can pass in the absence of the claimed competence. Therefore a runtime clause,
+handoff, topology boundary, evaluation target, or oracle is admissible only when an owned premise
+requires its effect, the effect survives the strongest relevant comparator, and a bounded
+observation can distinguish the effect from its omission, weakening, duplication, or ceremonial
+imitation. This is inferred from the approved developer/oracle allocation, causal-specification
+model, verification law, bidirectional conformance requirement, and current evidence boundary; it
+does not assert measured productivity, safety, learning, or commercial return.[^local-philosophy][^delivery-spec][^claim-boundary]
+
+The theorem reverses the burden for the existing package. Neither current wording nor a prior green
+run receives a presumption of correctness. Every local addition must defeat the null that it is
+unnecessary ceremony or duplicated ownership. Every paraphrase or omission of a strong comparator
+must identify the incompatibility that made exact preservation invalid. Every retained comparator
+mechanic must derive from local authority rather than popularity. A skill is not admitted by an
+overall score: one unjustified consequential clause, uncovered comparator invariant, authority
+inversion, or invalid oracle keeps the affected boundary open.
+
+## Outcome model
+
+```text
+developer-owned theorem + pinned complete comparison surface
+    + line-complete adjudication + calibrated discriminating evaluations
+    + reflexive repair at the owning boundary
+    -> every distributed skill and handoff contains only causally necessary behavior,
+       every material comparator behavior is preserved or explicitly defeated,
+       and every claimed automated outcome is supported by an admissible scenario and oracle
+```
+
+Completion requires all twelve present skills and every admitted, removed, split, or merged
+successor to satisfy this relation. A census, prose summary, clause count, coverage percentage,
+passing average, or unreviewed model verdict cannot complete it.
+
+## Theorem invariants
+
+| Governed subject and owned premise | Valid-state property | Illegal negation | Enforcement boundary | Verification observation | Rules in / rules out |
+| --- | --- | --- | --- | --- | --- |
+| Runtime clause; skill text may constrain action only to serve an accepted delivery obligation. | Every consequential normative clause traces to an owned premise, a responsible boundary, and an observable effect. | A clause survives because it sounds prudent, matches a template, or already exists. | Skill SPEC admission and causal-readiness review. | Clause ledger reconstructs the premise-to-clause-to-observation chain and a reviewer can state a defeating case. | Rules in derived stops and handoffs; rules out free-floating recipes and taste. |
+| Comparator translation; the strongest inspected comparator is a defeater, not authority. | Every comparator proposition is preserved, delegated, narrowed, transformed, or rejected with exact evidence and rationale; no source line disappears silently. | A summary verdict or loose equivalence hides an unexamined line, semantic weakening, or unsupported omission. | Per-skill comparative ledger and source pin. | Two-way source-line coverage resolves every nonblank normative line and every local clause. | Rules in justified translation; rules out sampling, keyword comparison, and impressionistic review. |
+| Skill ownership; the portable kernel assigns one focused owner per operation. | Each admitted behavior has one primary owner and explicit handoffs preserve stronger specialist contracts. | Siblings duplicate, contradict, shadow, or orphan the behavior. | Topology and cross-skill conformance review. | Bidirectional behavior-to-owner and owner-to-behavior traces expose overlap and gaps. | Rules in delegation; rules out convenience duplication and silent gaps. |
+| Reflexive revision; evidence may defeat any present artifact below owner-held authority. | A demonstrated defect changes only its owning artifact, then reopens every dependent comparison and evaluation claim. | The target is patched around a failing test, the test is weakened to fit the target, or dependents remain falsely green. | Change diagnosis, governing SPEC, and regression boundary. | Before/after evidence identifies defect class, retained repair, affected dependents, and replay result. | Rules in bounded repair; rules out target leakage and metric gaming. |
+| Evaluation topology; automated evidence is bounded to exercised claims. | Every automated claim maps to a scenario, matched control, admissible oracle, and recorded limit capable of falsifying that claim. | A scenario rewards surface ceremony, an oracle restates target wording, or a score claims unexercised behavior. | `evals/promptfoo/SPEC.md` and frozen evaluation configuration. | Claim-to-scenario-to-control-to-oracle trace plus calibrated positive and single-defect negative outputs. | Rules in discriminating evidence; rules out decorative cases, weighted compensation, and efficacy overclaim. |
+| Human authority; developer ownership and acceptance are not agent-observable internal states. | Automated oracles judge only visible behavior and artifacts; accountable humans retain intent, admission, acceptance, and efficacy judgments. | A rubric certifies understanding, competence, readiness, or business outcome from a transcript or artifact. | Skill role contracts, rubric text, and result claims. | Semantic audit finds only observable predicates and bounded conclusions. | Rules in behavior-specific grading; rules out person-level or business certification. |
+
+Collapsed candidates: “review every line,” “run every test,” and “be meticulous” are execution
+requirements, not invariants; the line-complete translation, reflexive-revision, and evaluation-
+topology properties above state the valid outcome they must serve. “Match the comparator” also
+collapses into the stronger translation invariant because exact copying is invalid when it violates
+local authority, portability, or focused ownership.
+
+## Comparative audit surface and unit
+
+The audit unit is one local skill together with its SPEC, callers, callees, registration metadata,
+relevant tests, and evaluation claims—not `SKILL.md` in isolation. For that unit, inspect in full:
+
+- the current local files and decision-bearing history;
+- every local sibling whose trigger, exclusion, operation, handoff, or vocabulary can overlap;
+- the pinned Addy counterpart and all directly governing references, cases, and router behavior;
+- the pinned DerivaDEX source counterparts and existing clause migration record;
+- any other comparator claimed as evidence for a behavior; and
+- the Promptfoo rows, prompts, fixtures, assertions, rubrics, controls, results, and findings that
+  purport to exercise the unit.
+
+“Line by line” is literal and semantic. Record stable source identity and line ranges; classify
+frontmatter, each nonblank normative line, example, table row, exception, stop, handoff, and
+verification claim. Because Markdown wrapping can split or join one proposition, also assign a
+stable proposition identifier. The ledger must work in both directions: every comparator line maps
+to a disposition and every local line maps back to authority and evidence. `Same`, `stronger`,
+`weaker`, `different`, and `missing` are observations, not dispositions. The allowed dispositions
+are preserve, delegate, narrow, transform, reject, add, remove, split, or merge, each with its owned
+premise, invariant effect, strongest objection, decision, and discriminating observation.
+
+The current loose map and individual-quality table below are retained as hypothesis-generating
+orientation. They are not a substitute for these ledgers and confer no admission status.
+
+## Reflexive audit transition
+
+At each increment, compare the theorem, the complete current unit, its strongest comparators, and
+the newest evidence; select the mismatch with the greatest authority or downstream consequence.
+Reconstruct both local and comparator arguments generously before criticism. Then either preserve
+the unit with a defeated alternative or revise the owning SPEC, runtime surface, topology, or eval.
+After a revision, repeat the two-way line mapping and replay the smallest discriminating case plus
+every routing, handoff, or semantic regression whose claim depends on the changed behavior. A new
+boundary or owner-held premise reopens specification or human judgment. Update this workpad only
+when the outcome model, evidence, open premise, or next discriminator changes.
 
 ## The Theaetetus premise
 
@@ -111,7 +228,7 @@ artifacts. A lexical scan is necessary but insufficient; every admitted skill mu
 unrelated repositories. Likewise, no skill may acquire a `dialectical-` prefix unless conducting or
 coaching dialectic is its primary runtime operation.[^delivery-spec]
 
-## Loose equivalence map
+## Provisional loose equivalence map
 
 “Equivalent” means nearest responsibility, not identical philosophy or full behavioral coverage.
 `Partial` and `none` are findings, not invitations to pretend that a generic lifecycle skill covers
@@ -145,7 +262,7 @@ a specialist operation. Every Addy source below is pinned to the inspected commi
 | [`test-driven-development`](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/skills/test-driven-development/SKILL.md) | Test-driven route embedded in `specification-implementation` | Strong behavior, weak boundary | The red/green invariant survives, but embedding a mature focused workflow burdens the implementation skill and weakens independent routing. |
 | [`using-agent-skills`](https://github.com/addyosmani/agent-skills/blob/d2c37ef6225dd8726cdd369a8030307f48592d26/skills/using-agent-skills/SKILL.md) | `software-delivery` | Strong counterpart | Both route; local routing selects an unsatisfied epistemic obligation rather than advancing a lifecycle phase. |
 
-## Individual quality audit
+## Provisional individual quality audit
 
 The verdicts below judge runtime form and substantive survival separately. `Admit` means the package
 has exposed a real missing capability; it does not authorize implementation without a focused SPEC.
@@ -232,10 +349,11 @@ stack doctrine remain quarantined outside `skills/`.[^source-census]
   dialectical tutor coaches observable inquiry moves without turning professional mastery into an
   automated person-level grade.
 
-## Revised topology judgment
+## Provisional topology hypothesis
 
-The twelve implemented skills remain coherent, but the comparison defeats the claim that the
-topology is complete. Three gaps are now strong enough to carry the burden for a future SPEC:
+The earlier comparison suggests that the twelve implemented skills may be coherent, but it defeats
+the claim that the topology is complete and does not yet meet the line-complete burden above. Three
+gaps are strong hypotheses for focused adjudication, not authorized topology changes:
 
 1. Extract `test-driven-development` from `specification-implementation`; the caller should route to
    it for behavioral red/green work and retain other verification mechanisms itself.
@@ -250,22 +368,65 @@ defeater even without a portable local-source counterpart and deserves its own s
 study. The remaining candidates require more evidence that a portable contract would outperform a
 specialist route.
 
-## Evaluation obligations created by this audit
+## Promptfoo specification and causal-readiness obligation
 
-The next iteration must test substance rather than vocabulary:
+Create and maintain `evals/promptfoo/SPEC.md` as the governing causal argument for the evaluation
+system. The current configs, scenarios, assertions, rubrics, controls, and results are
+implementation evidence until that specification admits them. The SPEC must earn `ready for human
+judgment` under `causal-readiness-review`; fluent documentation or post-hoc description is
+insufficient. It must state and defend:
 
-1. Run Addy and Theaetetus counterparts on matched tasks and compare admitted intent, authority,
-   stops, mutations, evidence, and human decisions.
-2. Give `interview-me` and `dialectical-inquiry` the same solution-first request. Test whether the
-   developer can reconstruct, challenge, and transfer the resulting account—not merely confirm it.
-3. Construct a procedural placebo with the same workpad, phases, and checklists but no independent
-   reconstruction, defeater, or reopen behavior.
-4. For every paraphrased upstream behavior, add a discriminator that would fail if the local wording
-   weakened the source invariant.
-5. Test each admission candidate in two unrelated repositories before placing source-specific
-   language or mechanics under `skills/`.
-6. Do not claim safer delivery, faster learning, or developer mastery from trigger or agent-trace
-   evaluations. Those remain longitudinal human-study questions.[^claim-boundary]
+- the exact problem with the prior evaluation surface and the bounded automated claims proposed;
+- why the scenario portfolio has its particular skill, boundary, domain, state, failure, near-miss,
+  control, and holdout topology, grounded in the actual runtime skills and their comparator-derived
+  invariants;
+- a complete claim-to-scenario-to-fixture-to-control-to-oracle-to-result graph, including explicit
+  identification of unmeasured skill behavior and unjustified duplicate cases;
+- why each assertion or rubric observes the responsible boundary rather than an adjacent proxy;
+- matched current, strongest-comparator, mechanical-placebo, sibling/near-miss, and no-skill
+  conditions wherever each can discriminate the causal claim, with model, permissions, task,
+  evidence packet, and harness held constant;
+- positive, omission, weakening, authority-inversion, duplication, and ceremony-only controls for
+  every consequential semantic oracle, calibrated before live target results count;
+- freeze, holdout, repeat, variance, failure-classification, leakage, and change-control rules; and
+- the narrow conclusion licensed by each result and the human or longitudinal claims it cannot
+  establish.
+
+The detailed and governing invariant definitions of `OptimalTarget`, `AdmissibleOracle`, and
+`ScenarioTopology` live only in
+[the Promptfoo evaluation specification](evals/promptfoo/SPEC.md#invariant-target-and-oracle-definitions).
+This workpad uses them as discriminators but does not restate or amend them.
+
+The initial eval hypotheses remain useful but unadmitted: match Addy and Theaetetus counterparts on
+intent, authority, stops, mutations, evidence, and human decisions; compare `interview-me` with
+`dialectical-inquiry` on the same solution-first request; retain a ceremony-matched placebo; require
+a discriminator for every transformed comparator behavior; and test portable candidates in
+unrelated repositories. The audit must change or delete any scenario whose measured predicate does
+not follow from an actual skill invariant, and add scenarios only for a material uncovered claim.
+
+## Completion evidence and final handoff
+
+Completion is a boundary-owned evidence relation:
+
+- **Each skill:** its complete two-way proposition ledger resolves every local and comparator line;
+  its SPEC reconstructs the problem, authority, invariants, ownership, stops, and derivation; its
+  runtime file contains the admitted minimum; and calibrated cases exercise every claimed material
+  behavior or explicitly record it as unautomated.
+- **Topology:** every operation and handoff has one accountable owner; cross-skill trigger and
+  exclusion cases expose gaps, overlap, recursion, and authority inversion; any split, merge,
+  addition, or removal is reflected consistently in the governing delivery specification,
+  registration surface, callers, and validation.
+- **Evaluation system:** `evals/promptfoo/SPEC.md` earns `ready for human judgment`; every retained
+  scenario and oracle traces to an actual admitted invariant; controls establish sensitivity and
+  specificity; frozen working, comparator, placebo, near-miss, no-skill, and holdout observations
+  support only their declared claims.
+- **Repository state:** structural, reference, runtime-purity, Markdown, whitespace, and affected
+  behavioral checks pass, with exact commands and bounded observations retained. Passing checks do
+  not cover unexercised claims.
+- **Human judgment:** the final handoff reports the theorem, admitted topology, material comparator
+  dispositions, skill and eval changes, unresolved premises, defects that survived, evidence limits,
+  and the explicit owner decisions still required. The oracle reports `ready for human judgment`,
+  never self-acceptance.
 
 ## Implementation and migration state
 
@@ -276,24 +437,51 @@ preparation, Markdown checks apart from the repository's accepted line-length ex
 whitespace checks passed on the implemented topology. These checks establish only their exercised
 contracts; they do not discharge the comparative behavioral work above.
 
+[The Promptfoo evaluation specification](evals/promptfoo/SPEC.md) now owns the evaluation thesis,
+actual-skill grounding, scenario topology, invariant target and oracle definitions, controls, pass
+law, change control, and inference limits. Its causal-readiness disposition is `conditional`: the
+two-skill evaluation thesis follows from owned premises and the present family and domain topology
+has an explicit causal defense, but package-wide readiness remains defeated until the line audit
+supplies strongest-comparator conditions, the complete claim graph, expanded single-defect controls,
+and behavioral coverage or an explicit exclusion for every delivery skill.
+
 No source-repository retirement is authorized by this audit. Retirement still requires
 equivalent-or-better clause coverage, installed replacement, route cutover, matched shadow evidence,
 and atomic removal without compatibility aliases.[^retirement-law]
 
+## Open premises
+
+- Whether the accepted philosophy and delivery specification are themselves defeated by the full
+  comparison is owner-held if the repair would change developer authority or the evidence boundary;
+  the audit may expose but not silently resolve that conflict.
+- Whether each skill's existing SPEC can hold the required line ledger without obscuring its
+  governing argument remains unresolved. The discriminator is one complete router audit recorded in
+  the existing lineage surfaces; if review cost becomes materially worse, propose a dedicated
+  lineage convention for owner approval rather than scattering ad hoc files.
+- The strongest comparator set may extend beyond the two currently pinned repositories. Admit an
+  additional comparator only when a concrete behavior or empirical claim makes it capable of
+  defeating a live decision; do not expand research decoratively.
+- The current Promptfoo suite was designed chiefly for the dialectical skills.[^current-evals]
+  Whether it can remain one coherent topology for all delivery skills, or needs explicitly
+  separated protocol, routing, artifact, and repository-behavior families, must be derived in
+  `evals/promptfoo/SPEC.md`.
+
 ## Next discriminator
 
-Write the focused SPEC for `test-driven-development` first. Map every behavior in the current
-embedded route, the compact local-source workflow, and Addy's mature workflow; preserve the strongest
-common invariant; explicitly reject only stack-specific or ownership-inverting mechanics; then run a
-matched bug fixture against the embedded and extracted routes. If extraction does not improve direct
-routing or preserve behavior exactly, the proposed topology change is defeated.
+Audit `software-delivery` first because its routing contract selects every other skill and can hide
+both topology gaps and duplicated ownership. Read its SKILL, SPEC, callers, all sibling descriptions,
+the pinned `using-agent-skills` runtime and router references, the relevant DerivaDEX routing source,
+and every present routing test line by line. Produce the two-way proposition ledger; reconstruct both
+arguments; submit its invariants to causal-readiness and invariant review; then revise only the
+demonstrated owner and its discriminating routing cases. If this increment cannot trace every local
+and comparator proposition or cannot calibrate a near-miss oracle independently of current wording,
+the audit method itself is not ready to advance to the next skill.
 
 ## Evidence notes
 
 [^local-philosophy]: [PHILOSOPHY.md](PHILOSOPHY.md) is the approved local statement of developer
-    ownership, oracle discipline, causal specification, reflexive delivery, verification, and
-    bidirectional conformance. [WORKPAD.md, “Governing thesis”](WORKPAD.md#governing-thesis) limits
-    the project's demonstrated claim to a first reviewable contribution.
+    ownership, oracle discipline, causal specification, reflexive delivery, verification,
+    bidirectional conformance, and the human-efficacy claim limit.
 [^inquiry-contract]: [`dialectical-inquiry/SPEC.md`](skills/dialectical-inquiry/SPEC.md) and
     [`dialectical-tutor/SPEC.md`](skills/dialectical-tutor/SPEC.md) define direct inquiry, human
     authorship, aporia, transfer, and the prohibition on person-level certification.
@@ -332,6 +520,9 @@ routing or preserve behavior exactly, the proposed topology change is defeated.
 [^claim-boundary]: [PHILOSOPHY.md, “Evidence boundary”](PHILOSOPHY.md#evidence-boundary) explicitly
     withholds human learning, productivity, retention, and delivery-efficacy claims pending suitable
     evidence.
+[^current-evals]: [The Promptfoo evaluation specification](evals/promptfoo/SPEC.md) governs the
+    present dialectical-inquiry and tutor scenario families, controls, pass law, and evidence
+    limits; the configuration files are implementation evidence under [`evals/promptfoo/`](evals/promptfoo/).
 [^retirement-law]: The pinned source
     [skill charter](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/CHARTER.md#L148-180)
     requires equivalent-or-better replacement coverage and verified cutover; its

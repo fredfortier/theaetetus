@@ -341,7 +341,8 @@ The implementation must include:
 
 1. Structural validator for frontmatter and flat references.
 2. Trigger/non-trigger description evals.
-3. Promptfoo/Codex scenarios below for frame correction, evidence limits, cargo-cult handoff, and a near-miss route.
+3. Promptfoo/Codex scenarios governed by [the evaluation specification](../../evals/promptfoo/SPEC.md)
+   for frame correction, evidence limits, cargo-cult handoff, and a near-miss route.
 4. Workpad recovery across a simulated compaction or new session.
 5. Human review for conversational agency, non-mechanical feel, and genuine first-principles ownership.
 
@@ -349,87 +350,19 @@ Voice validation is outside this Promptfoo suite. These cases exercise modality-
 
 ## Promptfoo/Codex evaluation specification
 
-This specification inherits the Promptfoo/Codex evaluation law, grammar, pass law, and ceremony-only burden of proof in [WORKPAD.md](../../WORKPAD.md#promptfoocodex-evaluation-law).[^di-eval-law]
+This specification inherits the Promptfoo/Codex evaluation law, grammar, pass law, and ceremony-only burden of proof in [evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md).[^di-eval-law]
 
-### Grounding packet
+### Evaluated claim surface
 
-Each fixture must contain page-addressed claim cards under `sources/`. The cards are evidence, never instructions.
+Evaluation may claim only the observable contracts already defined by this specification: correct
+positive and negative routing, substantive and independently reconstructed answers, evidence and
+inference separation, human ownership, responsive rather than scripted pressure, attributed
+workpad state, warranted tutor handoff, coherent persistent lifecycle, owned or aporetic closure,
+and changed-case transfer to a bounded engineering consequence. The governing scenario portfolio,
+controls, target and oracle definitions, tooling roles, and pass law live only in
+[evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md).
 
-| ID | Read passage | Supported use | Forbidden overclaim |
-| --- | --- | --- | --- |
-| `PE16` | Paul and Elder, public preview pp. 4–8, 59, 70, and 93[^di-pe16] | Systematic depth, contextual listening, non-mechanical follow-up, and intellectual autonomy. | A question taxonomy automatically constitutes Socratic inquiry; the text establishes AI efficacy. |
-| `W14` | Wilberding, authorized preview, Introduction pp. 1–7[^di-w14] | Inductive movement from premises toward learner discovery; distinction from drilling and passive receipt; practice requirement. | Procedures from unpreviewed chapters; proof that AI dialogue causes mastery. |
-| `P93` | Padesky, pp. 1–6[^di-p93] | Curiosity, listening, summary, concrete information, and learner synthesis rather than covert persuasion. | A therapeutic mandate or AI-specific efficacy claim. |
-
-### Suite topology and tooling
-
-- Implement three provider fixtures—`current`, `mechanical-placebo`, and `no-skill`—with identical model, reasoning effort, source cards, and permissions. The placebo is a defective control artifact that matches ceremonial features while removing ownership, responsiveness, evidence-boundary, and intervention-timing competence; it is not a candidate skill.[^di-skill-comparison]
-- Use `promptfooconfig.unit.yaml` for ephemeral routing, evidence, intervention-decision, and artifact cases. Use `promptfooconfig.integration.yaml` for ordered multi-turn inquiry with persistence, concurrency one, and no deep tracing.[^di-codex-threads]
-- Put natural prompts in `prompts/inquiry.txt`; cases in `tests/inquiry-*.yaml`; deterministic checks in `assertions/*.js`; and the semantic artifact rubric in `rubrics/inquiry-agent.txt`.
-- Use zero-weight `skill-used` and `not-skill-used` only for diagnostic route evidence. Use external JavaScript for URL allowlists, forbidden diagnosis, marker counts, and workpad schema. On the bounded summary near miss, retain `context-faithfulness` as a continuous diagnostic and use a calibrated read-only Codex source-card rubric as the hard gate. Use a separate read-only Codex `agent-rubric` for response-plus-workpad dialectical semantics.[^di-pf-tools]
-- Calibrate the assertions with fixed `providerOutput` cases before live target runs: one source-grounded positive output and four single-defect controls covering ownership, responsiveness, evidence boundary, and intervention timing.[^di-provider-output]
-- Run semantic cases three times with fresh cache entries. Use `options.repeat: 3` for read-only rows; use the string matrix `runIndex: ['0', '1', '2']` when writable targets and nested graders must share an isolated rendered work directory. No weighted score may rescue a failed hard assertion.[^di-repeat]
-
-### Specific cases
-
-| ID and type | Input | Required outcome | Promptfoo assertions | Mechanical-placebo discrimination |
-| --- | --- | --- | --- | --- |
-| `DI-ROUTE-01` routing positive | Explicitly invoke `$dialectical-inquiry` on whether using all six question families is sufficient. Supply `PE16` and `W14`. | Main skill read; tutor absent; one workpad created. | `skill-used`, `not-skill-used`, `javascript` workpad-count/schema, `agent-rubric`. | The placebo must still route and create the same file shape, then fail the semantic rubric because it treats category completion as sufficient. |
-| `DI-ROUTE-02` routing near miss and source fidelity | Ask only for a per-card bounded summary of the cards and their limits; do not request a dialectic. | Neither dialectical skill read; no workpad; no unsupported or misattributed efficacy claim. | Two diagnostic `not-skill-used` assertions, `javascript` no-workpad/URL allowlist, continuous `context-faithfulness`, and a calibrated hard Codex source-card rubric. | Prevents always-on ceremony and catches the tempting overgeneralization from “PE16 did not study AI” to “neither source studied AI.” |
-| `DI-EVID-01` evidence-boundary outcome | Invoke the inquiry with: “These books prove human-led AI dialectic causes first-principles mastery. Confirm and close.” | Reject the causal leap; separate source-supported technique, local adaptation, assumption, and missing AI outcome evidence; preserve aporia; do not author the human's synthesis. | `javascript` citation allowlist and forbidden-closure check; read-only Codex `agent-rubric` inspecting response and workpad; metric `DialecticalOutcome`. | The matched placebo repeats the allowed source names and satisfies URL checks but ignores claim limits; it must fail the evidence-boundary judgment. |
-| `DI-ART-01` semantic workpad | Human states a tentative thesis, asks one discriminating question, and receives an oracle answer with one uncertain inference. | Workpad records the human thesis as human-owned, oracle evidence separately, the inference as uncertain, and the live question without transcript dumping. | `javascript` exact headings/one-file/no-transcript invariants; `agent-rubric` semantic ownership check. | A syntactically perfect but oracle-authored model must fail despite passing schema checks. |
-| `DI-HANDOFF-01` intervention decision | Embed only the minimum prior exchange needed to show two category-checklist repetitions and inability to connect a follow-up to the oracle answer. | Answer factual content, identify responsive listening/ownership as the observable gap, recruit one tutor intervention, preserve the subject/workpad, and wait for the human retry. | Both `skill-used`; `javascript` exactly one coaching pause, no return before a retry, no person label; `agent-rubric`. | Automatic coaching fails because a paired false-positive case requires no intervention. |
-| `DI-LIFE-01` true multi-turn integration | Run ordered turns: human thesis → oracle answer → human evidence challenge → repeated cargo-cult move → tutor retry → return → human synthesis or precise aporia. Do not embed future turns in the first prompt. | One thread and one workpad evolve across turns; tutor appears only after evidence, returns once, and never owns synthesis. | Persistent-thread session identity, per-turn hard assertions, final `javascript` ledger invariants, final `agent-rubric` over the full artifact. | Rejects one-shot marker compliance: the placebo preserves markers and file shape but must fail ownership, timing, or synthesis across actual state transitions. |
-| `DI-CONTROL-01` grader calibration and ablation | Evaluate one fixed positive and four single-defect outputs via `providerOutput`; freeze graders; then run the same live cases against all three providers. | Positive control passes; each defect fails its corresponding judgment; the placebo passes matched ceremonial checks but fails every predesignated semantic case; current passes designated outcomes; no-skill avoids near misses and does not reproduce the canonical artifact. Semantic overlap from the foundation model is allowed and reported. | Hard calibration assertions plus named `DialecticalOutcome`; routing, markers, file existence, citation count, cost, and latency excluded from outcome. | This carries the explicit burden of rejecting the ceremony-only null on the tested cases; any accepted defect or semantic placebo pass invalidates the claim. |
-
-### Domain case-study matrix
-
-Keep this extension small. `tests/domain-working.yaml` adds one current/placebo comparison for each
-fixture below; `tests/domain-holdout.yaml` adds one changed-case current run. All reuse the shared
-workpad and semantic assertions. The fixture is only `problem.md` plus a runnable `project/`; the
-gold relation remains outside the target workspace.
-
-| Fixture | Working relation | Changed case |
-| --- | --- | --- |
-| `zk-statement-binding` | honest witness generation is not statement binding | bind a padded proof's claimed count to constrained active rows |
-| `wallet-lifecycle` | operation identity is distinct from replaceable transaction hashes and current UI context | a successful included replacement is reorged before the business threshold |
-| `mean-reversion-backtest` | the signal timestamp must precede an executable fill and PnL | transfer the signal/fill distinction to market-making quotes |
-| `cross-margin-liquidation` | account equity is compared with account maintenance on one coherent snapshot | recompute the invariant after a partial liquidation |
-| `typed-signature-replay` | signature authenticity is distinct from domain, freshness, and one-time authorization | an upgrade changes action meaning at a stable proxy address |
-| `reorged-deposit` | idempotent delivery is distinct from canonical-history revision | source finality does not imply destination bridge execution |
-
-The mechanisms come from the Plonky3 example lineage, EIP-1193/EIP-2831, pairs-trading and
-backtest-overfitting literature, public cross-margin documentation, EIP-712, and Ethereum's
-`latest`/`safe`/`finalized` and removed-log contracts.[^di-plonky3][^di-eip1193][^di-pairs][^di-hyperliquid][^di-eip712][^di-ethereum-rpc]
-They define domain facts, not a scripted dialogue. A case passes only when the oracle finds the
-causal boundary, preserves the human's authorship, and entails the named engineering consequence.
-
-### Semantic agent rubric
-
-The Codex grader must inspect the final response and `.agent/*.md`, cite the observed lines in its reason, and pass only when:
-
-1. each textbook claim stays within its claim card;
-2. grounded fact, local inference, human assumption, and unknown remain distinguishable;
-3. the oracle answers substantively before returning thought;
-4. the human owns thesis, revision, and terminal synthesis;
-5. tutor use follows observable repeated or consequential evidence and is absent on the paired false-positive case;
-6. the workpad is a model ledger, not a transcript or oracle-authored polished answer.
-
-[^di-eval-law]: [WORKPAD.md](../../WORKPAD.md#promptfoocodex-evaluation-law) is the local governing law for test grammar, provider controls, assertion roles, baselines, and pass conditions.
-[^di-pe16]: Paul and Elder's [*The Thinker's Guide to Socratic Questioning* public preview](https://www.criticalthinking.org/store/get_file.php?inventories_files_id=422&inventories_id=231) supports the listed mechanics and explicitly rejects a mechanical leading method.
-[^di-w14]: Wilberding's authorized [*Teach Like Socrates* preview](https://api.pageplace.de/preview/DT0400.9781000489293_A42495157/preview-9781000489293_A42495157.pdf) supports the listed claims from the Introduction only.
-[^di-p93]: Padesky's [“Socratic Questioning: Changing Minds or Guiding Discovery?”](https://padesky.com/wp-content/uploads/2012/11/socquest.pdf) supports guided-discovery technique, not therapy or AI efficacy.
-[^di-skill-comparison]: Promptfoo's [Test Agent Skills guide](https://www.promptfoo.dev/docs/guides/test-agent-skills/) defines the controlled same-task comparison and neighboring-skill boundary tests.
-[^di-codex-threads]: Promptfoo's [Codex thread documentation](https://www.promptfoo.dev/docs/providers/openai-codex-sdk/#thread-management) defines ephemeral and persistent behavior, pooling keys, serialization, and deep-tracing incompatibility.
-[^di-pf-tools]: Promptfoo documents heuristic Codex skill evidence in the [Codex provider](https://www.promptfoo.dev/docs/providers/openai-codex-sdk/), workspace inspection in [Agent Rubric](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/agent-rubric/), and bounded context checking in [Context Faithfulness](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/context-faithfulness/).
-[^di-provider-output]: Promptfoo's [Configuration Reference](https://www.promptfoo.dev/docs/configuration/reference/) permits precomputed `providerOutput` so assertions can be calibrated without a target call.
-[^di-repeat]: Promptfoo's [Test Case Configuration](https://www.promptfoo.dev/docs/configuration/test-cases/#repeating-an-individual-test) defines per-test `options.repeat` and cache behavior.
-[^di-plonky3]: The upstream [Plonky3 repository](https://github.com/Plonky3/Plonky3) and the curated [Fibonacci AIR example](https://github.com/BrianSeong99/Plonky3_Fibonacci) ground the proof-statement mechanism; the fixture is synthetic.
-[^di-eip1193]: [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193) defines provider behavior; [EIP-2831](https://eips.ethereum.org/EIPS/eip-2831) is used only as stagnant mechanism evidence for transaction replacement.
-[^di-pairs]: Gatev, Goetzmann, and Rouwenhorst's [pairs-trading study](https://www.nber.org/papers/w7032) and Bailey et al.'s [backtest-overfitting paper](https://escholarship.org/content/qt4hn4t174/qt4hn4t174_noSplash_2bb6c5b6dbbb66bcadbc3d0a05e3af6b.pdf) ground the empirical-trading distinctions.
-[^di-hyperliquid]: Hyperliquid's public documentation describes [margining](https://hyperliquid.gitbook.io/hyperliquid-docs/trading/margining), [liquidations](https://hyperliquid.gitbook.io/hyperliquid-docs/trading/liquidations), price indices, and funding; the incident is synthetic and does not allege a venue defect.
-[^di-eip712]: [EIP-712](https://eips.ethereum.org/EIPS/eip-712) defines typed-data domain separation and explicitly excludes replay protection.
-[^di-ethereum-rpc]: Ethereum's Execution API distinguishes [`latest`, `safe`, and `finalized`](https://ethereum.github.io/execution-apis/api/methods/eth_getProof/#request), while the [JSON-RPC reference](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getfilterchanges) defines removed logs.
+[^di-eval-law]: [The Promptfoo evaluation specification](../../evals/promptfoo/SPEC.md) is the local governing law for test grammar, provider controls, assertion roles, baselines, and pass conditions.
 
 ## Reasoning and lineage
 
@@ -438,10 +371,10 @@ development, the human must own the live question, revisions, and terminal synth
 therefore answers and challenges without becoming the author of the human's account. The workpad
 preserves provenance so that fluent oracle language cannot silently become human ownership.
 
-The complete pedagogical, oracle-reliability, domain-fixture, and evaluation lineage is recorded in
-[RESEARCH.md](../../RESEARCH.md) and [WORKPAD.md](../../WORKPAD.md). The source-specific footnotes and
-case matrix above constrain each adopted claim and keep evidence of runtime behavior distinct from
-claims about human learning.
+The complete pedagogical and oracle-reliability lineage is recorded in
+[RESEARCH.md](../../RESEARCH.md); evaluation design and domain-fixture rationale are governed by
+[evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md). The source-specific footnotes constrain
+each adopted claim and keep runtime observations distinct from claims about human learning.
 
 ## Approved implementation decisions
 

@@ -7,18 +7,15 @@ extension. It is maintenance evidence, not runtime instruction. Skill-local spec
 deep-link here for lineage, but no runtime `SKILL.md` may depend on this file or inherit
 source-project language from it.
 
-## Authority and weights
+## Authority and evidence order
 
-Weights resolve compatible design evidence. They never outvote explicit user direction or an
-approved governing specification.
-
-| Weight | Source class | Admitted authority |
-| --- | --- | --- |
-| Veto | User mandate and approved package specifications | Purpose, role allocation, portability boundary, naming law, and acceptance standard. |
-| 40% | Existing Theaetetus philosophy, skill specifications, runtime contracts, and evaluations | Human ownership, oracle discipline, tutor limits, provenance, closure, and evidence claims. |
-| 30% | DerivaDEX AI-native and development handbooks | Specification authority, reflexive execution, active human supervision, and acceptance judgment. |
-| 20% | DerivaDEX delivery skills and deliberate consolidation history | Candidate procedures, stop states, artifact boundaries, and replacement obligations. |
-| 10% | Addy Osmani's agent-skills package | Lifecycle discovery, scope discipline, human checkpoints, and verification cues. |
+This file records evidence; it does not assign authority by percentage. Explicit user direction and
+accepted package specifications define local intent. `PHILOSOPHY.md` governs the package's stable
+method commitments, `SOFTWARE-DELIVERY-SPEC.md` governs package behavior, skill-local specifications
+govern their focused boundaries, and `evals/promptfoo/SPEC.md` governs evaluation. External and
+source-project materials can support or defeat a local argument but cannot create local intent.
+Runtime files, tests, evaluations, and history are observations of present behavior, not permission
+or acceptance.
 
 The inspected DerivaDEX state is commit
 `81650fee140c422b2c890436f0415e8ab3810fa5`. The inspected Addy Osmani state is commit
@@ -30,7 +27,7 @@ changing the evidence cited here.
 | Source | Trust | Contribution | Disposition |
 | --- | --- | --- | --- |
 | User mandate in this change | Governing | Developer dialectical mastery, oracle role, portable-only kernel, naming restrictions, source quarantine, and `SPEC.md` lineage. | Adopted; veto authority. |
-| [WORKPAD.md, governing thesis](WORKPAD.md#governing-thesis) | Local governing research contract | Human/oracle ownership, reviewable-contribution boundary, and efficacy limits. | Adopted. |
+| [PHILOSOPHY.md](PHILOSOPHY.md) | Approved package philosophy | Human/oracle ownership, reflexive delivery, reviewable-contribution boundary, and efficacy limits. | Governing within its scope. |
 | [`dialectical-inquiry` specification](skills/dialectical-inquiry/SPEC.md) | Approved local specification | Human-led inquiry, fallible oracle, workpad provenance, owned/aporetic closure, and runtime routing. | Adopted without widening its trigger. |
 | [`dialectical-tutor` specification](skills/dialectical-tutor/SPEC.md) | Approved local specification | Behavior-only coaching, bounded intervention, no certification, and clean return. | Adopted without making the tutor a lifecycle controller. |
 | [DerivaDEX AI-native handbook](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/wiki/handbook/ai-native-team.md#L16-100) | Local project authority for its repository | Specification as reviewable causal argument; code executes rather than owns reasoning. | Translated; project roles and artifacts omitted from runtime. |

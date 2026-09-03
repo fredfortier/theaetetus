@@ -14,7 +14,7 @@ inquiry technique stops doing useful epistemic work.
 > Interrogate the oracle. Keep the model.
 
 This is an experimental method with a deliberately narrow evidence claim. Its existing
-[automated evaluation](WORKPAD.md#validation-record) shows that the inquiry and tutor skills
+[automated evaluation](evals/promptfoo/SPEC.md#current-evidence-and-open-obligations) shows that the inquiry and tutor skills
 preserve human ownership, evidence discipline, responsive coaching, and cross-case causal transfer
 on the repository's fixtures. The delivery skills have structural validation but not yet equivalent
 behavioral evidence. Nothing here shows that real teams learn faster, retain more, or ship better
@@ -49,8 +49,8 @@ The resulting project thesis is a research hypothesis: disciplined, human-led di
 cross-domain acclimating engineer reach a first reviewable contribution sooner without surrendering
 epistemic agency. “Reviewable contribution” means a causal account, decision-owning boundary,
 invariants and unknowns, and a discriminating test or bounded change—not instant expertise or
-guaranteed correctness. The full premise and claim boundary are governed in
-[WORKPAD.md](WORKPAD.md#governing-thesis).
+guaranteed correctness. The stable premise and claim boundary are governed in
+[PHILOSOPHY.md](PHILOSOPHY.md); the current audit burden is recorded in [SDLC.md](SDLC.md).
 
 ## The role inversion
 
@@ -105,13 +105,14 @@ result.
 - [PHILOSOPHY.md](PHILOSOPHY.md) and
   [SOFTWARE-DELIVERY-SPEC.md](SOFTWARE-DELIVERY-SPEC.md) define the package's role allocation,
   obligation graph, vocabulary, and acceptance boundary.
-- [`evals/promptfoo`](evals/promptfoo) contains the frozen Promptfoo/Codex contract, calibrated
+- [`evals/promptfoo/SPEC.md`](evals/promptfoo/SPEC.md) governs the Promptfoo/Codex evaluation;
+  the surrounding directory contains its calibrated
   graders, a matched mechanical placebo, sealed holdouts, persistent conversations, and six
   runnable synthetic domain sandboxes.
 - [RESEARCH.md](RESEARCH.md) records the source synthesis, technique-to-runtime translation,
   applicability limits, and open evidence gaps.
-- [WORKPAD.md](WORKPAD.md) governs the thesis, evaluation law, decisions, validation record, and the
-  still-open human-productivity gate.
+- [SDLC.md](SDLC.md) is the active comparative-audit continuity workpad;
+  [WORKPAD.md](WORKPAD.md) is the compact historical index for the superseded incubation workpad.
 
 The skill files themselves have no application runtime dependency. Node, Promptfoo, Rust, and
 Python are used only to reproduce this repository's evaluation suite.
@@ -233,42 +234,16 @@ when it identifies the missing premise and next discriminating observation.
 
 ## Evaluation as a causal argument
 
-The evaluation does not ask whether responses look Socratic. It asks whether the claimed result can
-still be explained by visible ceremony.
+The evaluation asks whether a claimed result survives controls that preserve visible ceremony while
+removing the relevant skill behavior. It separates routing, deterministic structure, semantic
+outcomes, persistent state, changed-case transfer, and human-only claims so one proxy or aggregate
+cannot conceal a failed invariant.
 
-The matched `mechanical-placebo` reads a skill, creates the same workpad shape, emits the same
-lifecycle markers, and uses similar source labels. It deliberately removes the hypothesized causal
-competencies: responsive listening, human model ownership, evidence limits, and warranted tutor
-timing. If that placebo passes a semantic case, the ceremony-only explanation survives and the
-evaluation fails.
-
-The six domain sandboxes were selected for different problem classes rather than six surface
-variations of one ownership bug:
-
-| Sandbox | Imported analogy under pressure | Required engineering consequence |
-| --- | --- | --- |
-| ZK statement binding | Honest prover input is part of the proved statement | Bind the public claim and derive an adversarial proof test |
-| Wallet lifecycle | Resolved mutation means success in current UI context | Immutable operation identity and a defensible transaction lifecycle |
-| Mean-reversion backtest | High fitted PnL implies executable performance | Locate the earliest impossible information edge and repair event time |
-| Cross-margin liquidation | Leverage is a position-local stop | Account-level equity/maintenance invariant over a coherent snapshot |
-| Typed-signature replay | Signer recovery proves complete intent and uniqueness | Domain, freshness, atomic consumption, and a replay matrix |
-| Reorged deposit | Deduplication covers post-consumption consistency | Reversible ledger state and canonical-history reconciliation |
-
-Each working case has a changed-case holdout that must preserve the relation under different
-surface vocabulary. The wallet case also has a true five-turn conversation in which repeated
-solution-label substitution warrants one tutor repair. The fixture and gold outcome are separated
-so the target cannot read its expected answer.
-
-The final cache-disabled automated run passed **116/116 rows**: calibrated grader controls, protocol
-units, matched controls, sealed holdouts, three pedagogical conversations, and the wallet domain
-conversation. All 64 observed routing checks passed. The exact scope and result are recorded in
-[the validation record](WORKPAD.md#validation-record); the repair history—including invalid
-scenarios, grader plumbing defects, control defects, and genuine skill defects—is retained in the
-[findings log](evals/promptfoo/evidence/findings-log.md).
-
-That result supports only the frozen automated contract on these fixtures. It does not establish
-human learning, productivity, retention, universal transfer, felt conversational quality, or Voice
-behavior. The human-comparison gate remains open.
+[The Promptfoo evaluation specification](evals/promptfoo/SPEC.md) is the sole authority for the
+scenario topology, six-domain rationale, optimal-target and oracle definitions, controls, pass law,
+historical 116/116 result, and the strict limits of that result. The
+[findings log](evals/promptfoo/evidence/findings-log.md) retains failed scenarios, grader and harness
+defects, control repairs, and demonstrated skill defects.
 
 ## Reproduce the evaluation
 
@@ -321,6 +296,7 @@ skills/
   software-delivery/         current-obligation router
 .codex-plugin/plugin.json    installable plugin manifest
 evals/promptfoo/
+  SPEC.md                   evaluation authority, topology, targets, oracles, and pass law
   sandboxes/                 six minimal synthetic domain projects
   tests/                     working, control, holdout, and persistent-conversation cases
   assertions/                deterministic artifact and safety checks
@@ -331,8 +307,8 @@ PHILOSOPHY.md                 human ownership and oracle role
 SOFTWARE-DELIVERY-SPEC.md     package-level delivery contract
 SOFTWARE-DELIVERY-SOURCES.md  source adjudication and translation record
 DERIVADEX-MIGRATION.md        replacement coverage and cutover gates
-SDLC.md                       implementation workpad and migration hypothesis
-WORKPAD.md                    governing thesis, decisions, gates, and validation record
+SDLC.md                       active comparative-audit continuity workpad
+WORKPAD.md                    superseded incubation history index
 ```
 
 ## Research status and contribution boundary

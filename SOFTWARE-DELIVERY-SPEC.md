@@ -277,11 +277,14 @@ retention, and delivery efficacy require separate study.
 
 ## Lineage
 
-This specification implements the approved decisions in [SDLC.md](SDLC.md) and the normative
-principles in [PHILOSOPHY.md](PHILOSOPHY.md). The claim-level source inventory and translation record
-is [SOFTWARE-DELIVERY-SOURCES.md](SOFTWARE-DELIVERY-SOURCES.md). Skill-local specifications inherit
+This specification implements the explicit user decisions and stable method commitments in
+[PHILOSOPHY.md](PHILOSOPHY.md). [SDLC.md](SDLC.md) is the active comparative-audit workpad; it may
+propose or test a change but cannot amend this specification implicitly. The claim-level source
+inventory and translation record is
+[SOFTWARE-DELIVERY-SOURCES.md](SOFTWARE-DELIVERY-SOURCES.md). Skill-local specifications inherit
 this contract and record why each runtime surface exists without placing research commentary in
-`SKILL.md`.
+`SKILL.md`. [evals/promptfoo/SPEC.md](evals/promptfoo/SPEC.md) alone governs evaluation design and
+inference.
 
 [^philosophy]: [PHILOSOPHY.md](PHILOSOPHY.md) defines the developer/oracle allocation, reflexive
     lifecycle, verification boundary, and human acceptance rule.
