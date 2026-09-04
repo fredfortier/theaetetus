@@ -13,12 +13,12 @@ inquiry technique stops doing useful epistemic work.
 
 > Interrogate the oracle. Keep the model.
 
-This is an experimental method with a deliberately narrow evidence claim. The checked-in
-[automated evaluation](evals/promptfoo/SPEC.md#current-evidence-and-open-obligations) is a diagnostic
-regression harness, not admitted behavioral evidence: its current cases and controls do not isolate
-which skill obligation caused a pass. The delivery skills likewise have structural validation but
-not admitted behavioral evidence. Nothing here shows that real teams learn faster, retain more, or
-ship better changes. That requires longitudinal human study.
+This is an experimental method with a deliberately narrow evidence claim. The sole
+[automated behavioral claim](skills/dialectical-tutor/EVAL.md#implemented-claim-and-fresh-evidence)
+isolates one tutor-restraint obligation; the other eleven runtime skills and the tutor's other
+thirteen obligations have no admitted behavioral evidence. The shared Promptfoo harness has
+structural and calibration evidence only. Nothing here shows that real teams learn faster, retain
+more, or ship better changes. That requires longitudinal human study.
 
 ## The problem
 
@@ -105,19 +105,18 @@ result.
 - [`doctrine-skill/SPEC.md`](skills/doctrine-skill/SPEC.md) defines the doctrine concept and future
   admission bar without exposing a runtime skill.
 - [PHILOSOPHY.md](PHILOSOPHY.md) defines the package's role allocation and value boundary; each
-  [`skills/*/SPEC.md`](skills/) owns its operation, handoffs, source negotiation, and evaluation
-  argument.
-- [`evals/promptfoo/SPEC.md`](evals/promptfoo/SPEC.md) governs the Promptfoo/Codex evaluation;
-  the surrounding directory contains its calibrated
-  graders, a matched mechanical placebo, sealed holdouts, persistent conversations, and six
-  runnable synthetic domain sandboxes.
+  [`skills/*/SPEC.md`](skills/) owns its operation, handoffs, and source negotiation, while its
+  `EVAL.md` owns the obligation-to-scenario map, evidence limits, and missed opportunities.
+- [`evals/promptfoo/SPEC.md`](evals/promptfoo/SPEC.md) governs shared Promptfoo/Codex condition
+  identity, isolation, calibration, and pass mechanics. The executable surface contains one
+  tutor-restraint claim, its deterministic oracle, and fixture-integrity checks.
 - [RESEARCH.md](RESEARCH.md) records the source synthesis, technique-to-runtime translation,
   applicability limits, and open evidence gaps.
 - [SDLC.md](SDLC.md) is the active comparative-audit continuity workpad;
   [WORKPAD.md](WORKPAD.md) is the compact historical index for the superseded incubation workpad.
 
-The skill files themselves have no application runtime dependency. Node, Promptfoo, Rust, and
-Python are used only to reproduce this repository's evaluation suite.
+The skill files themselves have no application runtime dependency. Node and Promptfoo are used only
+to reproduce this repository's evaluation suite.
 
 ## Use it in an AI-native team
 
@@ -236,17 +235,11 @@ when it identifies the missing premise and next discriminating observation.
 
 ## Evaluation as a causal argument
 
-The evaluation asks whether a claimed result survives controls that preserve visible ceremony while
-removing the relevant skill behavior. It separates routing, deterministic structure, semantic
-outcomes, persistent state, changed-case transfer, and human-only claims so one proxy or aggregate
-cannot conceal a failed invariant.
-
-[The Promptfoo evaluation specification](evals/promptfoo/SPEC.md) is the sole authority for the
-scenario topology, optimal-target and oracle definitions, controls, pass law, and the strict limits
-of historical results. [EVALS.md](EVALS.md) records the current burden-of-proof audit and required
-redesign. The
-[findings log](evals/promptfoo/evidence/findings-log.md) retains failed scenarios, grader and harness
-defects, control repairs, and demonstrated skill defects.
+The evaluation asks whether a claimed result survives a current-derived control and relevant
+baseline. Each runtime skill's `EVAL.md` maps all of its obligations to falsifiable Codex Promptfoo
+scenarios and distinguishes implemented evidence from missed opportunities. Its `SPEC.md` remains
+the sole authority for behavior. [The Promptfoo harness specification](evals/promptfoo/SPEC.md)
+governs shared isolation, calibration, and pass mechanics; [EVALS.md](EVALS.md) records the cleanup.
 
 ## Reproduce the evaluation
 
@@ -266,13 +259,15 @@ npm run eval:restraint
 ```
 
 The command prepares fresh fixtures, rejects external evaluated-skill reads, and removes generated
-runtime state after success. Its licensed conclusion and explicit exclusions are in
-[EVALS.md](EVALS.md); a green result does not establish broad value over the foundation model.
+runtime state after success. Its licensed conclusion and explicit exclusions are in the
+[`dialectical-tutor` evaluation sidecar](skills/dialectical-tutor/EVAL.md); a green result does not
+establish broad value over the foundation model.
 
 ## Repository map
 
 ```text
 skills/
+  */EVAL.md                  obligation-to-scenario map, evidence, limits, missed opportunities
   dialectical-inquiry/       main oracle skill, specification, and runtime references
   dialectical-tutor/         bounded coaching skill, specification, and practice references
   specification-development/ causal specification development and readiness assessment
@@ -281,7 +276,7 @@ skills/
   software-delivery/         current-obligation router
 .codex-plugin/plugin.json    installable plugin manifest
 evals/promptfoo/
-  SPEC.md                   one-claim graph, condition identity, oracle, and pass law
+  SPEC.md                   shared condition identity, isolation, calibration, and pass law
   assertions/                deterministic tutor-restraint oracle
   scripts/                   fixture generation, isolation, purity, and validation checks
   evidence/                  interpretation-changing findings
@@ -294,11 +289,12 @@ WORKPAD.md                    superseded incubation history index
 
 ## Research status and contribution boundary
 
-The current artifact is best understood as an evaluated research prototype with an applied team
-workflow. The next decisive evidence is not another prompt case. It is a blinded comparison with
-actual cross-domain acclimating engineers, measuring time to first reviewable contribution, domain
-expert correction burden, changed-case transfer, and retained explanation. Failures and variance
-must be reported; a small successful demonstration cannot establish general efficacy.
+The current artifact is best understood as a research prototype with one evaluated tutor boundary
+and an applied team workflow. Additional isolated prompt cases are required for skill-level quality;
+the project thesis ultimately requires a blinded comparison with actual cross-domain acclimating
+engineers, measuring time to first reviewable contribution, domain-expert correction burden,
+changed-case transfer, and retained explanation. Failures and variance must be reported; a small
+successful demonstration cannot establish general efficacy.
 
 Contributions are most valuable when they sharpen that causal argument:
 
@@ -308,9 +304,9 @@ Contributions are most valuable when they sharpen that causal argument:
 - design the human comparison and review protocol;
 - repair a general runtime defect without leaking case-specific nouns or gold answers into a skill.
 
-Before submitting a change, run the relevant executable fixture, the smallest calibrated Promptfoo
-case, and `git diff --check`. Explain what premise the change protects and what evidence would show
-that it failed.
+Before submitting a change, run any existing relevant executable claim, its calibrated Promptfoo
+case, and `git diff --check`. If no behavioral claim exists, say so rather than substituting a
+planned scenario. Explain what premise the change protects and what evidence would show failure.
 
 ## License
 

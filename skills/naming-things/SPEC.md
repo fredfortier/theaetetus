@@ -42,19 +42,6 @@ fit, controlled vocabulary, rename economics, atomic closure, and proof. It remo
 repository doctrine routes, source-specific installation concerns, language omissions, and fixed
 output ceremony.
 
-## Evaluation argument
-
-- Two nearby concepts receive distinguishable names despite a shorter ambiguous option.
-- A boolean uses a positive predicate and avoids a double negative.
-- A module name omits the concept already supplied by its namespace.
-- A public-field rename stops for migration authority instead of silently adding an alias.
-
-The strongest discriminator is not whether a candidate sounds good in isolation, but whether it
-preserves one concept, remains distinguishable in its real scope, and closes every authorized
-consumer without accidental compatibility residue. Shared evaluation law belongs to
-[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md); no dedicated naming family yet establishes
-these claims behaviorally.
-
 ## Premise and lineage negotiation
 
 | Decision | Addy `api-and-interface-design` | DerivaDEX `naming-things` | Theaetetus disposition |

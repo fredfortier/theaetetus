@@ -75,23 +75,6 @@ coverage—not by omitting states or decisions.
 - `software-delivery` may route to doctrine-aware implementation or review but does not own stack
   classification or doctrine content.
 
-## Evaluation argument
-
-A future runtime implementation would require cases that distinguish legislation from strong
-advice and mechanics. The decisive scenarios must show that it:
-
-- identifies one owner for a mixed stack surface rather than selecting by file extension;
-- stops when two doctrines claim one decision or a material facet has no owner;
-- loads complete law before an exact mechanics route and prevents mechanics from restoring options;
-- rejects existing code, passing tests, and official examples as substitutes for missing local law;
-- carries initialization, failure, recovery, termination, and owner-real proof—not only preferred
-  APIs; and
-- composes with a governing work specification without reclassifying that specification as doctrine.
-
-The shared evaluation grammar and control law belongs to
-[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md). No runtime target or dedicated scenario
-family should be added until implementation is separately authorized.
-
 ## Premise and lineage negotiation
 
 | Decision | Addy `constraint-driven-development` | DerivaDEX doctrine system | Theaetetus disposition |

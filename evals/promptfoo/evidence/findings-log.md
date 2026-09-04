@@ -1,7 +1,8 @@
-# Evaluation findings
+# Harness findings
 
 Raw Promptfoo JSON is ignored and reproducible; this file records only interpretation-changing
-observations.
+observations about evaluation integrity and cleanup. Skill-level evidence and conclusions belong in
+the evaluated skill's `EVAL.md`.
 
 | Observation | Consequence |
 | --- | --- |
@@ -11,9 +12,8 @@ observations.
 | Ambient Codex installations contaminated earlier conditions. | Retain the auth-only `CODEX_HOME` and raw-trace isolation gate. |
 | Fixed deterministic outputs can exercise every predicate of the retained oracle without a model grader. | Remove all semantic rubrics and their calibration fixtures. |
 | An appended always-intervene instruction manifested in only 1/3 initial control trials because the rest of the skill still contradicted it. | Reject that run; invert only the same restraint rule across all four runtime surfaces and replay every condition from fresh fixtures. |
-| Fixed calibration passed 6/6; the repaired live replay passed 9/9 with current 3/3, generated defect 3/3, and trace isolation clean. | Support only stability on `DT-RESTRAINT-01` and sensitivity to the restraint inversion. |
-| No-skill recognized that coaching was unwarranted in 3/3 trials but reproduced the exact `NO INTERVENTION` handoff contract in 0/3. | The skill adds reliable protocol expression on this case, not unique epistemic judgment or general capability. |
+| Fixed calibration, generated-control manifestation, baseline observation, and trace isolation all completed on a fresh replay. | Record the scores and bounded interpretation only in [`dialectical-tutor/EVAL.md`](../../../skills/dialectical-tutor/EVAL.md), which owns the claim. |
 
-The admitted replay ran on 2026-09-03 with `gpt-5.6-terra`, high reasoning, cache disabled, network
-disabled, serial execution, and fresh generated fixtures. Raw JSON was inspected, summarized here,
-then removed with the rest of the runtime side effects.
+The admitted replay ran on 2026-09-03 with fresh generated fixtures. Raw JSON was inspected, its
+skill-level evidence was recorded in the tutor sidecar, and it was then removed with the rest of the
+runtime side effects.

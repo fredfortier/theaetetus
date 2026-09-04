@@ -28,9 +28,10 @@ Governing authority, in order:
    present state.
 
 Authorized write surfaces for the continuing goal are `SDLC.md`, `skills/*/SKILL.md`,
-`skills/*/SPEC.md`, and `evals/promptfoo/`, plus repository registration or validation files strictly required by an
-admitted topology change. Amendments to philosophy or owner-held intent must stop for the owner's
-decision rather than entering through skill or eval edits.
+`skills/*/SPEC.md`, `skills/*/EVAL.md`, and `evals/promptfoo/`, plus repository registration or
+validation files strictly required by an admitted topology change. Amendments to philosophy or
+owner-held intent must stop for the owner's decision rather than entering through skill or eval
+edits.
 
 ## Business theorem and burden of proof
 
@@ -76,7 +77,7 @@ passing average, or unreviewed model verdict cannot complete it.
 | Comparator translation; the strongest inspected comparator is a defeater, not authority. | Every comparator proposition is preserved, delegated, narrowed, transformed, or rejected with exact evidence and rationale; no source line disappears silently. | A summary verdict or loose equivalence hides an unexamined line, semantic weakening, or unsupported omission. | Per-skill comparative ledger and source pin. | Two-way source-line coverage resolves every nonblank normative line and every local clause. | Rules in justified translation; rules out sampling, keyword comparison, and impressionistic review. |
 | Skill ownership; the portable kernel assigns one focused owner per operation. | Each admitted behavior has one primary owner and explicit handoffs preserve stronger specialist contracts. | Siblings duplicate, contradict, shadow, or orphan the behavior. | Topology and cross-skill conformance review. | Bidirectional behavior-to-owner and owner-to-behavior traces expose overlap and gaps. | Rules in delegation; rules out convenience duplication and silent gaps. |
 | Reflexive revision; evidence may defeat any present artifact below owner-held authority. | A demonstrated defect changes only its owning artifact, then reopens every dependent comparison and evaluation claim. | The target is patched around a failing test, the test is weakened to fit the target, or dependents remain falsely green. | Change diagnosis, governing SPEC, and regression boundary. | Before/after evidence identifies defect class, retained repair, affected dependents, and replay result. | Rules in bounded repair; rules out target leakage and metric gaming. |
-| Evaluation topology; automated evidence is bounded to exercised claims. | Every automated claim maps to a scenario, matched control, admissible oracle, and recorded limit capable of falsifying that claim. | A scenario rewards surface ceremony, an oracle restates target wording, or a score claims unexercised behavior. | `evals/promptfoo/SPEC.md` and frozen evaluation configuration. | Claim-to-scenario-to-control-to-oracle trace plus calibrated positive and single-defect negative outputs. | Rules in discriminating evidence; rules out decorative cases, weighted compensation, and efficacy overclaim. |
+| Evaluation topology; automated evidence is bounded to exercised claims. | Every automated claim maps to a skill-local obligation, scenario, matched control, admissible oracle, and recorded limit capable of falsifying that claim. | A scenario rewards surface ceremony, an oracle restates target wording, or a score claims unexercised behavior. | Each runtime skill's `EVAL.md`, the shared `evals/promptfoo/SPEC.md`, and frozen evaluation configuration. | Obligation-to-scenario-to-control-to-oracle trace plus calibrated positive and single-defect negative outputs. | Rules in discriminating evidence; rules out decorative cases, weighted compensation, and efficacy overclaim. |
 | Human authority; developer ownership and acceptance are not agent-observable internal states. | Automated oracles judge only visible behavior and artifacts; accountable humans retain intent, admission, acceptance, and efficacy judgments. | A rubric certifies understanding, competence, readiness, or business outcome from a transcript or artifact. | Skill role contracts, rubric text, and result claims. | Semantic audit finds only observable predicates and bounded conclusions. | Rules in behavior-specific grading; rules out person-level or business certification. |
 
 Collapsed candidates: “review every line,” “run every test,” and “be meticulous” are execution
@@ -87,8 +88,9 @@ local authority, portability, or focused ownership.
 
 ## Comparative audit surface and unit
 
-The audit unit is one local skill together with its SPEC, callers, callees, registration metadata,
-relevant tests, and evaluation claims—not `SKILL.md` in isolation. For that unit, inspect in full:
+The audit unit is one local skill together with its SPEC, EVAL sidecar, callers, callees,
+registration metadata, relevant tests, and evaluation claims—not `SKILL.md` in isolation. For that
+unit, inspect in full:
 
 - the current local files and decision-bearing history;
 - every local sibling whose trigger, exclusion, operation, handoff, or vocabulary can overlap;
@@ -367,14 +369,19 @@ defeater even without a portable local-source counterpart and deserves its own s
 study. The remaining candidates require more evidence that a portable contract would outperform a
 specialist route.
 
-## Promptfoo specification and causal-readiness obligation
+## Evaluation sidecars and Promptfoo harness
 
-Maintain `evals/promptfoo/SPEC.md` as the governing causal argument for automation. The former
-198-execution surface failed its own claim-isolation burden and has been removed. The current
-surface contains one claim: false-positive restraint by `dialectical-tutor`, tested against a
-current-derived always-intervene mutation and a non-gating no-skill observation. New fixtures have
-no evidentiary standing unless the specification first names their obligation, isolated defeater,
-baseline, calibrated oracle, and licensed conclusion.
+Maintain one `EVAL.md` beside every runtime skill. The sidecar begins from all obligations in the
+owning `SPEC.md`, explains how Codex Promptfoo can falsify each one, and distinguishes implemented
+evidence from missed opportunities. It does not create behavioral authority. The shared
+`evals/promptfoo/SPEC.md` governs only condition identity, isolation, calibration, and pass law.
+
+The former 198-execution surface failed its own claim-isolation burden and has been removed. The
+only executable claim is `DT-RESTRAINT-01`, owned by `skills/dialectical-tutor/EVAL.md` and tested
+against a current-derived always-intervene mutation and a non-gating no-skill observation. New
+fixtures have no evidentiary standing unless their skill sidecar first names the obligation,
+observable wrongness, isolated defeater, baseline, calibrated oracle, licensed conclusion, and
+exclusions.
 
 ## Completion evidence and final handoff
 
@@ -382,15 +389,16 @@ Completion is a boundary-owned evidence relation:
 
 - **Each skill:** its complete two-way proposition ledger resolves every local and comparator line;
   its SPEC reconstructs the problem, authority, invariants, ownership, stops, and derivation; its
-  runtime file contains the admitted minimum; and calibrated cases exercise every claimed material
-  behavior or explicitly record it as unautomated.
+  runtime file contains the admitted minimum; and its EVAL sidecar maps every obligation to a
+  falsifiable observation while distinguishing executed coverage from missed opportunities.
 - **Topology:** every operation and handoff has one accountable owner; cross-skill trigger and
   exclusion cases expose gaps, overlap, recursion, and authority inversion; any split, merge,
   addition, or removal is reflected consistently in the governing delivery specification,
   registration surface, callers, and validation.
-- **Evaluation system:** `evals/promptfoo/SPEC.md` earns `ready for human judgment`; every retained
-  scenario and oracle traces to an actual admitted invariant; controls establish sensitivity and
-  specificity; repeated observations support only their declared claim.
+- **Evaluation system:** each skill-local evaluation argument and the shared Promptfoo harness earn
+  `ready for human judgment`; every retained scenario and oracle traces to an actual admitted
+  obligation; controls establish sensitivity and specificity; repeated observations support only
+  their declared claim.
 - **Repository state:** structural, reference, runtime-purity, Markdown, whitespace, and affected
   behavioral checks pass, with exact commands and bounded observations retained. Passing checks do
   not cover unexercised claims.
@@ -403,8 +411,9 @@ Completion is a boundary-owned evidence relation:
 
 The governing-document consolidation migrated the former package delivery specification and source
 ledger into the `SPEC.md` of each owning skill, then removed those transient workpads. Durable
-premises, source negotiation, rejected alternatives, and evaluation claims now live with the skill
-whose behavior they govern; migration history and execution status remain here. `conformance-review`
+premises, source negotiation, and rejected alternatives live in each owning SPEC; evaluation
+claims, coverage, and missed opportunities live in its EVAL sidecar. Migration history and
+execution status remain here. `conformance-review`
 now makes `*-development` doctrine and governing work specifications distinct mandatory authorities,
 preserves doctrine-before-mechanics closure, scales inspection by authority reach rather than
 line-count arithmetic, and retains consequence-led finding communication without broadening into
@@ -429,11 +438,12 @@ preparation, Markdown checks apart from the repository's accepted line-length ex
 whitespace checks passed on the implemented topology. These checks establish only their exercised
 contracts; they do not discharge the comparative behavioral work above.
 
-[The Promptfoo evaluation specification](evals/promptfoo/SPEC.md) now owns one complete claim graph,
-condition identity, a deterministic oracle, pass law, change control, and inference limits. All
-router, comparator, broad-placebo, domain, holdout, and integration machinery was retired rather
-than carried forward as diagnostic theater. This does not weaken their governing skill obligations;
-it makes their behavioral coverage explicitly absent.
+[The Promptfoo harness specification](evals/promptfoo/SPEC.md) owns condition identity, isolation,
+calibration, pass law, and change invalidation. The tutor's sidecar owns the sole complete claim
+graph and its inference limits. All router, comparator, broad-placebo, domain, holdout, and
+integration machinery was retired rather than carried forward as diagnostic theater. This does not
+weaken governing skill obligations; every skill sidecar now makes absent behavioral coverage
+explicit.
 
 The first complete unit audit covered `software-delivery`: its local runtime and SPEC, all sibling
 triggers, callers, pinned Addy router runtime and orchestration references, the relevant pinned
@@ -469,46 +479,25 @@ and atomic removal without compatibility aliases.[^retirement-law]
   than scattering ad hoc files.
 - A future comparator is admissible only when a concrete behavior or empirical claim makes it
   capable of defeating a live decision; do not expand research decoratively.
-- Package-wide behavioral coverage is absent. Add it claim by claim rather than by creating a
-  portfolio first.
+- Package-wide behavioral coverage is effectively absent: one of the tutor's fourteen mapped
+  obligations has bounded evidence, while every other skill reports none. Add evidence claim by
+  claim rather than by creating a portfolio first.
 
 ## Next discriminator
 
-Run the sole current-derived restraint claim and inspect the non-gating no-skill score. If no-skill
-also passes, do not claim incremental skill value; the next useful discriminator must be a case in
-which an accepted tutor obligation predicts a different observable from the foundation model.
+Implement `DT-04` from [`dialectical-tutor/EVAL.md`](skills/dialectical-tutor/EVAL.md): a factually
+wrong retry that performs the selected epistemic function must pass, while a factually correct
+response that does not perform the human-authored retry must not. This is the next useful
+discriminator because it tests whether the tutor coaches inquiry technique rather than merely
+subject correctness. It requires a persistent matched scenario, a current-derived control that
+collapses technique into correctness, a no-skill baseline, and predicate-complete calibration.
 
-The structural projects, holdout manifest, assertion probes, and configuration validation now pass.
-The first cache-disabled calibration attempt completed 11/12 calls, then one grader subprocess
-stalled for more than ten minutes and was terminated without a result file. The immediate next
-action was a fresh complete calibration replay, which passed 12/12. The following unit candidate
-reported 51/66, but raw execution traces later showed that current, placebo, and no-skill rows read
-the globally installed Theaetetus plugin instead of, or in addition to, the generated condition
-skills. The provisional semantic classifications—including the apparent placebo competence,
-no-skill artifact match, and earlier router condition scores—are therefore invalid. They are harness
-evidence, not behavioral evidence.
-
-The provider now receives an evaluation-owned absolute `CODEX_HOME` containing only the existing
-authenticated CLI credential and warning configuration. Valid isolation probes show the no-skill
-condition reporting the named skill unavailable, the placebo rejected 3/3, and the unchanged tutor
-fade repair passing 3/3 with fixture-local skill reads. A deterministic post-run trace gate rejects
-any package skill resolved outside the generated condition fixture. The isolated 12-control
-calibration passed, and the first admissible unit candidate passed 63/66 with every placebo and
-no-skill control behaving as predesignated. Its three current inquiry failures exposed
-already-governing ordering obligations: answer before tutor handoff, and persist a material oracle
-account before yield. After the bounded runtime repair, a fresh-fixture targeted replay passed 5/5.
-
-The next full replay passed 65/66. Its sole rejection was an oracle defect: `DT-NOINT-01` produced the
-contractual shortest decisive quote, while the case gold demanded a catalogue of every sound
-function. A new positive control fixed that interpretation; the expanded isolated calibration
-passed 13/13, and the fresh current/placebo pair reported 6/6. A later full replay reported 66/66
-with zero execution errors and passed trace isolation.
-
-The burden-of-proof audit in [EVALS.md](EVALS.md) supersedes the earlier admission interpretation:
-those are runtime observations, not 66 independent cases and not admissible unit-family evidence.
-The cleanup implements that burden as `DT-RESTRAINT-01` and removes every unqualified family. No
-new evaluation may advance a claim until its obligation has a
-claim-to-positive-to-isolated-defect-to-calibrated-oracle graph.
+The fresh 2026-09-03 restraint replay is recorded only in the tutor sidecar. It passed current 3/3,
+generated defect 3/3, and trace isolation; no-skill reached the substantive no-intervention judgment
+3/3 but satisfied the exact handoff protocol 0/3. This supports protocol reliability on one case,
+not unique judgment or general tutor quality. Earlier 116/116, 66/66, router, placebo, comparator,
+domain, holdout, and persistent results remain historical and inadmissible for current behavioral
+claims.
 
 ## Evidence notes
 
@@ -554,8 +543,10 @@ claim-to-positive-to-isolated-defect-to-calibrated-oracle graph.
 [^claim-boundary]: [PHILOSOPHY.md, “Evidence boundary”](PHILOSOPHY.md#evidence-boundary) explicitly
     withholds human learning, productivity, retention, and delivery-efficacy claims pending suitable
     evidence.
-[^current-evals]: [The Promptfoo evaluation specification](evals/promptfoo/SPEC.md) governs the
-    sole tutor-restraint claim, control, pass law, and evidence limits.
+[^current-evals]: [`dialectical-tutor/EVAL.md`](skills/dialectical-tutor/EVAL.md) owns the sole
+    tutor-restraint claim and evidence limits; the [Promptfoo harness
+    specification](evals/promptfoo/SPEC.md) governs shared control, isolation, calibration, and pass
+    mechanics.
 [^retirement-law]: The pinned source
     [skill charter](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/CHARTER.md#L148-180)
     requires equivalent-or-better replacement coverage and verified cutover; its

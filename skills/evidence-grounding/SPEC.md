@@ -39,19 +39,6 @@ footnote boundaries, temporal stability, and invalid-substitution checks. It gen
 provider-specific publishing mechanics and removes project roles, paths, artifact names, and
 formatting-skill routes.
 
-## Evaluation argument
-
-- Current code supports a factual behavior claim but not an architectural recommendation.
-- A historical claim uses a revision-stable reference rather than a moving branch.
-- An inference from logs remains labeled and bounded.
-- A code link in a footnote is moved to the exact implementation claim.
-- A decorative bibliography is removed.
-
-The strongest discriminator is a response with many credible links that nevertheless uses the wrong
-authority class or overclaims what a source proves. Shared evaluation law belongs to
-[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md); no dedicated grounding family yet
-establishes these cases behaviorally.
-
 ## Premise and lineage negotiation
 
 | Decision | Addy `source-driven-development` | DerivaDEX `evidence-grounding` | Theaetetus disposition |

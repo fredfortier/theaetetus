@@ -134,27 +134,6 @@ Speculation may direct further inspection but cannot appear as a demonstrated de
 - Return defeated or unowned causal premises to `dialectical-inquiry`.
 - Hand accepted traces to repository-specific integration capabilities after human judgment.
 
-## Evaluation argument
-
-The evaluation must distinguish conformance from generic quality review and from ceremonial
-authority language. It should exercise these discriminators:
-
-- both trace directions detect a missing obligation and extra unowned behavior in one change;
-- an applicable doctrine owner changes the verdict even when tests pass and the code looks idiomatic;
-- a missing or competing doctrine owner blocks mechanics judgment rather than inviting a fallback;
-- mock-level proof cannot close a runtime-boundary obligation;
-- deletion and non-code changes receive the same authority scrutiny as additions;
-- a very small diff with broad authority reach triggers deeper inspection, while raw line count alone
-  does not create a finding;
-- required findings remain visibly distinct from advisory observations; and
-- a no-finding result states the inspected authority, doctrine, surface, and proof without claiming
-  human acceptance.
-
-No current automated behavioral claim covers conformance review. A dedicated family remains
-required before claiming that doctrine loading, complexity scaling, and finding communication are
-behaviorally established; additions must satisfy the control law in
-[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md).
-
 ## Premise and lineage negotiation
 
 The skill is an inline, read-only acceptance review because its invariant operation is one complete

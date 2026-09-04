@@ -41,18 +41,6 @@ historical closure. It removes the fixed architecture filename, hardcoded reposi
 source-local caller inventory, standards exposition, and claims that one document schema is
 universal. A record remains usable only to the degree its applicable decision is unambiguous.
 
-## Evaluation argument
-
-- An ungoverned change exits without architecture ceremony.
-- A conforming edit preserves decision, consequence, and verification correspondence.
-- Passing tests cannot authorize a changed ownership boundary.
-- A history operation that drops accepted behavior or proof is distinguished from a textual conflict.
-- A stale or ambiguous decision produces `uncertain`, not inferred approval.
-
-These are claim-level scenario obligations; the shared condition and oracle law belongs to
-[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md). No dedicated architecture family yet
-establishes them behaviorally.
-
 ## Premise and lineage negotiation
 
 | Decision | Addy `documentation-and-adrs` | DerivaDEX `architecture` | Theaetetus disposition |

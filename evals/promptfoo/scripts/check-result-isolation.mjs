@@ -15,8 +15,8 @@ const skillNames = (await readdir(skillRoot, { withFileTypes: true }))
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&'))
   .join('|');
-const skillPath = new RegExp(
-  String.raw`/(?:[^/"\\\s]+/)*(?:\.agents/skills|\.codex/skills|\.codex/plugins/cache/(?:[^/"\\\s]+/)*skills)/(?:${skillNames})/SKILL\.md`,
+const skillDocumentPath = new RegExp(
+  String.raw`/(?:[^/"\\\s]+/)*(?:\.agents/skills|\.codex/skills|\.codex/plugins/cache/(?:[^/"\\\s]+/)*skills)/(?:${skillNames})/(?:SKILL|EVAL)\.md`,
   'gu',
 );
 const allowedRunRoot = `${path.join(repoRoot, 'evals', 'promptfoo', '.runs')}/`;
@@ -48,13 +48,15 @@ for (const resultFile of resultFiles) {
         .map((item) => `${item.command ?? ''}\n${item.aggregated_output ?? ''}`)
         .join('\n')
       : (typeof raw === 'string' ? raw : JSON.stringify(raw));
-    const matches = new Set(trace.match(skillPath) ?? []);
+    const matches = new Set(trace.match(skillDocumentPath) ?? []);
     for (const match of matches) {
       const relativeFixturePath = match.startsWith('/.agents/skills/');
-      if (!match.startsWith(allowedRunRoot) && !relativeFixturePath) {
+      const evaluationTargetRead = match.endsWith('/EVAL.md');
+      if (evaluationTargetRead || (!match.startsWith(allowedRunRoot) && !relativeFixturePath)) {
         const condition = row.provider?.label ?? row.provider?.id ?? 'unknown-provider';
         const caseId = row.vars?.caseId ?? row.vars?.controlId ?? `row-${index}`;
-        violations.push(`${resultFile}: ${condition}/${caseId}: external skill read ${match}`);
+        const reason = evaluationTargetRead ? 'evaluation target read' : 'external skill read';
+        violations.push(`${resultFile}: ${condition}/${caseId}: ${reason} ${match}`);
       }
     }
   }

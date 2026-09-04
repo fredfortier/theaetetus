@@ -80,7 +80,10 @@ async function installVariant(destination, variant) {
   if (variant === 'no-skill') return;
   const target = path.join(destination, '.agents', 'skills');
   await mkdir(target, { recursive: true });
-  await cp(path.join(repoRoot, 'skills'), target, { recursive: true });
+  await cp(path.join(repoRoot, 'skills'), target, {
+    recursive: true,
+    filter: (source) => path.basename(source) !== 'EVAL.md',
+  });
   if (variant === 'single-defect') {
     const tutorRoot = path.join(target, 'dialectical-tutor');
     for (const [relativePath, before, after] of restraintMutations) {

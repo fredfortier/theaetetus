@@ -1,56 +1,65 @@
-# Dialectical evaluation specification
+# Promptfoo harness specification
 
-Status: **implementation candidate; human acceptance pending**.
+Status: **implemented; human acceptance pending**.
 
-## Problem
+## Purpose and authority boundary
 
-A passing response is not evidence that a skill caused useful behavior. The previous suite varied
-multiple obligations and conditions at once, then used aggregate pass counts as if they identified
-skill value. This specification permits no behavioral case without an isolated defeater and an
-oracle calibrated for the exact observable.
+This specification governs the shared mechanics by which a skill-local evaluation claim may use
+Promptfoo and the Codex SDK. It does not define any skill obligation, scenario thesis, evidence
+interpretation, or quality conclusion. Those belong to the evaluated skill's `EVAL.md`; the skill's
+`SPEC.md` remains the sole behavioral authority.
 
-## Claim graph
+A passing response is not evidence that a skill caused useful behavior. Every admitted claim must
+make a named obligation answerable to an observation that distinguishes the current skill from a
+credible omission, weakening, inversion, duplication, or ceremonial imitation.
 
-| Claim | Governing obligation | Positive | Defeater | Baseline | Oracle | Licensed result |
-| --- | --- | --- | --- | --- | --- | --- |
-| `DT-RESTRAINT-01` | [`dialectical-tutor`](../../skills/dialectical-tutor/SPEC.md) requires `NO INTERVENTION` for false-positive recruitment. | Three fresh `current` runs of one identical handoff. | Three `single-defect` runs generated from current by inverting only the restraint rule across its runtime surfaces. | Three `no-skill` observations, scored but not gated. | [`tutor-restraint.js`](assertions/tutor-restraint.js), calibrated by six fixed outputs. | Stability on this case and sensitivity to the named inversion only. |
+## Admission law
 
-No other automated behavioral claim exists.
+Before executable fixtures receive evidentiary standing, the owning skill `EVAL.md` must name:
 
-## Condition identity
+1. the governing obligation and observable wrongness;
+2. one bounded positive scenario;
+3. a current-derived control changing only the behavior under test;
+4. a no-skill or strongest relevant baseline;
+5. an oracle calibrated for every asserted predicate; and
+6. the exact conclusion licensed by success and the claims success cannot establish.
 
-[`prepare-fixtures.mjs`](scripts/prepare-fixtures.mjs) creates all conditions from a clean run root.
-Current and single-defect receive the same repository skill tree; the latter changes only statements
-of the tutor-restraint rule and its output form. No-skill receives no skill tree. All conditions share the byte-identical
-request, model, reasoning effort, permissions, network policy, provider, and auth-only evaluation
-`CODEX_HOME`. Raw traces fail if an evaluated skill is read outside `.runs/`.
+One row may not bundle independent obligations. Repeats measure stability, not coverage. An
+aggregate score cannot compensate for a failed condition. A baseline match forbids an incremental
+capability claim for the matched behavior.
 
-## Oracle contract
+## Condition identity and isolation
 
-A valid positive contains exactly one `NO INTERVENTION`, no `COACHING PAUSE` or drill, an `Evidence:`
-line containing one exact supplied span, and a `Resume:` line preserving the supplied live question.
-This is a deterministic protocol assertion, not a judgment of human state or semantic quality.
-Calibration must accept two valid surface forms and reject decision, evidence, return, and duplication
-defects before live results count.
+Current, control, and baseline must share the byte-identical request, model, reasoning effort,
+permissions, network policy, provider, and auth-only evaluation `CODEX_HOME` except for the named
+condition difference. Fixtures are generated from a clean run root. A current-derived mutation must
+fail preparation unless every expected replacement occurs exactly once.
 
-## Pass law
+Raw traces fail when an evaluated package skill is read outside the generated fixture. Skill-read
+detection is supporting evidence, not proof of semantic compliance. No-skill conditions receive no
+package skill tree. Skill-local `EVAL.md` files are excluded from every runtime fixture so scenario
+targets and expected failures cannot leak into the evaluated model's skill tree.
 
-The claim is supported only when all of the following hold on fresh fixtures:
+## Oracle and pass law
 
-- fixed-output calibration passes 6/6;
-- current satisfies the restraint oracle in 3/3 trials;
-- the generated control manifests one false-positive coaching pause in 3/3 trials;
-- trace isolation reports no external evaluated-skill read; and
-- the no-skill score is reported without being forced to fail.
+Prefer deterministic assertions over model graders whenever the observable contract permits them.
+Before live evidence counts, fixed calibration must include at least two materially different valid
+outputs and a single-property negative for every asserted predicate. Semantic graders require the
+same predicate-complete calibration burden and may not certify private understanding, competence,
+learning, readiness, acceptance, or business outcome.
 
-A repeat is a stability trial, not another claim. Any change to the request, oracle, mutation,
-provider settings, or governing tutor obligation invalidates prior live evidence. A no-skill pass
-forbids an incremental-capability claim. No aggregate result may compensate for a failed condition.
+A live claim passes only when its skill-local `EVAL.md` pass law, generated-control manifestation,
+baseline reporting, and trace isolation all pass on fresh fixtures. Any change to the request,
+oracle, mutation, provider settings, or governing obligation invalidates prior live evidence.
 
-## Exclusions and change control
+## Active registry
 
-Routing, inquiry behavior, domain transfer, persistent lifecycle, comparator superiority, learning,
-voice, and package-wide usefulness are unmeasured. Additions require a new row in the claim graph,
-an isolated generated defeater, predicate-complete fixed calibration, a baseline, and a conclusion
-that states what the result cannot establish. Fixtures without that graph are process theater and
-must not be committed.
+The only executable behavioral claim is `DT-RESTRAINT-01`, owned and interpreted by
+[`skills/dialectical-tutor/EVAL.md`](../../skills/dialectical-tutor/EVAL.md). Its implementation is
+[`promptfooconfig.restraint.yaml`](promptfooconfig.restraint.yaml) with
+[`tutor-restraint.js`](assertions/tutor-restraint.js). All other skill `EVAL.md` files describe
+testable obligations and missed opportunities but explicitly report no automated behavioral
+coverage.
+
+Fixtures without a skill-local obligation map and complete claim graph are process theater and must
+not be committed.

@@ -274,15 +274,6 @@ The planted weakness must be disclosed after the exercise. Do not train the user
 - Voice intervention labels remain control semantics and are not spoken literally.
 - The spoken tutor yields after one move and returns without announcing agent routing.
 
-## Evaluation argument
-
-The sole automated claim exercises false-positive recruitment restraint with an identical current,
-generated single-defect, and no-skill task. It observes one `NO INTERVENTION`, exact visible evidence,
-the preserved return question, and absence of a drill. It does not cover warranted coaching, retries,
-voice, dignity, person-level mastery, learning efficacy, or incremental value over the foundation
-model. Condition identity, calibration, and pass law are owned by
-[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md).
-
 ## Reasoning and lineage
 
 The tutor is separate because subject answers and coaching judgments have different owners. A
@@ -291,9 +282,8 @@ to replace the oracle, run the inquiry, or assess the person. Observable-move ev
 focus, a bounded retry, and immediate return follow from that separation.
 
 The complete guided-discovery, autonomy, coaching, and voice evidence is retained in
-[RESEARCH.md](../../RESEARCH.md); evaluation design is governed by
-[evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md). Those sources support the observable
-interaction contract only; they do not establish person-level mastery or human-learning efficacy.
+[RESEARCH.md](../../RESEARCH.md). Those sources support the observable interaction contract only;
+they do not establish person-level mastery or human-learning efficacy.
 
 | Decision | Addy `doubt-driven-development` | DerivaDEX `dialectics` and `quiz` | Theaetetus disposition |
 | --- | --- | --- | --- |

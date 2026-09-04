@@ -11,6 +11,7 @@ function run(command, args) {
 }
 
 run('node', ['evals/promptfoo/scripts/check-skill-purity.mjs']);
+run('node', ['evals/promptfoo/scripts/check-eval-sidecars.mjs']);
 run('node', ['evals/promptfoo/scripts/check-assertions.mjs']);
 for (const config of [
   'evals/promptfoo/promptfooconfig.calibration.yaml',

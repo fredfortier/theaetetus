@@ -40,17 +40,6 @@ The port retains the prior/better-grounded/explanatory standard, generous recons
 tests, defect separation, and readiness grading. It removes organizational roles, provider-format
 routes, source issue history, numeric epistemic measures, and source-specific vocabulary.
 
-## Evaluation argument
-
-- A concise but complete proposal reaches human judgment without being forced into a template.
-- A polished solution-first proposal is revised despite many citations and passing tests.
-- A missing user-held purpose triggers one targeted question before a negative verdict.
-- A code-conformance request does not route here.
-
-The decisive confusion pair is causal derivation versus fluent, evidence-decorated imitation. Shared
-evaluation law belongs to [`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md); no dedicated
-causal-readiness family yet establishes this contract behaviorally.
-
 ## Premise and lineage negotiation
 
 | Decision | Addy `doubt-driven-development` | DerivaDEX `posterior-analytics` | Theaetetus disposition |

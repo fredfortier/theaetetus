@@ -151,40 +151,6 @@ Use `goal-formulation` to create or materially repair a persistent mandate and w
 may update an existing workpad after a decision-bearing change but does not duplicate that skill's
 artifact contract.
 
-## Evaluation argument
-
-### Should trigger
-
-- “Where are we in this change, and which skill should own the next step?”
-- “Resume the delivery workpad and continue from the earliest unsatisfied obligation.”
-- “Start this feature through the specification-driven workflow.”
-
-### Should not trigger
-
-- “Use `conformance-review` on this patch.”
-- “Implement the already-approved obligation.”
-- “Deploy this release using the repository runbook.”
-
-### Behavioral cases
-
-- A solution-first request routes to inquiry rather than implementation.
-- An exact rename routes directly to implementation without creating extra artifacts.
-- A draft specification with a complete account routes to specification development.
-- A blacklist-invariant request routes to invariant formulation rather than specification development.
-- A completed proposal needing only argument grading routes to causal readiness review.
-- A completed implementation routes to conformance review only when review is requested.
-- A reported regression needing diagnosis routes to an applicable local capability without implying
-  that mutation or specification repair is already authorized.
-- A generic maintainability review routes to an applicable local capability rather than
-  `conformance-review`.
-- A review discovery reopens specification development and does not auto-run remediation.
-- Accepted work routes outward for repository-specific integration.
-
-No current automated behavioral claim covers the router. The former comparator, placebo, local
-capability, and no-skill fixtures were removed because their matched outcomes did not demonstrate
-incremental routing value. Future route claims must satisfy the condition and oracle law in
-[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md).
-
 ## Premise and lineage negotiation
 
 | Decision | Addy `using-agent-skills` | DerivaDEX `dialectics` | Theaetetus disposition |

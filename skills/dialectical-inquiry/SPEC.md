@@ -320,13 +320,6 @@ The implementation must include:
 - Uncertain voice transcription cannot update the human model or trigger coaching.
 - Consequential evidence remains understandable without viewing links synchronously.
 
-## Evaluation argument
-
-No current automated behavioral claim covers this skill. The former working, placebo, holdout,
-domain, and persistent fixtures were removed because they did not isolate skill effects. Inquiry
-behavior remains specified here but unmeasured until a case satisfies the claim, control, baseline,
-and oracle law in [`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md).
-
 ## Reasoning and lineage
 
 The role inversion follows from the intended capability: when the human's judgment is the object of
@@ -335,9 +328,8 @@ therefore answers and challenges without becoming the author of the human's acco
 preserves provenance so that fluent oracle language cannot silently become human ownership.
 
 The complete pedagogical and oracle-reliability evidence is retained in
-[RESEARCH.md](../../RESEARCH.md); evaluation design and domain-fixture rationale are governed by
-[evals/promptfoo/SPEC.md](../../evals/promptfoo/SPEC.md). Those sources constrain claims about the
-interaction and cannot establish person-level mastery or learning efficacy.
+[RESEARCH.md](../../RESEARCH.md). Those sources constrain claims about the interaction and cannot
+establish person-level mastery or learning efficacy.
 
 | Decision | Addy `interview-me` | DerivaDEX `dialectics` | Theaetetus disposition |
 | --- | --- | --- | --- |

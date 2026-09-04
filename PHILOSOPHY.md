@@ -107,6 +107,7 @@ Those are human and longitudinal claims requiring different evidence.[^claim-bou
     distinguishes adaptive obligation routing from a mandatory lifecycle sequence.
 [^conformance]: [`conformance-review/SPEC.md`](skills/conformance-review/SPEC.md#premise-and-lineage-negotiation)
     records the source negotiation for doctrine-aware two-way conformance and human judgment.
-[^claim-boundary]: [The Promptfoo evaluation specification](evals/promptfoo/SPEC.md#authority-and-boundary)
-    limits current automated claims to the two dialectical skills and reserves human efficacy for
-    suitable human and longitudinal evidence.
+[^claim-boundary]: [`dialectical-tutor/EVAL.md`](skills/dialectical-tutor/EVAL.md) limits the sole
+    current behavioral claim to one restraint handoff; the [Promptfoo harness
+    specification](evals/promptfoo/SPEC.md#purpose-and-authority-boundary) prohibits automated
+    certification of human efficacy.

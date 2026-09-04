@@ -1,7 +1,8 @@
 # Evaluation burden-of-proof workpad
 
 Status: **one bounded claim implemented; human acceptance pending**. This file records the
-adversarial cleanup performed on 2026-09-03. It is not an aggregate scorecard.
+package-level cleanup and points to the authority that interprets each skill's evidence. It is not
+an aggregate scorecard.
 
 ## Cleanup disposition
 
@@ -17,36 +18,24 @@ cards, semantic rubrics, domain sandboxes, working/holdout/integration tests, ro
 stale result files, generated runs, and stale documentation links. Historical result JSON remains
 recoverable from Git history but is not retained as evidence.
 
-## Survivor burden
+## Authority after cleanup
 
-An artifact survives only if it has one of these executable jobs:
+Each runtime skill now has an `EVAL.md`. Its `SPEC.md` alone governs behavior; its `EVAL.md` maps
+those obligations to falsifiable Codex Promptfoo scenarios, states actual coverage, and records
+missed opportunities. The shared [`evals/promptfoo/SPEC.md`](evals/promptfoo/SPEC.md) governs only
+condition identity, isolation, calibration, and pass law.
+
+An executable artifact survives only if it has one of these jobs:
 
 1. implements the sole named claim or its isolated control;
 2. calibrates the exact oracle used by that claim; or
 3. detects fixture leakage or source-local contamination that would invalidate the claim.
 
-The only behavioral claim is `DT-RESTRAINT-01`: for the supplied recruited handoff, the current
-`dialectical-tutor` emits one `NO INTERVENTION`, quotes an exact effective span, preserves the live
-question, and adds no coaching drill. Its generated control copies the current skill and adds one
-semantic mutation: always intervene even when the move is effective. The task, model, permissions,
-environment, and all other skill text remain constant. A no-skill condition observes whether the
-foundation model already satisfies the same contract; that observation is deliberately non-gating.
-
-The deterministic oracle is admitted only if it accepts two materially different valid renderings
-and rejects four single-property defects: decision inversion, fabricated evidence, changed return
-question, and duplicated coaching. Repeated live trials measure stability, not independent coverage.
-
-## Licensed conclusion
-
-If calibration, three current trials, three generated-control trials, and trace isolation pass, the
-suite licenses only this conclusion: the current skill is stable on one false-positive recruitment
-case and the harness detects an explicit inversion of that behavior. If the no-skill observation
-also passes, the result does **not** show that the skill adds capability over the model.
-
-The suite does not establish routing quality, inquiry quality, transfer, persistence, domain
-reasoning, human learning, felt coaching quality, voice behavior, package-wide usefulness, or
-superiority to another skill. New cases begin with no evidentiary credit and must add a distinct,
-isolated claim rather than a domain, fixture, rubric, or row count.
+The only behavioral claim and its fresh evidence, licensed conclusion, imitation risks, and thirteen
+untested tutor obligations are recorded in
+[`skills/dialectical-tutor/EVAL.md`](skills/dialectical-tutor/EVAL.md). Every other runtime skill
+reports no behavioral coverage in its own sidecar. This arrangement prevents a central scorecard
+from silently broadening one skill observation into package quality.
 
 ## Commands
 

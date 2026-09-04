@@ -233,8 +233,8 @@ The proposed named recruitment of `$dialectical-tutor` is an intentional provide
 | Human–AI overreliance | Buçinca et al. | complete for blueprint |
 | AI sycophancy | Sharma et al. | complete for blueprint |
 | Runtime skill mechanics | `$skill-writer`, official OpenAI docs | complete for blueprint |
-| Modern textbook/manual techniques | Paul/Elder, Wilberding, KPU, with Padesky as applied guided discovery | complete for initial Promptfoo scenarios |
-| Promptfoo/Codex validation mechanics | official Promptfoo provider and skill-testing docs | complete for SPEC-level scenario design |
+| Modern textbook/manual techniques | Paul/Elder, Wilberding, KPU, with Padesky as applied guided discovery | sufficient to derive candidate obligations; not current behavioral coverage |
+| Promptfoo/Codex validation mechanics | official Promptfoo provider and skill-testing docs | sufficient for the shared harness law; skill evidence remains obligation-local |
 | Voice and orchestration mechanics | official OpenAI Voice, Realtime, and agent orchestration docs | complete for approved Voice amendment |
 | Longitudinal mastery of human-led AI dialectic | no canonical direct evidence found | explicit gap |
 | Reliable automatic detection of cargo-cult reasoning | no validated detector found | explicit gap; use observable formative cues only |
@@ -247,4 +247,4 @@ No canonical source directly studies this exact role inversion: a human midwife 
 
 Further retrieval is currently low-yield because the required facets are covered by independent source classes: primary philosophy, philosophical scholarship, modern pedagogy books and manuals, clinical guided discovery, university and professional pedagogy, learning science, human–AI reliance research, LLM bias research, and official skill/eval mechanics. New search results mostly repeated question taxonomies or offered recent LLM tutor prototypes without mature evidence.
 
-The public passages are sufficient for the initial scenario set, so no private book access is required. Full-book access should be requested only if failures expose a procedure-level gap outside the read previews; the relevant print ISBNs are recorded in the source inventory.
+The public passages are sufficient for the present obligation design, so no private book access is required. Full-book access should be requested only if a future admitted scenario exposes a procedure-level gap outside the read previews; the relevant print ISBNs are recorded in the source inventory.

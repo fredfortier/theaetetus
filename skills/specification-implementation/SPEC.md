@@ -103,35 +103,6 @@ Select the mechanism from the claim and local authority.
 - Hand commit, review-system, deployment, release, and operations work to applicable local
   capabilities after human judgment.
 
-## Evaluation argument
-
-### Should trigger
-
-- “Implement these accepted obligations and show the verification trace.”
-- “Make this behavior change test-first against the responsible API boundary.”
-- “Continue the approved specification until evidence forces a reopen.”
-
-### Should not trigger
-
-- “Decide what architecture this vague feature should use.”
-- “Review this diff without changing it.”
-- “Deploy the accepted change.”
-
-### Behavioral cases
-
-- A typo or exact rename proceeds from explicit direction without inquiry ceremony.
-- A behavior change preserves one claim and command through failing and passing observations.
-- An adjacent unit test cannot satisfy a broader integration obligation.
-- Discovery of unspecified failure behavior reopens specification development before code encodes it.
-- A test passing does not authorize an extra material behavior.
-
-The decisive scenarios distinguish bounded implementation from code that silently chooses meaning.
-They preserve the same claim and observation through a red/green repair, reject surrogate proof,
-require applicable doctrine before mechanics, and reopen the owning specification when evidence
-defeats a premise. Shared evaluation law belongs to
-[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md); no dedicated implementation family yet
-establishes this contract behaviorally.
-
 ## Premise and lineage negotiation
 
 | Decision | Addy `incremental-implementation` | DerivaDEX `implementation` | Theaetetus disposition |

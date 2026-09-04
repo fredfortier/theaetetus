@@ -89,37 +89,6 @@ derivation; the developer must own it before it governs implementation.
   requested.
 - Return missing human-held premises to `dialectical-inquiry`.
 
-## Evaluation argument
-
-### Should trigger
-
-- “Turn this causal account into the governing specification for the feature.”
-- “Repair this design note so its proposed boundary follows from the owned account.”
-- “Repair these acceptance obligations without inventing missing product intent.”
-
-### Should not trigger
-
-- “Implement obligation three from the approved specification.”
-- “Break this settled change into coding tasks.”
-- “Explain what eventual consistency means.”
-
-### Behavioral cases
-
-- A solution-first bug request reopens inquiry when the responsible boundary is not owned.
-- A complete causal account yields a lean artifact rather than a fixed template.
-- A negative exclusion list is handed to `invariant-formulation` before obligations are derived.
-- A plausible completed specification is handed to `causal-readiness-review` for independent judgment.
-- A proposal that conflicts with applicable stack doctrine stops at the doctrine amendment boundary
-  instead of encoding the conflict as a work obligation.
-- Human agreement with polished oracle prose does not by itself admit the specification.
-
-The decisive scenarios distinguish a lean causal specification from both a filled template and a
-task plan. They must force a stop when consequential intent is missing, preserve a complete owned
-account without redundant sections, delegate disputed invariants, and require independent readiness
-before human admission. Shared evaluation law belongs to
-[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md); no dedicated specification-development
-family yet establishes this contract behaviorally.
-
 ## Premise and lineage negotiation
 
 | Decision | Addy `spec-driven-development` | DerivaDEX `planning` | Theaetetus disposition |

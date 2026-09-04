@@ -35,7 +35,7 @@ async function filesUnder(directory) {
 }
 
 for (const file of await filesUnder(skillRoot)) {
-  if (path.basename(file) === 'SPEC.md') continue;
+  if (['SPEC.md', 'EVAL.md'].includes(path.basename(file))) continue;
   const content = await readFile(file, 'utf8');
   for (const [label, pattern] of forbidden) {
     pattern.lastIndex = 0;

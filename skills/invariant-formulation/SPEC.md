@@ -38,18 +38,6 @@ The port retains positive properties, illegal negation, boundary ownership, veri
 compression. It removes source-specific routes, roles, repository labels, and the implication that
 invariant formulation is a mandatory lifecycle phase.
 
-## Evaluation argument
-
-- A blacklist of components becomes one boundary-bearing valid-state property.
-- A filename guardrail is rejected as implementation-shaped.
-- A lifecycle property identifies both its transition owner and observable check.
-- An unowned failure semantic returns a missing premise instead of a plausible invariant.
-
-The decisive negative is a constraint-shaped task, blacklist, threshold, or file rule that lacks a
-stable valid-state property and owner-real observation. Shared evaluation law belongs to
-[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md); no dedicated invariant family yet
-establishes these claims behaviorally.
-
 ## Premise and lineage negotiation
 
 | Decision | Addy `constraint-driven-development` | DerivaDEX `formulate-invariants` | Theaetetus disposition |

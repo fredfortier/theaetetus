@@ -40,19 +40,6 @@ provider mechanism, template asset, or autonomous goal lifecycle is portable eno
 The port uses `outcome model` for the falsifiable future-state relation because it is understandable
 to general software teams and does not imply formal proof.
 
-## Evaluation argument
-
-- An existing percentage-based workpad is repaired without losing decision-bearing evidence.
-- A missing workpad is created only at a user-selected or established repository path.
-- A plan-only request returns exact edits without mutation.
-- A prompt and workpad that disagree on completion are rejected.
-
-The critical confusion pair is durable outcome state versus an impressive activity plan. A valid
-case preserves decision-bearing history while deleting progress theater and names one discriminator
-for each conclusion-changing unknown. Shared evaluation law belongs to
-[`evals/promptfoo/SPEC.md`](../../evals/promptfoo/SPEC.md); no dedicated goal family yet establishes
-these claims behaviorally.
-
 ## Premise and lineage negotiation
 
 | Decision | Addy `planning-and-task-breakdown` | DerivaDEX `formulate-goal` | Theaetetus disposition |
