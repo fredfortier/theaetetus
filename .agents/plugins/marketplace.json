@@ -8,7 +8,7 @@
       "name": "theaetetus",
       "source": {
         "source": "local",
-        "path": "./plugins/theaetetus"
+        "path": "./"
       },
       "policy": {
         "installation": "AVAILABLE",

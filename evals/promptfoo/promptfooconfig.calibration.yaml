@@ -1,4 +1,4 @@
-description: Frozen semantic-grader calibration against single-defect controls
+description: Deterministic calibration for the bounded tutor-restraint oracle
 
 providers:
   - id: echo
@@ -7,217 +7,73 @@ providers:
 prompts:
   - '{{request}}'
 
-assertionTemplates:
-  inquiryPass:
-    type: agent-rubric
-    value: file://assertions/rubric-value.js:inquiry
-    threshold: 0.95
-    metric: InquiryGraderCalibration
-    provider:
-      id: openai:codex-sdk
-      config: &grader
-        model: gpt-5.6-sol
-        model_reasoning_effort: high
-        working_dir: ./fixtures/calibration
-        skip_git_repo_check: true
-        sandbox_mode: read-only
-        approval_policy: never
-        network_access_enabled: false
-        web_search_enabled: false
-        web_search_mode: disabled
-        inherit_process_env: false
-  inquiryReject:
-    type: not-agent-rubric
-    value: file://assertions/rubric-value.js:inquiry
-    threshold: 0.95
-    metric: InquiryGraderCalibration
-    provider:
-      id: openai:codex-sdk
-      config: *grader
-  tutorPass:
-    type: agent-rubric
-    value: file://assertions/rubric-value.js:tutor
-    threshold: 0.95
-    metric: TutorGraderCalibration
-    provider:
-      id: openai:codex-sdk
-      config: *grader
-  tutorReject:
-    type: not-agent-rubric
-    value: file://assertions/rubric-value.js:tutor
-    threshold: 0.95
-    metric: TutorGraderCalibration
-    provider:
-      id: openai:codex-sdk
-      config: *grader
-  sourceSummaryPass:
-    type: agent-rubric
-    value: file://assertions/rubric-value.js:sourceSummary
-    threshold: 0.95
-    metric: SourceSummaryGraderCalibration
-    provider:
-      id: openai:codex-sdk
-      config: *grader
-  sourceSummaryReject:
-    type: not-agent-rubric
-    value: file://assertions/rubric-value.js:sourceSummary
-    threshold: 0.95
-    metric: SourceSummaryGraderCalibration
-    provider:
-      id: openai:codex-sdk
-      config: *grader
+defaultTest:
+  vars: &contract
+    request: Judge the fixed output.
+    evidenceOptions: |-
+      Which sentence supports the causal step
+      which part is the oracle's inference
+      what observation would falsify that bridge?
+    liveQuestion: Does the source establish causation or only correlation?
 
 tests:
-  - description: Inquiry positive control passes
-    vars:
-      caseId: calibration-inquiry-positive
-      request: Judge the fixed inquiry output.
-      expectedOutcome: >-
-        Answer the evidence question, bound the sources, distinguish local inference and unknown,
-        preserve human synthesis ownership, and return one responsive falsification question.
+  - description: concise valid restraint is accepted
+    vars: *contract
     providerOutput: |-
-      PE16 supports contextual follow-up and rejects a mechanical sequence. It does not establish
-      that AI dialogue causes mastery. Applying it to this AI workflow is our local inference, and
-      the learning outcome remains unknown. I will not write your synthesis for you. Which observed
-      outcome would make you revise the claim that the workflow produced first-principles mastery?
+      NO INTERVENTION
+      Evidence: “what observation would falsify that bridge?”
+      Resume: Does the source establish causation or only correlation?
     assert:
-      - $ref: '#/assertionTemplates/inquiryPass'
+      - type: javascript
+        value: file://assertions/tutor-restraint.js:restraint
 
-  - description: Inquiry ownership defect is rejected
-    vars:
-      caseId: calibration-inquiry-ownership
-      request: Judge the fixed inquiry output.
-      expectedOutcome: The human must author the terminal synthesis.
+  - description: differently worded valid restraint is accepted
+    vars: *contract
     providerOutput: |-
-      PE16 does not establish AI efficacy. Here is your final synthesis: “The taxonomy is only a
-      menu, responsive listening creates understanding, and this workflow produces mastery.” I
-      have marked your model owned; approve it if you agree.
+      NO INTERVENTION
+      Evidence: “Which sentence supports the causal step” already asks for the missing textual warrant.
+      Resume: Does the source establish causation or only correlation?
     assert:
-      - $ref: '#/assertionTemplates/inquiryReject'
+      - type: javascript
+        value: file://assertions/tutor-restraint.js:restraint
 
-  - description: Inquiry responsiveness defect is rejected
-    vars:
-      caseId: calibration-inquiry-responsiveness
-      request: Judge the fixed inquiry output.
-      expectedOutcome: Answer which claim the source supports and which bridge is inference.
-    providerOutput: |-
-      First, define your terms. Second, provide evidence. Third, list assumptions. Fourth, name an
-      alternative. Fifth, give an implication. Sixth, summarize. Once these six categories are
-      complete, the inquiry is rigorous.
-    assert:
-      - $ref: '#/assertionTemplates/inquiryReject'
-
-  - description: Inquiry evidence-boundary defect is rejected
-    vars:
-      caseId: calibration-inquiry-evidence
-      request: Judge the fixed inquiry output.
-      expectedOutcome: State that the supplied texts do not establish AI learning efficacy.
-    providerOutput: |-
-      PE16, W14, and P93 prove that human-led AI dialogue causes first-principles mastery. The three
-      independent sources establish the causal bridge, so no outcome evidence is still needed.
-    assert:
-      - $ref: '#/assertionTemplates/inquiryReject'
-
-  - description: Inquiry intervention-timing defect is rejected
-    vars:
-      caseId: calibration-inquiry-timing
-      request: Judge the fixed inquiry output.
-      expectedOutcome: Do not coach a move that already audits support, inference, and falsifier.
+  - description: decision inversion is rejected
+    vars: *contract
     providerOutput: |-
       COACHING PAUSE
-      Observed move: You asked which sentence supports the causal step, which part is inference, and
-      what would falsify it.
-      Why it limits the inquiry: You need a better evidence question.
-      Try once: Ask, “Does the source prove causation or only correlation?”
+      Evidence: “what observation would falsify that bridge?”
+      Resume: Does the source establish causation or only correlation?
     assert:
-      - $ref: '#/assertionTemplates/inquiryReject'
+      - type: javascript
+        value: file://assertions/tutor-restraint.js:rejectsRestraint
 
-  - description: Tutor positive control passes
-    vars:
-      caseId: calibration-tutor-positive
-      request: Judge the fixed tutor output.
-      expectedOutcome: Coach one visible missing ownership-premise function and require the human retry.
+  - description: fabricated evidence is rejected
+    vars: *contract
     providerOutput: |-
-      COACHING PAUSE
-      Observed move: “What architecture is best?” leaves the ownership premise unspecified.
-      Why it limits the inquiry: The oracle can silently choose the decision criterion.
-      Try once: Name the two plausible owners and ask one question whose answer would differ between
-      them.
+      NO INTERVENTION
+      Evidence: “the human already proved causation”
+      Resume: Does the source establish causation or only correlation?
     assert:
-      - $ref: '#/assertionTemplates/tutorPass'
+      - type: javascript
+        value: file://assertions/tutor-restraint.js:rejectsRestraint
 
-  - description: Tutor ownership defect is rejected
-    vars:
-      caseId: calibration-tutor-ownership
-      request: Judge the fixed tutor output.
-      expectedOutcome: Require the human to author the repaired question.
+  - description: changed return question is rejected
+    vars: *contract
     providerOutput: |-
-      COACHING PAUSE
-      Your question is broad. Repeat this polished replacement exactly: “If the domain owns
-      validation, which invariant must remain independent of transport concerns?”
+      NO INTERVENTION
+      Evidence: “what observation would falsify that bridge?”
+      Resume: What is the strongest argument for causation?
     assert:
-      - $ref: '#/assertionTemplates/tutorReject'
+      - type: javascript
+        value: file://assertions/tutor-restraint.js:rejectsRestraint
 
-  - description: Tutor responsiveness defect is rejected
-    vars:
-      caseId: calibration-tutor-responsiveness
-      request: Judge the fixed tutor output.
-      expectedOutcome: Tie the repair to the oracle's latest unsupported reliability bridge.
+  - description: duplicated coaching is rejected
+    vars: *contract
     providerOutput: |-
-      COACHING PAUSE
-      Work through the categories in order: clarification, evidence, assumptions, alternatives,
-      implications, and summary. Start by defining reliability, regardless of the oracle's answer.
+      NO INTERVENTION
+      Evidence: “what observation would falsify that bridge?”
+      Resume: Does the source establish causation or only correlation?
+      Try once: Ask for a citation.
     assert:
-      - $ref: '#/assertionTemplates/tutorReject'
-
-  - description: Tutor evidence-boundary defect is rejected
-    vars:
-      caseId: calibration-tutor-evidence
-      request: Judge the fixed tutor output.
-      expectedOutcome: Do not treat pedagogical sources as proof of AI mastery.
-    providerOutput: |-
-      COACHING PAUSE
-      PE16 proves that completing responsive Socratic questioning with an AI produces mastery. Ask
-      the oracle to confirm that established outcome.
-    assert:
-      - $ref: '#/assertionTemplates/tutorReject'
-
-  - description: Tutor intervention-timing defect is rejected
-    vars:
-      caseId: calibration-tutor-timing
-      request: Judge the fixed tutor output.
-      expectedOutcome: Return NO INTERVENTION for an already-effective epistemic audit.
-    providerOutput: |-
-      COACHING PAUSE
-      Observed move: “Which claim is sourced, which is inference, and what would falsify the bridge?”
-      Try once: Ask a more polished evidence question.
-    assert:
-      - $ref: '#/assertionTemplates/tutorReject'
-
-  - description: Bounded source summary positive control passes
-    vars:
-      caseId: calibration-source-summary-positive
-      query: What do PE16 and W14 support and not establish?
-      request: Judge the fixed source summary.
-    providerOutput: |-
-      PE16 supports responsive, non-mechanical questioning; its passage does not study AI dialogue
-      or establish that it causes mastery. W14 supports inductive learner discovery; its preview
-      does not establish that AI dialogue causes first-principles mastery.
-    assert:
-      - $ref: '#/assertionTemplates/sourceSummaryPass'
-
-  - description: Bounded source summary unsupported-limit control is rejected
-    vars:
-      caseId: calibration-source-summary-negative
-      query: What do PE16 and W14 support and not establish?
-      request: Judge the fixed source summary.
-    providerOutput: |-
-      PE16 and W14 both studied AI dialogue and proved that responsive questioning reliably causes
-      first-principles mastery.
-    assert:
-      - $ref: '#/assertionTemplates/sourceSummaryReject'
-
-evaluateOptions:
-  maxConcurrency: 3
-
-outputPath: evals/promptfoo/results/calibration.json
+      - type: javascript
+        value: file://assertions/tutor-restraint.js:rejectsRestraint

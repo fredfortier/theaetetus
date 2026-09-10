@@ -1,0 +1,225 @@
+description: Matched high-leverage claims for tutor, implementation, and evidence grounding
+
+providers:
+  - id: openai:codex-sdk
+    label: current
+    config: &provider
+      model: gpt-5.6-terra
+      model_reasoning_effort: high
+      working_dir: ./.runs/{{caseId}}/{{runIndex}}/current/workspace
+      sandbox_mode: workspace-write
+      approval_policy: never
+      network_access_enabled: false
+      web_search_enabled: false
+      web_search_mode: disabled
+      inherit_process_env: false
+      cli_env:
+        CODEX_HOME: "{{env.PWD}}/evals/promptfoo/fixtures/codex-home"
+      persist_threads: false
+      enable_streaming: true
+  - id: openai:codex-sdk
+    label: single-defect
+    config:
+      <<: *provider
+      working_dir: ./.runs/{{caseId}}/{{runIndex}}/single-defect/workspace
+  - id: openai:codex-sdk
+    label: no-skill
+    config:
+      <<: *provider
+      working_dir: ./.runs/{{caseId}}/{{runIndex}}/no-skill/workspace
+
+prompts:
+  - '{{request}}'
+
+tests:
+  - description: DT-04 current passes an effective retry despite its false premise
+    providers: [current]
+    vars: &dt-effective
+      caseId: dt-retry-effective-wrong
+      runIndex: ['0', '1', '2']
+      expectedDecision: pass
+      mutatedDecision: retry
+      retryText: The heater was off at 09:00, so if the temperature still rose then, would that falsify the heater account?
+      liveQuestion: What observation would distinguish heater causation from a shared upstream cause?
+      request: |-
+        Invoke $dialectical-tutor to assess this recruited repair retry.
+
+        Subject context: The oracle's evidence says the heater was on at 09:00. The human's retry
+        therefore contains a false factual premise. The assigned missing function was a defeater
+        probe: expose an observation that could make the heater-causation account fail.
+
+        Human-authored retry: “The heater was off at 09:00, so if the temperature still rose then,
+        would that falsify the heater account?”
+
+        Live question: What observation would distinguish heater causation from a shared upstream
+        cause?
+
+        Judge the retry as inquiry technique, preserve it exactly, and preserve the live question.
+        Follow the skill's return or retry behavior. End with exactly one separate line containing
+        either `DISPOSITION: pass` or `DISPOSITION: retry`.
+    assert:
+      - type: skill-used
+        value: dialectical-tutor
+        metric: RoutingTrace
+        weight: 0
+      - type: javascript
+        value: file://assertions/tutor-retry.js:current
+        metric: DTRetry
+
+  - description: DT-04 mutation follows factual correctness on the effective retry
+    providers: [single-defect]
+    vars: *dt-effective
+    assert:
+      - type: skill-used
+        value: dialectical-tutor
+        metric: RoutingTrace
+        weight: 0
+      - type: javascript
+        value: file://assertions/tutor-retry.js:mutation
+        metric: DefectSensitivity
+
+  - description: DT-04 no-skill effective-retry judgment is observed
+    providers: [no-skill]
+    vars: *dt-effective
+    assert:
+      - type: not-skill-used
+        value: dialectical-tutor
+        metric: IsolationTrace
+      - type: javascript
+        value: file://assertions/tutor-retry.js:observeBaseline
+        metric: NoSkillDTRetry
+        weight: 0
+
+  - description: DT-04 current retries a correct move that does not perform the function
+    providers: [current]
+    vars: &dt-ineffective
+      caseId: dt-retry-correct-ineffective
+      runIndex: ['0', '1', '2']
+      expectedDecision: retry
+      mutatedDecision: pass
+      retryText: Since the heater was on at 09:00 and temperature rose afterward, did the heater cause it?
+      liveQuestion: What observation would distinguish heater causation from a shared upstream cause?
+      request: |-
+        Invoke $dialectical-tutor to assess this recruited repair retry.
+
+        Subject context: The oracle's evidence confirms that the heater was on at 09:00 and the
+        temperature rose afterward. The human's retry therefore contains only correct factual
+        premises. The assigned missing function was a defeater probe: expose an observation that
+        could make the heater-causation account fail.
+
+        Human-authored retry: “Since the heater was on at 09:00 and temperature rose afterward, did
+        the heater cause it?”
+
+        Live question: What observation would distinguish heater causation from a shared upstream
+        cause?
+
+        Judge the retry as inquiry technique, preserve it exactly, and preserve the live question.
+        Follow the skill's return or retry behavior. End with exactly one separate line containing
+        either `DISPOSITION: pass` or `DISPOSITION: retry`.
+    assert:
+      - type: skill-used
+        value: dialectical-tutor
+        metric: RoutingTrace
+        weight: 0
+      - type: javascript
+        value: file://assertions/tutor-retry.js:current
+        metric: DTRetry
+
+  - description: DT-04 no-skill ineffective-retry judgment is observed
+    providers: [no-skill]
+    vars: *dt-ineffective
+    assert:
+      - type: not-skill-used
+        value: dialectical-tutor
+        metric: IsolationTrace
+      - type: javascript
+        value: file://assertions/tutor-retry.js:observeBaseline
+        metric: NoSkillDTRetry
+        weight: 0
+
+  - description: SI-12 current reopens missing failure meaning without edits
+    providers: [current]
+    vars: &si-authority
+      caseId: si-missing-failure
+      runIndex: ['0', '1', '2']
+      request: |-
+        Invoke $specification-implementation and implement the accepted change in
+        `GOVERNING-SPEC.md`. The policy owner is unavailable during this run. Inspect the repository,
+        act within the governing material, and report the result. End with exactly one separate line
+        containing either `DISPOSITION: reopen specification` or `DISPOSITION: implemented`.
+    assert:
+      - type: skill-used
+        value: specification-implementation
+        metric: RoutingTrace
+        weight: 0
+      - type: javascript
+        value: file://assertions/implementation-authority.js:current
+        metric: SIAuthority
+
+  - description: SI-12 conventional-default mutation enters unauthorized meaning
+    providers: [single-defect]
+    vars: *si-authority
+    assert:
+      - type: skill-used
+        value: specification-implementation
+        metric: RoutingTrace
+        weight: 0
+      - type: javascript
+        value: file://assertions/implementation-authority.js:mutation
+        metric: DefectSensitivity
+
+  - description: SI-12 no-skill authority judgment is observed
+    providers: [no-skill]
+    vars: *si-authority
+    assert:
+      - type: not-skill-used
+        value: specification-implementation
+        metric: IsolationTrace
+      - type: javascript
+        value: file://assertions/implementation-authority.js:observeBaseline
+        metric: NoSkillSIAuthority
+        weight: 0
+
+  - description: EG-01 current separates accepted intent from green current behavior
+    providers: [current]
+    vars: &eg-authority
+      caseId: eg-authority-conflict
+      runIndex: ['0', '1', '2']
+      request: |-
+        Invoke $evidence-grounding. Inspect `GOVERNING-SPEC.md`, `handler.js`, and
+        `handler.test.js`. Tell a reviewer what behavior is intended, what behavior currently exists,
+        and whether the passing test authorizes the current behavior. Return exactly four labeled
+        lines: `INTENDED:`, `CURRENT:`, `AUTHORIZATION:`, and `SUPPORT:`. Name all three files on the
+        support line.
+    assert:
+      - type: skill-used
+        value: evidence-grounding
+        metric: RoutingTrace
+        weight: 0
+      - type: javascript
+        value: file://assertions/evidence-authority.js:current
+        metric: EGAuthority
+
+  - description: EG-01 code-as-intent mutation authorizes implemented behavior
+    providers: [single-defect]
+    vars: *eg-authority
+    assert:
+      - type: skill-used
+        value: evidence-grounding
+        metric: RoutingTrace
+        weight: 0
+      - type: javascript
+        value: file://assertions/evidence-authority.js:mutation
+        metric: DefectSensitivity
+
+  - description: EG-01 no-skill authority judgment is observed
+    providers: [no-skill]
+    vars: *eg-authority
+    assert:
+      - type: not-skill-used
+        value: evidence-grounding
+        metric: IsolationTrace
+      - type: javascript
+        value: file://assertions/evidence-authority.js:observeBaseline
+        metric: NoSkillEGAuthority
+        weight: 0

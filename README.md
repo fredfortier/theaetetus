@@ -1,10 +1,9 @@
 # Theaetetus
 
-**Human-led dialectical inquiry for AI-native engineering teams.**
+**Human-owned reasoning from inquiry through software delivery.**
 
-Theaetetus is a Codex plugin with two conversational skills and one backstage review skill for a
-difficult moment in software work: a capable engineer must make a consequential change in a domain
-they do not yet understand.
+Theaetetus is a thirteen-skill Codex package for carrying a developer-owned causal account from inquiry
+through specification, implementation, verification, and conformance review.
 
 The usual AI interaction optimizes for an answer. This project optimizes for a different artifact:
 a human-owned causal model that can survive review, predict a changed case, and justify a bounded
@@ -14,11 +13,12 @@ inquiry technique stops doing useful epistemic work.
 
 > Interrogate the oracle. Keep the model.
 
-This is an experimental method with a deliberately narrow evidence claim. Its
-[automated evaluation](WORKPAD.md#validation-record) shows that the skills preserve human
-ownership, evidence discipline, responsive coaching, and cross-case causal transfer on the
-repository's fixtures. It does **not** yet show that real teams learn faster, retain more, or ship
-better changes. That requires longitudinal human study.
+This is an experimental method with deliberately narrow evidence. Four
+[automated behavioral claims](EVALS.md) exercise three skills: tutor restraint and
+technique-over-correctness, implementation restraint before unresolved meaning, and authority
+separation. Ten runtime skills have no admitted behavioral evidence, and most obligations in the
+three tested skills remain uncovered. Nothing here shows that
+real teams learn faster, retain more, or ship better changes. That requires longitudinal human study.
 
 ## The problem
 
@@ -49,8 +49,8 @@ The resulting project thesis is a research hypothesis: disciplined, human-led di
 cross-domain acclimating engineer reach a first reviewable contribution sooner without surrendering
 epistemic agency. “Reviewable contribution” means a causal account, decision-owning boundary,
 invariants and unknowns, and a discriminating test or bounded change—not instant expertise or
-guaranteed correctness. The full premise and claim boundary are governed in
-[WORKPAD.md](WORKPAD.md#governing-thesis).
+guaranteed correctness. The stable premise and claim boundary are governed in
+[PHILOSOPHY.md](PHILOSOPHY.md); the current audit burden is recorded in [SDLC.md](SDLC.md).
 
 ## The role inversion
 
@@ -75,39 +75,64 @@ result.
 
 ## What the project contains
 
-- [`dialectical-inquiry`](plugins/theaetetus/skills/dialectical-inquiry/SKILL.md) runs a persistent, subject-bound
+- [`dialectical-inquiry`](skills/dialectical-inquiry/SKILL.md) runs a persistent, subject-bound
   inquiry. It answers as the oracle, maintains `.agent/<subject-slug>.md`, tests the expressed model,
   and closes only with human ownership or precise aporia.
-- [`dialectical-tutor`](plugins/theaetetus/skills/dialectical-tutor/SKILL.md) repairs one observable midwife move. It
+- [`dialectical-tutor`](skills/dialectical-tutor/SKILL.md) repairs one observable midwife move. It
   may be recruited by the inquiry or invoked directly for deliberate practice, but it returns after
   at most one retry and one hinted retry.
-- [`dialectical-process-reviewer`](plugins/theaetetus/skills/dialectical-process-reviewer/SKILL.md)
-  gives the main oracle an independent, backstage qualitative audit at bounded checkpoints. It
-  never speaks to the human or lowers the tutor's intervention threshold.
-- [`evals/promptfoo`](evals/promptfoo) contains the frozen Promptfoo/Codex contract, calibrated
-  graders, a matched mechanical placebo, sealed holdouts, persistent conversations, and six
-  runnable synthetic domain sandboxes.
+- [`dialectical-process-reviewer`](skills/dialectical-process-reviewer/SKILL.md) gives the inquiry
+  oracle a bounded backstage audit without speaking to the human or lowering the coaching threshold.
+- [`specification-development`](skills/specification-development/SKILL.md) develops, repairs, and
+  assesses the leanest governing specification that follows from the developer's causal account.
+- [`specification-implementation`](skills/specification-implementation/SKILL.md) traces accepted
+  obligations into bounded repository changes and verification evidence, reopening intent when
+  implementation discovers a new decision.
+- [`conformance-review`](skills/conformance-review/SKILL.md) reviews the specification and change in
+  both directions without remediating or accepting its own findings.
+- [`software-delivery`](skills/software-delivery/SKILL.md) identifies the current obligation and
+  routes once to the focused skill or local integration capability that owns it.
+- [`invariant-formulation`](skills/invariant-formulation/SKILL.md) turns owned reasoning into stable,
+  enforceable properties without inventing intent.
+- [`goal-formulation`](skills/goal-formulation/SKILL.md) authors an aligned persistent mandate and
+  continuity workpad for long-running work.
+- [`causal-readiness-review`](skills/causal-readiness-review/SKILL.md) grades whether a proposed
+  solution follows from owned, grounded premises.
+- [`architecture-conformance`](skills/architecture-conformance/SKILL.md) classifies changes against
+  applicable accepted architecture decisions.
+- [`evidence-grounding`](skills/evidence-grounding/SKILL.md) matches repository claims to admissible,
+  claim-sized support.
+- [`naming-things`](skills/naming-things/SKILL.md) chooses canonical terms and plans complete rename
+  transitions.
+- [`doctrine-skill/SPEC.md`](skills/doctrine-skill/SPEC.md) defines the doctrine concept and future
+  admission bar without exposing a runtime skill.
+- [PHILOSOPHY.md](PHILOSOPHY.md) defines the package's role allocation and value boundary; each
+  [`skills/*/SPEC.md`](skills/) owns its operation, handoffs, and source negotiation, while its
+  `EVAL.md` owns the obligation-to-scenario map, evidence limits, and missed opportunities.
+- [`evals/promptfoo/SPEC.md`](evals/promptfoo/SPEC.md) governs shared Promptfoo/Codex condition
+  identity, isolation, calibration, and pass mechanics. The executable surface contains four
+  bounded claims, deterministic claim-local oracles, and fixture-integrity checks.
 - [RESEARCH.md](RESEARCH.md) records the source synthesis, technique-to-runtime translation,
   applicability limits, and open evidence gaps.
-- [WORKPAD.md](WORKPAD.md) governs the thesis, evaluation law, decisions, validation record, and the
-  still-open human-productivity gate.
+- [SDLC.md](SDLC.md) is the active comparative-audit continuity workpad;
+  [WORKPAD.md](WORKPAD.md) is the compact historical index for the superseded incubation workpad.
 
-The skill files themselves have no application runtime dependency. Node, Promptfoo, Rust, and
-Python are used only to reproduce this repository's evaluation suite.
+The skill files themselves have no application runtime dependency. Node and Promptfoo are used only
+to reproduce this repository's evaluation suite.
 
 ## Use it in an AI-native team
 
-Theaetetus belongs upstream of a consequential specification or change, when the engineer can
-inspect evidence but does not yet own the target-domain model. Good uses include unfamiliar-system
-onboarding, incident reconstruction, architecture premise discovery, security-boundary analysis,
-and pre-implementation review.
+Theaetetus can enter wherever the earliest unsatisfied delivery obligation lies. Use inquiry when
+the developer does not yet own the target-domain account; specification development when the
+account is owned but implementation authority is incomplete; implementation when obligations are
+accepted; and conformance review when the change needs human acceptance judgment.
 
-It is not the right tool for a one-shot explanation, ordinary tutoring, a settled implementation,
-an autonomous coding run, or an agent-authored conclusion awaiting human approval.
+It does not replace repository policy, stack expertise, ordinary one-shot assistance, integration
+mechanics, or accountable human judgment.
 
 A practical team loop is:
 
-1. **Name the decision, not a topic.** The DRI starts with the operational boundary, current
+1. **Name the decision, not a topic.** The developer starts with the operational boundary, current
    account, and uncertainty—for example, “when may this swap UI call an operation successful?”
 2. **Interrogate before specifying.** The oracle inspects code and sources, answers directly, and
    pressures the current account with a consequence, rival explanation, or discriminating case.
@@ -118,12 +143,15 @@ A practical team loop is:
    alone does not.
 5. **Demand transfer.** Before implementation, change an input or boundary. The human predicts the
    result from the same causal model rather than repeating the original vocabulary.
-6. **Hand off a reviewable artifact.** The resulting invariant set, state machine, failing test,
-   diagnostic plan, or small patch boundary enters normal engineering review. The workpad is
-   evidence of the inquiry, not authority over the reviewer.
+6. **Govern implementation.** Develop the leanest specification whose obligations follow from the
+   owned account, then implement only repository facts traceable to those obligations.
+7. **Verify at the responsible boundary.** Record what each observation establishes, the competing
+   explanation it rules out, and its limit.
+8. **Review both directions.** Check that every obligation appears in repository state and every
+   material changed fact has authority. A human accepts, rebuts, or reopens the result.
 
 For team use, the domain reviewer should inspect the model and engineering artifact rather than
-grade the eloquence of the conversation. The DRI remains accountable for the final claim. A
+grade the eloquence of the conversation. The developer remains accountable for the final claim. A
 reviewer may close a false premise, add missing domain evidence, or reject an apparently owned
 model that does not match the system.
 
@@ -134,12 +162,10 @@ documented by OpenAI:[^codex-plugins]
 
 ```text
 .agents/plugins/marketplace.json
-plugins/theaetetus/
-  .codex-plugin/plugin.json
-  LICENSE
-  skills/
-    dialectical-inquiry/SKILL.md
-    dialectical-tutor/SKILL.md
+.codex-plugin/plugin.json
+LICENSE
+skills/
+  */SKILL.md
 ```
 
 Install the Git marketplace and then the plugin:
@@ -163,14 +189,14 @@ codex plugin add theaetetus@theaetetus
 ```
 
 The canonical—and only—skill sources live under
-[`plugins/theaetetus/skills`](plugins/theaetetus/skills). The evaluation harness copies them from
+[`skills`](skills). The evaluation harness copies them from
 the plugin into disposable test projects; this repository does not expose a project-scoped
 `.agents/skills` installation.
 
 ### Backstage process reviewer
 
 The conventional plugin bundles
-[`dialectical-process-reviewer`](plugins/theaetetus/skills/dialectical-process-reviewer/SKILL.md) as a third skill.
+[`dialectical-process-reviewer`](skills/dialectical-process-reviewer/SKILL.md) alongside the twelve delivery skills.
 During a live inquiry, the main skill asks a normal subagent to use that reviewer after the initial
 account plus three material human moves, after each four additional material moves, and before an
 `owned` close. No project agent, `AGENTS.md`, or post-install copy step is required.
@@ -243,113 +269,68 @@ when it identifies the missing premise and next discriminating observation.
 
 ## Evaluation as a causal argument
 
-The evaluation does not ask whether responses look Socratic. It asks whether the claimed result can
-still be explained by visible ceremony.
-
-The matched `mechanical-placebo` reads a skill, creates the same workpad shape, emits the same
-lifecycle markers, and uses similar source labels. It deliberately removes the hypothesized causal
-competencies: responsive listening, human model ownership, evidence limits, and warranted tutor
-timing. If that placebo passes a semantic case, the ceremony-only explanation survives and the
-evaluation fails.
-
-The six domain sandboxes were selected for different problem classes rather than six surface
-variations of one ownership bug:
-
-| Sandbox | Imported analogy under pressure | Required engineering consequence |
-| --- | --- | --- |
-| ZK statement binding | Honest prover input is part of the proved statement | Bind the public claim and derive an adversarial proof test |
-| Wallet lifecycle | Resolved mutation means success in current UI context | Immutable operation identity and a defensible transaction lifecycle |
-| Mean-reversion backtest | High fitted PnL implies executable performance | Locate the earliest impossible information edge and repair event time |
-| Cross-margin liquidation | Leverage is a position-local stop | Account-level equity/maintenance invariant over a coherent snapshot |
-| Typed-signature replay | Signer recovery proves complete intent and uniqueness | Domain, freshness, atomic consumption, and a replay matrix |
-| Reorged deposit | Deduplication covers post-consumption consistency | Reversible ledger state and canonical-history reconciliation |
-
-Each working case has a changed-case holdout that must preserve the relation under different
-surface vocabulary. The wallet case also has a true five-turn conversation in which repeated
-solution-label substitution warrants one tutor repair. The fixture and gold outcome are separated
-so the target cannot read its expected answer.
-
-The final pre-plugin cache-disabled automated run passed **116/116 rows**: calibrated grader
-controls, protocol units, matched controls, sealed holdouts, three pedagogical conversations, and
-the wallet domain conversation. All 64 observed routing checks passed. The exact scope and result
-are recorded in [the validation record](WORKPAD.md#validation-record); the repair history—including
-invalid scenarios, grader plumbing defects, control defects, and genuine skill defects—is retained
-in the [findings log](evals/promptfoo/evidence/findings-log.md).
-
-That result supports only the frozen automated contract on these fixtures. It does not establish
-human learning, productivity, retention, universal transfer, felt conversational quality, or Voice
-behavior. The plugin topology and new backstage reviewer have passed structural validation and an
-actual local Codex marketplace install, but the 116-row semantic suite has not been rerun against
-that addition. The human-comparison gate remains open.
+The evaluation asks whether a claimed result survives a current-derived control and relevant
+baseline. Each runtime skill's `EVAL.md` maps all of its obligations to falsifiable Codex Promptfoo
+scenarios and distinguishes implemented evidence from missed opportunities. Its `SPEC.md` remains
+the sole authority for behavior. [The Promptfoo harness specification](evals/promptfoo/SPEC.md)
+governs shared isolation, calibration, and pass mechanics; [EVALS.md](EVALS.md) records the cleanup.
 
 ## Reproduce the evaluation
 
-The full suite requires:
-
-- Node.js 22.22 or later and npm;
-- Python 3;
-- a Rust toolchain with Cargo;
-- Codex credentials available to `@openai/codex-sdk`;
-- enough model budget for repeated target and grader calls.
-
-Install the pinned JavaScript dependencies and run the frozen suite:
+Install Node.js 22.22 or later and the pinned dependencies, then run the static boundary checks
+and deterministic oracle calibration:
 
 ```bash
 npm ci
 npm run eval:dialectic
 ```
 
-The [evaluation runner](evals/promptfoo/scripts/run-all.mjs) prepares disposable Git fixtures, runs
-all six executable projects, verifies the holdout and final-freeze checksums, validates every
-Promptfoo configuration, and runs all uncached target and grader comparisons. The provider
-configurations disable target network/search access and do not inherit the ambient process
-environment. Expect a material number of live model calls; this is not a lightweight unit test.
-
-Smaller entry points are available for development:
+The live claims require Codex credentials. Run the nine tutor-restraint observations and the 33
+high-leverage observations across current, generated single-defect, and no-skill conditions:
 
 ```bash
-npm run eval:prepare
-npm run eval:calibrate
-npm run eval:unit
-npm run eval:holdout
-npm run eval:integration
-npm run eval:domain-integration
+npm run eval:restraint
+npm run eval:leverage
 ```
 
-Do not tune against the sealed holdout. When a failure occurs, classify its owner first: runtime
-skill, sandbox/task, grader, provider/harness, or unresolved. Change only the owning artifact,
-replay the smallest calibrated case, and preserve failed attempts in the findings log. A green
-aggregate cannot compensate for a failed hard invariant.
+Each command prepares fresh fixtures, rejects external evaluated-skill reads, and removes generated
+runtime state after success. Licensed conclusions and explicit exclusions are in the evaluated
+skills' `EVAL.md` sidecars; a green aggregate does not establish broad value over the foundation
+model.
 
 ## Repository map
 
 ```text
-.agents/plugins/marketplace.json
-                              canonical repo marketplace catalog
-plugins/theaetetus/
-  .codex-plugin/plugin.json  installable plugin manifest
-  skills/
-    dialectical-inquiry/     main oracle skill, specification, and runtime references
-    dialectical-tutor/       bounded coaching skill, specification, and practice references
-    dialectical-process-reviewer/
-                              backstage qualitative process audit for delegated checkpoints
+skills/
+  */EVAL.md                  obligation-to-scenario map, evidence, limits, missed opportunities
+  dialectical-inquiry/       main oracle skill, specification, and runtime references
+  dialectical-tutor/         bounded coaching skill, specification, and practice references
+  specification-development/ causal specification development and readiness assessment
+  specification-implementation/ bounded implementation and verification
+  conformance-review/        read-only two-way acceptance review
+  software-delivery/         current-obligation router
+.codex-plugin/plugin.json    installable plugin manifest
 evals/promptfoo/
-  sandboxes/                 six minimal synthetic domain projects
-  tests/                     working, control, holdout, and persistent-conversation cases
-  assertions/                deterministic artifact and safety checks
-  rubrics/                   calibrated semantic evaluation contracts
-  evidence/                  frozen checksums and findings history
+  SPEC.md                   shared condition identity, isolation, calibration, and pass law
+  assertions/                deterministic claim-local oracles
+  scripts/                   fixture generation, isolation, purity, and validation checks
+  evidence/                  interpretation-changing findings
 RESEARCH.md                   evidence synthesis and source limits
-WORKPAD.md                    governing thesis, decisions, gates, and validation record
+PHILOSOPHY.md                 human ownership and oracle role
+DERIVADEX-MIGRATION.md        replacement coverage and cutover gates
+SDLC.md                       active comparative-audit continuity workpad
+WORKPAD.md                    superseded incubation history index
 ```
 
 ## Research status and contribution boundary
 
-The current artifact is best understood as an evaluated research prototype with an applied team
-workflow. The next decisive evidence is not another prompt case. It is a blinded comparison with
-actual cross-domain acclimating engineers, measuring time to first reviewable contribution, domain
-expert correction burden, changed-case transfer, and retained explanation. Failures and variance
-must be reported; a small successful demonstration cannot establish general efficacy.
+The current artifact is best understood as a research prototype with four evaluated boundaries
+across three skills and an applied team workflow. Additional isolated prompt cases are required for
+skill-level quality;
+the project thesis ultimately requires a blinded comparison with actual cross-domain acclimating
+engineers, measuring time to first reviewable contribution, domain-expert correction burden,
+changed-case transfer, and retained explanation. Failures and variance must be reported; a small
+successful demonstration cannot establish general efficacy.
 
 Contributions are most valuable when they sharpen that causal argument:
 
@@ -359,9 +340,9 @@ Contributions are most valuable when they sharpen that causal argument:
 - design the human comparison and review protocol;
 - repair a general runtime defect without leaking case-specific nouns or gold answers into a skill.
 
-Before submitting a change, run the relevant executable fixture, the smallest calibrated Promptfoo
-case, and `git diff --check`. Explain what premise the change protects and what evidence would show
-that it failed.
+Before submitting a change, run any existing relevant executable claim, its calibrated Promptfoo
+case, and `git diff --check`. If no behavioral claim exists, say so rather than substituting a
+planned scenario. Explain what premise the change protects and what evidence would show failure.
 
 ## License
 
@@ -378,6 +359,10 @@ contains the fuller source inventory, translations, and stopping rationale.
 [^padesky]: Christine A. Padesky, [“Socratic Questioning: Changing Minds or Guiding Discovery?”](https://padesky.com/wp-content/uploads/2012/11/socquest.pdf), supports genuine curiosity, responsive evidence gathering, mutual correction, and learner-owned synthesis. Its clinical setting is not imported as therapy or as evidence of engineering efficacy.
 [^forcing]: Zana Buçinca, Maja Barbara Malaya, and Krzysztof Z. Gajos, [“To Trust or to Think: Cognitive Forcing Functions Can Reduce Overreliance on AI in AI-assisted Decision-making”](https://arxiv.org/abs/2102.09692), report an experiment with 199 participants in which forcing interventions reduced overreliance but received worse subjective ratings. The result motivates selective human-first commitment, not universal answer withholding.
 [^sycophancy]: Mrinank Sharma et al., [“Towards Understanding Sycophancy in Language Models”](https://proceedings.iclr.cc/paper_files/paper/2024/hash/0105f7972202c1d4fb817da9f21a9663-Abstract-Conference.html), report sycophancy across five tested RLHF assistants and preference for view-matching answers in their studied settings. This establishes a design risk, not a timeless property of every model.
+[^codex-skills]: [Official OpenAI documentation, “Build skills”](https://learn.chatgpt.com/docs/build-skills), defines skill structure, explicit and implicit invocation, repository discovery under `.agents/skills`, and symlink support. It governs Codex mechanics only, not Theaetetus's epistemic design.
+
 [^codex-plugins]: [Official OpenAI documentation, “Package your plugin”](https://developers.openai.com/plugins/build/plugins), defines the repository marketplace, plugin manifest, component paths, and distribution workflow.
+
 [^codex-use-plugins]: [Official OpenAI documentation, “Plugins”](https://learn.chatgpt.com/docs/plugins), documents supported install surfaces, the CLI plugin browser, and the new-session boundary.
+
 [^codex-subagents]: [Official OpenAI documentation, “Subagents”](https://learn.chatgpt.com/docs/agent-configuration/subagents), defines project agents under `.codex/agents/`, their required fields, delegation triggers, and model inheritance.

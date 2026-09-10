@@ -1,55 +1,25 @@
-# Promptfoo/Codex evaluation findings
+# Harness findings
 
-This log separates integration observations from semantic defects. Raw result JSON is intentionally
-ignored by Git; the final validation record reports the retained aggregate evidence.
+Raw Promptfoo JSON is ignored and reproducible; this file records only interpretation-changing
+observations about evaluation integrity and cleanup. Skill-level evidence and conclusions belong in
+the evaluated skill's `EVAL.md`.
 
-## Pre-freeze findings
+| Observation | Consequence |
+| --- | --- |
+| The retired 198-execution surface had no case satisfying its own complete causal burden. | Remove it rather than preserve green diagnostics as latent evidence. |
+| Router comparator and no-skill conditions historically matched current across all 18 semantic judgments. | Remove the strongest-comparator family; it demonstrated no local advantage. |
+| Broad placebos changed several competences and sometimes elicited model correction. | Generate a current-derived, single-semantic-defect control instead. |
+| Ambient Codex installations contaminated earlier conditions. | Retain the auth-only `CODEX_HOME` and raw-trace isolation gate. |
+| Fixed deterministic outputs can exercise every predicate of the retained oracle without a model grader. | Remove all semantic rubrics and their calibration fixtures. |
+| An appended always-intervene instruction manifested in only 1/3 initial control trials because the rest of the skill still contradicted it. | Reject that run; invert only the same restraint rule across all four runtime surfaces and replay every condition from fresh fixtures. |
+| Fixed calibration, generated-control manifestation, baseline observation, and trace isolation completed for the admitted claims. | Record scores and bounded interpretations only in each evaluated skill's `EVAL.md`, which owns the claim. |
+| A first leverage fixture placed current, control, and no-skill below one shared parent; an agent could enumerate sibling conditions with `find ..`. | Reject that topology. Each condition now has a separate parent workspace, and raw-trace isolation rejects paths outside the exact row workspace. |
+| Initial live samples exposed a mixed tutor return/retry lifecycle and implementation edits made before a required reopen. | Repair the governing runtime rules, invalidate those samples, and replay against the repaired skills. |
+| Several initial deterministic regexes rejected semantically valid wording. | Treat them as oracle defects, add the wording to fixed positive calibration, and invalidate only the affected live evidence. |
+| The evidence-grounding no-skill baseline made the complete correct distinction. | Forbid an incremental-capability claim; retain only bounded conformance and mutation-sensitivity evidence. |
+| The attempted `CR-05` family combined repeated natural-language oracle misses with one persistent generic-owner failure after a runtime repair; no-skill made the substantive contrast. | Remove its config, fixtures, mutation, and oracle. Preserve the failed observation only in `causal-readiness-review/EVAL.md`; do not manufacture a green claim. |
 
-| Observation | Classification | Consequence |
-| --- | --- | --- |
-| External test fragments resolve from the external file, not the root config. | Harness integration | Use repository-relative `$ref` paths. |
-| Strict Codex provider validation rejects YAML merge key `<<` as an unknown provider field. | Harness integration | Expand provider configs explicitly. |
-| `options.repeat` did not render the same repeat index into target and nested grader paths. | Harness integration | Use a string `runIndex` matrix for isolated writable repetitions. |
-| `skill-used` missed some direct reads. | Noisy diagnostic | Give routing assertions zero weight and require aggregate route stability separately. |
-| Codex-backed `context-faithfulness` scored faithful compound summaries from 0.33 to 1.00. | Unstable judge for this construct | Retain it as a zero-weight diagnostic; make the calibrated source-card agent rubric the hard gate. |
-| Rubric Markdown files were rejected as assertion values. | Harness integration | Store rubric bodies as `.txt`. |
-| The persistent final grader cannot inspect the target thread transcript. | Observability limit | Enforce earlier markers per turn and grade the final workpad state. |
-| A first integration run scored 2/5: coaching was not recruited and closure remained active. | Skill defect | Add repeated category-switch detection and explicit terminal closure rules. |
-| A repaired integration run scored 4/5: pause, retry, and return worked, but unsupported ownership remained active. | Skill defect | Require explicit closure to become human-owned or precise aporia. |
-| The first declared final unit run scored 48/54. | Freeze reopened: valid defects and judge defects | Repair only the six failed cases, document each cause, then reseal before another final run. |
-| `DI-EVID-01` produced valid limits such as “none ... establishes causation” and “unshown causal bridge,” but the deterministic assertion rejected them. | Judge false negative | Expand only explicit negation/limitation forms; retain affirmative-source and bare-efficacy rejection probes. |
-| `DT-ROUTE-01` asked for recovery from a move with two missing functions and no latest oracle answer. | Scenario construct defect | Supply the latest answer and isolate one discriminating-premise deficit. |
-| `DT-PERSUADE-01` sometimes supplied a near-authored uncertainty frame. | Skill ownership defect | Require the human to state one genuine uncertainty without a sample or fill-in frame. |
-| The resealed calibration rejected its source-summary positive because “does not establish AI efficacy” was broader than PE16's exact “does not study AI dialogue or establish that it causes mastery” limit. | Positive-control defect, correctly caught by judge | Replace the shorthand with the card's precise two-part limit; do not weaken the rubric. |
-| A repaired `DI-EVID-01` said “none provides AI-specific causal evidence,” which the deterministic judge did not recognize. | Judge false negative | Admit explicit `none provides/supplies/contains ... evidence` forms; retain affirmative contrast probes. |
-| A repaired `DT-MECH-01` quoted the narrator's “ignored the answer” label rather than an actual quoted question. | Skill evidence defect | Require the utterance or transition itself when both narration and quoted moves are available. |
-| Another `DT-MECH-01` repaired from “the first answer,” abandoning the latest available answer. | Skill recency defect | Make latest-answer anchoring mandatory; recover one latest claim when handoff content is absent. |
-| `DI-HANDOFF-01` labeled the proposition named in the subject as “Your stated model” although the human had not endorsed it. | Skill provenance defect | Distinguish a proposition under examination from an explicitly human-stated thesis. |
-| The tutor control emitted a return marker on an initial persuasion-coaching turn. | Matched-shell control defect | Preserve pause-only lifecycle until a prompt actually contains a human retry. |
-| `DT-MECH-01` required use of a latest oracle answer that the fixture never supplied; one retry also offered three operations (“test, clarify, or constrain”). | Scenario construct defect plus skill focus defect | Supply an actual latest oracle answer and require exactly one operation in the retry instruction. |
-| The source-ID shell asserted only against response prose although the control recorded IDs in its workpad. | Ceremony-observation defect | Inspect response plus workpad for the matched source-ID shell. |
-| The tutor control disclosed “Mechanical Placebo” and was sometimes corrected by the runtime instead of instantiated. | Control-demand artifact | Express the same removed competencies as a plausible comprehensive-coaching doctrine without disclosing the experimental intent. |
-| The deterministic evidence checker repeatedly rejected valid limitation paraphrases, most recently “not evidence that...”. | Construct/tool mismatch | Restrict JavaScript to unambiguous forbidden affirmative claims; require the explanatory evidence limit in the calibrated source-aware Codex rubric. Add fixed runner probes for the narrowed contract. |
-| The no-skill model independently produced a sound Socratic response and generic workpad without reading either skill. | Invalid baseline expectation | Permit semantic overlap from a strong foundation model. Require only absent skill routing, near-miss restraint, and failure to reproduce the canonical skill artifact; keep causal discrimination on the matched procedural control. |
-| The resealed full run passed calibration 12/12, unit 54/54, and holdout 12/12, but the first serial integration repetition passed only 2/5. The runtime answered both consecutive category switches substantively but never recruited coaching, so the retry and final workpad could not contain the required intervention lifecycle. | Persistent-thread skill defect, not a marker-only failure | Gate 4 remains open. Do not weaken the integration case or force a rerun; investigate why repeated category-switch calibration is not applied across natural thread turns. The new domain-case strategy must retain true serial conversations rather than rely on embedded transcripts. |
-| The first wallet-domain integration treated movement from submission to stale ownership to replacement as a coaching defect. The agent answered all three as one coherent lifecycle progression and correctly did not interrupt. | Invalid scenario: productive domain progression mislabeled as nonresponsive behavior | Replace topic changes with repeated visible substitution of solution labels for the missing ownership/lifecycle relation. Coaching must never be rewarded merely because the subject advances. |
-| The first six-domain working run passed 11/12; all six matched placebos were rejected. The wallet current response wrote a polished oracle synthesis and asked for assent. | Skill ownership defect | Require the human to formulate the revision or derive a consequence; keep oracle wording attributed until the human uses it. The isolated repaired wallet row passed 1/1. |
-| The first six changed-case rows passed 6/6. | Valid targeted transfer evidence | Preserve these rows outside working-set tuning and include them in the final holdout seal. |
-| The repaired Layer A persistent thread passed 5/5 without changing its assertions. | Valid skill repair evidence | Persistent calibration now retains a concrete unused pressure across turns and recruits on repeated evidence. |
-| A stronger wallet integration earned its coaching pause, but its supplied retry answered ownership while omitting the exact intent-compatibility comparison requested by the tutor. The tutor correctly gave its allowed hint. | Scenario construct defect | Make the simulated retry perform the requested relation; keep the one-return assertion unchanged. |
-| The first frozen domain-expanded unit run passed 65/66. Its only failure said the tutor invented an ownership premise, although that premise and latest oracle answer were in the test request. Inspection of `renderedGradingPrompt` showed that raw external rubric files retained literal `{{request}}` and `{{expectedOutcome}}` placeholders. | Grader evidence-plumbing defect; earlier rubric passes did not exercise the per-case gold as intended | Use one JavaScript assertion-value function to compose JSON-quoted case data with the shared rubric. The unchanged failed target output then passed 3/3, and the rendered grader prompt visibly contained the oracle answer. Recalibrate every semantic grader and rerun the full frozen suite. |
-| The context-corrected frozen unit run passed 65/66. The quant row proved that changing only a future spread flips an earlier signal, then separately showed same-close `+4` versus lagged `-3`; the gold nevertheless required same-close execution to be the first impossible edge. | Scenario gold defect: causal ordering contradicted the fixture | Make full-series centering the earliest leak and retain same-close execution, selection, and costs as separate later relations. Do not change the target skill or shared rubric. |
-| The next frozen unit run passed 62/66. Two tutor repeats quoted only the final checklist conclusion, not both category transitions establishing repetition. Two inquiry-control rows were semantically good because Codex rejected the control's blatantly false instructions. | General tutor evidence defect plus invalid caricature control | Require two quoted moves when repetition warrants intervention. Replace the control with a plausible consultant-led procedural doctrine that answers accurately and matches artifacts while still assigning model authorship, progression, and coaching to the oracle. |
-| A later frozen unit run passed 65/66. The mean-reversion response identified both future-data centering and same-close execution but foregrounded the latter even though the fixture makes the former the earliest impossible dependency. | General oracle causal-ordering defect | Require “first failure” answers to order dependencies and name the earliest impossible edge. Three independent cache-disabled replays of the repaired case passed. |
-| The first domain-expanded frozen holdout passed 16/18. One tutor response asked the human a replacement question instead of requiring a human-authored prediction; one reorg response collapsed source-chain delivery with destination execution. | General tutor ownership defect plus general asynchronous-boundary defect | Match the retry form to its learning function and require the human to supply it. Across asynchronous systems, distinguish origin commitment, delivery/acceptance, and destination effect unless atomicity is established. The two repairs passed 4/4 targeted replays. |
-| A final unit run passed 65/66 because the inquiry handed a live subject question entirely to coaching during a justified tutor intervention. | General handoff defect | Answer the live subject question as oracle before the brief coaching pause. The repaired row passed 3/3 targeted replays. |
-| The final frozen run passed calibration 12/12, unit 66/66, holdout 18/18, three five-turn pedagogical integrations 15/15, and the five-turn wallet integration 5/5. Every semantic outcome score was 1.000 and all 64 observed routing checks passed. | Automated contract satisfied | Retain the freeze and stop adding cases. The 116/116 result supports only the specified runtime and transfer behaviors; it does not establish human learning efficacy or Voice behavior. |
-
-## Reseal decision
-
-The final freeze follows the repairs above. The evidence-boundary assertion was manually probed
-against four contrastive statements: two explicit evidence limitations passed; an affirmative
-“sources prove” claim and a bare “AI dialogue causes mastery” claim failed. The last live targeted
-run's three outputs also pass the repaired deterministic assertion without changing those outputs.
-
-No holdout semantics changed after its separate seal. No Voice-specific case is present.
+The admitted replays ran on 2026-09-03 with fresh generated fixtures. Raw JSON was inspected,
+skill-level evidence was recorded in the relevant sidecars, and generated runtime side effects were
+then removed. A run identifier is provenance for a recorded observation, not a durable result store
+or a substitute for replay.
