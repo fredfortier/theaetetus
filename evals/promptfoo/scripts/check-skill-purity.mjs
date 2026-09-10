@@ -20,7 +20,7 @@ const forbidden = [
   ['source-local interface tool', /\brequest_user_input\b/gu],
 ];
 
-const legalDialecticalNames = new Set(['dialectical-inquiry', 'dialectical-tutor']);
+const legalDialecticalNames = new Set(['dialectical-inquiry', 'dialectical-tutor', 'dialectical-process-reviewer']);
 const violations = [];
 
 async function filesUnder(directory) {

@@ -15,6 +15,11 @@ Adopt two skills:
 1. `dialectical-inquiry`: the main, subject-bound conversation. The human is the midwife and drives the inquiry. The runtime agent is a fallible oracle: it develops an independent, source-grounded causal account, answers substantively, exposes uncertainty and framing errors, and continually maintains a provisional model of what the human appears to understand.
 2. `dialectical-tutor`: a brief coaching intervention recruited by the main skill when the human is not effectively performing the midwife role. It diagnoses an observable conversational move, gives one corrective exercise, observes the retry, and returns control to the inquiry.
 
+The installable plugin later added `dialectical-process-reviewer` as a non-conversational backstage
+review skill. It does not alter the two-role research conclusion: it independently applies the
+same calibration doctrine at bounded checkpoints and returns a qualitative recommendation to the
+main oracle, which remains responsible for any tutor recruitment.
+
 This is not the classical allocation of roles. In Plato's *Theaetetus*, Socrates is the midwife who tests another person's intellectual offspring; here the human must learn that craft and apply it to an AI oracle. The design is therefore a deliberate role inversion informed by Socratic maieutics, elenchus, guided discovery, and learning science—not a claim to reproduce a single canonical “Socratic method.”
 
 “Oracle” must not imply authority, privileged truth, or infallibility. It names the answering role. The oracle remains subject to evidence, counterexample, uncertainty, and correction.

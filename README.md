@@ -2,7 +2,7 @@
 
 **Human-owned reasoning from inquiry through software delivery.**
 
-Theaetetus is a twelve-skill Codex package for carrying a developer-owned causal account from inquiry
+Theaetetus is a thirteen-skill Codex package for carrying a developer-owned causal account from inquiry
 through specification, implementation, verification, and conformance review.
 
 The usual AI interaction optimizes for an answer. This project optimizes for a different artifact:
@@ -16,7 +16,7 @@ inquiry technique stops doing useful epistemic work.
 This is an experimental method with deliberately narrow evidence. Four
 [automated behavioral claims](EVALS.md) exercise three skills: tutor restraint and
 technique-over-correctness, implementation restraint before unresolved meaning, and authority
-separation. Nine runtime skills have no admitted behavioral evidence, and most obligations in the
+separation. Ten runtime skills have no admitted behavioral evidence, and most obligations in the
 three tested skills remain uncovered. Nothing here shows that
 real teams learn faster, retain more, or ship better changes. That requires longitudinal human study.
 
@@ -81,6 +81,8 @@ result.
 - [`dialectical-tutor`](skills/dialectical-tutor/SKILL.md) repairs one observable midwife move. It
   may be recruited by the inquiry or invoked directly for deliberate practice, but it returns after
   at most one retry and one hinted retry.
+- [`dialectical-process-reviewer`](skills/dialectical-process-reviewer/SKILL.md) gives the inquiry
+  oracle a bounded backstage audit without speaking to the human or lowering the coaching threshold.
 - [`specification-development`](skills/specification-development/SKILL.md) develops, repairs, and
   assesses the leanest governing specification that follows from the developer's causal account.
 - [`specification-implementation`](skills/specification-implementation/SKILL.md) traces accepted
@@ -155,23 +157,55 @@ model that does not match the system.
 
 ## Install
 
-Codex loads repository-scoped skills from `.agents/skills` and supports symlinked skill folders.
-It can invoke a skill explicitly with `$skill-name` or implicitly when the request matches the
-skill description.[^codex-skills]
+Theaetetus is packaged as a skills-only Codex plugin in the repository marketplace topology
+documented by OpenAI:[^codex-plugins]
 
-Clone this repository and copy the skill directories into the repository where the team will use
-them:
+```text
+.agents/plugins/marketplace.json
+.codex-plugin/plugin.json
+LICENSE
+skills/
+  */SKILL.md
+```
+
+Install the Git marketplace and then the plugin:
+
+```bash
+codex plugin marketplace add fredfortier/theaetetus --ref master
+codex plugin add theaetetus@theaetetus
+```
+
+Start a new Codex session after installation so the bundled skills are discovered. In Codex CLI,
+`/plugins` opens the plugin browser. Plugins are supported in Codex CLI and Codex in the ChatGPT
+desktop app; the current OpenAI documentation says the IDE extension does not support plugin
+installation.[^codex-use-plugins]
+
+For local development, clone the repository and add its root as a local marketplace:
 
 ```bash
 git clone https://github.com/fredfortier/theaetetus.git
-cd your-project
-mkdir -p .agents
-cp -R ../theaetetus/skills .agents/
+codex plugin marketplace add /absolute/path/to/theaetetus
+codex plugin add theaetetus@theaetetus
 ```
 
-For active skill development, symlink the skill directory instead of copying it. This repository
-does exactly that at its root: [`.agents/skills`](.agents/skills) points to [`skills/`](skills).
-Restart Codex if a newly added or changed skill does not appear.
+The canonical—and only—skill sources live under
+[`skills`](skills). The evaluation harness copies them from
+the plugin into disposable test projects; this repository does not expose a project-scoped
+`.agents/skills` installation.
+
+### Backstage process reviewer
+
+The conventional plugin bundles
+[`dialectical-process-reviewer`](skills/dialectical-process-reviewer/SKILL.md) alongside the twelve delivery skills.
+During a live inquiry, the main skill asks a normal subagent to use that reviewer after the initial
+account plus three material human moves, after each four additional material moves, and before an
+`owned` close. No project agent, `AGENTS.md`, or post-install copy step is required.
+
+The reviewer grades inquiry *moves*, not the person: each relevant dimension is `demonstrated`,
+`not tested`, or `repair evidence`. It returns a private recommendation to the main oracle, which
+independently checks the evidence before exposing any one-move remediation through the existing
+tutor contract. If the current surface cannot coordinate subagents, the main skill performs the
+same checkpoint locally and silently.[^codex-subagents]
 
 ## Start an inquiry
 
@@ -326,3 +360,9 @@ contains the fuller source inventory, translations, and stopping rationale.
 [^forcing]: Zana Buçinca, Maja Barbara Malaya, and Krzysztof Z. Gajos, [“To Trust or to Think: Cognitive Forcing Functions Can Reduce Overreliance on AI in AI-assisted Decision-making”](https://arxiv.org/abs/2102.09692), report an experiment with 199 participants in which forcing interventions reduced overreliance but received worse subjective ratings. The result motivates selective human-first commitment, not universal answer withholding.
 [^sycophancy]: Mrinank Sharma et al., [“Towards Understanding Sycophancy in Language Models”](https://proceedings.iclr.cc/paper_files/paper/2024/hash/0105f7972202c1d4fb817da9f21a9663-Abstract-Conference.html), report sycophancy across five tested RLHF assistants and preference for view-matching answers in their studied settings. This establishes a design risk, not a timeless property of every model.
 [^codex-skills]: [Official OpenAI documentation, “Build skills”](https://learn.chatgpt.com/docs/build-skills), defines skill structure, explicit and implicit invocation, repository discovery under `.agents/skills`, and symlink support. It governs Codex mechanics only, not Theaetetus's epistemic design.
+
+[^codex-plugins]: [Official OpenAI documentation, “Package your plugin”](https://developers.openai.com/plugins/build/plugins), defines the repository marketplace, plugin manifest, component paths, and distribution workflow.
+
+[^codex-use-plugins]: [Official OpenAI documentation, “Plugins”](https://learn.chatgpt.com/docs/plugins), documents supported install surfaces, the CLI plugin browser, and the new-session boundary.
+
+[^codex-subagents]: [Official OpenAI documentation, “Subagents”](https://learn.chatgpt.com/docs/agent-configuration/subagents), defines project agents under `.codex/agents/`, their required fields, delegation triggers, and model inheritance.

@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "Theaetetus",
     "shortDescription": "Human-owned reasoning through software delivery",
-    "longDescription": "Twelve focused skills preserve developer ownership from dialectical inquiry through specification, implementation, verification, and conformance review.",
+    "longDescription": "Thirteen focused skills preserve developer ownership from dialectical inquiry through specification, implementation, verification, and conformance review.",
     "developerName": "Frédéric Fortier",
     "category": "Productivity",
     "capabilities": [

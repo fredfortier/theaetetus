@@ -65,6 +65,15 @@ The oracle does not:
 
 The main skill recruits `$dialectical-tutor` only under the calibration contract below. The tutor coaches the human's immediately preceding dialectical move and returns to the same oracle conversation.
 
+### Process reviewer: backstage subagent role
+
+At bounded checkpoints, the main skill delegates a qualitative audit to
+`$dialectical-process-reviewer` when subagents are available. The reviewer grades only observable
+moves, returns its report to the oracle, and never addresses the human, edits the workpad, answers
+the subject question, or decides that coaching must occur. The oracle independently checks any
+recommendation against the tutor threshold. When subagents are unavailable, the oracle applies the
+same checkpoint locally and silently.
+
 ## Runtime workpad contract
 
 ### Creation
@@ -139,6 +148,7 @@ The runtime keeps `SKILL.md` as the router and uses flat references:
 | --- | --- |
 | `references/oracle-discipline.md` | answering, researching, challenging a frame, or calibrating uncertainty as the oracle |
 | `references/midwife-calibration.md` | assessing the human's expressed model and deciding whether coaching is warranted |
+| `references/process-reviewer-handoff.md` | delegating periodic, signal-driven, and pre-close backstage process reviews |
 | `references/workpad-schema.md` | creating, recovering, or materially updating the subject workpad |
 | `references/tutor-handoff.md` | recruiting the tutor, applying the portable fallback, or returning to inquiry |
 | `references/voice-conversation.md` | conducting the inquiry through live audio or a user-requested spoken mode |
@@ -234,6 +244,13 @@ Recruit `$dialectical-tutor` when a pattern is repeated, materially consequentia
 - premature closure would turn an unresolved premise into architecture or policy.
 
 Do not recruit for one awkward question, a vocabulary gap, a wrong answer that the human is actively examining, or an explicit request for a direct fact.
+
+Before this decision at a scheduled checkpoint, recruit `$dialectical-process-reviewer` after the
+initial account plus three material human moves and after each four additional material moves.
+Also recruit it once before classifying closure as `owned`, or earlier for immediate surrender of
+judgment or a consequential repeated signal. Do not run a checkpoint during a pending coaching
+retry. The reviewer may return `NO_INTERVENTION`, `WATCH`, `COACHING_WARRANTED`, or `CLOSURE_GAP`;
+none of those reports transfers conversational ownership from the oracle.
 
 ### 7. Return cleanly
 
