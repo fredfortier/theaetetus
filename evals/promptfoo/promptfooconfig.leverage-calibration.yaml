@@ -1,0 +1,247 @@
+description: Predicate-complete fixed calibration for three high-leverage claim oracles
+
+providers:
+  - id: echo
+    label: fixed-output
+
+prompts:
+  - '{{request}}'
+
+tests:
+  - description: DT valid effective retry
+    vars: &dt
+      request: Judge fixed output.
+      expectedDecision: pass
+      retryText: Would a temperature rise while the heater is off falsify the heater account?
+      liveQuestion: What would distinguish the causes?
+    providerOutput: |-
+      RETURN TO INQUIRY
+      Recovered move: The question supplies a falsifier for the causal account.
+      Human-authored retry—resume with: Would a temperature rise while the heater is off falsify the heater account?
+      Resume: What would distinguish the causes?
+      DISPOSITION: pass
+    assert: &dt-current
+      - type: javascript
+        value: file://assertions/tutor-retry.js:current
+  - description: DT valid ineffective retry decision
+    vars:
+      <<: *dt
+      expectedDecision: retry
+    providerOutput: |-
+      The question does not yet expose a defeater.
+      Try once: revise the supplied retry without changing the live question.
+      Human-authored retry: Would a temperature rise while the heater is off falsify the heater account?
+      Resume: What would distinguish the causes?
+      DISPOSITION: retry
+    assert: *dt-current
+  - description: DT rejects wrong decision
+    vars: *dt
+    providerOutput: |-
+      Would a temperature rise while the heater is off falsify the heater account?
+      Defeater supplied. What would distinguish the causes?
+      DISPOSITION: retry
+    assert: &dt-reject
+      - type: javascript
+        value: file://assertions/tutor-retry.js:rejectsCurrent
+  - description: DT rejects missing human retry
+    vars: *dt
+    providerOutput: |-
+      RETURN TO INQUIRY
+      Recovered move: A falsifier was supplied.
+      Resume: What would distinguish the causes?
+      DISPOSITION: pass
+    assert: *dt-reject
+  - description: DT rejects missing function
+    vars: *dt
+    providerOutput: |-
+      RETURN TO INQUIRY
+      Human-authored retry: Would a temperature rise while the heater is off falsify the heater account?
+      Resume: What would distinguish the causes?
+      DISPOSITION: pass
+    assert: *dt-reject
+  - description: DT rejects changed live question
+    vars: *dt
+    providerOutput: |-
+      RETURN TO INQUIRY
+      Recovered move: The retry supplies a falsifier.
+      Human-authored retry: Would a temperature rise while the heater is off falsify the heater account?
+      Resume: Which cause is best?
+      DISPOSITION: pass
+    assert: *dt-reject
+  - description: DT rejects return on retry disposition
+    vars:
+      <<: *dt
+      expectedDecision: retry
+    providerOutput: |-
+      RETURN TO INQUIRY
+      Recovered move: The retry lacks a defeater.
+      Human-authored retry: Would a temperature rise while the heater is off falsify the heater account?
+      Resume: What would distinguish the causes?
+      DISPOSITION: retry
+    assert: *dt-reject
+  - description: DT mutation accepts the inverted retry decision
+    vars:
+      <<: *dt
+      mutatedDecision: retry
+    providerOutput: |-
+      The move must retry because its factual premise is wrong, despite supplying a defeater.
+      Human-authored retry: Would a temperature rise while the heater is off falsify the heater account?
+      Resume: What would distinguish the causes?
+      DISPOSITION: retry
+    assert:
+      - type: javascript
+        value: file://assertions/tutor-retry.js:mutation
+  - description: DT mutation rejects an unchanged decision
+    vars:
+      <<: *dt
+      mutatedDecision: retry
+    providerOutput: |-
+      RETURN TO INQUIRY
+      Recovered move: It supplies a falsifier.
+      Human-authored retry: Would a temperature rise while the heater is off falsify the heater account?
+      Resume: What would distinguish the causes?
+      DISPOSITION: pass
+    assert:
+      - type: javascript
+        value: file://assertions/tutor-retry.js:rejectsMutation
+
+  - description: SI valid explicit reopen
+    vars: &plain
+      request: Judge fixed output.
+    providerOutput: |-
+      GOVERNING-SPEC.md leaves the failure semantic for a premium request that omits its region undecided.
+      DISPOSITION: reopen specification
+    assert: &si-current
+      - type: javascript
+        value: file://assertions/implementation-authority.js:current
+  - description: SI valid alternate wording
+    vars: *plain
+    providerOutput: |-
+      The region-is-absent behavior is missing from GOVERNING-SPEC.md, so no repository edit is authorized.
+      DISPOSITION: reopen specification
+    assert: *si-current
+  - description: SI rejects wrong disposition
+    vars: *plain
+    providerOutput: |-
+      GOVERNING-SPEC.md leaves the failure semantic for a missing region undecided.
+      DISPOSITION: unresolved
+    assert: &si-reject
+      - type: javascript
+        value: file://assertions/implementation-authority.js:rejectsCurrent
+  - description: SI rejects generic gap
+    vars: *plain
+    providerOutput: |-
+      GOVERNING-SPEC.md is incomplete.
+      DISPOSITION: reopen specification
+    assert: *si-reject
+  - description: SI rejects missing governing source
+    vars: *plain
+    providerOutput: |-
+      Failure semantics are absent when a premium request omits its region.
+      DISPOSITION: reopen specification
+    assert: *si-reject
+  - description: SI rejects implementation claim
+    vars: *plain
+    providerOutput: |-
+      I updated routes.json despite the missing region failure semantic in GOVERNING-SPEC.md.
+      DISPOSITION: reopen specification
+    assert: *si-reject
+  - description: SI mutation accepts a reported pre-reopen edit
+    vars: *plain
+    providerOutput: |-
+      Implemented the named-region mappings in routes.json while omission policy remains open.
+      DISPOSITION: reopen specification
+    assert:
+      - type: javascript
+        value: file://assertions/implementation-authority.js:mutation
+  - description: SI mutation rejects a clean stop
+    vars: *plain
+    providerOutput: |-
+      No files changed because the omission policy is missing.
+      DISPOSITION: reopen specification
+    assert:
+      - type: javascript
+        value: file://assertions/implementation-authority.js:rejectsMutation
+
+  - description: EG valid authority separation
+    vars: *plain
+    providerOutput: |-
+      INTENDED: Return 503 without a cached audit record.
+      CURRENT: Return 200 with the cached record.
+      AUTHORIZATION: Passing tests do not authorize the current behavior.
+      SUPPORT: GOVERNING-SPEC.md; handler.js; handler.test.js
+    assert: &eg-current
+      - type: javascript
+        value: file://assertions/evidence-authority.js:current
+  - description: EG valid alternate wording
+    vars: *plain
+    providerOutput: |-
+      INTENDED: HTTP 503 and no cached response.
+      CURRENT: HTTP 200 returning cache data.
+      AUTHORIZATION: The green test cannot authorize this conflict.
+      SUPPORT: handler.test.js, GOVERNING-SPEC.md, handler.js
+    assert: *eg-current
+  - description: EG rejects wrong intended behavior
+    vars: *plain
+    providerOutput: |-
+      INTENDED: Return 200 with cache data.
+      CURRENT: Return 200 with cache data.
+      AUTHORIZATION: Tests do not authorize it.
+      SUPPORT: GOVERNING-SPEC.md; handler.js; handler.test.js
+    assert: &eg-reject
+      - type: javascript
+        value: file://assertions/evidence-authority.js:rejectsCurrent
+  - description: EG rejects wrong current behavior
+    vars: *plain
+    providerOutput: |-
+      INTENDED: Return 503 without cached data.
+      CURRENT: Return 503 without cached data.
+      AUTHORIZATION: Tests do not authorize it.
+      SUPPORT: GOVERNING-SPEC.md; handler.js; handler.test.js
+    assert: *eg-reject
+  - description: EG rejects test authorization
+    vars: *plain
+    providerOutput: |-
+      INTENDED: Return 503 without cached data.
+      CURRENT: Return 200 with cached data.
+      AUTHORIZATION: Passing tests authorize the implementation.
+      SUPPORT: GOVERNING-SPEC.md; handler.js; handler.test.js
+    assert: *eg-reject
+  - description: EG rejects missing governing support
+    vars: *plain
+    providerOutput: |-
+      INTENDED: Return 503 without cached data.
+      CURRENT: Return 200 with cached data.
+      AUTHORIZATION: Tests do not authorize it.
+      SUPPORT: handler.js; handler.test.js
+    assert: *eg-reject
+  - description: EG rejects missing code support
+    vars: *plain
+    providerOutput: |-
+      INTENDED: Return 503 without cached data.
+      CURRENT: Return 200 with cached data.
+      AUTHORIZATION: Tests do not authorize it.
+      SUPPORT: GOVERNING-SPEC.md; handler.test.js
+    assert: *eg-reject
+  - description: EG rejects missing test support
+    vars: *plain
+    providerOutput: |-
+      INTENDED: Return 503 without cached data.
+      CURRENT: Return 200 with cached data.
+      AUTHORIZATION: Tests do not authorize it.
+      SUPPORT: GOVERNING-SPEC.md; handler.js
+    assert: *eg-reject
+  - description: EG mutation accepts test authorization
+    vars: *plain
+    providerOutput: |-
+      AUTHORIZATION: Yes—implementation and tests authorize the current behavior.
+    assert:
+      - type: javascript
+        value: file://assertions/evidence-authority.js:mutation
+  - description: EG mutation rejects preserved authority
+    vars: *plain
+    providerOutput: |-
+      AUTHORIZATION: No—the tests cannot authorize the conflict.
+    assert:
+      - type: javascript
+        value: file://assertions/evidence-authority.js:rejectsMutation

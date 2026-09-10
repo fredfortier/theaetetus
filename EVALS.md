@@ -1,6 +1,6 @@
 # Evaluation burden-of-proof workpad
 
-Status: **one bounded claim implemented; human acceptance pending**. This file records the
+Status: **four bounded claims implemented; human acceptance pending**. This file records the
 package-level cleanup and points to the authority that interprets each skill's evidence. It is not
 an aggregate scorecard.
 
@@ -27,25 +27,29 @@ condition identity, isolation, calibration, and pass law.
 
 An executable artifact survives only if it has one of these jobs:
 
-1. implements the sole named claim or its isolated control;
+1. implements a named skill-local claim or its isolated control;
 2. calibrates the exact oracle used by that claim; or
 3. detects fixture leakage or source-local contamination that would invalidate the claim.
 
-The only behavioral claim and its fresh evidence, licensed conclusion, imitation risks, and thirteen
-untested tutor obligations are recorded in
-[`skills/dialectical-tutor/EVAL.md`](skills/dialectical-tutor/EVAL.md). Every other runtime skill
-reports no behavioral coverage in its own sidecar. This arrangement prevents a central scorecard
-from silently broadening one skill observation into package quality.
+Four behavioral claims survive: tutor restraint (`DT-06`), tutor technique-over-correctness
+(`DT-04`), implementation stop-before-meaning (`SI-12`), and specification-over-code authority
+(`EG-01`). Their evidence, licensed
+conclusions, baseline results, and missed opportunities live only in the respective skill
+`EVAL.md`. Nine runtime skills still report no behavioral coverage. The attempted `CR-05` family is
+recorded as a failed and removed experiment in its sidecar. This arrangement prevents a
+central scorecard from silently broadening bounded observations into package quality.
 
 ## Commands
 
 ```bash
 npm run eval:dialectic
 npm run eval:restraint
+npm run eval:leverage
 ```
 
-The first command runs source quarantine, direct oracle probes, config validation, and fixed-output
-calibration. The second prepares fresh isolated fixtures, runs the nine live observations, rejects
-any trace that reads an evaluated skill outside the generated fixture, then removes generated runs,
-results, copied credentials, and Codex runtime state after success. Failed runs retain those
-diagnostic artifacts until `npm run eval:clean` is invoked.
+The first command runs source quarantine, direct oracle probes, config validation, and the original
+fixed-output calibration. The next two commands execute the nine tutor-restraint observations and
+the 33 high-leverage observations respectively. Each live command prepares fresh isolated fixtures,
+rejects any trace that reads an evaluated skill outside its one-condition workspace, checks required
+repository effects, where applicable, and removes generated runs, results, copied credentials, and
+Codex runtime state after success. Failed runs retain diagnostics until `npm run eval:clean`.

@@ -6,7 +6,7 @@ providers:
     config:
       model: gpt-5.6-terra
       model_reasoning_effort: high
-      working_dir: ./.runs/{{caseId}}/{{runIndex}}/current
+      working_dir: ./.runs/{{caseId}}/{{runIndex}}/current/workspace
       sandbox_mode: workspace-write
       approval_policy: never
       network_access_enabled: false
@@ -22,7 +22,7 @@ providers:
     config:
       model: gpt-5.6-terra
       model_reasoning_effort: high
-      working_dir: ./.runs/{{caseId}}/{{runIndex}}/single-defect
+      working_dir: ./.runs/{{caseId}}/{{runIndex}}/single-defect/workspace
       sandbox_mode: workspace-write
       approval_policy: never
       network_access_enabled: false
@@ -38,7 +38,7 @@ providers:
     config:
       model: gpt-5.6-terra
       model_reasoning_effort: high
-      working_dir: ./.runs/{{caseId}}/{{runIndex}}/no-skill
+      working_dir: ./.runs/{{caseId}}/{{runIndex}}/no-skill/workspace
       sandbox_mode: workspace-write
       approval_policy: never
       network_access_enabled: false

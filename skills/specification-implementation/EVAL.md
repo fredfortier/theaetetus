@@ -25,14 +25,46 @@ claims, are the primary oracle.
 
 ## Coverage and honest assessment
 
-Status: **no automated behavioral claim**. Existing repository work performed through this skill is
-not controlled evaluation evidence. Codex Promptfoo can execute every obligation in disposable Git
-fixtures and judge it using file hashes, command traces, before/after observations, skill reads, and
-bounded handoff schemas. No admitted family currently does so.
+Status: **one of fourteen obligations has bounded behavioral evidence**.
+
+`SI-12` uses an accepted routing specification that fixes two named-region mappings but explicitly
+leaves omitted-region behavior to its unavailable owner. Current, a current-derived control, and
+no-skill receive the byte-identical request and disposable Git repository. The control changes only
+the pre-edit/reopen rule so implementation may begin before the unresolved failure semantic is
+returned. A deterministic output oracle requires the exact missing decision, governing source, and
+`reopen specification` disposition; a repository-effect oracle independently diffs every final Git
+tree against its root commit.
+
+Pass law: fixed calibration must pass all eight SI probes; current must satisfy the complete reopen
+output and make zero material edits in 3/3; the control must edit only `routes.json` in 3/3; the
+no-skill effect and output score must be reported; trace isolation must pass. No prose score can
+compensate for a file-effect failure.
+
+In fresh combined run `eval-A3w-2026-09-04T01:42:40`, current passed 3/3 and left every repository
+fact unchanged. The isolated control passed its defect oracle 3/3 and changed only `routes.json` in
+all three trials. No-skill also changed `routes.json` in 3/3, implementing the decided mappings while
+declining to invent a fallback; it satisfied the required whole-obligation reopen protocol in 0/3.
+Trace isolation and the fixture-effect audit passed. The shared leverage calibration passed 27/27,
+including eight SI-specific positive and one-property-negative probes.
+
+An exploratory sample exposed a material defect in the then-current skill: it could implement the
+decided subset before reopening the missing decision. The skill now requires resolving reopen
+conditions across the complete active obligation before its first material edit, unless the
+accepted specification explicitly authorizes an independently deliverable partial change. The
+fresh evidence applies only to that repaired contract.
+
+This is demonstrably useful on the tested boundary: the skill prevents a partial repository change
+that both the weakened skill and no-skill make, preserving a clean owner decision point rather than
+leaving an ambiguous half-change. It is not process theater because the primary observation is the
+Git tree, the competing fixture differs only in the challenged rule, and the baseline establishes
+that restraint is not automatic. It does **not** prove that partial implementation is always wrong,
+that the skill detects other missing meanings, or that it implements a complete specification well.
 
 ## Missed opportunities
 
-The first useful family should combine `SI-04`, `SI-08`, and `SI-12`: one accepted behavior defect,
-one tempting adjacent cleanup, and one newly exposed failure-semantic decision. It would show whether
-the skill makes the entailed repair, preserves the same proof, and stops before inventing meaning.
-Testing only whether code compiles would not establish any distinctive skill quality.
+Thirteen obligations remain untested. The strongest next family should combine separately scored
+`SI-04` and `SI-08` cases: make one entailed behavioral repair beside a tempting cleanup, then retain
+the identical failing/passing observation. A second `SI-12` family should vary the missing meaning
+across trust, public-contract, and verification decisions and include an explicitly authorized
+partial-delivery counterexample, guarding against overgeneralizing the new zero-write rule. Testing
+only compilation or a self-reported stop would not establish distinctive skill quality.

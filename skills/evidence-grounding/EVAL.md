@@ -17,14 +17,34 @@ Codex Promptfoo observation and defines no additional runtime policy.
 
 ## Coverage and honest assessment
 
-Status: **no automated behavioral claim**. Repository prose produced with this skill is not proof of
-the skill's reliability. All seven obligations can be tested without a subjective model grader by
-using fixed source cards, exact claim labels, link identities, and single-property output mutations,
-but no such family survives the cleanup.
+Status: **one of seven obligations has bounded behavioral evidence**.
+
+`EG-01` supplies an accepted specification requiring HTTP 503 without cached data, while executable
+CommonJS code and a genuinely passing test return HTTP 200 with cached data. Current, a
+current-derived code-as-intent control, and no-skill receive the same repository and request. The
+control changes only the authority rule so agreement between code and test becomes operational
+intent. A deterministic oracle requires separate intended/current/authorization/support claims and
+all three source identities.
+
+Pass law: all ten EG calibration probes must pass; current must preserve the authority distinction
+in 3/3; the isolated control must authorize implemented behavior in 3/3; no-skill must be reported;
+and traces must prove fixture-local skill use and absence. In fresh combined run
+`eval-A3w-2026-09-04T01:42:40`, current passed 3/3, the control manifested 3/3, no-skill also passed
+the complete oracle 3/3, and trace isolation passed. The shared fixed calibration passed 27/27.
+
+This family is useful as a regression guard against a dangerous authority inversion: a green test
+cannot silently amend accepted intent. It is not merely a keyword check—the output must state both
+conflicting behaviors, refuse authorization, and bind each claim to the actual files; the isolated
+rule inversion changes the judgment. But the no-skill match defeats any claim that this scenario
+demonstrates incremental capability from the skill. What survives is evidence that the current
+skill does not damage a foundation-model competency and that its distinctive authority rule is
+causally load-bearing under inversion, not evidence that installing it improves this judgment.
 
 ## Missed opportunities
 
-`EG-01` is the highest-value first case because confusing code with authority can authorize the
-wrong system. `EG-05` is the next strongest because it detects a common, concrete overclaim from
-logs. Citation-placement and bibliography cleanup are useful secondary checks but would be theater
-if admitted before authority and inference discrimination.
+Six obligations remain untested. `EG-05` is the strongest next case because it can expose a concrete
+overclaim from runtime observations and may be harder than the baseline. `EG-02` should then test all
+claim classes without bundling them into one compensating score. Citation placement and bibliography
+cleanup remain secondary; admitting them before inference discrimination would overweight document
+shape rather than grounding quality. A harder `EG-01` follow-up should hide the conflict across
+history or multiple governing files instead of stating it in three short artifacts.

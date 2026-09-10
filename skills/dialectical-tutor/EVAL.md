@@ -23,9 +23,9 @@ coverage or human-learning evidence.
 | `DT-12` | Render voice controls naturally and never speak literal markers. | Codex Promptfoo can inject explicit voice context and reject literal control markers in final text while requiring their semantic transitions. It cannot establish what a speech renderer actually says. |
 | `DT-13` | Yield after one spoken move and preserve the oracle as conversational owner. | Codex Promptfoo can test one-question and no-routing-announcement output against simulated backstage recruitment. Actual floor yield and spoken-owner continuity require a voice-capable integration scenario. |
 
-## Implemented claim and fresh evidence
+## Coverage and honest assessment
 
-Status: **one of fourteen obligations has bounded behavioral evidence**.
+Status: **two of fourteen obligations have bounded behavioral evidence**.
 
 `DT-06` is implemented as `DT-RESTRAINT-01`:
 
@@ -66,20 +66,41 @@ uses `NO INTERVENTION` to correct its coaching need, resume as oracle, and avoid
 [`references/tutor-handoff.md`](../dialectical-inquiry/references/tutor-handoff.md). The run tests the
 tutor side of that boundary; it does not yet test the caller's response.
 
+`DT-04` is implemented as a two-polarity retry family:
+
+| Positive | Isolated defeater | Baseline | Oracle | Licensed result |
+| --- | --- | --- | --- | --- |
+| Three runs of a factually wrong retry that performs the assigned defeater function, plus three runs of a factually correct move that does not. | Three runs generated from current by changing only the technique-over-correctness rule; the control must retry the effective-but-wrong move. The opposite-polarity mutation is deliberately absent because the inversion does not logically require passing every correct move. | Three no-skill observations per polarity, scored but non-gating. | Deterministic assertion checks disposition, named function, byte-preserved human retry and live question, and mutually exclusive return/retry lifecycle. | Stable functional judgment on these two moves, sensitivity on the polarity entailed by the inversion, and any bounded difference from no-skill—nothing about factual quality or general coaching. |
+
+The fresh combined run `eval-A3w-2026-09-04T01:42:40` used the same provider controls as the
+restraint run. Fixed-output leverage calibration passed 27/27 across all three new oracles; the nine
+tutor-specific probes covered two valid renderings and one-property failures. Current passed 6/6,
+and the technique-to-correctness mutation manifested in 3/3. No-skill rejected the effective but
+factually wrong retry in 3/3; on the correct but ineffective retry it made the right substantive
+decision in 3/3 but satisfied the complete handoff in 2/3. Trace isolation passed.
+
+The first exploratory sample exposed a real lifecycle defect: current could emit `RETURN TO
+INQUIRY` while also assigning another retry. The runtime contract now makes return and retry
+mutually exclusive; the fresh run is evidence for that repaired version. This is not a vocabulary
+test. The paired inputs oppose truth and epistemic function, the control inverts only the governing
+priority, and the oracle requires the resulting action and handoff—not words such as “technique.”
+The no-skill comparison shows a material incremental result on this exact hard polarity, while also
+showing that ordinary rejection of a correct-but-ineffective move is largely foundation-model
+behavior.
+
 ## Missed opportunities and imitation risks
 
-Thirteen obligations remain behaviorally untested. The most consequential next claim is `DT-04`: a
-factually wrong but epistemically effective retry should pass while a correct non-retry should not.
-It would test whether the tutor actually coaches inquiry technique rather than correctness. `DT-02`
-and `DT-03` should follow because one-function focus and human authorship distinguish coaching from
-answer generation. `DT-08` should then test the caller-visible return lifecycle.
+Twelve obligations remain behaviorally untested. `DT-02` and `DT-03` are the strongest next pair
+because one-function focus and human authorship distinguish coaching from answer generation.
+`DT-08` should then test the caller-visible return lifecycle, including the actual workpad effect.
 
-The current case is easy for the foundation model and its oracle checks an explicit output contract.
-A model can imitate that format without possessing general coaching judgment. The always-intervene
-mutation is intentionally strong, not a representative sample of subtle degradation. Therefore the
-result says something materially useful about restraint and handoff reliability, but almost nothing
-about warranted coaching, retry calibration, practice quality, voice behavior, human dignity,
-durable learning, or the quality of the tutor as a whole.
+Both families remain small and their oracles partly check explicit output contracts. A model can
+imitate those formats without possessing general coaching judgment. The always-intervene mutation
+is intentionally strong, and the retry case supplies the factual contradiction directly instead of
+requiring difficult evidence discovery. The evidence therefore supports restraint, handoff, and one
+technique-over-correctness discriminator, but almost nothing about selecting the right function,
+preserving human authorship, multi-turn calibration, practice quality, voice behavior, human
+dignity, durable learning, or the quality of the tutor as a whole.
 
 `DT-11` through `DT-13` are only partially testable through the current Codex provider. Simulated
 metadata can falsify the portable decision protocol, but real transcription, audible rendering,

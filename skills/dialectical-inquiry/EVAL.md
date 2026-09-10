@@ -43,8 +43,8 @@ revision, changed-case prediction, provenance-preserving workpad update, or expl
 
 The strongest first family is `DI-04`: a leading false frame plus direct question can distinguish
 an independently useful oracle from a sycophantic or question-only assistant. `DI-08` is the next
-material lifecycle claim because it joins the only currently evaluated tutor behavior to its real
-caller. `DI-09` is essential but requires persistent human-scripted turns and must remain an
+material lifecycle claim because it joins the evaluated tutor behaviors to their real caller.
+`DI-09` is essential but requires persistent human-scripted turns and must remain an
 observable closure-protocol claim, never a learning certification. Voice scenarios should not be
 implemented until the harness exposes real modality, transcription, and turn events; simulated text
 alone cannot close those obligations.

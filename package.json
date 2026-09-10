@@ -4,11 +4,14 @@
   "scripts": {
     "eval:skill-purity": "node evals/promptfoo/scripts/check-skill-purity.mjs",
     "eval:static": "node evals/promptfoo/scripts/run-all.mjs",
-    "eval:prepare": "node evals/promptfoo/scripts/prepare-fixtures.mjs",
+    "eval:prepare": "node evals/promptfoo/scripts/prepare-fixtures.mjs restraint",
+    "eval:prepare:leverage": "node evals/promptfoo/scripts/prepare-fixtures.mjs leverage",
     "eval:clean": "node evals/promptfoo/scripts/clean-runtime.mjs",
     "eval:calibrate": "promptfoo eval -c evals/promptfoo/promptfooconfig.calibration.yaml --no-cache",
+    "eval:calibrate:leverage": "promptfoo eval -c evals/promptfoo/promptfooconfig.leverage-calibration.yaml --no-cache",
     "eval:result-isolation": "node evals/promptfoo/scripts/check-result-isolation.mjs evals/promptfoo/results/restraint.json",
     "eval:restraint": "npm run eval:prepare && promptfoo eval -c evals/promptfoo/promptfooconfig.restraint.yaml --no-cache -j 1 --output evals/promptfoo/results/restraint.json && npm run eval:result-isolation && npm run eval:clean",
+    "eval:leverage": "npm run eval:calibrate:leverage && npm run eval:prepare:leverage && promptfoo eval -c evals/promptfoo/promptfooconfig.leverage.yaml --no-cache -j 1 --output evals/promptfoo/results/leverage.json && node evals/promptfoo/scripts/check-result-isolation.mjs evals/promptfoo/results/leverage.json && node evals/promptfoo/scripts/check-fixture-effects.mjs && npm run eval:clean",
     "eval:dialectic": "npm run eval:static && npm run eval:calibrate"
   },
   "devDependencies": {

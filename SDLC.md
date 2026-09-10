@@ -376,12 +376,12 @@ owning `SPEC.md`, explains how Codex Promptfoo can falsify each one, and disting
 evidence from missed opportunities. It does not create behavioral authority. The shared
 `evals/promptfoo/SPEC.md` governs only condition identity, isolation, calibration, and pass law.
 
-The former 198-execution surface failed its own claim-isolation burden and has been removed. The
-only executable claim is `DT-RESTRAINT-01`, owned by `skills/dialectical-tutor/EVAL.md` and tested
-against a current-derived always-intervene mutation and a non-gating no-skill observation. New
-fixtures have no evidentiary standing unless their skill sidecar first names the obligation,
-observable wrongness, isolated defeater, baseline, calibrated oracle, licensed conclusion, and
-exclusions.
+The former 198-execution surface failed its own claim-isolation burden and has been removed. Four
+bounded claims now survive across tutor restraint, technique-over-correctness, implementation
+authority, and evidence authority. Each is owned by its skill `EVAL.md` and tested
+against a current-derived single-defect control and a non-gating no-skill observation. New fixtures
+have no evidentiary standing unless their skill sidecar first names the obligation, observable
+wrongness, isolated defeater, baseline, calibrated oracle, licensed conclusion, and exclusions.
 
 ## Completion evidence and final handoff
 
@@ -439,10 +439,10 @@ whitespace checks passed on the implemented topology. These checks establish onl
 contracts; they do not discharge the comparative behavioral work above.
 
 [The Promptfoo harness specification](evals/promptfoo/SPEC.md) owns condition identity, isolation,
-calibration, pass law, and change invalidation. The tutor's sidecar owns the sole complete claim
-graph and its inference limits. All router, comparator, broad-placebo, domain, holdout, and
-integration machinery was retired rather than carried forward as diagnostic theater. This does not
-weaken governing skill obligations; every skill sidecar now makes absent behavioral coverage
+calibration, pass law, and change invalidation. Three skill sidecars own the four admitted claim
+graphs and their separate inference limits. All router, comparator, broad-placebo, domain, holdout,
+and integration machinery was retired rather than carried forward as diagnostic theater. This does
+not weaken governing skill obligations; every skill sidecar makes absent behavioral coverage
 explicit.
 
 The first complete unit audit covered `software-delivery`: its local runtime and SPEC, all sibling
@@ -479,18 +479,17 @@ and atomic removal without compatibility aliases.[^retirement-law]
   than scattering ad hoc files.
 - A future comparator is admissible only when a concrete behavior or empirical claim makes it
   capable of defeating a live decision; do not expand research decoratively.
-- Package-wide behavioral coverage is effectively absent: one of the tutor's fourteen mapped
-  obligations has bounded evidence, while every other skill reports none. Add evidence claim by
-  claim rather than by creating a portfolio first.
+- Package-wide behavioral coverage remains sparse: four obligations across three skills have bounded
+  evidence, while nine skills report none. Add evidence claim by claim rather than by creating a
+  portfolio first.
 
 ## Next discriminator
 
-Implement `DT-04` from [`dialectical-tutor/EVAL.md`](skills/dialectical-tutor/EVAL.md): a factually
-wrong retry that performs the selected epistemic function must pass, while a factually correct
-response that does not perform the human-authored retry must not. This is the next useful
-discriminator because it tests whether the tutor coaches inquiry technique rather than merely
-subject correctness. It requires a persistent matched scenario, a current-derived control that
-collapses technique into correctness, a no-skill baseline, and predicate-complete calibration.
+The implemented high-leverage pass covers `DT-04`, `SI-12`, and `EG-01`; their local sidecars record
+results and limits. The attempted `CR-05` family was removed after oracle instability and a retained
+owner-specificity failure. The next discriminator should target `DT-02`/`DT-03` or `EG-05`,
+where a skill must preserve human authorship or separate observation from causal inference. Those
+cases challenge behavior less likely to collapse into ordinary foundation-model judgment.
 
 The fresh 2026-09-03 restraint replay is recorded only in the tutor sidecar. It passed current 3/3,
 generated defect 3/3, and trace isolation; no-skill reached the substantive no-intervention judgment
@@ -543,10 +542,9 @@ claims.
 [^claim-boundary]: [PHILOSOPHY.md, “Evidence boundary”](PHILOSOPHY.md#evidence-boundary) explicitly
     withholds human learning, productivity, retention, and delivery-efficacy claims pending suitable
     evidence.
-[^current-evals]: [`dialectical-tutor/EVAL.md`](skills/dialectical-tutor/EVAL.md) owns the sole
-    tutor-restraint claim and evidence limits; the [Promptfoo harness
-    specification](evals/promptfoo/SPEC.md) governs shared control, isolation, calibration, and pass
-    mechanics.
+[^current-evals]: [EVALS.md](EVALS.md) inventories current claims and points to the skill-local
+    evidence limits; the [Promptfoo harness specification](evals/promptfoo/SPEC.md) governs shared
+    control, isolation, calibration, and pass mechanics.
 [^retirement-law]: The pinned source
     [skill charter](https://gitlab.com/dexlabs/derivadex/-/blob/81650fee140c422b2c890436f0415e8ab3810fa5/.agents/skills/CHARTER.md#L148-180)
     requires equivalent-or-better replacement coverage and verified cutover; its

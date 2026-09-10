@@ -25,6 +25,10 @@ not an opportunity to improve the design.
 7. Proceed only when the user has authorized implementation. If the specification is draft, use it
    only for analysis unless the user explicitly authorizes a constrained experiment.
 
+Resolve reopen conditions across the complete active obligation before the first material edit. If
+any material decision is missing or contradicted, leave all material repository facts unchanged
+unless the accepted specification explicitly authorizes an independently deliverable partial change.
+
 Stop when a material facet has no doctrine owner, two doctrines own the same decision, doctrine
 preserves an unresolved alternative, or the work specification contradicts doctrine. Existing code,
 tests, official documentation, and mechanics skills cannot fill that legislative gap. The governing

@@ -13,12 +13,12 @@ inquiry technique stops doing useful epistemic work.
 
 > Interrogate the oracle. Keep the model.
 
-This is an experimental method with a deliberately narrow evidence claim. The sole
-[automated behavioral claim](skills/dialectical-tutor/EVAL.md#implemented-claim-and-fresh-evidence)
-isolates one tutor-restraint obligation; the other eleven runtime skills and the tutor's other
-thirteen obligations have no admitted behavioral evidence. The shared Promptfoo harness has
-structural and calibration evidence only. Nothing here shows that real teams learn faster, retain
-more, or ship better changes. That requires longitudinal human study.
+This is an experimental method with deliberately narrow evidence. Four
+[automated behavioral claims](EVALS.md) exercise three skills: tutor restraint and
+technique-over-correctness, implementation restraint before unresolved meaning, and authority
+separation. Nine runtime skills have no admitted behavioral evidence, and most obligations in the
+three tested skills remain uncovered. Nothing here shows that
+real teams learn faster, retain more, or ship better changes. That requires longitudinal human study.
 
 ## The problem
 
@@ -108,8 +108,8 @@ result.
   [`skills/*/SPEC.md`](skills/) owns its operation, handoffs, and source negotiation, while its
   `EVAL.md` owns the obligation-to-scenario map, evidence limits, and missed opportunities.
 - [`evals/promptfoo/SPEC.md`](evals/promptfoo/SPEC.md) governs shared Promptfoo/Codex condition
-  identity, isolation, calibration, and pass mechanics. The executable surface contains one
-  tutor-restraint claim, its deterministic oracle, and fixture-integrity checks.
+  identity, isolation, calibration, and pass mechanics. The executable surface contains four
+  bounded claims, deterministic claim-local oracles, and fixture-integrity checks.
 - [RESEARCH.md](RESEARCH.md) records the source synthesis, technique-to-runtime translation,
   applicability limits, and open evidence gaps.
 - [SDLC.md](SDLC.md) is the active comparative-audit continuity workpad;
@@ -251,17 +251,18 @@ npm ci
 npm run eval:dialectic
 ```
 
-The only live behavioral claim requires Codex credentials and nine serial calls across current,
-generated single-defect, and no-skill conditions:
+The live claims require Codex credentials. Run the nine tutor-restraint observations and the 33
+high-leverage observations across current, generated single-defect, and no-skill conditions:
 
 ```bash
 npm run eval:restraint
+npm run eval:leverage
 ```
 
-The command prepares fresh fixtures, rejects external evaluated-skill reads, and removes generated
-runtime state after success. Its licensed conclusion and explicit exclusions are in the
-[`dialectical-tutor` evaluation sidecar](skills/dialectical-tutor/EVAL.md); a green result does not
-establish broad value over the foundation model.
+Each command prepares fresh fixtures, rejects external evaluated-skill reads, and removes generated
+runtime state after success. Licensed conclusions and explicit exclusions are in the evaluated
+skills' `EVAL.md` sidecars; a green aggregate does not establish broad value over the foundation
+model.
 
 ## Repository map
 
@@ -277,7 +278,7 @@ skills/
 .codex-plugin/plugin.json    installable plugin manifest
 evals/promptfoo/
   SPEC.md                   shared condition identity, isolation, calibration, and pass law
-  assertions/                deterministic tutor-restraint oracle
+  assertions/                deterministic claim-local oracles
   scripts/                   fixture generation, isolation, purity, and validation checks
   evidence/                  interpretation-changing findings
 RESEARCH.md                   evidence synthesis and source limits
@@ -289,8 +290,9 @@ WORKPAD.md                    superseded incubation history index
 
 ## Research status and contribution boundary
 
-The current artifact is best understood as a research prototype with one evaluated tutor boundary
-and an applied team workflow. Additional isolated prompt cases are required for skill-level quality;
+The current artifact is best understood as a research prototype with four evaluated boundaries
+across three skills and an applied team workflow. Additional isolated prompt cases are required for
+skill-level quality;
 the project thesis ultimately requires a blinded comparison with actual cross-domain acclimating
 engineers, measuring time to first reviewable contribution, domain-expert correction burden,
 changed-case transfer, and retained explanation. Failures and variance must be reported; a small

@@ -12,8 +12,14 @@ the evaluated skill's `EVAL.md`.
 | Ambient Codex installations contaminated earlier conditions. | Retain the auth-only `CODEX_HOME` and raw-trace isolation gate. |
 | Fixed deterministic outputs can exercise every predicate of the retained oracle without a model grader. | Remove all semantic rubrics and their calibration fixtures. |
 | An appended always-intervene instruction manifested in only 1/3 initial control trials because the rest of the skill still contradicted it. | Reject that run; invert only the same restraint rule across all four runtime surfaces and replay every condition from fresh fixtures. |
-| Fixed calibration, generated-control manifestation, baseline observation, and trace isolation all completed on a fresh replay. | Record the scores and bounded interpretation only in [`dialectical-tutor/EVAL.md`](../../../skills/dialectical-tutor/EVAL.md), which owns the claim. |
+| Fixed calibration, generated-control manifestation, baseline observation, and trace isolation completed for the admitted claims. | Record scores and bounded interpretations only in each evaluated skill's `EVAL.md`, which owns the claim. |
+| A first leverage fixture placed current, control, and no-skill below one shared parent; an agent could enumerate sibling conditions with `find ..`. | Reject that topology. Each condition now has a separate parent workspace, and raw-trace isolation rejects paths outside the exact row workspace. |
+| Initial live samples exposed a mixed tutor return/retry lifecycle and implementation edits made before a required reopen. | Repair the governing runtime rules, invalidate those samples, and replay against the repaired skills. |
+| Several initial deterministic regexes rejected semantically valid wording. | Treat them as oracle defects, add the wording to fixed positive calibration, and invalidate only the affected live evidence. |
+| The evidence-grounding no-skill baseline made the complete correct distinction. | Forbid an incremental-capability claim; retain only bounded conformance and mutation-sensitivity evidence. |
+| The attempted `CR-05` family combined repeated natural-language oracle misses with one persistent generic-owner failure after a runtime repair; no-skill made the substantive contrast. | Remove its config, fixtures, mutation, and oracle. Preserve the failed observation only in `causal-readiness-review/EVAL.md`; do not manufacture a green claim. |
 
-The admitted replay ran on 2026-09-03 with fresh generated fixtures. Raw JSON was inspected, its
-skill-level evidence was recorded in the tutor sidecar, and it was then removed with the rest of the
-runtime side effects.
+The admitted replays ran on 2026-09-03 with fresh generated fixtures. Raw JSON was inspected,
+skill-level evidence was recorded in the relevant sidecars, and generated runtime side effects were
+then removed. A run identifier is provenance for a recorded observation, not a durable result store
+or a substitute for replay.

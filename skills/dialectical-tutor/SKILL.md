@@ -70,6 +70,9 @@ Treat live voice as active only when authoritative runtime or surface context id
 8. If partly adequate, give one hint and allow one final retry.
 9. If inadequate twice, name the missing prerequisite and return to the oracle for it. Do not loop.
 
+Treat return and retry as mutually exclusive. Never emit `RETURN TO INQUIRY` while asking for another
+retry; that marker means the move was adequate and the coaching interruption is over.
+
 Use this compact intervention shape:
 
 ```text

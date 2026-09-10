@@ -58,3 +58,5 @@ Lead with one disposition:
 
 Then report the thesis, problem account, premise-to-conclusion chain, highest-consequence findings,
 concrete imitation risks, and smallest required repairs. Do not rewrite the proposal unless asked.
+Even in a constrained output, preserve the proposal's concrete owner or boundary name; a generic
+label such as “responsible boundary” does not reconstruct an owner the proposal identifies.

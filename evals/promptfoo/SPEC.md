@@ -54,12 +54,17 @@ oracle, mutation, provider settings, or governing obligation invalidates prior l
 
 ## Active registry
 
-The only executable behavioral claim is `DT-RESTRAINT-01`, owned and interpreted by
-[`skills/dialectical-tutor/EVAL.md`](../../skills/dialectical-tutor/EVAL.md). Its implementation is
-[`promptfooconfig.restraint.yaml`](promptfooconfig.restraint.yaml) with
-[`tutor-restraint.js`](assertions/tutor-restraint.js). All other skill `EVAL.md` files describe
-testable obligations and missed opportunities but explicitly report no automated behavioral
-coverage.
+Four executable behavioral claims are admitted and interpreted only by their skill sidecars:
+
+- `DT-RESTRAINT-01` and `DT-04` in
+  [`dialectical-tutor/EVAL.md`](../../skills/dialectical-tutor/EVAL.md);
+- `SI-12` in [`specification-implementation/EVAL.md`](../../skills/specification-implementation/EVAL.md);
+- `EG-01` in [`evidence-grounding/EVAL.md`](../../skills/evidence-grounding/EVAL.md).
+
+The first is implemented by [`promptfooconfig.restraint.yaml`](promptfooconfig.restraint.yaml). The
+other three share [`promptfooconfig.leverage.yaml`](promptfooconfig.leverage.yaml), but each retains
+its own oracle, control, baseline, pass law, and conclusion. A shared run total is not a quality
+claim. The other nine runtime skill sidecars report no automated behavioral coverage.
 
 Fixtures without a skill-local obligation map and complete claim graph are process theater and must
 not be committed.

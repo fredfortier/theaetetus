@@ -19,14 +19,35 @@ authority.
 
 ## Coverage and honest assessment
 
-Status: **no automated behavioral claim**. Invoking this skill during repository work is not an
-evaluation of it, and the lexical quarantine is not quality evidence. The obligations are observable
-through fixture reads, controlled proposal pairs, verdict tokens, mutation controls, and output-diff
-checks, but none currently has an admitted Promptfoo scenario.
+Status: **no automated behavioral claim survives**.
+
+The attempted `CR-05` family paired a concise proposal derived from a duplicate-debit failure with a
+longer architecture-pattern recital backed by true but merely general pattern evidence. Its
+current-derived control allowed that evidence and precedent to substitute for the missing local
+causal account. That is the right substantive challenge: it asks whether derivation beats fluency
+and whether accepted evidence is kept within its actual scope.
+
+It was not admitted. Several exploratory runs required repeated natural-language synonym repairs in
+the deterministic oracle. After those repairs were positively calibrated, run
+`eval-qHQ-2026-09-04T02:25:43` still produced only 0/3 machine passes. Human inspection found two
+substantively correct responses that the oracle misclassified and one real current-skill failure:
+the response said only “owner” rather than reconstructing the proposal's named ledger boundary.
+The isolated control promoted the imitative proposal in 3/3, while no-skill made the correct
+substantive A-over-B distinction in 3/3. Those observations diagnose the attempted case; they do not
+satisfy its pass law or establish incremental skill capability.
+
+The runtime skill now states that a generic boundary label cannot replace a supplied concrete owner,
+but the post-change sample still omitted `ledger` once. Therefore neither the tweak nor the removed
+Promptfoo artifacts are defended as a passing evaluation. Keeping a regex-adjusted green family
+would reward evaluator accommodation while the material reliability defect remained—the exact
+process theater this sidecar is meant to prevent.
 
 ## Missed opportunities
 
-The strongest first discriminator is the paired `CR-05` case because it tests the skill's business
-reason for existing: causal derivation must beat evidence-decorated fluency. `CR-03` should follow to
-protect human ownership. A rubric that merely rewards words such as “premise,” “boundary,” or
-“defeater” would be ceremonial imitation and should not be admitted.
+All eight obligations remain without admitted behavioral evidence. `CR-03` is the strongest next
+case because asking for unavailable
+owner-held intent protects the human authority boundary and may distinguish the skill from baseline.
+`CR-01` should hide a decisive premise late in linked native context, and `CR-02` should compare an
+awkward complete proposal with a polished near-miss without announcing which is which. A rubric that
+merely rewards words such as “premise,” “boundary,” or “defeater” would be ceremonial imitation and
+must not be admitted.
